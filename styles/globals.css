@@ -1,23 +1,23 @@
-
 @font-face {
-  font-family: "Open-Sauce-One";
-  src: url('/fonts/Open-Sauce-One/OpenSauceOne-Regular.ttf');
+  font-family: "Open Sauce One";
+  src: url("/fonts/Open-Sauce-One/OpenSauceOne-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
-
 @font-face {
-  font-family: "Open-Sauce-Sans";
-  src: url('/fonts/Open-Sauce-Sans/OpenSauceSans-Regular.ttf');
+  font-family: "Open Sauce Sans";
+  src: url("/fonts/Open-Sauce-Sans/OpenSauceSans-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
-  
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 /*
@@ -25,16 +25,16 @@
 */
 * {
   margin: 0;
-	padding: 0;
+  padding: 0;
 }
 /*
   3. Allow percentage-based heights in the application
 */
-html, body {
+html,
+body {
   height: 100%;
   background: #000000;
   color: #ffffff;
-
 }
 /*
   Typographic tweaks!
@@ -43,35 +43,54 @@ html, body {
 */
 body {
   line-height: 1.5;
-  font-family: 'Open-Sauce-Sans';
+  font-family: "Open Sauce Sans";
   -webkit-font-smoothing: antialiased;
 }
 /*
   6. Improve media defaults
 */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 /*
   7. Remove built-in form typography styles
 */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 /*
   8. Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
- font-family: 'Open-Sauce-One';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sauce One";
 }
 /*
   9. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
