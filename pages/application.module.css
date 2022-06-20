@@ -1,0 +1,10 @@
+.applicationWrapper {
+display: flex;
+justify-content: space-between;
+}
+
+.stacksSVG {
+position: absolute;
+right: 0;
+bottom: 0;
+}

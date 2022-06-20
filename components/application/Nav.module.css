@@ -1,0 +1,36 @@
+.layoutWrapper {
+display: flex;
+justify-content: space-between;
+padding: 30px 15px;
+}
+
+.layoutWrapper div:first-of-type(div){
+  display: flex;
+  flex-direction: column;
+}
+
+.layoutWrapper div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.layoutWrapper div:nth-of-type(2) p:first-of-type{
+  display: flex;
+  align-items: center;
+
+}
+
+.layoutWrapper div:nth-of-type(2) span {
+display: block;
+border: 1px solid white;
+width: 20px;
+align-self: flex-end;
+}
+
+.progressBar {
+width: 275px;
+height: 5px;
+background-color: rgba(255, 255, 255, 0.06)
+}
+
