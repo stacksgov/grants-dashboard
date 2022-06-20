@@ -1,7 +1,15 @@
 .applicationWrapper {
-display: flex;
-justify-content: space-between;
+  margin: 0 15px;
 }
+
+
+.mainComponents {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+  
 
 .stacksSVG {
 position: absolute;
