@@ -69,8 +69,19 @@ const Home = () => {
           Clarity smart contracts, and secured by Bitcoin.
         </Heading>
       </Flex>
-      <Flex maxWidth={400} maxHeight={550} direction="column">
-        <Flex backgroundColor="black" direction="column" padding="40px">
+      <Flex
+        backgroundColor="rgb(50,38,89,0.2)"
+        maxWidth={400}
+        maxHeight={550}
+        direction="column"
+        borderRadius="30px"
+      >
+        <Flex
+          direction="column"
+          backgroundColor="black"
+          borderRadius="30px"
+          padding="40px"
+        >
           <Text
             fontSize="2xl"
             color="whiteAlpha.900"
@@ -103,7 +114,7 @@ const Home = () => {
             Submit Your Application
           </Button>
         </Flex>
-        <Flex backgroundColor="black" direction="column" padding="40px">
+        <Flex direction="column" padding="40px" borderRadius="30px">
           <Text
             fontSize="2xl"
             color="whiteAlpha.900"
@@ -135,8 +146,8 @@ const Home = () => {
           >
             Submit Your Application
           </Button>
-        </Flex>{" "}
-        <Flex backgroundColor="black" direction="column" padding="40px">
+        </Flex>
+        <Flex direction="column" padding="40px">
           <Text
             fontSize="2xl"
             color="whiteAlpha.900"
