@@ -6,8 +6,7 @@ padding-bottom: 12px;
 .wishlistWrapper p:first-of-type {
   padding-bottom: 49px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.48)
-  ;
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .checkboxes {
