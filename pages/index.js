@@ -3,6 +3,7 @@ import Blob from "../public/images/blob.svg";
 import styles from "./Index.module.css";
 import { AiFillGithub } from "react-icons/ai";
 import Rocket from "../public/images/rocket.svg";
+import Link from "next/link";
 
 const Home = () => {
   const { data: session } = useSession();
@@ -29,7 +30,10 @@ const Home = () => {
             <p>Funding available from:</p>
             <p>One-thousand to two-hundred and fifty thuosand dollars.</p>
             <button>
-              <div> Submit Your Application</div>
+              <Link href="/application">
+                <a>Submit Your Application</a>
+              </Link>
+
               <div>
                 <Rocket />
               </div>
