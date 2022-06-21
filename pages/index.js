@@ -2,6 +2,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Blob from "../public/images/blob.svg";
 import styles from "./Index.module.css";
 import { AiFillGithub } from "react-icons/ai";
+import Rocket from "../public/images/rocket.svg";
 
 const Home = () => {
   const { data: session } = useSession();
@@ -27,7 +28,12 @@ const Home = () => {
           <div className={styles.funding}>
             <p>Funding available from:</p>
             <p>One-thousand to two-hundred and fifty thuosand dollars.</p>
-            <button>Submit Your Application</button>
+            <button>
+              <div> Submit Your Application</div>
+              <div>
+                <Rocket />
+              </div>
+            </button>
             <p>GitHub Account Required</p>
           </div>
           <div className={styles.basics}>

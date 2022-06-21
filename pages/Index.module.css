@@ -100,6 +100,11 @@
 }
 
 .funding button {
+  font-family: "Open Sauce Sans";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
   color: white;
   background: linear-gradient(93.72deg, #3182ce 0%, #97266d 100%);
   border-radius: 4px;
