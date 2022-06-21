@@ -1,3 +1,8 @@
+.stepsWrapper {
+  min-width: 200px;
+
+}
+
 .stepsWrapper ul{
   list-style-type: none;
   display: flex;
