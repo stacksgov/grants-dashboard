@@ -96,86 +96,236 @@ const FundingStream = () => {
 						<td>
 							<label for="level1">Level 1: Open Source Starter Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+
+						<td>
+							<span>$5k</span>
+						</td>
+
+						<td>
+							<span className={styles.developerGrant}>Developer Grants</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="level2" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="level2">Level 2: Open Source Builder Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>$50k</span>
+						</td>
+						<td>
+							<span className={styles.developerGrant}>Developer Grants</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="level3" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="level3">Level 3: Open Source MVP Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>$250k</span>
+						</td>
+						<td>
+							<span className={styles.communityGrant}>Community Grants</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="builderGrant" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="builderGrant">Stacks Community Builder Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.communityGrant}>Community Grants</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="educationGrant" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="educationGrant">Stacks Education Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.communityGrant}>Community Grants</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="eventGrant" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="eventGrant">Stacks Event Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>5k</span>
+						</td>
+						<td>
+							<span className={styles.communityGrant}>Community Grants</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="chapterGrant" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="chapterGrant">Stacks Chapter Grant (by Region)</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.ecosystemPartnerGrant}>Ecosystem Partner Grant</span>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input id="alexGrant" type="checkbox" />
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="alexGrant">ALEX (DeFi) Grant</label>
 						</td>
-						<td>5k</td>
-						<td>Developer Grants</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.advancedSupport}>Advanced Support</span>
+						</td>
 						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<input id="residentProgram" type="checkbox" />
+						</td>
+						<td>
+							<label for="residentProgram">Stacks Foundation Resident Program</label>
+						</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.advancedSupport}>Advanced Support</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<input id="directInvestment" type="checkbox" />
+						</td>
+						<td>
+							<label for="directInvestment">Stacks Foundation Direct Investment</label>
+						</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.affiliatedOrganization}>Affiliated Organization</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<p>Stacks Web3 Startup Lab</p>
+						</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.affiliatedOrganization}>Affiliated Organization</span>
+						</td>
+						<td>
+							<svg
+								width="15"
+								height="15"
+								viewBox="0 0 14 14"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M11 5.99927V11.7493C11 11.9134 10.9677 12.076 10.9048 12.2276C10.842 12.3793 10.75 12.5171 10.6339 12.6331C10.5178 12.7492 10.38 12.8413 10.2284 12.9041C10.0767 12.9669 9.91415 12.9993 9.75 12.9993H2.25C1.91848 12.9993 1.60054 12.8676 1.36612 12.6331C1.1317 12.3987 1 12.0808 1 11.7493V4.24927C1 3.91775 1.1317 3.5998 1.36612 3.36538C1.60054 3.13096 1.91848 2.99927 2.25 2.99927H7.48375"
+									stroke="#2D3748"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+								<path
+									d="M9.5 0.999756H13V4.49975"
+									stroke="#2D3748"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+								<path
+									d="M6 7.99881L12.75 1.24881"
+									stroke="#2D3748"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<p>Stacks Accelerator</p>
+						</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.affiliatedOrganization}>Affiliated Organization</span>
+						</td>
+						<td>
+							<svg
+								width="15"
+								height="15"
+								viewBox="0 0 14 14"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M11 5.99927V11.7493C11 11.9134 10.9677 12.076 10.9048 12.2276C10.842 12.3793 10.75 12.5171 10.6339 12.6331C10.5178 12.7492 10.38 12.8413 10.2284 12.9041C10.0767 12.9669 9.91415 12.9993 9.75 12.9993H2.25C1.91848 12.9993 1.60054 12.8676 1.36612 12.6331C1.1317 12.3987 1 12.0808 1 11.7493V4.24927C1 3.91775 1.1317 3.5998 1.36612 3.36538C1.60054 3.13096 1.91848 2.99927 2.25 2.99927H7.48375"
+									stroke="#2D3748"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+								<path
+									d="M9.5 0.999756H13V4.49975"
+									stroke="#2D3748"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+								<path
+									d="M6 7.99881L12.75 1.24881"
+									stroke="#2D3748"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</td>
 					</tr>
 				</tbody>
 			</table>
