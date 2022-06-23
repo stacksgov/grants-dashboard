@@ -8,7 +8,7 @@ jobs:
     - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
       with:
         action-token: "${{ secrets.ACCESS_TOKEN }}"
-        project-url: "https://https://github.com/vidiabtc/dashboard-github/projects/1"
+        project-url: "https://github.com/vidiabtc/dashboard-github/projects/1"
         column-name: "New"
         label-name: "new"
         columns-to-ignore: ""
