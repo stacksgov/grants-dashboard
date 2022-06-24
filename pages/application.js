@@ -5,7 +5,8 @@ import StacksLogo from '../public/images/stacks-logo.svg';
 import OkButton from '../components/application/layout/OkButton';
 // import Wishlist from '../components/application/Wishlist';
 // import FundingStream from '../components/application/FundingStream';
-import ProjectTrack from '../components/application/ProjectTrack';
+// import ProjectTrack from '../components/application/ProjectTrack';
+import ProjectTags from '../components/application/ProjectTags';
 
 const Application = () => {
 	return (
@@ -18,7 +19,8 @@ const Application = () => {
 				<div>
 					{/* <Wishlist /> */}
 					{/* <FundingStream /> */}
-					<ProjectTrack />
+					{/* <ProjectTrack /> */}
+					<ProjectTags />
 				</div>
 				<div>
 					<OkButton />
