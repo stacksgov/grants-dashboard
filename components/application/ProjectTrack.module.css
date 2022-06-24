@@ -3,8 +3,36 @@
   padding-bottom: 12px;
   }
   
-  .subtitle {
+.subtitle {
     padding-bottom: 49px;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.48);
   }
+
+  .subtitle a {
+  text-decoration: underline;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.48);
+  }
+
+
+  .subtitle a:hover {
+ color: white;
+    }
+
+.tracksWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px;
+}
+
+
+.tracks label {
+  padding-left: 20px;
+
+}
+
+.tracks ul {
+  padding-left: 55px;
+  padding-top: 5px;
+}
