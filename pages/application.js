@@ -7,7 +7,8 @@ import OkButton from '../components/application/layout/OkButton';
 // import FundingStream from '../components/application/FundingStream';
 // import ProjectTrack from '../components/application/ProjectTrack';
 // import ProjectTags from '../components/application/ProjectTags';
-import ProjectInformation from '../components/application/ProjectInformation';
+// import ProjectInformation from '../components/application/ProjectInformation';
+import ProjectRoadmap from '../components/application/ProjectRoadmap';
 
 const Application = () => {
 	return (
@@ -22,7 +23,8 @@ const Application = () => {
 					{/* <FundingStream /> */}
 					{/* <ProjectTrack /> */}
 					{/* <ProjectTags /> */}
-					<ProjectInformation />
+					{/* <ProjectInformation /> */}
+					<ProjectRoadmap />
 				</div>
 				<div>
 					<OkButton />
