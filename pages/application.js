@@ -8,7 +8,8 @@ import OkButton from '../components/application/layout/OkButton';
 // import ProjectTrack from '../components/application/ProjectTrack';
 // import ProjectTags from '../components/application/ProjectTags';
 // import ProjectInformation from '../components/application/ProjectInformation';
-import ProjectRoadmap from '../components/application/ProjectRoadmap';
+// import ProjectRoadmap from '../components/application/ProjectRoadmap';
+import MissionStatement from '../components/application/MissionStatement';
 
 const Application = () => {
 	return (
@@ -24,7 +25,8 @@ const Application = () => {
 					{/* <ProjectTrack /> */}
 					{/* <ProjectTags /> */}
 					{/* <ProjectInformation /> */}
-					<ProjectRoadmap />
+					{/* <ProjectRoadmap /> */}
+					<MissionStatement />
 				</div>
 				<div>
 					<OkButton />

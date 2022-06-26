@@ -1,0 +1,62 @@
+.missionStatementWrapper h1{
+  font-size: 20px;
+  padding-bottom: 12px;
+  }
+  
+  .subtitle {
+    padding-bottom: 49px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.48);
+  }
+
+  .sectionWrapper {
+    display: flex;
+    gap: 16px;
+  }
+
+  .sectionWrapper div:nth-of-type(2) {
+    background-color: rgba(0, 0, 0, 0.48);
+    max-width: 270px;
+  }
+
+  .sectionWrapper div:nth-of-type(2) h2{
+    font-size: 12px;
+    
+  }
+
+  .sectionWrapper div:nth-of-type(2) ul {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.48);
+    padding-left: 17px;
+  }
+
+  .sectionWrapper div:nth-of-type(2) ul li{
+    padding: 20px;
+  }
+
+  .sectionWrapper input {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.92);
+    background-color: #000000;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    color: white;
+    width: 450px;
+    height: 450px;
+  }
+
+  .progressBarWrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.48);
+    justify-content: flex-end;
+
+  }
+
+  .progressBar {
+    width: 260px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.16);
+    }
