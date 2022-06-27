@@ -10,7 +10,8 @@ import OkButton from '../components/application/layout/OkButton';
 // import ProjectInformation from '../components/application/ProjectInformation';
 // import ProjectRoadmap from '../components/application/ProjectRoadmap';
 // import MissionStatement from '../components/application/MissionStatement';
-import ProjectLinks from '../components/application/ProjectLinks';
+// import ProjectLinks from '../components/application/ProjectLinks';
+import Success from '../components/application/Success';
 
 const Application = () => {
 	return (
@@ -28,7 +29,8 @@ const Application = () => {
 					{/* <ProjectInformation /> */}
 					{/* <ProjectRoadmap /> */}
 					{/* <MissionStatement /> */}
-					<ProjectLinks />
+					{/* <ProjectLinks /> */}
+					<Success />
 				</div>
 				<div>
 					<OkButton />
