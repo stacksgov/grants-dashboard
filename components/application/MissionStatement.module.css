@@ -43,6 +43,8 @@
     color: white;
     width: 450px;
     height: 450px;
+    padding-bottom: 420px;
+    padding-left: 5px;
   }
 
   .progressBarWrapper {

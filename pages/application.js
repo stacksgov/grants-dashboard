@@ -9,7 +9,8 @@ import OkButton from '../components/application/layout/OkButton';
 // import ProjectTags from '../components/application/ProjectTags';
 // import ProjectInformation from '../components/application/ProjectInformation';
 // import ProjectRoadmap from '../components/application/ProjectRoadmap';
-import MissionStatement from '../components/application/MissionStatement';
+// import MissionStatement from '../components/application/MissionStatement';
+import ProjectLinks from '../components/application/ProjectLinks';
 
 const Application = () => {
 	return (
@@ -26,7 +27,8 @@ const Application = () => {
 					{/* <ProjectTags /> */}
 					{/* <ProjectInformation /> */}
 					{/* <ProjectRoadmap /> */}
-					<MissionStatement />
+					{/* <MissionStatement /> */}
+					<ProjectLinks />
 				</div>
 				<div>
 					<OkButton />
