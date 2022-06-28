@@ -1,6 +1,6 @@
 import styles from './Steps.module.css';
 
-const Steps = () => {
+const Steps = (props) => {
 	return (
 		<div className={styles.stepsWrapper}>
 			<ul>
@@ -21,11 +21,11 @@ const Steps = () => {
 								strokeLinejoin="round"
 							/>
 						</svg>
-						Wishlist Project
+						Wishlist Project {props.step}
 					</li>
 				</span>
 				<span>
-					<li>Funding Stream & Project Type</li>
+					<li>Funding Stream & Project Type </li>
 				</span>
 				<span>
 					<li>Project Track</li>
