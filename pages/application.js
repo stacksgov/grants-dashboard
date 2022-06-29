@@ -15,45 +15,48 @@ import Success from '../components/application/Success';
 
 const Application = () => {
 	const { OkButton, currentStep } = UseOkButton();
+
+	const CurrentStep = () => {
+		switch (currentStep) {
+			case 1:
+				return <Wishlist />;
+			case 2:
+				return <FundingStream />;
+			case 3:
+				return <ProjectTrack />;
+
+			case 4:
+				return <ProjectTags />;
+
+			case 5:
+				return <ProjectInformation />;
+
+			case 6:
+				return <ProjectRoadmap />;
+
+			case 7:
+				return <MissionStatement />;
+
+			case 8:
+				return <ProjectLinks />;
+
+			case 9:
+				return <Success />;
+
+			default:
+				return <FundingStream />;
+		}
+	};
+
 	return (
 		<div className={styles.applicationWrapper}>
-			<Nav />
+			<Nav step={currentStep} />
 			<div className={styles.mainComponents}>
 				<div className={styles.middleComponent}>
 					<Steps step={currentStep} />
 				</div>
 				<div>
-					{() => {
-						switch (currentStep) {
-							case 1:
-								return <Wishlist />;
-							case 2:
-								return <FundingStream />;
-							case 3: {
-								return <ProjectTrack />;
-							}
-							case 4: {
-								return <ProjectTags />;
-							}
-							case 4: {
-								return <ProjectInformation />;
-							}
-							case 4: {
-								return <ProjectRoadmap />;
-							}
-							case 5: {
-								return <MissionStatement />;
-							}
-							case 6: {
-								return <ProjectLinks />;
-							}
-							case 7: {
-								return <Success />;
-							}
-							default:
-								return <FundingStream />;
-						}
-					}}
+					<CurrentStep />
 				</div>
 				<div>{OkButton}</div>
 			</div>

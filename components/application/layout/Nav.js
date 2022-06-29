@@ -1,7 +1,7 @@
 import styles from './Nav.module.css';
 import { IoIosClose } from 'react-icons/io';
 
-const Nav = () => {
+const Nav = (props) => {
 	return (
 		<div className={styles.layoutWrapper}>
 			<div>
@@ -9,7 +9,7 @@ const Nav = () => {
 					<span
 						style={{
 							background: 'linear-gradient(45deg, #3281cd, #96286f)',
-							width: '30%',
+							width: `${props.step * 12.5}%`,
 							height: '100%',
 							display: 'block'
 						}}
