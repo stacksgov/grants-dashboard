@@ -12,3 +12,10 @@ jobs:
         column-name: "New"
         label-name: "new"
         columns-to-ignore: ""
+    - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
+      with:
+        action-token: "${{ secrets.ACCESS_TOKEN }}"
+        project-url: "https://github.com/vidiabtc/dashboard-github/projects/1"
+        column-name: "In progress"
+        label-name: "In progress"
+        columns-to-ignore: ""
