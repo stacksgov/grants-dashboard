@@ -1,20 +1,34 @@
 import styles from './Wishlist.module.css';
+import { useState } from 'react';
 
-const Wishlist = () => {
+const Wishlist = ({ step, updateIssue }) => {
+	const [stxAddress, setStxAddress] = useState('');
+
 	return (
 		<div className={styles.wishlistWrapper}>
 			<h1>Wishlist Project?</h1>
+
 			<p>Is this a direct application or an application for a Wishlist Project?</p>
 			<div className={styles.checkboxes}>
 				<div>
-					<input type="checkbox" id="direct-application" />
-					<label for="direct-application">
+					<input
+						id="directApplication"
+						type="radio"
+						value="This is a direct application, I intend to perform the work myself or as part of a team."
+						name="isWishlistProject"
+					/>
+					<label for="directApplication">
 						This is a direct application, I intend to perform the work myself or as part of a team.
 					</label>
 				</div>
 				<div>
-					<input type="checkbox" id="wishlist-project" />
-					<label for="wishlist-project">This application is for a Wishlist Project.</label>
+					<input
+						id="wishlist"
+						type="radio"
+						value="This application is for a Wishlist Project."
+						name="isWishlistProject"
+					/>
+					<label for="wishlist">This application is for a Wishlist Project.</label>
 				</div>
 			</div>
 			<p>
@@ -26,12 +40,17 @@ const Wishlist = () => {
 
 			<div className={styles.addressMemo}>
 				<div>
-					<label>STX Wallet Address*</label>
-					<input type="text" placeholder="Type Here..." />
+					<label for="stxAddress">STX Wallet Address*</label>
+					<input
+						onChange={(e) => setStxAddress(e.currentTarget.value)}
+						type="text"
+						id="stxAddress"
+						placeholder="Type Here..."
+					/>
 				</div>
 				<div>
-					<label>STX Wallet Memo*</label>
-					<input type="text" placeholder="Type Here..." />
+					<label for="stxMemo">STX Wallet Memo*</label>
+					<input type="text" id="stxMemo" placeholder="Type Here..." />
 				</div>
 			</div>
 			<div className={styles.noMemoConfirmation}>

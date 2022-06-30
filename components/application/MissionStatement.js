@@ -1,6 +1,6 @@
 import styles from './MissionStatement.module.css';
 
-const MissionStatement = () => {
+const MissionStatement = ({ updateIssue }) => {
 	return (
 		<div className={styles.missionStatementWrapper}>
 			<h1>Project Mission Statement</h1>
@@ -9,7 +9,7 @@ const MissionStatement = () => {
 			</p>
 			<div className={styles.sectionWrapper}>
 				<div>
-					<input type="text" placeholder="Type Here..." />
+					<input type="text" id="mission" placeholder="Type Here..." />
 					<div className={styles.progressBarWrapper}>
 						<p>1,296 Characters</p>
 						<div className={styles.progressBar}>

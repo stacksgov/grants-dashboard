@@ -19,6 +19,12 @@
   width: 100%;
 }
 
+.projectInformationWrapper input[type='number']::-webkit-inner-spin-button,
+.projectInformationWrapper input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .projectInformationWrapper input::placeholder{
   font-size: 14px;
 }

@@ -12,6 +12,7 @@ import ProjectRoadmap from '../components/application/ProjectRoadmap';
 import MissionStatement from '../components/application/MissionStatement';
 import ProjectLinks from '../components/application/ProjectLinks';
 import Success from '../components/application/Success';
+import { useState } from 'react';
 
 const Application = () => {
 	const { OkButton, currentStep } = UseOkButton();
@@ -27,7 +28,6 @@ const Application = () => {
 
 			case 4:
 				return <ProjectTags />;
-
 			case 5:
 				return <ProjectInformation />;
 
@@ -42,9 +42,6 @@ const Application = () => {
 
 			case 9:
 				return <Success />;
-
-			default:
-				return <FundingStream />;
 		}
 	};
 

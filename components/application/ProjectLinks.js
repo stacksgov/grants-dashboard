@@ -1,6 +1,6 @@
 import styles from './ProjectLinks.module.css';
 
-const ProjectLinks = () => {
+const ProjectLinks = ({ updateIssue }) => {
 	return (
 		<div className={styles.projectLinkWrapper}>
 			<h1>Project Links</h1>
@@ -21,12 +21,12 @@ const ProjectLinks = () => {
 			<div>
 				<div className={styles.inputSectionWrapper}>
 					<div className={styles.inputSection}>
-						<label for="supportLink1">Support Link 1</label>
-						<input id="supportLink1" type="text" placeholder="Type Here..." />
+						<label for="firstLink">Support Link 1</label>
+						<input id="firstLink" type="text" placeholder="Type Here..." />
 					</div>
 					<div className={styles.inputSection}>
-						<label for="supportLink1Description">Description</label>
-						<input id="supportLink1Description" type="text" placeholder="Type Here..." />
+						<label for="firstLinkDescription">Description</label>
+						<input id="firstLinkDescription" type="text" placeholder="Type Here..." />
 						<div className={styles.progressBarWrapper}>
 							<p>60 Characters</p>
 							<div className={styles.progressBar}>
@@ -44,12 +44,12 @@ const ProjectLinks = () => {
 				</div>
 				<div className={styles.inputSectionWrapper}>
 					<div className={styles.inputSection}>
-						<label for="supportLink2">Support Link 2</label>
-						<input id="supportLink2" type="text" placeholder="Type Here..." />
+						<label for="secondLink">Support Link 2</label>
+						<input id="secondLink" type="text" placeholder="Type Here..." />
 					</div>
 					<div className={styles.inputSection}>
-						<label for="supportLink2Description">Description</label>
-						<input id="supportLink2Description" type="text" placeholder="Type Here..." />
+						<label for="secondLinkDescription">Description</label>
+						<input id="secondLinkDescription" type="text" placeholder="Type Here..." />
 						<div className={styles.progressBarWrapper}>
 							<p>60 Characters</p>
 							<div className={styles.progressBar}>

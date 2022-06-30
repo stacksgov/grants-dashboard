@@ -1,6 +1,11 @@
+.projectLinkWrapper {
+  max-width: 1000px;
+}
+
 .projectLinkWrapper h1{
   font-size: 20px;
   padding-bottom: 12px;
+
   }
  
 

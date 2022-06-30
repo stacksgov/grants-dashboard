@@ -1,7 +1,7 @@
 import styles from './ProjectTrack.module.css';
 import Link from 'next/link';
 
-const ProjectTrack = () => {
+const ProjectTrack = ({ updateIssue }) => {
 	return (
 		<div className={styles.projectTrackWrapper}>
 			<h1>Project Track</h1>
@@ -15,8 +15,8 @@ const ProjectTrack = () => {
 
 			<div className={styles.tracksWrapper}>
 				<div className={styles.tracks}>
-					<input id="stacksProtocol" type="checkbox" />
-					<label>Stacks Protocol</label>
+					<input id="protocol" type="radio" value="Stacks Protocol" name="projectTrack" />
+					<label for="protocol">Stacks Protocol</label>
 					<ul>
 						<li>Blockchain Explorations & Improvements</li>
 						<li>AppChain Explorations and Improvements</li>
@@ -28,8 +28,8 @@ const ProjectTrack = () => {
 				</div>
 
 				<div className={styles.tracks}>
-					<input id="stacksInterface" type="checkbox" />
-					<label for="stacksInterface">Stacks Interface</label>
+					<input id="interface" type="radio" value="Stacks Interface" name="projectTrack" />
+					<label for="interface">Stacks Interface</label>
 					<ul>
 						<li>Decentralized Identification</li>
 						<li>HyperChain Explorations and Improvements</li>
@@ -41,8 +41,14 @@ const ProjectTrack = () => {
 				</div>
 
 				<div className={styles.tracks}>
-					<input id="stacksDapps" type="checkbox" />
-					<label for="stacksDapps">Stacks dApps & Clarity</label>
+					<input
+						id="dappsAndClarity"
+						type="radio"
+						value="Stacks dApps & Clarity"
+						name="projectTrack"
+					/>
+
+					<label for="dappsAndClarity">Stacks dApps & Clarity</label>
 					<ul>
 						<li> Clarity Improvements</li>
 						<li>SIP Development</li>
@@ -53,8 +59,13 @@ const ProjectTrack = () => {
 					</ul>
 				</div>
 				<div className={styles.tracks}>
-					<input id="stacksEducation" type="checkbox" />
-					<label for="stacksEducation">Stacks Education & Community</label>
+					<input
+						id="educationAndCommunity"
+						type="radio"
+						value="Stacks Education & Community"
+						name="projectTrack"
+					/>
+					<label for="educationAndCommunity">Stacks Education & Community</label>
 					<ul>
 						<li>Tutorials and Documentation</li>
 						<li>Videos and Workshops</li>
@@ -65,8 +76,13 @@ const ProjectTrack = () => {
 					</ul>
 				</div>
 				<div className={styles.tracks}>
-					<input id="stacksDX" type="checkbox" />
-					<label for="stacksDX">Stacks Developer Experience</label>
+					<input
+						id="developerExperience"
+						type="radio"
+						value="Stacks Developer Experience"
+						name="projectTrack"
+					/>
+					<label for="developerExperience">Stacks Developer Experience</label>
 					<ul>
 						<li>Blockchain Explorations & Improvements</li>
 						<li>AppChain Explorations and Improvements</li>
@@ -78,8 +94,13 @@ const ProjectTrack = () => {
 				</div>
 
 				<div className={styles.tracks}>
-					<input id="stacksUX" type="checkbox" />
-					<label for="stacksUX">Stacks User Experience</label>
+					<input
+						id="userExperience"
+						type="radio"
+						value="Stacks User Experience"
+						name="projectTrack"
+					/>
+					<label for="userExperience">Stacks User Experience</label>
 					<ul>
 						<li> UX/UI Research</li>
 						<li>Speculative Design Case Studies</li>
@@ -91,8 +112,13 @@ const ProjectTrack = () => {
 				</div>
 
 				<div className={styles.tracks}>
-					<input id="crossChain" type="checkbox" />
-					<label for="crossChain">Cross-Chain & Off-Chain</label>
+					<input
+						id="crossChainOffChain"
+						type="radio"
+						value="Stacks User Experience"
+						name="projectTrack"
+					/>
+					<label for="crossChainOffChain">Cross-Chain & Off-Chain</label>
 					<ul>
 						<li>Gaia Improvements</li>
 						<li>Decentralized Storage Integrations</li>
@@ -104,8 +130,13 @@ const ProjectTrack = () => {
 				</div>
 
 				<div className={styles.tracks}>
-					<input id="btcUtility" type="checkbox" />
-					<label for="btcUtility">Stacks Protocol</label>
+					<input
+						id="btcUtility"
+						type="radio"
+						value="Bitcoin Utility via Stacks"
+						name="projectTrack"
+					/>
+					<label for="btcUtility">Bitcoin Utility via Stacks</label>
 					<ul>
 						<li>DLC-Clarity Explorations</li>
 						<li>BTC-STX Wallets</li>

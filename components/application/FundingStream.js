@@ -1,9 +1,10 @@
 import styles from './FundingStream.module.css';
 
-const FundingStream = () => {
+const FundingStream = ({ updateIssue }) => {
 	return (
 		<div className={styles.fundingStreamWrapper}>
 			<h1>Funding Stream & Project Type</h1>
+			<button onClick={() => updateIssue('goal', 'test')}>Update Issue</button>
 			<p className={styles.subtitle}>
 				Select the Project Type below. If you have questions about Project Types, click here.
 			</p>
@@ -91,10 +92,15 @@ const FundingStream = () => {
 				<tbody>
 					<tr>
 						<td>
-							<input id="level1" type="checkbox" />
+							<input
+								id="levelOne"
+								type="radio"
+								value="Level 1: Open Source Starter Grant"
+								name="type"
+							/>
 						</td>
 						<td>
-							<label for="level1">Level 1: Open Source Starter Grant</label>
+							<label for="levelOne">Level 1: Open Source Starter Grant</label>
 						</td>
 
 						<td>
@@ -108,10 +114,15 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="level2" type="checkbox" />
+							<input
+								id="levelTwo"
+								type="radio"
+								value="	Level 2: Open Source Builder Grant"
+								name="type"
+							/>
 						</td>
 						<td>
-							<label for="level2">Level 2: Open Source Builder Grant</label>
+							<label for="levelTwo">Level 2: Open Source Builder Grant</label>
 						</td>
 						<td>
 							<span>$50k</span>
@@ -123,10 +134,15 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="level3" type="checkbox" />
+							<input
+								id="levelThree"
+								type="radio"
+								value="Level 3: Open Source MVP Grant"
+								name="type"
+							/>
 						</td>
 						<td>
-							<label for="level3">Level 3: Open Source MVP Grant</label>
+							<label for="levelThree">Level 3: Open Source MVP Grant</label>
 						</td>
 						<td>
 							<span>$250k</span>
@@ -138,25 +154,15 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="builderGrant" type="checkbox" />
+							<input
+								id="community"
+								type="radio"
+								value="Stacks Community Builder Grant"
+								name="type"
+							/>
 						</td>
 						<td>
-							<label for="builderGrant">Stacks Community Builder Grant</label>
-						</td>
-						<td>
-							<span>Varies</span>
-						</td>
-						<td>
-							<span className={styles.communityGrant}>Community Grants</span>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<input id="educationGrant" type="checkbox" />
-						</td>
-						<td>
-							<label for="educationGrant">Stacks Education Grant</label>
+							<label for="community">Stacks Community Builder Grant</label>
 						</td>
 						<td>
 							<span>Varies</span>
@@ -168,10 +174,25 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="eventGrant" type="checkbox" />
+							<input id="education" type="radio" value="Stacks Education Grant" name="type" />
 						</td>
 						<td>
-							<label for="eventGrant">Stacks Event Grant</label>
+							<label for="education">Stacks Education Grant</label>
+						</td>
+						<td>
+							<span>Varies</span>
+						</td>
+						<td>
+							<span className={styles.communityGrant}>Community Grants</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<input id="event" type="radio" value="	Stacks Event Grant" name="type" />
+						</td>
+						<td>
+							<label for="event">Stacks Event Grant</label>
 						</td>
 						<td>
 							<span>5k</span>
@@ -183,10 +204,15 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="chapterGrant" type="checkbox" />
+							<input
+								id="chapter"
+								type="radio"
+								value="	Stacks Chapter Grant (by Region)"
+								name="type"
+							/>
 						</td>
 						<td>
-							<label for="chapterGrant">Stacks Chapter Grant (by Region)</label>
+							<label for="chapter">Stacks Chapter Grant (by Region)</label>
 						</td>
 						<td>
 							<span>Varies</span>
@@ -198,25 +224,10 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="alexGrant" type="checkbox" />
+							<input id="alex" type="radio" value="ALEX (DeFi) Grant" name="type" />
 						</td>
 						<td>
-							<label for="alexGrant">ALEX (DeFi) Grant</label>
-						</td>
-						<td>
-							<span>Varies</span>
-						</td>
-						<td>
-							<span className={styles.advancedSupport}>Advanced Support</span>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<input id="residentProgram" type="checkbox" />
-						</td>
-						<td>
-							<label for="residentProgram">Stacks Foundation Resident Program</label>
+							<label for="alex">ALEX (DeFi) Grant</label>
 						</td>
 						<td>
 							<span>Varies</span>
@@ -228,19 +239,25 @@ const FundingStream = () => {
 					</tr>
 					<tr>
 						<td>
-							<input id="directInvestment" type="checkbox" />
+							<input
+								id="resident"
+								type="radio"
+								value="Stacks Foundation Direct Investment"
+								name="type"
+							/>
 						</td>
 						<td>
-							<label for="directInvestment">Stacks Foundation Direct Investment</label>
+							<label for="resident"> Stacks Foundation Direct Investment</label>
 						</td>
 						<td>
 							<span>Varies</span>
 						</td>
 						<td>
-							<span className={styles.affiliatedOrganization}>Affiliated Organization</span>
+							<span className={styles.advancedSupport}>Advanced Support</span>
 						</td>
 						<td></td>
 					</tr>
+
 					<tr>
 						<td></td>
 						<td>

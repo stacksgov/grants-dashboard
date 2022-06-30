@@ -61,8 +61,8 @@ const Steps = (props) => {
 	return (
 		<div className={styles.stepsWrapper}>
 			<ul>
-				<Step stepNumber={1} title="Funding Stream & Project Type" />
-				<Step stepNumber={2} title="Project Track" />
+				<Step stepNumber={1} title="Wishlist Project?" />
+				<Step stepNumber={2} title="Funding Stream & Project Type" />
 
 				<Step stepNumber={3} title="Project Track" />
 				<Step stepNumber={4} title="Project Tags" />
