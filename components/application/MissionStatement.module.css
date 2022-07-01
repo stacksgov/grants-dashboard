@@ -34,7 +34,7 @@
     padding: 20px;
   }
 
-  .sectionWrapper input {
+  .sectionWrapper textarea {
     border-bottom: 1px solid rgba(255, 255, 255, 0.92);
     background-color: #000000;
     border-right: none;
@@ -45,7 +45,15 @@
     height: 450px;
     padding-bottom: 420px;
     padding-left: 5px;
+    background-color: #0000007A;
+    resize: none;
+
   }
+
+  .sectionWrapper textarea::-webkit-scrollbar {
+    display: none;
+  }
+
 
   .progressBarWrapper {
     display: flex;

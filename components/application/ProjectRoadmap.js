@@ -4,7 +4,12 @@ import { useState } from 'react';
 
 const ProjectRoadmap = ({ updateIssue }) => {
 	const [milestone, setMilestone] = useState(1);
+	const [inputText, setInputText] = useState('');
 
+	const characterCount = inputText.length;
+	const handleChange = (event) => {
+		setInputText(event.target.value);
+	};
 	const MilestoneComponent = (props) => {
 		return (
 			<>
@@ -12,7 +17,7 @@ const ProjectRoadmap = ({ updateIssue }) => {
 					<label for="milestone{props.id}">Milestone {props.number}</label>
 
 					<div className={styles.inputWrapper}>
-						<input id={`milestone${props.id}`} placeholder="Type here..." />
+						<input id="milestone{props.id}" placeholder="Type here..." />
 						<button>
 							<svg
 								width="11"
@@ -116,25 +121,6 @@ const ProjectRoadmap = ({ updateIssue }) => {
 						</button>
 					</div>
 				</div>
-				<div className={styles.secondSection}>
-					<div>
-						<label>Final Deliverable</label>
-						<div className={styles.progressBarWrapper}>
-							<p>300 Characters</p>
-							<div className={styles.progressBar}>
-								<span
-									style={{
-										background: '#718096',
-										width: '30%',
-										height: '100%',
-										display: 'block'
-									}}
-								></span>
-							</div>
-						</div>
-					</div>
-					<input id="final" placeholder="Type here..." />
-				</div>
 			</>
 		);
 	};
@@ -186,6 +172,25 @@ const ProjectRoadmap = ({ updateIssue }) => {
 			<h2>Milestone Deliverable</h2>
 			<CurrentMilestone />
 			{/* <MilestoneComponent number={8} id={'eight'} /> */}
+			<div className={styles.secondSection}>
+				<div>
+					<label>Final Deliverable</label>
+					<div className={styles.progressBarWrapper}>
+						<p>{characterCount} Characters</p>
+						<div className={styles.progressBar}>
+							<span
+								style={{
+									background: '#718096',
+									width: '30%',
+									height: '100%',
+									display: 'block'
+								}}
+							></span>
+						</div>
+					</div>
+				</div>
+				<input id="final" placeholder="Type here..." onChange={handleChange} maxLength={30} />
+			</div>
 		</div>
 	);
 };

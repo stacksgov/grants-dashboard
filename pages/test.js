@@ -22,7 +22,7 @@ const test = () => {
 	return (
 		<div>
 			<h2>Testing...</h2>
-			<button onClick={response}>Octokit</button>
+			{/* <button onClick={response}>Octokit</button> */}
 			{!session && (
 				<button backgroundColor="grey" onClick={signIn}>
 					Connect Github

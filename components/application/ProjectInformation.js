@@ -1,6 +1,12 @@
 import styles from './ProjectInformation.module.css';
-
+import { useState } from 'react';
 const ProjectInformation = ({ updateIssue }) => {
+	const [inputText, setInputText] = useState('');
+	const characterCount = inputText.length;
+	const handleChange = (event) => {
+		setInputText(event.target.value);
+	};
+
 	return (
 		<div className={styles.projectInformationWrapper}>
 			<h1>Project Information</h1>
@@ -8,12 +14,12 @@ const ProjectInformation = ({ updateIssue }) => {
 				<div className={styles.firstTitle}>
 					<label for="name">Title Your Project</label>
 					<div className={styles.progressBarWrapper}>
-						<p>30 Characters</p>
+						<p> {characterCount} Characters</p>
 						<div className={styles.progressBar}>
 							<span
 								style={{
 									background: '#718096',
-									width: '30%',
+									width: `${characterCount * 1}%`,
 									height: '100%',
 									display: 'block'
 								}}
@@ -21,7 +27,13 @@ const ProjectInformation = ({ updateIssue }) => {
 						</div>
 					</div>
 				</div>
-				<input id="name" type="text" placeholder="Type Here..." />
+				<input
+					id="name"
+					type="text"
+					placeholder="Type Here..."
+					maxLength={30}
+					onChange={handleChange}
+				/>
 				<p className={styles.inputDescription}>
 					Name your Project so that it clearly communicates your objectives to others, during review
 					and in the future.

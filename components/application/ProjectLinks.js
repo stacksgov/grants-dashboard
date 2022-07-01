@@ -1,6 +1,16 @@
 import styles from './ProjectLinks.module.css';
-
+import { useState } from 'react';
 const ProjectLinks = ({ updateIssue }) => {
+	const [inputText, setInputText] = useState('');
+	const [inputSecondText, setSecondInputText] = useState('');
+	const characterCount = inputText.length;
+	const secondCharacterCount = inputSecondText.length;
+	const handleChange = (event) => {
+		setInputText(event.target.value);
+	};
+	const secondHandleChange = (event) => {
+		setSecondInputText(event.target.value);
+	};
 	return (
 		<div className={styles.projectLinkWrapper}>
 			<h1>Project Links</h1>
@@ -26,14 +36,19 @@ const ProjectLinks = ({ updateIssue }) => {
 					</div>
 					<div className={styles.inputSection}>
 						<label for="firstLinkDescription">Description</label>
-						<input id="firstLinkDescription" type="text" placeholder="Type Here..." />
+						<input
+							id="firstLinkDescription"
+							type="text"
+							placeholder="Type Here..."
+							onChange={handleChange}
+						/>
 						<div className={styles.progressBarWrapper}>
-							<p>60 Characters</p>
+							<p>{characterCount} Characters</p>
 							<div className={styles.progressBar}>
 								<span
 									style={{
 										background: '#718096',
-										width: '30%',
+										width: `${characterCount * 1}%`,
 										height: '100%',
 										display: 'block'
 									}}
@@ -49,14 +64,19 @@ const ProjectLinks = ({ updateIssue }) => {
 					</div>
 					<div className={styles.inputSection}>
 						<label for="secondLinkDescription">Description</label>
-						<input id="secondLinkDescription" type="text" placeholder="Type Here..." />
+						<input
+							id="secondLinkDescription"
+							type="text"
+							placeholder="Type Here..."
+							onChange={secondHandleChange}
+						/>
 						<div className={styles.progressBarWrapper}>
-							<p>60 Characters</p>
+							<p>{secondCharacterCount} Characters</p>
 							<div className={styles.progressBar}>
 								<span
 									style={{
 										background: '#718096',
-										width: '30%',
+										width: `${characterCount * 1}%`,
 										height: '100%',
 										display: 'block'
 									}}

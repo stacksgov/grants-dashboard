@@ -1,6 +1,11 @@
 import styles from './MissionStatement.module.css';
-
+import { useState } from 'react';
 const MissionStatement = ({ updateIssue }) => {
+	const [inputText, setInputText] = useState('');
+	const characterCount = inputText.length;
+	const handleChange = (event) => {
+		setInputText(event.target.value);
+	};
 	return (
 		<div className={styles.missionStatementWrapper}>
 			<h1>Project Mission Statement</h1>
@@ -9,14 +14,14 @@ const MissionStatement = ({ updateIssue }) => {
 			</p>
 			<div className={styles.sectionWrapper}>
 				<div>
-					<input type="text" id="mission" placeholder="Type Here..." />
+					<textarea type="text" id="mission" placeholder="Type Here..." onChange={handleChange} />
 					<div className={styles.progressBarWrapper}>
-						<p>1,296 Characters</p>
+						<p>{characterCount} Characters</p>
 						<div className={styles.progressBar}>
 							<span
 								style={{
 									background: '#718096',
-									width: '30%',
+									width: `${characterCount * 1}%`,
 									height: '100%',
 									display: 'block'
 								}}
