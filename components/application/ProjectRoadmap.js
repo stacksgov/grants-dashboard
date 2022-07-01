@@ -12,7 +12,7 @@ const ProjectRoadmap = ({ updateIssue }) => {
 					<label for="milestone{props.id}">Milestone {props.number}</label>
 
 					<div className={styles.inputWrapper}>
-						<input id="milestone{props.id}" placeholder="Type here..." />
+						<input id={`milestone${props.id}`} placeholder="Type here..." />
 						<button>
 							<svg
 								width="11"
