@@ -142,34 +142,34 @@ const ProjectRoadmap = ({ updateIssue }) => {
 	const CurrentMilestone = () => {
 		switch (milestone) {
 			case 1:
-				return <MilestoneComponent number={1} id={'one'} />;
+				return <MilestoneComponent number={1} id={'One'} />;
 			case 2:
-				return <MilestoneComponent number={2} id={'two'} />;
+				return <MilestoneComponent number={2} id={'Two'} />;
 			case 3:
-				return <MilestoneComponent number={3} id={'three'} />;
+				return <MilestoneComponent number={3} id={'Three'} />;
 			case 4:
-				return <MilestoneComponent number={4} id={'four'} />;
+				return <MilestoneComponent number={4} id={'Four'} />;
 			case 5:
-				return <MilestoneComponent number={5} id={'five'} />;
+				return <MilestoneComponent number={5} id={'Five'} />;
 
 			case 6:
-				return <MilestoneComponent number={6} id={'six'} />;
+				return <MilestoneComponent number={6} id={'Six'} />;
 
 			case 7:
-				return <MilestoneComponent number={7} id={'seven'} />;
+				return <MilestoneComponent number={7} id={'Seven'} />;
 
 			case 8:
-				return <MilestoneComponent number={8} id={'eight'} />;
+				return <MilestoneComponent number={8} id={'Eight'} />;
 
 			case 9:
-				return <MilestoneComponent number={9} id={'nine'} />;
+				return <MilestoneComponent number={9} id={'Nine'} />;
 
 			case 10:
-				return <MilestoneComponent number={10} id={'ten'} />;
+				return <MilestoneComponent number={10} id={'Ten'} />;
 			case 11:
-				return <MilestoneComponent number={11} id={'eleven'} />;
+				return <MilestoneComponent number={11} id={'Eleven'} />;
 			case 12:
-				return <MilestoneComponent number={12} id={'twelve'} />;
+				return <MilestoneComponent number={12} id={'Twelve'} />;
 		}
 	};
 
