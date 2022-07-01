@@ -12,8 +12,7 @@ import ProjectRoadmap from '../components/application/ProjectRoadmap';
 import MissionStatement from '../components/application/MissionStatement';
 import ProjectLinks from '../components/application/ProjectLinks';
 import Success from '../components/application/Success';
-import { useState } from 'react';
-
+import ConnectGithub from '../components/application/ConnectGithub';
 const Application = () => {
 	const { OkButton, currentStep } = UseOkButton();
 
@@ -21,6 +20,7 @@ const Application = () => {
 		switch (currentStep) {
 			case 1:
 				return <Wishlist />;
+			// return <ConnectGithub />;
 			case 2:
 				return <FundingStream />;
 			case 3:
