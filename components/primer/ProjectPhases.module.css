@@ -1,0 +1,133 @@
+.wishlistWrapper {
+  width: 800px;
+}
+
+.wishlistWrapper h1{
+  font-size: 20px;
+  padding-bottom: 48px;
+  }
+
+  .firstSection {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding-bottom: 11px;
+  }
+
+.firstSection div {
+  display: flex;
+  gap: 11px;
+}
+
+.firstSection div p:first-of-type {
+  font-size: 14px;
+  color: #ED64A6;
+  min-width: 120px;
+  font-weight: 800;
+}
+
+.firstSection div p:nth-of-type(2) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+
+.containerPink {
+  border: 1px solid #97266D;
+padding: 24px;
+  border-radius: 10px;
+}
+
+.containerPink p:first-of-type {
+  font-size: 12px;
+  font-weight: 16px;
+  color: #ED64A6;
+  font-weight: 800;
+
+}
+
+.containerPink p:nth-of-type(2) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.bluePhase {
+  display: flex;
+  gap: 11px;
+  padding-top: 42px;
+  padding-bottom: 12px;
+}
+
+.bluePhase  p:first-of-type {
+  font-size: 14px;
+  color: #0BC5EA;
+  min-width: 120px;
+  font-weight: 800;
+}
+
+.bluePhase  p:nth-of-type(2) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.containerBlue {
+  border: 1px solid #0BC5EA;
+padding: 24px;
+  border-radius: 10px;
+
+}
+
+.containerBlue p:first-of-type {
+  font-size: 12px;
+  font-weight: 16px;
+  color: #0BC5EA;
+  font-weight: 800;
+
+}
+
+.containerBlue p:nth-of-type(2) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.lastSection {
+  padding-top: 36px;
+  padding-bottom: 12px;
+}
+
+.lastSection div {
+  display: flex;
+  gap: 11px;
+}
+
+.lastSection div p:first-of-type {
+  font-size: 14px;
+  color: #ED64A6;
+  min-width: 120px;
+  font-weight: 800;
+}
+
+.lastSection div p:nth-of-type(2) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.containerPurple {
+  border: 1px solid #9F7AEA;
+padding: 24px;
+  border-radius: 10px;
+
+}
+
+.containerPurple p:first-of-type {
+  font-size: 12px;
+  font-weight: 16px;
+  color: #9F7AEA;
+  font-weight: 800;
+
+}
+
+.containerPurple p:nth-of-type(2) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.64);
+}

@@ -6,6 +6,10 @@
   margin: auto;
 }
 
+.indexWrapper button {
+  cursor: pointer;
+}
+
 .indexWrapper h1 {
   color:rgba(255, 255, 255, 0.92);
   font-size: 84px;
@@ -87,7 +91,7 @@ padding-bottom: 42px;
   align-items: center;
   gap: 10px;
   justify-content: center;
-  cursor: pointer;
+
 }
 
 .rightWrapper div:first-of-type p:nth-of-type(3) {

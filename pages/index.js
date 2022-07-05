@@ -36,7 +36,11 @@ const Home = () => {
 				<div>
 					<p>Want to learn the basics?</p>
 					<p>Check out our educational Project Launchpad Primer.</p>
-					<button>Project Launchpad Primer</button>
+					<Link href="/primer">
+						<button>
+							<a>Project Launchpad Primer</a>
+						</button>
+					</Link>
 				</div>
 				<div>
 					<p>Want to explore the details?</p>
