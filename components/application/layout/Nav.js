@@ -15,7 +15,7 @@ const Nav = (props) => {
 						}}
 					></span>
 				</div>
-				<p>Application</p>
+				<p>{props.name}</p>
 			</div>
 
 			<div>

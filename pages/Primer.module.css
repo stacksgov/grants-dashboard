@@ -1,0 +1,24 @@
+.applicationWrapper {
+  margin: 0 15px;
+  padding-bottom: 50px;
+}
+
+
+.mainComponents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.middleComponent {
+padding: 0 50px;
+}
+
+
+  
+
+.stacksSVG {
+position: absolute;
+right: 0;
+bottom: 0;
+z-index: -1;
+}

@@ -1,0 +1,28 @@
+.applicationRulesWrapper {
+  width: 800px;
+}
+
+.applicationRulesWrapper h1{
+  font-size: 20px;
+  padding-bottom: 12px;
+  }
+
+  .subtitle {
+    padding-bottom: 49px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.48);
+  }
+
+  .applicationRulesWrapper ul {
+    padding-left: 26px;
+    font-size: 16px;
+  }
+
+  .applicationRulesWrapper ul li {
+    padding-bottom: 36px;
+  }
+
+ .applicationRulesWrapper h2 {
+  font-size: 18px;
+  padding-bottom: 12px;
+ }

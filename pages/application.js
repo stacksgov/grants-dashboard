@@ -47,7 +47,7 @@ const Application = () => {
 
 	return (
 		<div className={styles.applicationWrapper}>
-			<Nav step={currentStep} />
+			<Nav name={'Application'} step={currentStep} />
 			<div className={styles.mainComponents}>
 				<div className={styles.middleComponent}>
 					<Steps step={currentStep} />

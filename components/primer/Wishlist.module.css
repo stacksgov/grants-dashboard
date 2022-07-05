@@ -1,0 +1,25 @@
+.wishlistWrapper {
+  width: 800px;
+}
+
+.wishlistWrapper h1{
+  font-size: 20px;
+  padding-bottom: 12px;
+  }
+
+  .subtitle {
+    padding-bottom: 49px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.48);
+  }
+
+  .wishlistWrapper ul {
+    padding-left: 18px;
+    font-size: 16px;
+  }
+
+  .wishlistWrapper ul li {
+    padding-bottom: 36px;
+  }
+
+ 
