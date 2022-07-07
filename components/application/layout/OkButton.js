@@ -2,6 +2,7 @@ import styles from './OkButton.module.css';
 import { useState } from 'react';
 import { Octokit, App } from 'octokit';
 import IssueTemplate from './IssueTemplate';
+import Checkmark from '../../../public/images/checkmark.svg';
 
 console.log('issue template', IssueTemplate);
 const github = new Octokit({
@@ -136,21 +137,7 @@ const UseOkButton = () => {
 			<div className={styles.button}>
 				{currentStep <= 7 ? (
 					<button onClick={nextStep}>
-						<svg
-							width="13"
-							height="10"
-							viewBox="0 0 13 10"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M11.5 0.999542L4.5 8.99954L1.5 5.99954"
-								stroke="white"
-								strokeWidth="1.5"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-						</svg>
+						<Checkmark />
 						Ok
 					</button>
 				) : (
@@ -160,21 +147,7 @@ const UseOkButton = () => {
 							submitApplication();
 						}}
 					>
-						<svg
-							width="13"
-							height="10"
-							viewBox="0 0 13 10"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M11.5 0.999542L4.5 8.99954L1.5 5.99954"
-								stroke="white"
-								strokeWidth="1.5"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-							/>
-						</svg>
+						<Checkmark />
 						Submit Application
 					</button>
 				)}
