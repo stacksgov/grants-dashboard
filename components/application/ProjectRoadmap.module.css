@@ -137,3 +137,10 @@
       
     }
 
+    .arrowBackward {
+      transform: rotate(-90deg);
+    }
+
+    .arrowForward {
+      transform: rotate(90deg);
+    }

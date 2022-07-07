@@ -1,6 +1,8 @@
 import styles from './ProjectRoadmap.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
+import CheckmarkIcon from '../../public/images/checkmark.svg';
+import ArrowIcon from '../../public/images/arrow.svg';
 
 const ProjectRoadmap = ({ updateIssue }) => {
 	const [milestone, setMilestone] = useState(1);
@@ -19,21 +21,7 @@ const ProjectRoadmap = ({ updateIssue }) => {
 					<div className={styles.inputWrapper}>
 						<input id="milestone{props.id}" placeholder="Type here..." />
 						<button>
-							<svg
-								width="11"
-								height="10"
-								viewBox="0 0 11 10"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M9.875 1.49959L3.75 8.49959L1.125 5.87459"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							<CheckmarkIcon />
 							Ok
 						</button>
 					</div>
@@ -54,28 +42,7 @@ const ProjectRoadmap = ({ updateIssue }) => {
 				<div className={styles.milestoneStepsWrapper}>
 					<div className={styles.milestoneSteps}>
 						<button onClick={() => setMilestone(milestone - 1)}>
-							<svg
-								width="11"
-								height="10"
-								viewBox="0 0 11 10"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M5.172 8.9376L1.2345 5.0001L5.172 1.0626"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<path
-									d="M1.78137 5.00011H9.76574"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							<ArrowIcon className={styles.arrowBackward} />
 							Back
 						</button>
 						<div>
@@ -95,29 +62,7 @@ const ProjectRoadmap = ({ updateIssue }) => {
 					</div>
 					<div>
 						<button onClick={() => setMilestone(milestone + 1)}>
-							Next{' '}
-							<svg
-								width="12"
-								height="10"
-								viewBox="0 0 12 10"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M6.32812 1.0625L10.2656 5L6.32812 8.9375"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<path
-									d="M9.71887 5.00029H1.7345"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							Next <ArrowIcon className={styles.arrowForward} />
 						</button>
 					</div>
 				</div>
