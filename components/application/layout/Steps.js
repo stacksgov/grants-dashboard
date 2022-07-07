@@ -61,14 +61,9 @@ const Steps = (props) => {
 	return (
 		<div className={styles.stepsWrapper}>
 			<ul>
-				<Step stepNumber={1} title="Wishlist Project?" />
-				<Step stepNumber={2} title="Funding Stream & Project Type" />
-				<Step stepNumber={3} title="Project Track" />
-				<Step stepNumber={4} title="Project Tags" />
-				<Step stepNumber={5} title="Project Information" />
-				<Step stepNumber={6} title="Project Roadmap" />
-				<Step stepNumber={7} title="Project Mission Statement" />
-				<Step stepNumber={8} title="Project Links" />
+				{props.steps.map((item, index) => {
+					return <Step stepNumber={index} title={item} />;
+				})}
 			</ul>
 		</div>
 	);

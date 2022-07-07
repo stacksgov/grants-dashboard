@@ -18,29 +18,29 @@ const Application = () => {
 
 	const CurrentStep = () => {
 		switch (currentStep) {
-			case 1:
+			case 0:
 				return <Wishlist />;
 			// return <ConnectGithub />;
-			case 2:
+			case 1:
 				return <FundingStream />;
-			case 3:
+			case 2:
 				return <ProjectTrack />;
 
-			case 4:
+			case 3:
 				return <ProjectTags />;
-			case 5:
+			case 4:
 				return <ProjectInformation />;
 
-			case 6:
+			case 5:
 				return <ProjectRoadmap />;
 
-			case 7:
+			case 6:
 				return <MissionStatement />;
 
-			case 8:
+			case 7:
 				return <ProjectLinks />;
 
-			case 9:
+			case 8:
 				return <Success />;
 		}
 	};
@@ -50,7 +50,19 @@ const Application = () => {
 			<Nav name={'Application'} step={currentStep} />
 			<div className={styles.mainComponents}>
 				<div className={styles.middleComponent}>
-					<Steps step={currentStep} />
+					<Steps
+						step={currentStep}
+						steps={[
+							'Wishlist Project?',
+							'Funding Stream & Projet Type',
+							'Project Track',
+							'Project Tags',
+							'Project Information',
+							'Project Roadmap',
+							'Project Mission Statement',
+							'Project Links'
+						]}
+					/>
 				</div>
 				<div>
 					<CurrentStep />

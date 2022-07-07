@@ -12,6 +12,7 @@ import Applicant from '../components/primer/Applicant';
 import ApplicationRules from '../components/primer/ApplicationRules';
 import ConnectGithub from '../components/application/ConnectGithub';
 import PerfectApplication from '../components/primer/PerfectApplication';
+
 const Primer = () => {
 	const { OkButton, currentStep } = UseOkButton();
 
@@ -49,7 +50,20 @@ const Primer = () => {
 			<Nav step={currentStep} name={'Primer'} />
 			<div className={styles.mainComponents}>
 				<div className={styles.middleComponent}>
-					<Steps step={currentStep} />
+					{/* <Steps step={currentStep} /> */}
+					<Steps
+						step={currentStep}
+						steps={[
+							'Funding Streams & Project Types',
+							'Wishlist Projects',
+							'Project Phases & Deliverables',
+							'Payment Quantity & Sizing',
+							'Payment Notes',
+							'Applicant (aka Project Lead)',
+							'Application Do’s & Do Not’s',
+							'The Perfect Application'
+						]}
+					/>
 				</div>
 				<div>
 					{/* <FundingStreams /> */}
