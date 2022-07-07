@@ -7,7 +7,6 @@ const Wishlist = ({ step, updateIssue }) => {
 	return (
 		<div className={styles.wishlistWrapper}>
 			<h1>Wishlist Project?</h1>
-
 			<p>Is this a direct application or an application for a Wishlist Project?</p>
 			<div className={styles.checkboxes}>
 				<div>

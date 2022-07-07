@@ -13,7 +13,9 @@
 padding: 0 50px;
 }
 
-
+.currentStep {
+  width: 800px;
+}
   
 
 .stacksSVG {
