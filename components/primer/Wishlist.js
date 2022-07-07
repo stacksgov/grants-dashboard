@@ -3,11 +3,10 @@ import styles from './Wishlist.module.css';
 const Wishlist = () => {
 	return (
 		<div className={styles.wishlistWrapper}>
-			<h1>Funding Streams & Project Types</h1>
+			<h1>Wishlist Projects</h1>
 			<p className={styles.subtitle}>
-				The most common form of support the Stacks Foundation provides is Development Grants.
-				However, this is just one form of support. There are several other Types or Levels. Each
-				belonging to a Funding Stream.
+				As noted on the last page, every application can be submitted as a direct application for a
+				project you wish to pursue or as a Wishlist Project. OK, so what are Wishlist Projects?:
 			</p>
 			<ul>
 				<li>

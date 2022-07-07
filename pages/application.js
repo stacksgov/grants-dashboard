@@ -18,29 +18,24 @@ const Application = () => {
 
 	const CurrentStep = () => {
 		switch (currentStep) {
-			case 0:
+			case 1:
 				return <Wishlist />;
 			// return <ConnectGithub />;
-			case 1:
-				return <FundingStream />;
 			case 2:
-				return <ProjectTrack />;
-
+				return <FundingStream />;
 			case 3:
-				return <ProjectTags />;
+				return <ProjectTrack />;
 			case 4:
-				return <ProjectInformation />;
-
+				return <ProjectTags />;
 			case 5:
-				return <ProjectRoadmap />;
-
+				return <ProjectInformation />;
 			case 6:
-				return <MissionStatement />;
-
+				return <ProjectRoadmap />;
 			case 7:
-				return <ProjectLinks />;
-
+				return <MissionStatement />;
 			case 8:
+				return <ProjectLinks />;
+			case 9:
 				return <Success />;
 		}
 	};

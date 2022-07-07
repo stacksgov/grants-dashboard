@@ -62,7 +62,7 @@ const Steps = (props) => {
 		<div className={styles.stepsWrapper}>
 			<ul>
 				{props.steps.map((item, index) => {
-					return <Step stepNumber={index} title={item} />;
+					return <Step stepNumber={index + 1} title={item} />;
 				})}
 			</ul>
 		</div>
