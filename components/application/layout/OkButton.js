@@ -9,7 +9,7 @@ const github = new Octokit({
 });
 
 const UseOkButton = () => {
-	const [currentStep, setCurrentStep] = useState(1);
+	const [currentStep, setCurrentStep] = useState(0);
 
 	const [issue, setIssue] = useState({
 		name: null,
