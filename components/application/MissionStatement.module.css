@@ -1,3 +1,6 @@
+.missionStatementWrapper {
+  max-width: 800px;
+}
 .missionStatementWrapper h1{
   font-size: 20px;
   padding-bottom: 12px;
@@ -41,13 +44,13 @@
     border-left: none;
     border-top: none;
     color: white;
-    width: 450px;
+    width: 740px;
     height: 450px;
     padding-bottom: 420px;
     padding-left: 5px;
     background-color: #0000007A;
     resize: none;
-
+    color: rgba(255, 255, 255, 0.36);
   }
 
   .sectionWrapper textarea::-webkit-scrollbar {
