@@ -3,22 +3,32 @@
   padding-bottom: 50px;
 }
 
-
 .mainComponents {
   display: flex;
   justify-content: space-between;
 }
 
 .middleComponent {
-padding: 0 50px;
+  padding: 0 50px;
 }
 
-
-  
-
 .stacksSVG {
-position: absolute;
-right: 0;
-bottom: 0;
-z-index: -1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.button button {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(45deg, #3182ce, #97266d);
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 4px;
+  gap: 5px;
+  font-size: 14px;
 }
