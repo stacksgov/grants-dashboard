@@ -65,6 +65,7 @@ const Application = () => {
 			<div className={styles.mainComponents}>
 				<div className={styles.middleComponent}>
 					<Steps
+						setCurrentStep={setCurrentStep}
 						step={currentStep}
 						steps={[
 							'Project Lead',

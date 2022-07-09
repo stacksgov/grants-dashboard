@@ -3,11 +3,12 @@ import Pencil from '../../../public/images/pencil.svg';
 import CheckmarkGreen from '../../../public/images/checkmarkGreen.svg';
 const Steps = (props) => {
 	let currentStep = props.step;
+	let setCurrentStep = props.setCurrentStep;
 
 	const Step = (props) => {
 		if (parseInt(props.stepNumber) === currentStep) {
 			return (
-				<span>
+				<span onClick={() => setCurrentStep(props.stepNumber)}>
 					<li className={styles.currentStep}>
 						<Pencil />
 						{props.title}
@@ -16,7 +17,7 @@ const Steps = (props) => {
 			);
 		} else if (parseInt(props.stepNumber) < currentStep) {
 			return (
-				<span>
+				<span onClick={() => setCurrentStep(props.stepNumber)}>
 					<li className={styles.currentStepComplete}>
 						<CheckmarkGreen />
 						{props.title}
@@ -25,7 +26,7 @@ const Steps = (props) => {
 			);
 		} else {
 			return (
-				<span>
+				<span onClick={() => setCurrentStep(props.stepNumber)}>
 					<li className={styles.currentStep}>{props.title}</li>
 				</span>
 			);
@@ -35,7 +36,8 @@ const Steps = (props) => {
 		<div className={styles.stepsWrapper}>
 			<ul>
 				{props.steps.map((item, index) => {
-					return <Step stepNumber={index + 1} title={item} />;
+					let currentIndex = index + 1;
+					return <Step stepNumber={currentIndex} title={item} />;
 				})}
 			</ul>
 		</div>
