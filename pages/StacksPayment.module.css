@@ -1,0 +1,155 @@
+.close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 26px;
+  padding-top: 38px;
+  gap: 20px;
+}
+
+.close p{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.close span {
+display: block;
+border: 1px solid white;
+width: 25px;
+}
+
+.stxPaymentWrapper {
+  max-width: 950px;
+  margin: auto;
+}
+
+.stxPaymentWrapper h1{
+  font-size: 32px;
+  font-weight: 300;
+  padding-bottom: 20px;
+}
+
+.descriptor {
+  color: #4A5568;
+  font-size: 14px;
+  padding-bottom: 48px;
+}
+
+.paymentCalculatorWrapper {
+padding: 42px;
+width: 100%;
+height: 100%;
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.92);
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+}
+
+.dropdownWrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.dropdownWrapper label {
+  font-size: 16px;
+  color: #ffffff;
+  padding-bottom: 10px;
+
+}
+
+.dropdownWrapper select {
+  width: 428px;
+  height: 50px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("/images/dropdown.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+.dropdownWrapper input {
+  width: 428px;
+  height: 50px;
+  color: rgba(255, 255, 255, 0.48);
+  background-color: transparent;
+  font-size: 14px;
+  border-radius: 5px;
+  padding-left: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+
+.dropdownWrapper input[type='number']::-webkit-inner-spin-button,
+.dropdownWrapper input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.converterButton {
+  background: linear-gradient(45deg, #3182ce, #97266d);
+  color: white;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdownWrapper div {
+  width: 100%;
+  height: 100%;
+  border:  1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px;
+}
+
+.dropdownWrapper div p:first-of-type, .dropdownWrapper div p:nth-of-type(3) {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dropdownWrapper div p:nth-of-type(2) {
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.clipboardButton {
+  height: 50px;
+  width: 100%;
+  background-color: transparent;
+  border:  1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.stxAmount {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+.stacksSVG {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
