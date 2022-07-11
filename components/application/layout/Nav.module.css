@@ -18,6 +18,7 @@ padding: 30px 0;
 .layoutWrapper div:nth-of-type(2) p:first-of-type{
   display: flex;
   align-items: center;
+  gap: 5px;
 
 }
 

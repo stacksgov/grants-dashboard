@@ -1,5 +1,5 @@
 import styles from './Nav.module.css';
-import { IoIosClose } from 'react-icons/io';
+import CloseIcon from '../../../public/images/close.svg';
 
 const Nav = (props) => {
 	return (
@@ -20,7 +20,7 @@ const Nav = (props) => {
 
 			<div>
 				<p>
-					<IoIosClose size="25" />
+					<CloseIcon />
 					Close
 				</p>
 				<span></span>
