@@ -57,7 +57,6 @@ gap: 16px;
 .dropdownWrapper {
   display: flex;
   flex-direction: column;
-
 }
 
 .dropdownWrapper label {
@@ -148,6 +147,7 @@ gap: 16px;
   cursor: pointer;
 }
 
+
 .stxAmount {
   background-color: rgba(255, 255, 255, 0.08);
 }
@@ -160,7 +160,7 @@ gap: 16px;
   z-index: -1;
 }
 
-.calendarDropdownWrapper button {
+.calendarDropdownButton {
   width: 100%;
   height: 50px;
   border:  1px solid rgba(255, 255, 255, 0.36);
@@ -174,10 +174,10 @@ justify-content: space-between;
   cursor: pointer;
 }
 
-.calendarDropdownWrapper div {
+/* .calendarDropdownWrapper div {
   color: white;
   background-color: black;
-}
+} */
 
 .show {
   position: absolute;

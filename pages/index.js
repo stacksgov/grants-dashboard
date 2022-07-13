@@ -1,8 +1,11 @@
 import Blob from '../public/images/blob.svg';
-import styles from './index.module.css';
+import styles from './Index.module.css';
 import Rocket from '../public/images/rocket.svg';
 import { AiFillGithub } from 'react-icons/ai';
 import Link from 'next/link';
+import StacksLogo from '../public/images/whiteStacks.svg';
+import GithubLogo from '../public/images/github.svg';
+import ArrowIcon from '../public/images/boldArrow.svg';
 
 const Home = () => {
 	return (
@@ -15,42 +18,66 @@ const Home = () => {
 					more build a more...
 				</p>
 				<p>
-					User-owned & open-source internet powered by the <span>Stacks</span> blockchain,{' '}
-					<span>Clarity</span> smart contracts, and secured by <span>Bitcoin.</span>
+					User-owned & open-source internet powered by the{' '}
+					<span className={styles.highlightedWords}>Stacks</span> blockchain,{' '}
+					<span className={styles.highlightedWords}>Clarity</span> smart contracts, and secured by{' '}
+					<span className={styles.highlightedWords}>Bitcoin.</span>
 				</p>
 			</div>
 			<div className={styles.rightWrapper}>
-				<div>
-					<p>Funding Available from:</p>
-					<p>One-thousand to two-hundred and fifty thousand dollars.</p>
-					<Link href="/application">
-						<button>
-							<a>Submit Your Application</a>
+				<div className={styles.firstSection}>
+					<div>
+						<p>Funding Available from:</p>
+						<p>One-thousand to two-hundred and fifty thousand dollars.</p>
+						<Link href="/application">
+							<button>
+								<a>Submit Your Application</a>
 
-							<Rocket />
-						</button>
-					</Link>{' '}
-					<p>GitHub Account Required</p>
+								<Rocket />
+							</button>
+						</Link>{' '}
+						<p>GitHub Account Required</p>
+					</div>
+					<div>
+						<p>Maximize Your Impact</p>
+						<p>Submit a Wishlist project. Or apply to take one on.</p>
+						<Link href="/">
+							<a>
+								<button>
+									Wishlist Projects
+									<ArrowIcon />
+								</button>
+							</a>
+						</Link>{' '}
+					</div>
 				</div>
-
-				<div>
-					<p>Want to learn the basics?</p>
-					<p>Check out our educational Project Launchpad Primer.</p>
-					<Link href="/primer">
+				<div className={styles.secondSection}>
+					<div>
+						<p>Want to learn the basics?</p>
+						<p>Check out our educational Project Launchpad Primer.</p>
+						<Link href="/primer">
+							<button>
+								<a>Project Launchpad Primer</a>
+							</button>
+						</Link>
+					</div>
+					<div>
+						<p>Want to explore the details?</p>
+						<p>Vist the Project Launchpad GitHub Repository.</p>
 						<button>
-							<a>Project Launchpad Primer</a>
+							Project Launchpad Repository <GithubLogo className={styles.githubLogo} />
 						</button>
-					</Link>
-				</div>
-				<div>
-					<p>Want to explore the details?</p>
-					<p>Vist the Project Launchpad GitHub Repository.</p>
-					<button>
-						Project Launchpad Repository <AiFillGithub size="25" />
-					</button>
+					</div>
 				</div>
 			</div>
-
+			<Link href="/stacks-payment-converter">
+				<a>
+					<button className={styles.paymentConverterButton}>
+						<StacksLogo className={styles.stacksLogo} />
+						STX Payment Converter
+					</button>
+				</a>
+			</Link>
 			<div className={styles.blob}>
 				<Blob />
 			</div>
