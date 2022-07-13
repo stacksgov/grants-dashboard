@@ -3,14 +3,14 @@
   padding-bottom: 12px;
 }
 
-.inputDescription{
+.inputDescription {
   padding-top: 12px;
   padding-bottom: 24px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.48);
 }
 
-.projectImpactWrapper textarea {
+.projectImpactWrapper input {
   border-bottom: 1px solid rgba(255, 255, 255, 0.92);
   background-color: #000000;
   border-right: none;
@@ -20,15 +20,14 @@
   width: 100%;
   height: 100px;
   padding: 10px;
-  background-color: #0000007A;
+  background-color: #0000007a;
   resize: none;
   color: rgba(255, 255, 255, 0.36);
 }
 
-.projectImpactWrapper textarea::-webkit-scrollbar {
+.projectImpactWrapper input::-webkit-scrollbar {
   display: none;
 }
-
 
 .progressBarWrapper {
   display: flex;
@@ -37,15 +36,14 @@
   font-size: 12px;
   color: rgba(255, 255, 255, 0.48);
   justify-content: flex-end;
-
 }
 
 .progressBar {
   width: 260px;
   height: 8px;
   background-color: rgba(255, 255, 255, 0.16);
-  }
+}
 
-  .secondSection {
-    padding-top: 79px;
-  }
+.secondSection {
+  padding-top: 79px;
+}

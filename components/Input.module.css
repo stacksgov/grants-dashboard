@@ -1,0 +1,21 @@
+.inputWrapper input {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.92);
+  background-color: rgba(0, 0, 0, 0.48);
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  padding: 10px 0;
+  color: white;
+  width: 360px;
+}
+
+.inputWrapper label {
+  font-size: 12px;
+  padding-bottom: 8px;
+}
+
+.svg {
+  position: relative;
+  bottom: 35px;
+  left: 325px;
+}

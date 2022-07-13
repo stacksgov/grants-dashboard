@@ -3,8 +3,9 @@ import Link from "next/link";
 import { useState } from "react";
 import CheckmarkIcon from "../../public/images/checkmark.svg";
 import ArrowIcon from "../../public/images/arrow.svg";
+import Input from "../Input";
 
-const ProjectRoadmap = ({ props: { formData, handleChange } }) => {
+const ProjectRoadmap = ({ form }) => {
   const [milestone, setMilestone] = useState(1);
   const [inputText, setInputText] = useState("");
 
@@ -27,7 +28,7 @@ const ProjectRoadmap = ({ props: { formData, handleChange } }) => {
   }
 
   const numOfMilestones = getNumberOfMilestones(
-    parseInt(formData.projectBudget)
+    parseInt(form.formData.projectBudget)
   );
   console.log("number of milestones: ", numOfMilestones);
 
@@ -43,12 +44,8 @@ const ProjectRoadmap = ({ props: { formData, handleChange } }) => {
           <label>Milestone {number}</label>
 
           <div className={styles.inputWrapper}>
-            <input
-              key={name}
-              name={name}
-              onChange={handleChange}
-              placeholder="Type here..."
-            />
+            <Input name={name} form={form} />
+
             <button>
               <CheckmarkIcon />
               Ok
@@ -126,12 +123,7 @@ const ProjectRoadmap = ({ props: { formData, handleChange } }) => {
             </div>
           </div>
         </div>
-        <input
-          id="final"
-          placeholder="Type here..."
-          onChange={handleChange}
-          maxLength={30}
-        />
+        <Input name="finalDeliverable" maxLength={30} form={form} />
       </div>
     </div>
   );

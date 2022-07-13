@@ -1,6 +1,8 @@
 import styles from "./ProjectInformation.module.css";
 import { useState } from "react";
-const ProjectInformation = ({ props: { formData, handleChange } }) => {
+import Input from "../Input";
+
+const ProjectInformation = ({ form }) => {
   const [inputText, setInputText] = useState("");
   const characterCount = inputText.length;
 
@@ -24,13 +26,7 @@ const ProjectInformation = ({ props: { formData, handleChange } }) => {
             </div>
           </div>
         </div>
-        <input
-          name="projectName"
-          type="text"
-          placeholder="Type Here..."
-          maxLength={30}
-          onChange={handleChange}
-        />
+        <Input name="projectName" form={form} maxLength={30} />
         <p className={styles.inputDescription}>
           Name your Project so that it clearly communicates your objectives to
           others, during review and in the future.
@@ -39,24 +35,20 @@ const ProjectInformation = ({ props: { formData, handleChange } }) => {
 
       <div className={styles.secondSection}>
         <div>
-          <label>Total Project Budget</label>
-          <input
-            onChange={handleChange}
+          <Input
+            label="Total Project Budget"
             name="projectBudget"
             type="number"
-            placeholder="Type Here..."
-            onWheel={(e) => e.target.blur()}
+            form={form}
           />
           <p>Provide the total budget in $USD to complete your Project.</p>
         </div>
         <div>
-          <label>Total Project Duration</label>
-          <input
-            onChange={handleChange}
+          <Input
+            label="Total Project Duration"
             name="projectDuration"
             type="number"
-            placeholder="Type Here..."
-            onWheel={(e) => e.target.blur()}
+            form={form}
           />
           <p>
             Provide the total amount of hours required to complete your Project.
@@ -65,13 +57,8 @@ const ProjectInformation = ({ props: { formData, handleChange } }) => {
         </div>
       </div>
       <div className={styles.lastSection}>
-        <label>Project Team Members</label>
-        <input
-          onChange={handleChange}
-          name="projectTeam"
-          type="text"
-          placeholder="Type Here..."
-        />
+        <Input label="Project Team Members" name="projectTeam" form={form} />
+
         <p>
           Provide the GitHub usernames of any Project Team Members. Comma
           separate all names.
