@@ -1,139 +1,127 @@
-.fundingStreamWrapper h1{
+.fundingStreamWrapper h1 {
   font-size: 20px;
   padding-bottom: 12px;
-  }
-  
-  .subtitle {
-    padding-bottom: 49px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.48);
-  }
+}
 
-  .fundingStreamWrapper table {
-    width: 100%;
-    background-color: #000000;
-  }
+.subtitle {
+  padding-bottom: 49px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.48);
+}
 
-  .fundingStreamWrapper table thead {
-    box-shadow: 0 1px #1A202C;
+.fundingStreamWrapper table {
+  width: 100%;
+  background-color: #000000;
+}
 
-  }
+.fundingStreamWrapper table thead {
+  box-shadow: 0 1px #1a202c;
+}
 
+.fundingStreamWrapper table thead tr th:first-child {
+  width: 48px;
+}
 
-  .fundingStreamWrapper table thead tr th:first-child {
-    width: 48px;
-   
+.fundingStreamWrapper table thead tr th p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #ffffff;
+  padding-bottom: 12px;
+}
 
-  }
+.fundingStreamWrapper table thead tr th:nth-child(2) {
+  width: 302px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
 
-  .fundingStreamWrapper table thead tr th p {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    color: #ffffff;
-    padding-bottom: 12px;
-   
-  }
+.fundingStreamWrapper table thead tr th:nth-child(3) {
+  width: 130px;
+}
 
-  .fundingStreamWrapper table thead tr th:nth-child(2){
-    width: 302px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
+.fundingStreamWrapper table thead tr th:nth-child(4) {
+  width: 200px;
+}
 
-  .fundingStreamWrapper table thead tr th:nth-child(3){
-    width: 130px;
-    
-  }
+.fundingStreamWrapper table thead tr th:nth-child(5) {
+  width: 56px;
+}
 
-  .fundingStreamWrapper table thead tr th:nth-child(4){
-    width: 200px;
-  }
+.fundingStreamWrapper table tbody tr td:first-child {
+  width: 48px;
+}
 
-  .fundingStreamWrapper table thead tr th:nth-child(5){
-    width: 56px;
-  }
+.fundingStreamWrapper table tbody tr td:nth-child(2) {
+  width: 302px;
+}
 
+.fundingStreamWrapper table tbody tr td:nth-child(3) {
+  width: 130px;
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+}
 
-  .fundingStreamWrapper table tbody tr td:first-child {
-    width: 48px;
-  }
+.fundingStreamWrapper table tbody tr td:nth-child(3) span {
+  background: gray;
+  padding: 0px 6px;
+  border-radius: 2px;
+}
 
-  .fundingStreamWrapper table tbody tr td:nth-child(2){
-    width: 302px;
+.fundingStreamWrapper table tbody tr td:nth-child(4) {
+  width: 200px;
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+}
 
-  }
-
-  .fundingStreamWrapper table tbody tr td:nth-child(3){
-    width: 130px;
-    font-size: 12px;
-    font-weight: 600;
-    color: black;
-  }
-
-  .fundingStreamWrapper table tbody tr td:nth-child(3) span{
-    background: gray;
-    padding: 0px 6px;
-    border-radius: 2px;
-  }
-
-  .fundingStreamWrapper table tbody tr td:nth-child(4){
-    width: 200px;
-    font-size: 12px;
-    font-weight: 500;
-    color: black;
-    
-  }
-
- .developerGrant {
-  background-color: #9F7AEA;
+.stream {
+  background-color: #9f7aea;
   padding: 2px 7px;
   border-radius: 2px;
- }
+}
 
- .communityGrant {
-  background-color: #ED8936;
+.communityGrant {
+  background-color: #ed8936;
   padding: 2px 7px;
   border-radius: 2px;
- }
+}
 
 .ecosystemPartnerGrant {
-  background-color: #0BC5EA;
+  background-color: #0bc5ea;
   padding: 2px 8px;
   border-radius: 2px;
 }
 
 .advancedSupport {
-  background-color: #48BB78;
+  background-color: #48bb78;
   padding: 2px 7px;
   border-radius: 2px;
 }
 
 .affiliatedOrganization {
-  background-color: #ED64A6;
+  background-color: #ed64a6;
   padding: 2px 7px;
   border-radius: 2px;
 }
 
+.fundingStreamWrapper table tbody tr td:nth-child(5) {
+  width: 56px;
+}
 
-  .fundingStreamWrapper table tbody tr td:nth-child(5){
-    width: 56px;
-  }
+.fundingStreamWrapper table tbody tr td {
+  padding: 10px 0;
+}
 
-  .fundingStreamWrapper table tbody tr td {
-    padding: 10px 0;
-    
-  }
+.fundingStreamWrapper table tbody tr {
+  box-shadow: 0 1px #1a202c;
+}
 
-  .fundingStreamWrapper table tbody tr {
-    box-shadow: 0 1px #1A202C;
-  }
-
-
-  .moneyAmount {
-    background-color: gray;
-    width: 23px;
-    height: 16px;
-  }
+.moneyAmount {
+  background-color: gray;
+  width: 23px;
+  height: 16px;
+}

@@ -57,6 +57,12 @@ svg {
   display: block;
   max-width: 100%;
 }
+
+svg.input {
+  position: relative;
+  bottom: 35px;
+  left: 325px;
+}
 /*
   7. Remove built-in form typography styles
 */
