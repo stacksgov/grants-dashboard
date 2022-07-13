@@ -87,11 +87,20 @@ h6 {
   isolation: isolate;
 }
 
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
 .react-calendar {
-  width: 350px;
+  width: 425px;
   max-width: 100%;
   background: white;
   border: 1px solid #a0a096;
+  border-radius: 10px;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
 }
@@ -124,7 +133,11 @@ h6 {
 }
 .react-calendar__navigation {
   height: 44px;
-  margin-bottom: 1em;
+  font-size: 20px;
+  padding-top: 10px;
+  margin: auto;
+  text-align: center;
+ 
 }
 .react-calendar__navigation button {
   min-width: 44px;
@@ -142,6 +155,7 @@ h6 {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.75em;
+  color: black;
 }
 .react-calendar__month-view__weekdays__weekday {
   padding: 0.5em;

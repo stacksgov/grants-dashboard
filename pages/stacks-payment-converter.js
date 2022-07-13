@@ -3,27 +3,74 @@ import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
 import DropdownIcon from '../public/images/dropdown.svg';
 import Calendar from 'react-calendar';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useState, useEffect, useCallback } from 'react';
 
 const StacksConverter = () => {
 	const [value, onChange] = useState(new Date());
-	const [show, setShow] = useState(false);
-	// let pastSevenDays = value.getDate() - 7;
-	let pastSevenDays = new Date(new Date().setDate(value.getDate() - 7));
-	const copyAmount = () => {
-		let copyText = document.getElementById('stxNumber').innerText;
-		console.log(copyText);
-		navigator.clipboard.writeText(copyText);
+	const [show, setShow] = useState(true);
+	const [weekAverageStxPrice, setWeekAverageStxPrice] = useState(0);
+	const [inputAmount, setInputAmount] = useState(40);
+	const [convertedStxAmount, setConvertedStxAmount] = useState(0);
+	const [convertedUsdAmount, setConvertedUsdAmount] = useState(0);
+	const [copyToClipboard, setCopyToClipboard] = useState(false);
+	const [currencyDropdown, setCurrencyDropdown] = useState();
+
+	let pastSevenDays = new Date(value.getTime() - 7 * 24 * 60 * 60 * 1000);
+	let unixDateSevenDaysAgo = Math.floor(pastSevenDays.getTime() / 1000);
+	let unixDateSelected = Math.floor(value.getTime() / 1000);
+
+	const copyAmount = async () => {
+		let copyText = await document.getElementById('stxNumber').innerText;
+		await navigator.clipboard.writeText(copyText).then(
+			() => setCopyToClipboard(true),
+			setTimeout(() => {
+				setCopyToClipboard(false);
+			}, 700)
+		);
 	};
+
+	const getStxPrice = useCallback(async () => {
+		let response = await fetch(
+			`https://api.coingecko.com/api/v3/coins/blockstack/market_chart/range?vs_currency=usd&from=${unixDateSevenDaysAgo}&to=${unixDateSelected}`
+		);
+		let data = await response.json();
+
+		data = data.prices;
+
+		let sum = 0;
+
+		data = data.map((array) => {
+			sum += parseFloat(array[1]);
+			return array[1];
+		});
+		let average = sum / data.length;
+		setWeekAverageStxPrice(average);
+		setConvertedStxAmount(inputAmount * average);
+		setConvertedUsdAmount(inputAmount / average);
+	}, []);
+
+	useEffect(() => {
+		getStxPrice().catch(console.error);
+	}, [getStxPrice]);
+
+	useEffect(() => {
+		setShow(false);
+	}, [value]);
+
 	return (
 		<div>
-			<div className={styles.close}>
-				<p>
-					<CloseIcon />
-					Close
-				</p>
-				<span></span>
-			</div>
+			<Link href="/">
+				<a>
+					<div className={styles.close}>
+						<p>
+							<CloseIcon />
+							Close
+						</p>
+						<span></span>
+					</div>
+				</a>
+			</Link>
 			<div className={styles.stxPaymentWrapper}>
 				<h1>STX Payment Converter</h1>
 				<p className={styles.descriptor}>
@@ -33,11 +80,11 @@ const StacksConverter = () => {
 				<div className={styles.paymentCalculatorWrapper}>
 					<div className={styles.dropdownWrapper}>
 						<label for="selectCurrency">A. Select Currency (STX or USD)</label>
-						<select name="selectCurrency">
+						<select name="selectCurrency" onChange={(e) => setCurrencyDropdown(e.target.value)}>
 							<option value="" disabled selected>
 								Drop down...
 							</option>
-							<option value="stacks">STX</option>
+							<option value="stx">STX</option>
 							<option value="usd">USD</option>
 						</select>
 					</div>
@@ -48,12 +95,13 @@ const StacksConverter = () => {
 							type="number"
 							placeholder="Type here..."
 							onWheel={(e) => e.target.blur()}
+							onChange={(e) => setInputAmount(e.target.value)}
 						/>
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
 						<h2 for="selectDate">B. Select Date Payment Issued</h2>
-						{console.log(show)}
 						<button
+							className={styles.calendarDropdownButton}
 							onClick={() => {
 								setShow(!show);
 							}}
@@ -70,7 +118,9 @@ const StacksConverter = () => {
 						</div>
 					</div>
 					<div className={styles.dropdownWrapper}>
-						<button className={styles.converterButton}>Click to Convert</button>
+						<button onClick={getStxPrice} className={styles.converterButton}>
+							Click to Convert
+						</button>
 					</div>
 					<div className={styles.dropdownWrapper}>
 						<div>
@@ -101,19 +151,24 @@ const StacksConverter = () => {
 					</div>
 					<div className={styles.dropdownWrapper}>
 						<div className={styles.stxAmount}>
-							<p>STX</p>
-							<p id="stxNumber">768.40</p>
-							<p>1 STX = 0.4 USD</p>
+							<p>{currencyDropdown === 'stx' ? 'STX' : 'USD'}</p>
+							<p id="stxNumber">
+								{currencyDropdown === 'stx'
+									? convertedStxAmount.toFixed(2)
+									: convertedUsdAmount.toFixed(2)}
+							</p>
+							<p>1 STX = {weekAverageStxPrice.toFixed(3)} USD</p>
 						</div>
 					</div>
 					<div className={styles.dropdownWrapper}></div>
 					<div className={styles.dropdownWrapper}>
 						<button className={styles.clipboardButton} onClick={copyAmount}>
-							Copy to clipboard
+							{copyToClipboard ? 'Copied' : 'Copy to Clipboard'}
 						</button>
 					</div>
 				</div>
 			</div>
+
 			<StacksLogo className={styles.stacksSVG} />
 		</div>
 	);
