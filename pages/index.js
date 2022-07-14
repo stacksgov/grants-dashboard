@@ -2,10 +2,7 @@ import Blob from '../public/images/blob.svg';
 import styles from './Index.module.css';
 import Rocket from '../public/images/rocket.svg';
 import Link from 'next/link';
-import StacksLogo from '../public/images/whiteStacks.svg';
-import GithubLogo from '../public/images/github.svg';
-import ArrowIcon from '../public/images/boldArrow.svg';
-
+import IndexGithub from '../public/images/indexGithub.svg';
 const Home = () => {
 	return (
 		<div className={styles.indexWrapper}>
@@ -35,22 +32,18 @@ const Home = () => {
 								<Rocket />
 							</button>
 						</Link>{' '}
-						<p>GitHub Account Required</p>
 					</div>
+				</div>
+				<div className={styles.secondSection}>
 					<div>
 						<p>Maximize Your Impact</p>
 						<p>Submit a Wishlist project. Or apply to take one on.</p>
 						<Link href="/">
 							<a>
-								<button>
-									Wishlist Projects
-									<ArrowIcon />
-								</button>
+								<button>Wishlist Projects</button>
 							</a>
 						</Link>{' '}
 					</div>
-				</div>
-				<div className={styles.secondSection}>
 					<div>
 						<p>Want to learn the basics?</p>
 						<p>Check out our educational Project Launchpad Primer.</p>
@@ -64,17 +57,14 @@ const Home = () => {
 						<p>Want to explore the details?</p>
 						<p>Vist the Project Launchpad GitHub Repository.</p>
 						<button>
-							Project Launchpad Repository <GithubLogo className={styles.githubLogo} />
+							Project Launchpad Repository <IndexGithub />
 						</button>
 					</div>
 				</div>
 			</div>
-			<Link href="/stacks-payment-converter">
+			<Link href="/utilities">
 				<a>
-					<button className={styles.paymentConverterButton}>
-						<StacksLogo className={styles.stacksLogo} />
-						STX Payment Converter
-					</button>
+					<button className={styles.utilities}>Utilities</button>
 				</a>
 			</Link>
 			<div className={styles.blob}>
