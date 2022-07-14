@@ -117,3 +117,32 @@ max-width: 460px;
   font-size: 14px;
 }
 
+.wishlistWrapper input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #ffffff;
+  background-color: black;
+  border-radius: 0%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.wishlistWrapper input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 0%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #ffffff;
+}
+
+
+.wishlistWrapper input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
