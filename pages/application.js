@@ -13,22 +13,30 @@ import MissionStatement from "../components/application/MissionStatement";
 import ProjectImpact from "../components/application/ProjectImpact";
 import ProjectLinks from "../components/application/ProjectLinks";
 import Success from "../components/application/Success";
+import { isValid } from "../components/Input";
 import { useState } from "react";
 
 const Application = () => {
-  //   const { formData, setFormData } = useFormData();
   const [currentStep, setCurrentStep] = useState(1);
-
   const [formData, setFormData] = useState({});
 
   function handleChange(event) {
-    console.log("handnling change");
     let { name, value } = event.target;
+    const element = document.getElementsByName(name)[0];
+    if (value.length == 0) {
+      element.style.outlineColor = "red";
+      element.style.borderColor = "red";
+    } else {
+      element.style.outlineColor = "green";
+      element.style.borderColor = "green";
+    }
+    // console.log("element", element);
     setFormData({ ...formData, [name]: value });
   }
 
   function handleSubmit() {
-    console.log("form data", formData);
+    if (!isValid()) return;
+
     setCurrentStep(currentStep + 1);
     if (currentStep > 8) {
       submitApplication();
@@ -67,7 +75,7 @@ const Application = () => {
     >
       <Nav name={"Application"} step={currentStep} />
       <div className={styles.mainComponents}>
-        <div className={styles.middleComponent}>
+        <div id="step" className={styles.middleComponent}>
           <Steps
             setCurrentStep={setCurrentStep}
             step={currentStep}
@@ -89,7 +97,7 @@ const Application = () => {
           {JSON.stringify(formData)}
         </div>
         <div className={styles.button}>
-          <button onClick={handleSubmit}>
+          <button name="okButton" onClick={handleSubmit}>
             <Checkmark />
             {currentStep <= 8 ? <p>Ok</p> : <p>Submit Application</p>}
           </button>
