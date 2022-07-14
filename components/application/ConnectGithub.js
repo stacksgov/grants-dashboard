@@ -1,6 +1,5 @@
 import styles from './ConnectGithub.module.css';
-
-import { AiFillGithub } from 'react-icons/ai';
+import GithubIcon from '../../public/images/github.svg';
 
 const Home = () => {
 	return (
@@ -11,7 +10,7 @@ const Home = () => {
 					<p>After submitting, all Projects live on GitHub.</p>
 					<button>
 						Login with GitHub
-						<AiFillGithub size="25" />
+						<GithubIcon className={styles.svg} />
 					</button>
 				</div>
 
@@ -24,7 +23,7 @@ const Home = () => {
 					<p>Want to explore the details?</p>
 					<p>Vist the Project Launchpad GitHub Repository.</p>
 					<button>
-						Project Launchpad Repository <AiFillGithub size="25" />
+						Project Launchpad Repository <GithubIcon className={styles.svg} />
 					</button>
 				</div>
 			</div>

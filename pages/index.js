@@ -1,7 +1,6 @@
 import Blob from '../public/images/blob.svg';
 import styles from './Index.module.css';
 import Rocket from '../public/images/rocket.svg';
-import { AiFillGithub } from 'react-icons/ai';
 import Link from 'next/link';
 import StacksLogo from '../public/images/whiteStacks.svg';
 import GithubLogo from '../public/images/github.svg';
