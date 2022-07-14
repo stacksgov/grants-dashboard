@@ -1,5 +1,6 @@
 import styles from './Nav.module.css';
 import CloseIcon from '../../../public/images/close.svg';
+import Link from 'next/link';
 
 const Nav = (props) => {
 	return (
@@ -17,14 +18,17 @@ const Nav = (props) => {
 				</div>
 				<p>{props.name}</p>
 			</div>
-
-			<div>
-				<p>
-					<CloseIcon />
-					Close
-				</p>
-				<span></span>
-			</div>
+			<Link href="/">
+				<div className={styles.close}>
+					<a>
+						<p>
+							<CloseIcon />
+							Close
+						</p>
+					</a>
+					<span></span>
+				</div>
+			</Link>
 		</div>
 	);
 };
