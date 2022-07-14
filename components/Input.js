@@ -1,5 +1,38 @@
 import styles from "./Input.module.css";
 
+export function isValid() {
+  let fields = Array.from(document.querySelectorAll("input, textarea"));
+  console.log(fields);
+
+  let inputValid = true;
+
+  let optionGroupsChecked = [];
+  let optionGroupsValid = [];
+
+  fields = fields.map((field) => {
+    console.log("FIELD TYPE", field);
+    if (field.value == undefined || field.value == "") {
+      field.style.outlineColor = "red";
+      field.style.borderColor = "red";
+      inputValid = false;
+    } else if (field.style.borderColor == "red") {
+      inputValid = false;
+    } else if (field.type == "radio") {
+      if (!optionGroupsChecked.includes(field.name)) {
+        optionGroupsChecked.push(field.name);
+      }
+      if (!optionGroupsValid.includes(field.name)) {
+        if (field.checked) {
+          optionGroupsValid.push(field.name);
+        }
+      }
+    }
+  });
+  let optionsValid = optionGroupsChecked.length == optionGroupsValid.length;
+  let valid = inputValid && optionsValid;
+  return valid;
+}
+
 function Input({
   label,
   name,
