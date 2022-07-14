@@ -82,6 +82,8 @@ gap: 16px;
   border: 1px solid rgba(255, 255, 255, 0.36);
 }
 
+
+
 .dropdownWrapper input {
   width: 428px;
   height: 50px;
@@ -101,13 +103,13 @@ gap: 16px;
 }
 
 .converterButton {
-  background: linear-gradient(45deg, #3182ce, #97266d);
+  background: #1A365D;
+  border: 1px solid #ffffff;
   color: white;
-  height: 100%;
-  width: 100%;
-  border: none;
+  height: 50px;
+  width: 206px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -129,22 +131,34 @@ gap: 16px;
   font-weight: 500;
 }
 
-.dropdownWrapper div p:nth-of-type(2) {
+.dates {
   font-size: 24px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.amountConverted {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .clipboardButton {
   height: 50px;
-  width: 100%;
+  width: 206px;
   background-color: transparent;
   border:  1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.36);
   font-size: 12px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.buttonWrappers {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
 }
 
 
