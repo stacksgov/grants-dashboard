@@ -124,18 +124,21 @@ const StacksConverter = () => {
 							/>
 						</div>
 					</div>
-					<div className={styles.dropdownWrapper}>
+					<div className={styles.buttonWrappers}>
 						<button
 							onClick={() => getStxPrice(inputAmount, unixDateSelected, unixDateSevenDaysAgo)}
 							className={styles.converterButton}
 						>
 							Click to Convert
 						</button>
+						<button className={styles.clipboardButton} onClick={copyAmount}>
+							{copyToClipboard ? 'Copied' : 'Copy to Clipboard'}
+						</button>
 					</div>
 					<div className={styles.dropdownWrapper}>
 						<div>
 							<p>Date Range</p>
-							<p>
+							<p className={styles.dates}>
 								{pastSevenDays
 									.toLocaleString('default', {
 										month: 'long',
@@ -162,7 +165,7 @@ const StacksConverter = () => {
 					<div className={styles.dropdownWrapper}>
 						<div className={styles.stxAmount}>
 							<p>{currencyDropdown === 'stx' ? 'USD' : 'STX'}</p>
-							<p id="stxNumber">
+							<p id="stxNumber" className={styles.amountConverted}>
 								{currencyDropdown === 'stx'
 									? convertedStxAmount.toFixed(2)
 									: convertedUsdAmount.toFixed(2)}
@@ -175,12 +178,6 @@ const StacksConverter = () => {
 								{currencyDropdown === 'stx' ? 'USD' : 'STX'}
 							</p>
 						</div>
-					</div>
-					<div className={styles.dropdownWrapper}></div>
-					<div className={styles.dropdownWrapper}>
-						<button className={styles.clipboardButton} onClick={copyAmount}>
-							{copyToClipboard ? 'Copied' : 'Copy to Clipboard'}
-						</button>
 					</div>
 				</div>
 			</div>
