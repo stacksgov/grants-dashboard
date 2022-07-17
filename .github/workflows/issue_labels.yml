@@ -10,7 +10,7 @@ jobs:
         action-token: "${{ secrets.GH_TOKEN }}"
         project-url: "https://github.com/stacksgov/grants-dashboard/projects/1"
         column-name: "Application Phase"
-        label-name: "Initial Review in Progress, Application Phase"
+        label-name: "Initial Review in Progress"
         columns-to-ignore: ""
     - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
       with:
