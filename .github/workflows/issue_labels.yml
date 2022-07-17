@@ -8,14 +8,14 @@ jobs:
     - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
       with:
         action-token: "${{ secrets.GH_TOKEN }}"
-        project-url: "https://github.com/vidiabtc/dashboard-github/projects/1"
-        column-name: "New"
-        label-name: "new"
+        project-url: "https://github.com/stacksgov/grants-dashboard/projects/1"
+        column-name: "Application Phase"
+        label-name: "Initial Review in Progress, Application Phase"
         columns-to-ignore: ""
     - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
       with:
         action-token: "${{ secrets.GH_TOKEN }}"
-        project-url: "https://github.com/vidiabtc/dashboard-github/projects/1"
+        project-url: "https://github.com/stacksgov/grants-dashboard/projects/1"
         column-name: "In progress"
         label-name: "In progress"
         columns-to-ignore: ""
