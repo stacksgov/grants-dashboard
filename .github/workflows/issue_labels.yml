@@ -18,6 +18,6 @@ jobs:
         if: "${{ github.event.project_card.column_id == '19053081' }}"
         with:
           add-labels: 'Onboarding Phase, Onboarding in Progress'
-          remove-labels: 'Initial Review in Progress, Review in Progress, Revisions in Progress,'
+          remove-labels: 'Application Phase, Initial Review in Progress, Review in Progress, Revisions in Progress,'
           repo-token: "${{ secrets.GH_TOKEN }}"
 
