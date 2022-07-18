@@ -1,14 +1,13 @@
 import styles from './StacksPayment.module.css';
 import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
-import DropdownIcon from '../public/images/dropdown.svg';
-import Calendar from 'react-calendar';
 import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
+import CalendarDropdown from '../components/calendarDropdown';
 
 const StacksConverter = () => {
 	const [value, onChange] = useState(new Date());
-	const [show, setShow] = useState(true);
+
 	const [weekAverageStxPrice, setWeekAverageStxPrice] = useState(0);
 	const [inputAmount, setInputAmount] = useState(0);
 	const [convertedStxAmount, setConvertedStxAmount] = useState(0);
@@ -39,6 +38,7 @@ const StacksConverter = () => {
 			let response = await fetch(
 				`https://api.coingecko.com/api/v3/coins/blockstack/market_chart/range?vs_currency=usd&from=${userDateSevenDaysAgo}&to=${userChosenDate}`
 			);
+
 			let data = await response.json();
 
 			data = data.prices;
@@ -60,10 +60,6 @@ const StacksConverter = () => {
 	useEffect(() => {
 		getStxPrice().catch(console.error);
 	}, [getStxPrice]);
-
-	useEffect(() => {
-		setShow(false);
-	}, [value]);
 
 	return (
 		<div>
@@ -106,23 +102,8 @@ const StacksConverter = () => {
 						/>
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
-						<h2 for="selectDate">B. Select Date Payment Issued</h2>
-						<button
-							className={styles.calendarDropdownButton}
-							onClick={() => {
-								setShow(!show);
-							}}
-						>
-							<p>Drop Down...</p>
-							<DropdownIcon />
-						</button>
-						<div>
-							<Calendar
-								className={show ? styles.show : styles.hide}
-								onChange={onChange}
-								value={value}
-							/>
-						</div>
+						<label for="selectDate">B. Select Date Payment Issued</label>
+						<CalendarDropdown onChange={onChange} value={value} />
 					</div>
 					<div className={styles.buttonWrappers}>
 						<button
