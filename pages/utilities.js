@@ -31,7 +31,7 @@ const Utilities = () => {
 					</div>
 					<div>
 						<p>B. Export Project Data from Github</p>
-						<Link href="/">
+						<Link href="/project-data-exporter">
 							<a>
 								<button>Project Data Exporter</button>
 							</a>
