@@ -20,18 +20,18 @@ border: 1px solid white;
 width: 25px;
 }
 
-.stxPaymentWrapper {
+.projectDataWrapper {
   max-width: 950px;
   margin: auto;
 }
 
-.stxPaymentWrapper h2 {
+.projectDataWrapper h2 {
   font-size: 16px;
   color: #ffffff;
   padding-bottom: 10px;
 }
 
-.stxPaymentWrapper h1{
+.projectDataWrapper h1{
   font-size: 32px;
   font-weight: 300;
   padding-bottom: 20px;
@@ -43,7 +43,7 @@ width: 25px;
   padding-bottom: 48px;
 }
 
-.paymentCalculatorWrapper {
+.projectExportWrapper {
 padding: 42px;
 width: 100%;
 height: 100%;
@@ -67,7 +67,7 @@ gap: 16px;
 }
 
 .dropdownWrapper select {
-  min-width: 300px;
+  min-width: 200px;
   height: 50px;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.48);
@@ -85,7 +85,7 @@ gap: 16px;
 
 
 .dropdownWrapper input {
-  min-width: 300px;
+  width: 428px;
   height: 50px;
   color: rgba(255, 255, 255, 0.48);
   background-color: transparent;
@@ -103,7 +103,7 @@ gap: 16px;
 }
 
 .converterButton {
-  background: #1A365D;
+  background: #322659;
   border: 1px solid #ffffff;
   color: white;
   height: 50px;
@@ -143,17 +143,6 @@ gap: 16px;
   color: #ffffff;
 }
 
-.clipboardButton {
-  height: 50px;
-  width: 206px;
-  background-color: transparent;
-  border:  1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.36);
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
 .buttonWrappers {
   display: flex;
@@ -162,8 +151,15 @@ gap: 16px;
 }
 
 
-.stxAmount {
+.projectsFound {
   background-color: rgba(255, 255, 255, 0.08);
+  justify-content: center;
+}
+
+.projectsFound p:nth-child(2) {
+  font-weight: 600;
+  font-size: 24px;
+
 }
 
 
@@ -188,7 +184,10 @@ justify-content: space-between;
   cursor: pointer;
 }
 
-
+/* .calendarDropdownWrapper div {
+  color: white;
+  background-color: black;
+} */
 
 .show {
   position: absolute;
