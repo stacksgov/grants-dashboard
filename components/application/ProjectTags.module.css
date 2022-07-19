@@ -1,139 +1,17 @@
-.projectTagsWrapper h1{
-  font-size: 20px;
-  padding-bottom: 12px;
-  }
-  
-.subtitle {
-    padding-bottom: 49px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.48);
-  }
-
-  .subtitle a {
-  text-decoration: underline;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.48);
-  }
-
-
-  .subtitle a:hover {
-  color: white;
-  }
-
-
-.section {
-  padding-bottom: 30px;
+.radio {
+  min-width: 330px;
+  display: flex;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
-.section:last-of-type {
-  padding-bottom: 0;
+.list {
+  display: flex;
 }
 
-.section h2 {
-    padding-bottom: 16px;
-    font-size: 18px;
-    font-weight: 400;
-    
+.title {
+  padding-bottom: 15px;
 }
-
-  .selectionChoices {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    font-size: 16px;
-  }
-
-  .selectionChoices div label {
-    padding-left: 25px;
-
-  }
-
-  .selectionChoicesLast {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .selectionChoicesLast div label {
-    padding-left: 25px;
-  }
-
-  .firstTitle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 150px;
-    padding-bottom: 12px;
-  }
-
-  .progressBarWrapper {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.48);
-  
-  }
-  
-  .progressBar {
-    width: 275px;
-    height: 5px;
-    background-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .inputDescription {
-      color: rgba(255, 255, 255, 0.48);
-      font-size: 12px;
-      padding-top: 12px;
-      padding-bottom: 48px;
-      }
-
-      .inputTextField{
-        border-bottom: 1px solid rgba(255, 255, 255, 0.92);
-        background-color: transparent;
-        border-right: none;
-        border-left: none;
-        border-top: none;
-        padding: 10px 0;
-        color: white;
-        width: 100%;
-      }
-
-      .projectTagsWrapper label {
-        color: rgba(255, 255, 255, 0.8);
-      }
-
-      .firstTitle label:first-of-type {
-        color: white;
-      }
-
-      .projectTagsWrapper input[type="radio"] {
-        appearance: none;
-        background-color: #fff;
-        margin: 0;
-        font: inherit;
-        width: 20px;
-        height: 20px;
-        border: 3px solid #4A5568;
-        background-color: black;
-        border-radius: 50%;
-        transform: translateY(21px);
-        display: grid;
-        place-content: center;
-        cursor: pointer;
-      }
-      
-      .projectTagsWrapper input[type="radio"]::before {
-        content: "";
-        width: 0.65em;
-        height: 0.65em;
-        border-radius: 50%;
-        transform: scale(0);
-        transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em rgba(74, 85, 104, .8);
-      }
-      
-      
-      .projectTagsWrapper input[type="radio"]:checked::before {
-        transform: scale(1);
-      }

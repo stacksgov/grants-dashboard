@@ -1,7 +1,6 @@
 import styles from "./Steps.module.css";
 import Pencil from "../../../public/images/pencil.svg";
 import CheckmarkGreen from "../../../public/images/checkmarkGreen.svg";
-import { isValid } from "../../Input";
 
 const Steps = (props) => {
   let currentStep = props.step;
@@ -12,7 +11,7 @@ const Steps = (props) => {
       return (
         <span
           onClick={() => {
-            if (isValid()) setCurrentStep(props.stepNumber);
+            setCurrentStep(props.stepNumber);
           }}
         >
           <li className={styles.currentStep}>
@@ -25,7 +24,7 @@ const Steps = (props) => {
       return (
         <span
           onClick={() => {
-            if (isValid()) setCurrentStep(props.stepNumber);
+            setCurrentStep(props.stepNumber);
           }}
         >
           <li className={styles.currentStepComplete}>
@@ -38,7 +37,7 @@ const Steps = (props) => {
       return (
         <span
           onClick={() => {
-            if (isValid()) setCurrentStep(props.stepNumber);
+            setCurrentStep(props.stepNumber);
           }}
         >
           <li className={styles.currentStep}>{props.title}</li>
