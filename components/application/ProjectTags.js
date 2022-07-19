@@ -1,109 +1,135 @@
 import styles from "./ProjectTags.module.css";
-import Link from "next/link";
-import {
-  projectGoals,
-  projectAudience,
-  projectTracks,
-  projectOpenness,
-} from "../../content";
+import Form from "../Form";
 import Input from "../Input";
 
-const ProjectTags = ({ form }) => {
-  return (
-    <div className={styles.projectTagsWrapper}>
-      <h1>Project Tags</h1>
-      <p className={styles.subtitle}>
-        Select the Project Tags below. If you have questions about Project Tags,
-        click{" "}
-        <Link href="/">
-          <a>here</a>
-        </Link>
-        .
-      </p>
-      <div className={styles.section}>
-        <h2>Project Goals</h2>
-        <div className={styles.selectionChoices}>
-          {projectGoals.map((goal) => {
-            return (
-              <div>
-                <Input
-                  type="radio"
-                  name="projectGoals"
-                  value={goal.name}
-                  form={form}
-                  checked={goal.name == form.formData["projectGoals"]}
-                />
-                <label>{goal.name}</label>
-              </div>
-            );
-          })}
+const ProjectTags = () => {
+  const Fields = () => {
+    return (
+      <div>
+        <div style={{ paddingBottom: "40px" }}>
+          <p className={styles.title}>Project Goals</p>
+          <div className={styles.list}>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectGoal"
+                value="Create New Technology"
+              />
+              <label>Create New Technology</label>
+            </div>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectGoal"
+                value="Improve Existing Technologies"
+              />
+              <label>Improve Existing Technologies</label>
+            </div>
+          </div>
+          <div className={styles.list}>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectGoal"
+                value="Integrate Between Technologies"
+              />
+              <label>Integrate Between Technologies</label>
+            </div>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectGoal"
+                value="Strengthen Community"
+              />
+              <label>Strengthen Community</label>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.section}>
-        <h2>Project Audience</h2>
-        <div className={styles.selectionChoices}>
-          {projectAudience.map((audience) => {
-            return (
-              <div>
-                <Input
-                  type="radio"
-                  name="projectAudience"
-                  value={audience.name}
-                  form={form}
-                  checked={audience.name == form.formData["projectAudience"]}
-                />
-                <label>{audience.name}</label>
-              </div>
-            );
-          })}
+        <div style={{ paddingBottom: "40px" }}>
+          <p className={styles.title}>Project Audience</p>
+          <div className={styles.list}>
+            <div className={styles.radio}>
+              <input type="radio" name="projectAudience" value="Developers" />
+              <label>Developers</label>
+            </div>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectAudience"
+                value="Miners & Validators"
+              />
+              <label>Miners & Validators</label>
+            </div>
+          </div>
+          <div className={styles.list}>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectAudience"
+                value="Miners & Validators"
+              />
+              <label>Miners & Validators</label>
+            </div>
+            <div className={styles.radio}>
+              <input
+                type="radio"
+                name="projectAudience"
+                value="End Users (Institutional)"
+              />
+              <label>End Users (Institutional)</label>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className={styles.firstTitle}>
-        <label for="audience">Specific Audience</label>
-        <div className={styles.progressBarWrapper}>
-          <p> 80 Characters</p>
-          <div className={styles.progressBar}>
-            <span
-              style={{
-                background: "#718096",
-                width: "70%",
-                height: "100%",
-                display: "block",
-              }}
-            ></span>
+        <Input
+          name="specificAudience"
+          label="Specific Audience"
+          maxChar={80}
+          description="Please tell us who your target audience is for this project."
+        />
+        <div style={{ paddingBottom: "40px" }}>
+          <p className={styles.title}>Project Openness</p>
+          <div className={styles.list}>
+            <div
+              style={{ minWidth: "0px", marginRight: "50px" }}
+              className={styles.radio}
+            >
+              <input
+                type="radio"
+                name="projectOpenness"
+                value="Fully Open Source"
+              />
+              <label>Fully Open Source</label>
+            </div>
+            <div
+              style={{ minWidth: "0px", marginRight: "50px" }}
+              className={styles.radio}
+            >
+              <input
+                type="radio"
+                name="projectOpenness"
+                value="Partially Open Source"
+              />
+              <label>Partially Open Source</label>
+            </div>
+            <div style={{ minWidth: "0px" }} className={styles.radio}>
+              <input
+                type="radio"
+                name="projectOpenness"
+                value="Not Open Source"
+              />
+              <label>Not Open Source</label>
+            </div>
           </div>
         </div>
       </div>
-      <Input
-        className={styles.inputTextField}
-        name="audience"
-        maxLength={30}
-        form={form}
-      />
-      <p className={styles.inputDescription}>
-        Please tell us who your target audience is for this project.
-      </p>
-      <div className={styles.section}>
-        <h2>Project Openness</h2>
-        <div className={styles.selectionChoicesLast}>
-          {projectOpenness.map((openness) => {
-            return (
-              <div>
-                <Input
-                  type="radio"
-                  name="projectOpenness"
-                  value={openness.name}
-                  form={form}
-                  checked={openness.name == form.formData["projectOpenness"]}
-                />
-                <label>{openness.name}</label>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+    );
+  };
+  return (
+    <Form
+      title="Project Tags"
+      description="Select the Project Tags that best align with your project."
+      fields={Fields}
+    />
   );
 };
 

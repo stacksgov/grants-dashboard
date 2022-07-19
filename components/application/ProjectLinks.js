@@ -1,67 +1,32 @@
-import styles from "./ProjectLinks.module.css";
-import { useState } from "react";
 import Input from "../Input";
+import Form from "../Form";
 
-const ProjectLinks = ({ form }) => {
-  const [inputText, setInputText] = useState("");
-  const [inputSecondText, setSecondInputText] = useState("");
-  const characterCount = inputText.length;
-  const secondCharacterCount = inputSecondText.length;
-  // const handleChange = (event) => {
-  // 	setInputText(event.target.value);
-  // };
-  const secondHandleChange = (event) => {
-    setSecondInputText(event.target.value);
-  };
-  return (
-    <div className={styles.projectLinkWrapper}>
-      <h1>Project Links</h1>
-      <div className={styles.subtitle}>
-        <p>Do you have any reference materials to provide?</p>
-        <p>
-          You are allowed to provide one reference link to support your
-          application. Pitch decks and code repositories are encouraged. If you
-          provide a pitch deck, it is helpful if you include testimonial
-          (tweets, etc) from the community indicating that your project will
-          fill a need in the community. Short videos and/or voice memos of you
-          pitching your project are also encouraged. Links must be accessible to
-          all.
-        </p>
-      </div>
-      <div>
-        <div className={styles.inputSectionWrapper}>
-          <div className={styles.inputSection}>
-            <Input
-              type="area"
-              label="Reference Link URL"
-              name="firstLink"
-              form={form}
-            />
-          </div>
-          <div className={styles.inputSection}>
-            <Input
-              type="area"
-              label="Reference Link Description"
-              name="referenceLinkDescription"
-              form={form}
-            />
-            <div className={styles.progressBarWrapper}>
-              <p>{characterCount} Characters</p>
-              <div className={styles.progressBar}>
-                <span
-                  style={{
-                    background: "#718096",
-                    width: `${characterCount * 1}%`,
-                    height: "100%",
-                    display: "block",
-                  }}
-                ></span>
-              </div>
-            </div>
-          </div>
+const ProjectLinks = () => {
+  const Fields = () => {
+    return (
+      <div style={{ paddingTop: "25px" }}>
+        <div>
+          <Input name="referenceLink" label="Reference Link URL" />
+        </div>
+        <div style={{ paddingTop: "50px" }}>
+          <Input
+            name="referenceLinkDescription"
+            label="Reference Link Description"
+            height="100px"
+            maxChar={300}
+          />
         </div>
       </div>
-    </div>
+    );
+  };
+  return (
+    <Form
+      title="Project Links (optional)"
+      description="Do you have any reference materials to provide?
+
+      Pitch decks and/or code repositories are encouraged. It’s helpful to include testimonials (tweets, etc) from the community indicating that your project will fill a need in the community. Short videos and/or voice memos of you pitching your project are also encouraged.  Links must be accessible to all."
+      fields={Fields}
+    />
   );
 };
 

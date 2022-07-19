@@ -1,21 +1,21 @@
-.track {
+.radioWrapper {
   display: flex;
   flex-direction: column;
-  padding-bottom: 30px;
+  gap: 17px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.radioWrapper p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.24);
 }
 
 .radio {
-  min-width: 330px;
   display: flex;
   gap: 12px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
   align-items: center;
   padding-bottom: 10px;
-}
-
-.list {
-  color: rgba(255, 255, 255, 0.36);
-  font-size: 12px;
-  padding-left: 50px;
 }

@@ -10,7 +10,7 @@
 }
 
 .fundingStreamWrapper table {
-  width: 100%;
+  width: 50vw;
   background-color: #000000;
 }
 
@@ -61,7 +61,7 @@
   font: inherit;
   width: 20px;
   height: 20px;
-  border: 3px solid #4A5568;
+  border: 3px solid #4a5568;
   background-color: black;
   border-radius: 50%;
   transform: translateY(0px);
@@ -77,14 +77,12 @@
   border-radius: 50%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em rgba(74, 85, 104, .8);
+  box-shadow: inset 1em 1em rgba(74, 85, 104, 0.8);
 }
-
 
 .fundingStreamWrapper table tbody td input[type="radio"]:checked::before {
   transform: scale(1);
 }
-
 
 .fundingStreamWrapper table tbody tr td:nth-child(2) {
   width: 302px;
@@ -156,4 +154,9 @@
   background-color: gray;
   width: 23px;
   height: 16px;
+}
+
+.icon {
+  position: absolute;
+  top: 15px;
 }
