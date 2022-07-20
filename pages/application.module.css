@@ -3,14 +3,14 @@
   padding-bottom: 50px;
 }
 
-
 .mainComponents {
   display: flex;
-  justify-content: space-between;
+  max-width: 700px;
+  transition: 1000ms;
 }
 
 .middleComponent {
-  padding: 0 50px;
+  padding: 0 10px;
 }
 
 .stacksSVG {

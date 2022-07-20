@@ -1,14 +1,13 @@
 import styles from './StacksPayment.module.css';
 import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
-import DropdownIcon from '../public/images/dropdown.svg';
-import Calendar from 'react-calendar';
 import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
+import CalendarDropdown from '../components/calendarDropdown';
 
 const StacksConverter = () => {
 	const [value, onChange] = useState(new Date());
-	const [show, setShow] = useState(true);
+
 	const [weekAverageStxPrice, setWeekAverageStxPrice] = useState(0);
 	const [inputAmount, setInputAmount] = useState(0);
 	const [convertedStxAmount, setConvertedStxAmount] = useState(0);
@@ -16,19 +15,19 @@ const StacksConverter = () => {
 	const [copyToClipboard, setCopyToClipboard] = useState(false);
 	const [currencyDropdown, setCurrencyDropdown] = useState();
 
-	let pastSevenDays = new Date(value.getTime() - 7 * 24 * 60 * 60 * 1000);
-	let unixDateSevenDaysAgo = Math.floor(pastSevenDays.getTime() / 1000);
-	let unixDateSelected = Math.floor(value.getTime() / 1000);
+  let pastSevenDays = new Date(value.getTime() - 7 * 24 * 60 * 60 * 1000);
+  let unixDateSevenDaysAgo = Math.floor(pastSevenDays.getTime() / 1000);
+  let unixDateSelected = Math.floor(value.getTime() / 1000);
 
-	const copyAmount = async () => {
-		let copyText = await document.getElementById('stxNumber').innerText;
-		await navigator.clipboard.writeText(copyText).then(
-			() => setCopyToClipboard(true),
-			setTimeout(() => {
-				setCopyToClipboard(false);
-			}, 700)
-		);
-	};
+  const copyAmount = async () => {
+    let copyText = await document.getElementById("stxNumber").innerText;
+    await navigator.clipboard.writeText(copyText).then(
+      () => setCopyToClipboard(true),
+      setTimeout(() => {
+        setCopyToClipboard(false);
+      }, 700)
+    );
+  };
 
 	const getStxPrice = useCallback(
 		async (
@@ -39,31 +38,30 @@ const StacksConverter = () => {
 			let response = await fetch(
 				`https://api.coingecko.com/api/v3/coins/blockstack/market_chart/range?vs_currency=usd&from=${userDateSevenDaysAgo}&to=${userChosenDate}`
 			);
+
 			let data = await response.json();
+ 
 
-			data = data.prices;
+      data = data.prices;
 
-			let sum = 0;
+      let sum = 0;
 
-			data = data.map((array) => {
-				sum += parseFloat(array[1]);
-				return array[1];
-			});
-			let average = sum / data.length;
-			setWeekAverageStxPrice(average);
-			setConvertedStxAmount(userInput * average);
-			setConvertedUsdAmount(userInput / average);
-		},
-		[]
-	);
+      data = data.map((array) => {
+        sum += parseFloat(array[1]);
+        return array[1];
+      });
+      let average = sum / data.length;
+      setWeekAverageStxPrice(average);
+      setConvertedStxAmount(userInput * average);
+      setConvertedUsdAmount(userInput / average);
+    },
+    []
+  );
 
-	useEffect(() => {
-		getStxPrice().catch(console.error);
-	}, [getStxPrice]);
+  useEffect(() => {
+    getStxPrice().catch(console.error);
+  }, [getStxPrice]);
 
-	useEffect(() => {
-		setShow(false);
-	}, [value]);
 
 	return (
 		<div>
@@ -106,23 +104,8 @@ const StacksConverter = () => {
 						/>
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
-						<h2 for="selectDate">B. Select Date Payment Issued</h2>
-						<button
-							className={styles.calendarDropdownButton}
-							onClick={() => {
-								setShow(!show);
-							}}
-						>
-							<p>Drop Down...</p>
-							<DropdownIcon />
-						</button>
-						<div>
-							<Calendar
-								className={show ? styles.show : styles.hide}
-								onChange={onChange}
-								value={value}
-							/>
-						</div>
+						<label for="selectDate">B. Select Date Payment Issued</label>
+						<CalendarDropdown onChange={onChange} value={value} />
 					</div>
 					<div className={styles.buttonWrappers}>
 						<button
@@ -182,9 +165,9 @@ const StacksConverter = () => {
 				</div>
 			</div>
 
-			<StacksLogo className={styles.stacksSVG} />
-		</div>
-	);
+      <StacksLogo className={styles.stacksSVG} />
+    </div>
+  );
 };
 
 export default StacksConverter;

@@ -1,70 +1,46 @@
-import styles from "./ProjectInformation.module.css";
-import { useState } from "react";
 import Input from "../Input";
+import Form from "../Form";
 
-const ProjectInformation = ({ form }) => {
-  const [inputText, setInputText] = useState("");
-  const characterCount = inputText.length;
+const ProjectInformation = () => {
+  let style = { display: "flex", gap: "20px" };
 
-  return (
-    <div className={styles.projectInformationWrapper}>
-      <h1>Project Information</h1>
+  const Fields = () => {
+    return (
       <div>
-        <div className={styles.firstTitle}>
-          <label>Title Your Project</label>
-          <div className={styles.progressBarWrapper}>
-            <p> {characterCount} Characters</p>
-            <div className={styles.progressBar}>
-              <span
-                style={{
-                  background: "#718096",
-                  width: `${characterCount * 1}%`,
-                  height: "100%",
-                  display: "block",
-                }}
-              ></span>
-            </div>
-          </div>
-        </div>
-        <Input name="projectName" form={form} maxLength={30} />
-        <p className={styles.inputDescription}>
-          Name your Project so that it clearly communicates your objectives to
-          others, during review and in the future.
-        </p>
-      </div>
-
-      <div className={styles.secondSection}>
-        <div>
+        <Input
+          name="projectTitle"
+          label="Title Your Project"
+          maxChar={30}
+          description="Name your Project so that it clearly communicates your objectives to others, during review and in the future."
+        />
+        <div style={style}>
           <Input
-            label="Total Project Budget"
             name="projectBudget"
-            type="number"
-            form={form}
+            label="Total Project Budget"
+            description="Provide the total budget in $USD to complete your Project."
+            pageWidth="half"
           />
-          <p>Provide the total budget in $USD to complete your Project.</p>
-        </div>
-        <div>
           <Input
-            label="Total Project Duration"
             name="projectDuration"
-            type="number"
-            form={form}
+            label="Total Project Duration"
+            description="Provide the total amount of hours required to complete your Project. Include all members if this is a team project."
+            pageWidth="half"
           />
-          <p>
-            Provide the total amount of hours required to complete your Project.
-            Include all members if this is a team project.
-          </p>
         </div>
+        <Input
+          name="projectTeam"
+          label="Project Team Members"
+          description="Provide the GitHub usernames of any Project Team Members. Separate all names."
+        />
       </div>
-      <div className={styles.lastSection}>
-        <Input label="Project Team Members" name="projectTeam" form={form} />
-
-        <p>
-          Provide the GitHub usernames of any Project Team Members. Comma
-          separate all names.
-        </p>
-      </div>
-    </div>
+    );
+  };
+  return (
+    <Form
+      title="Project Information"
+      description="Tell us some basics about your project."
+      fields={Fields}
+    />
   );
 };
 

@@ -3,9 +3,20 @@ import styles from './Index.module.css';
 import Rocket from '../public/images/rocket.svg';
 import Link from 'next/link';
 import IndexGithub from '../public/images/indexGithub.svg';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import ExternalLinkIcon from '../public/images/externalLink.svg';
+import Head from 'next/head';
+
 const Home = () => {
+	const { data: session } = useSession();
+
 	return (
 		<div className={styles.indexWrapper}>
+			<Head>
+				<title>Stacks Grant Dashboard</title>
+				<body className={styles.gradientBackground} />
+			</Head>
+
 			<div className={styles.leftWrapper}>
 				<p className={styles.foundation}>Stacks Foundation</p>
 				<h1>Project Launchpad</h1>
@@ -25,41 +36,33 @@ const Home = () => {
 					<div>
 						<p>Funding Available from:</p>
 						<p>One-thousand to two-hundred and fifty thousand dollars.</p>
-						<Link href="/application">
-							<button>
-								<a>Submit Your Application</a>
-
-								<Rocket />
+						{!session && (
+							<button backgroundColor="grey" onClick={() => signIn('github')}>
+								<a>Connect Github</a>
+								<IndexGithub />
 							</button>
-						</Link>{' '}
+						)}
+						{session && (
+							<>
+								<Link href="/application">
+									<button>
+										<a>Submit Your Application</a>
+										<Rocket />
+									</button>
+								</Link>
+							</>
+						)}
 					</div>
 				</div>
 				<div className={styles.secondSection}>
-					<div>
-						<p>Maximize Your Impact</p>
-						<p>Submit a Wishlist project. Or apply to take one on.</p>
-						<Link href="/">
-							<a>
-								<button>Wishlist Projects</button>
-							</a>
-						</Link>{' '}
-					</div>
-					<div>
-						<p>Want to learn the basics?</p>
-						<p>Check out our educational Project Launchpad Primer.</p>
-						<Link href="/primer">
+					<p>Before you apply:</p>
+					<Link href="https://github.com/stacksgov/grants-dashboard/issues">
+						<a target="_blank" rel="noopener noreferrer">
 							<button>
-								<a>Project Launchpad Primer</a>
+								VISIT GITHUB REPO <ExternalLinkIcon className={styles.externalLinkIcon} />
 							</button>
-						</Link>
-					</div>
-					<div>
-						<p>Want to explore the details?</p>
-						<p>Vist the Project Launchpad GitHub Repository.</p>
-						<button>
-							Project Launchpad Repository <IndexGithub />
-						</button>
-					</div>
+						</a>
+					</Link>
 				</div>
 			</div>
 			<Link href="/utilities">

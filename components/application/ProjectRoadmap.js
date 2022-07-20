@@ -1,131 +1,62 @@
 import styles from "./ProjectRoadmap.module.css";
-import Link from "next/link";
-import { useState } from "react";
-import CheckmarkIcon from "../../public/images/checkmark.svg";
-import ArrowIcon from "../../public/images/arrow.svg";
 import Input from "../Input";
+import Form from "../Form";
 
-const ProjectRoadmap = ({ form }) => {
-  const [milestone, setMilestone] = useState(1);
-  const [inputText, setInputText] = useState("");
-
-  function getNumberOfMilestones(budget) {
-    if (budget < 10e3) {
-      return 0;
-    } else if (budget < 25e3) {
-      return 1;
-    } else if (budget < 60e3) {
-      return 2;
-    } else if (budget < 100e3) {
-      return 3;
-    } else if (budget < 150e3) {
-      return 4;
-    } else if (budget < 250e3) {
-      return 6;
-    } else {
-      return 8;
-    }
-  }
-
-  const numOfMilestones = getNumberOfMilestones(
-    parseInt(form.formData.projectBudget)
-  );
-  console.log("number of milestones: ", numOfMilestones);
-
-  const characterCount = inputText.length;
-
-  const MilestonesNav = [];
-
-  const Milestone = (number, name) => {
-    console.log("props", number);
+const ProjectRoadmap = () => {
+  const Fields = () => {
     return (
-      <>
-        <div className={styles.firstSection}>
-          <label>Milestone {number}</label>
-
-          <div className={styles.inputWrapper}>
-            <Input name={name} form={form} />
-
-            <button>
-              <CheckmarkIcon />
-              Ok
-            </button>
-          </div>
-          <div className={styles.progressBarWrapper}>
-            <p>80 Characters</p>
-            <div className={styles.progressBar}>
-              <span
-                style={{
-                  background: "#718096",
-                  width: "30%",
-                  height: "100%",
-                  display: "block",
-                }}
-              ></span>
-            </div>
+      <div>
+        <div className={styles.section}>
+          <p>Final Deliverable</p>
+          <div className={styles.input}>
+            <Input
+              name="finalDeliverable"
+              label="Final Deliverable"
+              labelSize="12px"
+              labelColor="rgba(255, 255, 255, 0.48)"
+              maxChar={80}
+              paddingBottom="30px"
+            />
+            <Input
+              name="finalDeliverableAC"
+              label="Acceptance Criteria"
+              labelSize="12px"
+              labelColor="rgba(255, 255, 255, 0.48)"
+              maxChar={80}
+              paddingBottom="40px"
+            />
           </div>
         </div>
-        <div className={styles.milestoneStepsWrapper}>
-          <div className={styles.milestoneSteps}>
-            <button onClick={() => setMilestone(milestone - 1)}>
-              <ArrowIcon className={styles.arrowBackward} />
-              Back
-            </button>
-            <div>{MilestonesNav}</div>
-          </div>
-          <div>
-            <button onClick={() => setMilestone(milestone + 1)}>
-              Next <ArrowIcon className={styles.arrowForward} />
-            </button>
+        <div className={styles.section}>
+          <p>Milestone Deliverables</p>
+          <div className={styles.input}>
+            <Input
+              name="milestoneOneDeliverable"
+              label="Deilverable (Milestone 1 of 3)"
+              labelSize="12px"
+              labelColor="rgba(255, 255, 255, 0.48)"
+              maxChar={80}
+              paddingBottom="30px"
+            />
+            <Input
+              name="milestoneOneAC"
+              label="Acceptance Criteria (Milestone 1 of 3)"
+              labelSize="12px"
+              labelColor="rgba(255, 255, 255, 0.48)"
+              maxChar={80}
+              paddingBottom="40px"
+            />
           </div>
         </div>
-      </>
+      </div>
     );
   };
-
-  const Milestones = () => {
-    let milestones = [];
-
-    for (let i = 1; i <= numOfMilestones; i++) {
-      MilestonesNav.push(<p>{i}</p>);
-      milestones.push(Milestone(i, `milestone${i}`));
-    }
-    return milestones;
-  };
-
   return (
-    <div className={styles.projectRoadmapWrapper}>
-      <h1>Project Roadmap</h1>
-      <p className={styles.subtitle}>
-        Select the Project Type below. If you have questions about Project
-        Types, click{" "}
-        <Link href="/">
-          <a>here</a>
-        </Link>
-        .
-      </p>
-      <h2>Milestone Deliverable</h2>
-      {Milestones()[milestone - 1]}
-      <div className={styles.secondSection}>
-        <div>
-          <label>Final Deliverable</label>
-          <div className={styles.progressBarWrapper}>
-            <p>{characterCount} Characters</p>
-            <div className={styles.progressBar}>
-              <span
-                style={{
-                  background: "#718096",
-                  width: "30%",
-                  height: "100%",
-                  display: "block",
-                }}
-              ></span>
-            </div>
-          </div>
-        </div>
-        <Input name="finalDeliverable" maxLength={30} form={form} />
-      </div>
-    </div>
+    <Form
+      title="Project Roadmap"
+      description="Provide clear, concise, easy to review deliverables and acceptance criteria for progress payments."
+      fields={Fields}
+    />
   );
 };
 
