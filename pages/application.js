@@ -7,6 +7,11 @@ import ProjectImpact from "../components/application/ProjectImpact";
 import ProjectLinks from "../components/application/ProjectLinks";
 import ProjectType from "../components/application/ProjectType";
 import { useEffect, useState } from "react";
+import {
+  isValidURL,
+  isValidEmail,
+  isValidStxAddress,
+} from "../components/Input";
 
 import { authOptions } from "./api/auth/[...nextauth]";
 import { unstable_getServerSession } from "next-auth/next";
@@ -48,10 +53,36 @@ const Application = () => {
             field.style.borderColor = "red";
             invalidFields.push(field.name);
           } else {
-            console.log("GETTING INDEX");
-            const index = invalidFields.indexOf(field.name);
-            if (index > -1) {
-              invalidFields.splice(index, 1);
+            switch (field.name) {
+              case "wishlistGithub":
+              case "referenceLink":
+                if (!isValidURL(field.value)) {
+                  field.style.outlineColor = "red";
+                  field.style.borderColor = "red";
+                  invalidFields.push(field.name);
+                }
+                break;
+              case "email":
+                if (!isValidEmail(field.value)) {
+                  field.style.outlineColor = "red";
+                  field.style.borderColor = "red";
+                  invalidFields.push(field.name);
+                }
+                break;
+              case "stxAddress":
+                if (!isValidStxAddress(field.value)) {
+                  field.style.outlineColor = "red";
+                  field.style.borderColor = "red";
+                  invalidFields.push(field.name);
+                }
+                break;
+              default:
+                const index = invalidFields.indexOf(field.name);
+                if (index > -1) {
+                  invalidFields.splice(index, 1);
+                }
+                setColor(field, "#3182ce");
+                break;
             }
           }
           break;
@@ -91,7 +122,6 @@ const Application = () => {
       });
     }
   }
-
 
   const CurrentStep = () => {
     switch (currentStep) {
@@ -152,7 +182,6 @@ const Application = () => {
         </div>
       </div>
 
-
       <StacksLogo className={styles.stacksSVG} />
     </div>
   );
@@ -175,7 +204,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
 
   session.user.email = "";
   return {
