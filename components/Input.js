@@ -20,12 +20,27 @@ const Input = (props) => {
 
   const [value, setValue] = useState("");
 
+  function setColor(field, color) {
+    field.style.outlineColor = color;
+    field.style.borderColor = color;
+  }
+
   function handleChange(event) {
-    const { value } = event.target;
+    let field = event.target;
+    const { name, value } = field;
+
 
     if (!(value.length > maxChar)) {
       setValue(value);
     }
+
+    if (value.length == undefined || value.length == "") {
+      setColor(field, "red");
+    } else {
+      setColor(field, "#3182ce");
+    }
+  }
+
   }
 
   let width;
@@ -64,6 +79,7 @@ const Input = (props) => {
       {height == undefined ? (
         <div style={{ position: "relative", paddingBottom }}>
           <input
+            name={name}
             style={{ width, height }}
             onChange={(event) => handleChange(event)}
             className={styles.input}
@@ -74,6 +90,7 @@ const Input = (props) => {
         </div>
       ) : (
         <textarea
+          name={name}
           style={{ width, height }}
           onChange={(event) => handleChange(event)}
           className={styles.input}
@@ -86,6 +103,7 @@ const Input = (props) => {
         <div className={styles.description}>
           <p>{description}</p>
         </div>
+
       )}
     </div>
   );

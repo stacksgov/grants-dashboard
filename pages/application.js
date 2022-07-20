@@ -2,11 +2,12 @@ import styles from "./Application.module.css";
 import Nav from "../components/application/layout/Nav";
 import Steps from "../components/application/layout/Steps";
 import StacksLogo from "../public/images/stacks-logo.svg";
-
+import Checkmark from "../public/images/checkmark.svg";
 import ProjectImpact from "../components/application/ProjectImpact";
 import ProjectLinks from "../components/application/ProjectLinks";
 import ProjectType from "../components/application/ProjectType";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import { authOptions } from "./api/auth/[...nextauth]";
 import { unstable_getServerSession } from "next-auth/next";
 import ProjectInformation from "../components/application/ProjectInformation";
@@ -19,7 +20,78 @@ import ProjectRoadmap from "../components/application/ProjectRoadmap";
 import ProjectMission from "../components/application/ProjectMission";
 
 const Application = () => {
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify({}));
+  }, []);
+
   const [currentStep, setCurrentStep] = useState(1);
+
+  function handleSubmit() {
+    let fields = Array.from(document.querySelectorAll("input, textarea"));
+    console.log(fields);
+
+    let invalidFields = [];
+
+    let optionGroupsChecked = [];
+    let optionGroupsValid = [];
+
+    fields.map((field) => {
+      console.log("FIELD TYPE", field);
+
+      switch (field.type) {
+        case "text":
+        case "textarea":
+          console.log(`field value for ${field.name}: `, field.value);
+
+          if (field.value == undefined || field.value == "") {
+            field.style.outlineColor = "red";
+            field.style.borderColor = "red";
+            invalidFields.push(field.name);
+          } else {
+            console.log("GETTING INDEX");
+            const index = invalidFields.indexOf(field.name);
+            if (index > -1) {
+              invalidFields.splice(index, 1);
+            }
+          }
+          break;
+        case "radio":
+          if (!optionGroupsChecked.includes(field.name)) {
+            optionGroupsChecked.push(field.name);
+          }
+          if (!optionGroupsValid.includes(field.name)) {
+            if (field.checked) {
+              optionGroupsValid.push(field.name);
+            }
+          }
+      }
+    });
+    let optionsValid = optionGroupsChecked.length == optionGroupsValid.length;
+    optionsValid ? null : invalidFields.push(optionGroupsChecked[0]);
+
+    console.log("invalid fields", invalidFields);
+    let formData = JSON.parse(localStorage.getItem("formData"));
+
+    if (invalidFields.length == 0) {
+      setCurrentStep(currentStep + 1);
+      fields.map((field) => {
+        let { name, value, type } = field;
+
+        switch (type) {
+          case "text":
+          case "textarea":
+            formData[name] = value;
+            break;
+          case "radio":
+            if (field.checked) {
+              formData[name] = value;
+            }
+        }
+        localStorage.setItem("formData", JSON.stringify(formData));
+      });
+    }
+  }
+
 
   const CurrentStep = () => {
     switch (currentStep) {
@@ -72,7 +144,15 @@ const Application = () => {
           />
         </div>
         <div>{CurrentStep()}</div>
+        <div className={styles.button}>
+          <button onClick={handleSubmit} name="okButton">
+            <Checkmark />
+            <p>Ok</p>
+          </button>
+        </div>
       </div>
+
+
       <StacksLogo className={styles.stacksSVG} />
     </div>
   );
@@ -95,6 +175,7 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
 
   session.user.email = "";
   return {

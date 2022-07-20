@@ -56,9 +56,10 @@ const ProjectTags = () => {
               <input
                 type="radio"
                 name="projectAudience"
-                value="Miners & Validators"
+                value="End Users (Consumer)"
               />
-              <label>Miners & Validators</label>
+              <label>End Users (Consumer)</label>
+
             </div>
           </div>
           <div className={styles.list}>

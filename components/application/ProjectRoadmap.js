@@ -31,16 +31,18 @@ const ProjectRoadmap = () => {
           <p>Milestone Deliverables</p>
           <div className={styles.input}>
             <Input
-              name="finalDeliverable"
-              label="Final Deliverable"
+              name="milestoneOneDeliverable"
+              label="Deilverable (Milestone 1 of 3)"
+
               labelSize="12px"
               labelColor="rgba(255, 255, 255, 0.48)"
               maxChar={80}
               paddingBottom="30px"
             />
             <Input
-              name="finalDeliverableAC"
-              label="Acceptance Criteria"
+              name="milestoneOneAC"
+              label="Acceptance Criteria (Milestone 1 of 3)"
+
               labelSize="12px"
               labelColor="rgba(255, 255, 255, 0.48)"
               maxChar={80}

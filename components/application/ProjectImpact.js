@@ -30,7 +30,6 @@ const ProjectImpact = () => {
           title="Project Risks"
           description="What are the risks involved with this project?  Are there any technical (or other) factors that might limit your ability to complete the project?  If so, what is your plan to overcome these factors?"
           fields={RisksField}
-          showButton={false}
         />
       </div>
     </div>
