@@ -29,6 +29,7 @@ const Input = (props) => {
     let field = event.target;
     const { name, value } = field;
 
+
     if (!(value.length > maxChar)) {
       setValue(value);
     }
@@ -38,6 +39,8 @@ const Input = (props) => {
     } else {
       setColor(field, "#3182ce");
     }
+  }
+
   }
 
   let width;
@@ -100,6 +103,7 @@ const Input = (props) => {
         <div className={styles.description}>
           <p>{description}</p>
         </div>
+
       )}
     </div>
   );

@@ -7,6 +7,7 @@ import ProjectImpact from "../components/application/ProjectImpact";
 import ProjectLinks from "../components/application/ProjectLinks";
 import ProjectType from "../components/application/ProjectType";
 import { useEffect, useState } from "react";
+
 import { authOptions } from "./api/auth/[...nextauth]";
 import { unstable_getServerSession } from "next-auth/next";
 import ProjectInformation from "../components/application/ProjectInformation";
@@ -91,6 +92,7 @@ const Application = () => {
     }
   }
 
+
   const CurrentStep = () => {
     switch (currentStep) {
       case 1:
@@ -150,6 +152,7 @@ const Application = () => {
         </div>
       </div>
 
+
       <StacksLogo className={styles.stacksSVG} />
     </div>
   );
@@ -172,6 +175,7 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
 
   session.user.email = "";
   return {

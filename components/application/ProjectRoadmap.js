@@ -33,6 +33,7 @@ const ProjectRoadmap = () => {
             <Input
               name="milestoneOneDeliverable"
               label="Deilverable (Milestone 1 of 3)"
+
               labelSize="12px"
               labelColor="rgba(255, 255, 255, 0.48)"
               maxChar={80}
@@ -41,6 +42,7 @@ const ProjectRoadmap = () => {
             <Input
               name="milestoneOneAC"
               label="Acceptance Criteria (Milestone 1 of 3)"
+
               labelSize="12px"
               labelColor="rgba(255, 255, 255, 0.48)"
               maxChar={80}

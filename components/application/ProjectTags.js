@@ -59,6 +59,7 @@ const ProjectTags = () => {
                 value="End Users (Consumer)"
               />
               <label>End Users (Consumer)</label>
+
             </div>
           </div>
           <div className={styles.list}>
