@@ -1,18 +1,165 @@
 import styles from './ProjectData.module.css';
-import Calendar from 'react-calendar';
 import Link from 'next/link';
 import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CalendarDropdown from '../components/calendarDropdown';
+import { Octokit } from '@octokit/rest';
+import { useSession } from 'next-auth/react';
 
 const ProjectDataExporter = () => {
+	const { data: session } = useSession();
+
 	const [endDate, setEndDate] = useState(new Date());
-	const [projectType, setProjectType] = useState();
-	const [projectPhase, setProjectPhase] = useState();
+	const [projectType, setProjectType] = useState('');
+	const [projectPhase, setProjectPhase] = useState('');
 	let pastSevenDays = new Date(endDate.getTime() - 7 * 24 * 60 * 60 * 1000);
 	const [startDate, setStartDate] = useState(pastSevenDays);
-	const [projectTracks, setProjectTracks] = useState();
+	const [projectTracks, setProjectTracks] = useState('');
+	const [projectsFound, setProjectsFound] = useState(0);
+
+	let issues = [];
+	const applicationTypeArr = ['Direct Application', 'Wishlist Submission', 'Wishlist Request'];
+	const projectTypeArr = [
+		'Open Source Starter',
+		'Open Source Builder',
+		'Community Builder',
+		'Education',
+		'Events',
+		'Chapter (by Region)',
+		'ALEX (DeFi)',
+		'Resident Program',
+		'Direct Investment'
+	];
+	const projectTrackArr = [
+		'Stacks Protocol',
+		'Stacks Interface',
+		'Stacks dApps & Clarity',
+		'Stacks Education & Community',
+		'Stacks Developer Experience',
+		'Stacks User Experience',
+		'Cross-Chain & Off-Chain',
+		'Bitcin Utility via Stacks'
+	];
+	const projectStatusArr = [
+		'Initial Review in Progress',
+		'Review in Progress',
+		'Revisions in Progress',
+		'Onboarding in Progress',
+		'Milestone in Progress',
+		'Final Deliverable in Progress',
+		'Project Complete',
+		'Project Now Stale',
+		'Project Closed'
+	];
+	const projectPhaseArr = [
+		'Application Phase',
+		'Onboarding Phase',
+		'Milestone 1',
+		'Milestone 2',
+		'Milestone 3',
+		'Milestone 4',
+		'Milestone 5',
+		'Milestone 6',
+		'Milestone 7',
+		'Milestone 8',
+		'Milestone 9',
+		'Milestone 10',
+		'Final Deliverable'
+	];
+
+	const predictedImpactScoreArr = ['6', '5', '4', '3', '2', '1'];
+
+	async function getIssues() {
+		issues = [];
+		const github = new Octokit({
+			auth: session.accessToken
+		});
+
+		let req = await github.rest.issues.listForRepo({
+			owner: 'stacksgov',
+			repo: 'grants-dashboard',
+			state: 'all',
+			labels: `${projectTracks},${projectPhase},${projectType}`,
+			since: `${startDate}`
+		});
+
+		let res = req.data;
+
+		// console.log('issues', res);
+
+		res.map((issue) => {
+			let teamMembers = issue.assignees.map((assignee) => assignee.login);
+
+			issues.push({
+				dateSubmitted: issue.created_at,
+				number: issue.number,
+				projectLead: issue.user.login,
+				projectName: issue.title,
+				teamMembers: teamMembers,
+				url: issue.html_url,
+				labels: issue.labels,
+				body: issue.body
+			});
+		});
+
+		const relevantIssues = issues.filter(
+			(issue) => Date.parse(issue.dateSubmitted) <= Date.parse(endDate)
+		);
+
+		relevantIssues.map((issue) => {
+			issue.labels.map((label) => {
+				if (applicationTypeArr.includes(label.name)) {
+					issue.applicationType = label.name;
+				}
+
+				if (projectTypeArr.includes(label.name)) {
+					issue.projectType = label.name;
+				}
+
+				if (projectTrackArr.includes(label.name)) {
+					issue.projectTrack = label.name;
+				}
+				if (projectStatusArr.includes(label.name)) {
+					issue.projectStatus = label.name;
+				}
+				if (projectPhaseArr.includes(label.name)) {
+					issue.projectPhase = label.name;
+				}
+				if (predictedImpactScoreArr.includes(label.name)) {
+					issue.predictedImpactScore = label.name;
+				}
+			});
+		});
+
+		await Promise.all(
+			relevantIssues.map(async (issue) => {
+				let req = await github.rest.issues.listComments({
+					owner: 'stacksgov',
+					repo: 'grants-dashboard',
+					issue_number: `${issue.number}`
+				});
+				let res = req.data;
+				issue.commentName = res.map((commenter) => commenter.user.login);
+			})
+		);
+
+		console.log('relevant issues', relevantIssues);
+
+		await Promise.all(
+			relevantIssues.map(async (issue) => {
+				let req = await github.rest.reactions.listForIssue({
+					owner: 'stacksgov',
+					repo: 'grants-dashboard',
+					issue_number: `${issue.number}`
+				});
+
+				let res = req.data;
+				issue.reactionUsername = res.map((reactor) => reactor.user.login);
+			})
+		);
+		setProjectsFound(relevantIssues.length);
+	}
 
 	return (
 		<div>
@@ -97,7 +244,9 @@ const ProjectDataExporter = () => {
 						</select>
 					</div>
 					<div className={styles.buttonWrappers}>
-						<button className={styles.converterButton}>Click to Export</button>
+						<button className={styles.converterButton} onClick={getIssues}>
+							Click to Export
+						</button>
 					</div>
 					<div className={styles.dropdownWrapper}>
 						<div>
@@ -128,7 +277,7 @@ const ProjectDataExporter = () => {
 					<div className={styles.dropdownWrapper}>
 						<div className={styles.projectsFound}>
 							<p>Projects Found</p>
-							<p>88</p>
+							<p>{projectsFound}</p>
 						</div>
 					</div>
 				</div>

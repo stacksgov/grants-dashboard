@@ -15,19 +15,19 @@ const StacksConverter = () => {
 	const [copyToClipboard, setCopyToClipboard] = useState(false);
 	const [currencyDropdown, setCurrencyDropdown] = useState();
 
-  let pastSevenDays = new Date(value.getTime() - 7 * 24 * 60 * 60 * 1000);
-  let unixDateSevenDaysAgo = Math.floor(pastSevenDays.getTime() / 1000);
-  let unixDateSelected = Math.floor(value.getTime() / 1000);
+	let pastSevenDays = new Date(value.getTime() - 7 * 24 * 60 * 60 * 1000);
+	let unixDateSevenDaysAgo = Math.floor(pastSevenDays.getTime() / 1000);
+	let unixDateSelected = Math.floor(value.getTime() / 1000);
 
-  const copyAmount = async () => {
-    let copyText = await document.getElementById("stxNumber").innerText;
-    await navigator.clipboard.writeText(copyText).then(
-      () => setCopyToClipboard(true),
-      setTimeout(() => {
-        setCopyToClipboard(false);
-      }, 700)
-    );
-  };
+	const copyAmount = async () => {
+		let copyText = await document.getElementById('stxNumber').innerText;
+		await navigator.clipboard.writeText(copyText).then(
+			() => setCopyToClipboard(true),
+			setTimeout(() => {
+				setCopyToClipboard(false);
+			}, 700)
+		);
+	};
 
 	const getStxPrice = useCallback(
 		async (
@@ -35,33 +35,34 @@ const StacksConverter = () => {
 			userChosenDate = unixDateSelected,
 			userDateSevenDaysAgo = unixDateSevenDaysAgo
 		) => {
-			let response = await fetch(
-				`https://api.coingecko.com/api/v3/coins/blockstack/market_chart/range?vs_currency=usd&from=${userDateSevenDaysAgo}&to=${userChosenDate}`
-			);
+			try {
+				let response = await fetch(
+					`https://api.coingecko.com/api/v3/coins/blockstack/market_chart/range?vs_currency=usd&from=${userDateSevenDaysAgo}&to=${userChosenDate}`
+				);
 
-			let data = await response.json();
- 
+				let data = await response.json();
 
-      data = data.prices;
+				data = data.prices;
+			} catch (error) {
+				console.log(`uh oh ${error}`);
+			}
+			let sum = 0;
 
-      let sum = 0;
+			data = data.map((array) => {
+				sum += parseFloat(array[1]);
+				return array[1];
+			});
+			let average = sum / data.length;
+			setWeekAverageStxPrice(average);
+			setConvertedStxAmount(userInput * average);
+			setConvertedUsdAmount(userInput / average);
+		},
+		[]
+	);
 
-      data = data.map((array) => {
-        sum += parseFloat(array[1]);
-        return array[1];
-      });
-      let average = sum / data.length;
-      setWeekAverageStxPrice(average);
-      setConvertedStxAmount(userInput * average);
-      setConvertedUsdAmount(userInput / average);
-    },
-    []
-  );
-
-  useEffect(() => {
-    getStxPrice().catch(console.error);
-  }, [getStxPrice]);
-
+	useEffect(() => {
+		getStxPrice().catch(console.error);
+	}, [getStxPrice]);
 
 	return (
 		<div>
@@ -165,9 +166,9 @@ const StacksConverter = () => {
 				</div>
 			</div>
 
-      <StacksLogo className={styles.stacksSVG} />
-    </div>
-  );
+			<StacksLogo className={styles.stacksSVG} />
+		</div>
+	);
 };
 
 export default StacksConverter;
