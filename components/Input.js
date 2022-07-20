@@ -1,5 +1,24 @@
 import { useState } from "react";
 import styles from "./Input.module.css";
+import { validateStacksAddress } from "@stacks/transactions";
+
+export function isValidURL(string) {
+  var res = string.match(
+    /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+  );
+  return res !== null;
+}
+
+export function isValidEmail(string) {
+  if (/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(string)) {
+    return true;
+  }
+  return false;
+}
+
+export function isValidStxAddress(string) {
+  return validateStacksAddress(string);
+}
 
 const Input = (props) => {
   const {
@@ -36,7 +55,33 @@ const Input = (props) => {
     if (value.length == undefined || value.length == "") {
       setColor(field, "red");
     } else {
-      setColor(field, "#3182ce");
+      switch (name) {
+        case "wishlistGithub":
+        case "referenceLink":
+          if (isValidURL(value)) {
+            setColor(field, "#3182ce");
+          } else {
+            setColor(field, "red");
+          }
+          break;
+        case "email":
+          if (isValidEmail(value)) {
+            setColor(field, "#3182ce");
+          } else {
+            setColor(field, "red");
+          }
+          break;
+        case "stxAddress":
+          if (isValidStxAddress(value)) {
+            setColor(field, "#3182ce");
+          } else {
+            setColor(field, "red");
+          }
+          break;
+        default:
+          setColor(field, "#3182ce");
+          break;
+      }
     }
   }
 
@@ -76,6 +121,7 @@ const Input = (props) => {
       {height == undefined ? (
         <div style={{ position: "relative", paddingBottom }}>
           <input
+            autoComplete="false"
             name={name}
             style={{ width, height }}
             onChange={(event) => handleChange(event)}
