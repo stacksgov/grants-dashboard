@@ -4,10 +4,13 @@ import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
 import { useState } from 'react';
 import CalendarDropdown from '../components/calendarDropdown';
+import { CSVLink, CSVDownload } from 'react-csv';
 import { Octokit } from '@octokit/rest';
 import { useSession } from 'next-auth/react';
 
 const ProjectDataExporter = () => {
+	const [CSVData, setCSVData] = useState([['projectName', 'projectBudget', 'projectDuration']]);
+
 	const { data: session } = useSession();
 
 	const [endDate, setEndDate] = useState(new Date());
@@ -71,6 +74,7 @@ const ProjectDataExporter = () => {
 	const predictedImpactScoreArr = ['6', '5', '4', '3', '2', '1'];
 
 	async function getIssues() {
+		setCSVData([['projectName', 'projectBudget', 'projectDuration']]);
 		issues = [];
 		const github = new Octokit({
 			auth: session.accessToken
@@ -130,6 +134,34 @@ const ProjectDataExporter = () => {
 					issue.predictedImpactScore = label.name;
 				}
 			});
+		});
+
+		relevantIssues.map((issue) => {
+			if (issue.body) {
+				console.log('issue', issue.body);
+				const regex = /(?<=&thinsp;)([\s\S]*?)(?=\*\*)/g;
+				const lines = issue.body
+					.match(regex)
+					.map((line) => line.replace('\n', '').replace('\n', '').trim());
+
+				issue.projectName = lines[0];
+				issue.projectBudget = lines[1];
+				issue.projectDuration = lines[2];
+				// issue.fundingStream = lines[3];
+				// issue.projectType = lines[4];
+				// issue.projectTrack = lines[5];
+				// issue.projectGoal = lines[6];
+				// issue.projectAudience = lines[7];
+				// issue.specificAudience = lines[8];
+				// issue.projectOpenness = lines[9];
+				// issue.projectTeamMembers = lines[10];
+				// issue.previousGrants = lines[11];
+				// issue.ecosystemPrograms = lines[12];
+				// issue.projectMission = lines[13];
+				let newCSVData = CSVData;
+				newCSVData.push([issue.projectName, issue.projectBudget, issue.projectDuration]);
+				setCSVData(newCSVData);
+			}
 		});
 
 		await Promise.all(
@@ -247,6 +279,9 @@ const ProjectDataExporter = () => {
 						<button className={styles.converterButton} onClick={getIssues}>
 							Click to Export
 						</button>
+						<CSVLink data={CSVData}>
+							<button>test</button>
+						</CSVLink>
 					</div>
 					<div className={styles.dropdownWrapper}>
 						<div>
