@@ -23,6 +23,9 @@ import ProjectTrack from "../components/application/ProjectTrack";
 import ProjectTags from "../components/application/ProjectTags";
 import ProjectRoadmap from "../components/application/ProjectRoadmap";
 import ProjectMission from "../components/application/ProjectMission";
+import ProjectUserInfoCTwo from "../components/application/ProjectUserInfoCTwo";
+import ProjectRevisionsOne from "../components/application/ProjectRevisionsOne";
+import ProjectRevisionsTwo from "../components/application/ProjectRevisionsTwo";
 
 const Application = () => {
   useEffect(() => {
@@ -138,11 +141,11 @@ const Application = () => {
       case 6:
         return <ProjectTags />;
       case 7:
-        return <ProjectInformation />;
+        return <ProjectUserInfoCTwo />;
       case 8:
-        return <ProjectRoadmap />;
+        return <ProjectRevisionsOne />;
       case 9:
-        return <ProjectMission />;
+        return <ProjectRevisionsTwo />;
       case 10:
         return <ProjectImpact />;
       case 11:
