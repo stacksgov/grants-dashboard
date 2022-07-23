@@ -188,30 +188,25 @@ const Application = () => {
       <StacksLogo className={styles.stacksSVG} />
     </div>
   );
-};
 
 export default Application;
 
 export async function getServerSideProps(context) {
-  const session = await unstable_getServerSession(
-    context.req,
-    context.res,
-    authOptions
-  );
+	const session = await unstable_getServerSession(context.req, context.res, authOptions);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
+	if (!session) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false
+			}
+		};
+	}
 
-  session.user.email = "";
-  return {
-    props: {
-      session,
-    },
-  };
+	session.user.email = '';
+	return {
+		props: {
+			session
+		}
+	};
 }

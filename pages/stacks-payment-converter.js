@@ -35,12 +35,13 @@ const StacksConverter = () => {
 			userChosenDate = unixDateSelected,
 			userDateSevenDaysAgo = unixDateSevenDaysAgo
 		) => {
+			let data;
 			try {
 				let response = await fetch(
 					`https://api.coingecko.com/api/v3/coins/blockstack/market_chart/range?vs_currency=usd&from=${userDateSevenDaysAgo}&to=${userChosenDate}`
 				);
 
-				let data = await response.json();
+				data = await response.json();
 
 				data = data.prices;
 			} catch (error) {

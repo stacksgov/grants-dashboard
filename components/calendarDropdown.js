@@ -15,7 +15,7 @@ const CalendarDropdown = (props) => {
 					setShow(!show);
 				}}
 			>
-				<p>Drop Down...</p>
+				<p>Drop down...</p>
 				<DropdownIcon />
 			</button>
 			<div>
