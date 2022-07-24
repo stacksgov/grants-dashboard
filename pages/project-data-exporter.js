@@ -213,7 +213,7 @@ const ProjectDataExporter = () => {
 				</p>
 				<div className={styles.projectExportWrapper}>
 					<div className={styles.dropdownWrapper}>
-						<label for="selectProjectType">A. Select Project Type(s)</label>
+						<label htmlFor="selectProjectType">A. Select Project Type(s)</label>
 						<select name="selectProjectType" onChange={(e) => setProjectType(e.target.value)}>
 							<option value="" disabled selected>
 								Drop down...
@@ -230,12 +230,12 @@ const ProjectDataExporter = () => {
 						</select>
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
-						<label for="amountReceived">D. Select Start Date</label>
+						<label htmlFor="amountReceived">D. Select Start Date</label>
 						<CalendarDropdown onChange={setStartDate} value={startDate} />
 					</div>
 
 					<div className={styles.dropdownWrapper}>
-						<label for="selectProjectTrack">B. Select Project Track(s)</label>
+						<label htmlFor="selectProjectTrack">B. Select Project Track(s)</label>
 						<select name="selectProjectTrack" onChange={(e) => setProjectTracks(e.target.value)}>
 							<option value="" disabled selected>
 								Drop down...
@@ -251,11 +251,11 @@ const ProjectDataExporter = () => {
 						</select>
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
-						<label for="selectDate">E. Select End Date</label>
+						<label htmlFor="selectDate">E. Select End Date</label>
 						<CalendarDropdown onChange={setEndDate} value={endDate} />
 					</div>
 					<div className={styles.dropdownWrapper}>
-						<label for="selectProjectPhase">C. Select Project Phase</label>
+						<label htmlFor="selectProjectPhase">C. Select Project Phase</label>
 						<select name="selectProjectPhase" onChange={(e) => setProjectPhase(e.target.value)}>
 							<option value="" disabled selected>
 								Drop down...

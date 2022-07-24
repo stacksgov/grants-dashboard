@@ -86,7 +86,7 @@ const StacksConverter = () => {
 				</p>
 				<div className={styles.paymentCalculatorWrapper}>
 					<div className={styles.dropdownWrapper}>
-						<label for="selectCurrency">A. Select Currency (STX or USD)</label>
+						<label htmlFor="selectCurrency">A. Select Currency (STX or USD)</label>
 						<select name="selectCurrency" onChange={(e) => setCurrencyDropdown(e.target.value)}>
 							<option value="" disabled selected>
 								Drop down...
@@ -96,7 +96,7 @@ const StacksConverter = () => {
 						</select>
 					</div>
 					<div className={styles.dropdownWrapper}>
-						<label for="amountReceived">C. Input Amount Received</label>
+						<label htmlFor="amountReceived">C. Input Amount Received</label>
 						<input
 							name="amountReceived"
 							type="number"
@@ -106,7 +106,7 @@ const StacksConverter = () => {
 						/>
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
-						<label for="selectDate">B. Select Date Payment Issued</label>
+						<label htmlFor="selectDate">B. Select Date Payment Issued</label>
 						<CalendarDropdown onChange={onChange} value={value} />
 					</div>
 					<div className={styles.buttonWrappers}>
@@ -162,6 +162,7 @@ const StacksConverter = () => {
 									: (1 / weekAverageStxPrice).toFixed(3).toLocaleString()}{' '}
 								{currencyDropdown === 'stx' ? 'USD' : 'STX'}
 							</p>
+							<p>Data provided by CoinGecko</p>
 						</div>
 					</div>
 				</div>

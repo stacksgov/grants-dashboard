@@ -123,6 +123,7 @@ const Application = () => {
 		switch (currentStep) {
 			case 1:
 				return <ProjectType />;
+
 			case 2:
 				return <ProjectUserInfoOne />;
 			case 3:
