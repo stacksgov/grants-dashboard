@@ -1,8 +1,20 @@
 .gradientBackground {
-  background: -webkit-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
+  background: -webkit-linear-gradient(
+    bottom,
+    rgb(16, 11, 31) 0%,
+    rgb(0, 0, 0) 100%
+  );
   background: -o-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
-  background: -ms-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
-  background: -moz-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
+  background: -ms-linear-gradient(
+    bottom,
+    rgb(16, 11, 31) 0%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -moz-linear-gradient(
+    bottom,
+    rgb(16, 11, 31) 0%,
+    rgb(0, 0, 0) 100%
+  );
   background: linear-gradient(to top, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
 }
 
@@ -15,7 +27,6 @@
   padding-left: 10px;
   padding-right: 10px;
   height: 100%;
-
 }
 
 .indexWrapper button {
@@ -23,7 +34,7 @@
 }
 
 .indexWrapper h1 {
-  color:rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 84px;
   font-weight: 800;
   max-width: 753px;
@@ -31,15 +42,14 @@
   padding-bottom: 42px;
 }
 
-.leftWrapper p:nth-of-type(2){
+.leftWrapper p:nth-of-type(2) {
   font-size: 14px;
   font-weight: 300;
   line-height: 18px;
   max-width: 291px;
-  color: #4A5568;
+  color: #4a5568;
   padding-bottom: 7px;
 }
-
 
 .mainBodyText {
   font-size: 30px;
@@ -59,26 +69,24 @@
   display: inline-block;
 position: relative;
 padding: 0px 10px;
+
 }
 
-.highlightedWords::before{
+.highlightedWords::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 20px; 
+  border-radius: 20px;
   padding: 2px;
-background: linear-gradient(45deg,#3381CC,#96286F) border-box;
--webkit-mask: 
-linear-gradient(#fff 0 0) content-box, 
-linear-gradient(#fff 0 0);
--webkit-mask-composite: xor;
-     mask-composite: exclude; 
+  background: linear-gradient(45deg, #3381cc, #96286f) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 .foundation {
   color: #171923;
   font-size: 32px;
-
 }
 
 .rightWrapper {
@@ -87,17 +95,17 @@ padding-top: 200px;
 
 
 .firstSection {
-background-color: rgba(0, 0, 0, 0.64);
-width: 100%;
-padding-right: 42px;
-padding-left: 42px;
-height: 210px;
-border-top-left-radius: 50px;
-border-bottom-left-radius: 20px;
-border-top-right-radius: 20px;
-border-bottom-right-radius: 20px;
-padding-top: 40px;
-padding-bottom: 42px;
+  background-color: rgba(0, 0, 0, 0.64);
+  width: 100%;
+  padding-right: 42px;
+  padding-left: 42px;
+  height: 210px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-top: 40px;
+  padding-bottom: 42px;
 }
 
 .firstSection div:first-of-type {
@@ -116,7 +124,6 @@ padding-bottom: 42px;
   padding-bottom: 5px;
   color: rgba(255, 255, 255, 0.48);
 }
-
 
 .firstSection div:first-of-type button:first-of-type {
   width: 302px;
@@ -156,7 +163,7 @@ padding-bottom: 42px;
 .secondSection p {
   color: rgba(255, 255, 255, 0.24);
   font-size: 11px;
-  letter-spacing: -.75px;
+  letter-spacing: -0.75px;
   padding-bottom: 2px;
 }
 
@@ -173,16 +180,15 @@ padding-bottom: 42px;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
 }
 
 .externalLinkIcon {
   width: 10px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(360deg) brightness(101%) contrast(103%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(360deg)
+    brightness(101%) contrast(103%);
   opacity: 24%;
 }
-
-
 
 .blob {
   position: absolute;
@@ -190,7 +196,6 @@ padding-bottom: 42px;
   left: 40%;
   z-index: -1;
 }
-
 
 .utilities {
 position: fixed;
@@ -209,10 +214,9 @@ text-align: center;
 padding: 6px;
 }
 
-
-
 .githubLogo {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg) brightness(105%) contrast(101%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg)
+    brightness(105%) contrast(101%);
 }
 
 @media(max-width: 800px) {

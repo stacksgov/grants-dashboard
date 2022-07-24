@@ -1,24 +1,31 @@
-import styles from './application.module.css';
-import Nav from '../components/application/layout/Nav';
-import Steps from '../components/application/layout/Steps';
-import StacksLogo from '../public/images/stacks-logo.svg';
-import Checkmark from '../public/images/checkmark.svg';
-import ProjectImpact from '../components/application/ProjectImpact';
-import ProjectLinks from '../components/application/ProjectLinks';
-import ProjectType from '../components/application/ProjectType';
-import { useEffect, useState } from 'react';
-import { isValidURL, isValidEmail, isValidStxAddress } from '../components/Input';
+import styles from "./Application.module.css";
+import Nav from "../components/application/layout/Nav";
+import Steps from "../components/application/layout/Steps";
+import StacksLogo from "../public/images/stacks-logo.svg";
+import Checkmark from "../public/images/checkmark.svg";
+import ProjectImpact from "../components/application/ProjectImpact";
+import ProjectLinks from "../components/application/ProjectLinks";
+import ProjectType from "../components/application/ProjectType";
+import { useEffect, useState } from "react";
+import {
+  isValidURL,
+  isValidEmail,
+  isValidStxAddress,
+} from "../components/Input";
 
-import { authOptions } from './api/auth/[...nextauth]';
-import { unstable_getServerSession } from 'next-auth/next';
-import ProjectInformation from '../components/application/ProjectInformation';
-import ProjectUserInfoOne from '../components/application/ProjectUserInfoOne';
-import ProjectUserInfoTwo from '../components/application/ProjectUserInfoTwo';
-import ProjectFundingStream from '../components/application/ProjectFundingStream';
-import ProjectTrack from '../components/application/ProjectTrack';
-import ProjectTags from '../components/application/ProjectTags';
-import ProjectRoadmap from '../components/application/ProjectRoadmap';
-import ProjectMission from '../components/application/ProjectMission';
+import { authOptions } from "./api/auth/[...nextauth]";
+import { unstable_getServerSession } from "next-auth/next";
+import ProjectInformation from "../components/application/ProjectInformation";
+import ProjectUserInfoOne from "../components/application/ProjectUserInfoOne";
+import ProjectUserInfoTwo from "../components/application/ProjectUserInfoTwo";
+import ProjectFundingStream from "../components/application/ProjectFundingStream";
+import ProjectTrack from "../components/application/ProjectTrack";
+import ProjectTags from "../components/application/ProjectTags";
+import ProjectRoadmap from "../components/application/ProjectRoadmap";
+import ProjectMission from "../components/application/ProjectMission";
+import ProjectUserInfoCTwo from "../components/application/ProjectUserInfoCTwo";
+import ProjectRevisionsOne from "../components/application/ProjectRevisionsOne";
+import ProjectRevisionsTwo from "../components/application/ProjectRevisionsTwo";
 
 const Application = () => {
 	useEffect(() => {
