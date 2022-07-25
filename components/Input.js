@@ -51,6 +51,7 @@ const Input = (props) => {
 
     console.log("name", name);
     console.log("value", value);
+
     let formData = JSON.parse(localStorage.getItem("formData"));
     formData[name] = value;
     localStorage.setItem("formData", JSON.stringify(formData));
@@ -106,11 +107,12 @@ const Input = (props) => {
       break;
   }
 
-  let displayValue =
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("formData"))[name]
-      : "";
+  let displayValue = "";
 
+  if (typeof window !== "undefined") {
+    let formData = JSON.parse(localStorage.getItem("formData"));
+    if (formData) displayValue = formData[name];
+  }
   return (
     <div style={{ maxWidth: width }} className={styles.fieldWrapper}>
       <div className={styles.title}>
