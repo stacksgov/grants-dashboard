@@ -1,9 +1,54 @@
 .section {
   position: relative;
   padding-bottom: 20px;
+  min-width: 775px;
 }
 
 .input {
   padding-left: 15px;
   padding-top: 25px;
+}
+
+.input div {
+  position: relative;
+}
+
+.input input {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.input button {
+  z-index: 1;
+  position: absolute;
+  width: 120px;
+  height: 50px;
+  background: #171923;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 4px;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  right: 10px;
+  top: 38px;
+}
+
+.arrows {
+  display: flex;
+  position: absolute;
+  gap: 15px;
+  right: 0px;
+}
+
+.arrows button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 35px;
+  background: #6b46c1;
+  border-radius: 4px;
 }

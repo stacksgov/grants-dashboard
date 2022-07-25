@@ -11,7 +11,7 @@
 
 .middleComponent {
   padding: 0 10px;
-max-width: 800px;
+  max-width: 800px;
 }
 
 .stacksSVG {
@@ -31,7 +31,7 @@ max-width: 800px;
   align-items: center;
   color: #ffffff;
   border-radius: 4px;
-  gap: 5px;
+  gap: 10px;
   font-size: 14px;
   cursor: pointer;
 }

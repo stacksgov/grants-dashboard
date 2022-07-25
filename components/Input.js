@@ -33,6 +33,7 @@ const Input = (props) => {
     height,
     image,
     paddingBottom,
+    inputWidth,
   } = props;
 
   console.log("height", height);
@@ -47,6 +48,12 @@ const Input = (props) => {
   function handleChange(event) {
     let field = event.target;
     const { name, value } = field;
+
+    console.log("name", name);
+    console.log("value", value);
+    let formData = JSON.parse(localStorage.getItem("formData"));
+    formData[name] = value;
+    localStorage.setItem("formData", JSON.stringify(formData));
 
     if (!(value.length > maxChar)) {
       setValue(value);
@@ -99,6 +106,11 @@ const Input = (props) => {
       break;
   }
 
+  let displayValue =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("formData"))[name]
+      : "";
+
   return (
     <div style={{ maxWidth: width }} className={styles.fieldWrapper}>
       <div className={styles.title}>
@@ -107,10 +119,17 @@ const Input = (props) => {
         </label>
         {maxChar && (
           <div className={styles.progressWrapper}>
-            <p>{maxChar - value.length} characters</p>
+            <p>
+              {displayValue ? maxChar - displayValue.length : maxChar}{" "}
+              characters
+            </p>
             <div className={styles.progressBar}>
               <div
-                style={{ width: `${(value.length / maxChar) * 100}%` }}
+                style={{
+                  width: `${
+                    (displayValue ? displayValue.length / maxChar : 0) * 100
+                  }%`,
+                }}
                 className={styles.filler}
               />
             </div>
@@ -123,11 +142,11 @@ const Input = (props) => {
           <input
             autoComplete="false"
             name={name}
-            style={{ width, height }}
+            style={{ width: inputWidth ? inputWidth : width, height }}
             onChange={(event) => handleChange(event)}
             className={styles.input}
             placeholder={placeholder ? placeholder : "Type here..."}
-            value={value}
+            value={displayValue}
           />
           <div className={styles.inputImage}>{image ?? <image />}</div>
         </div>
@@ -138,7 +157,7 @@ const Input = (props) => {
           onChange={(event) => handleChange(event)}
           className={styles.input}
           placeholder={placeholder ? placeholder : "Type here..."}
-          value={value}
+          value={displayValue}
         />
       )}
 

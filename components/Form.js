@@ -1,5 +1,10 @@
 import styles from "./Form.module.css";
 
+export function getFormData() {
+  let formData = localStorage.getItem("formData");
+  return JSON.parse(formData);
+}
+
 const Form = (props) => {
   const { title, description, fields } = props;
 

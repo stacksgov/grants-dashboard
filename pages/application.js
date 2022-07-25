@@ -84,7 +84,8 @@ const Application = () => {
                 if (index > -1) {
                   invalidFields.splice(index, 1);
                 }
-                setColor(field, "#3182ce");
+                field.style.outlineColor = "#3182ce";
+                field.style.borderColor = "#3182ce";
                 break;
             }
           }
@@ -129,7 +130,7 @@ const Application = () => {
   const CurrentStep = () => {
     switch (currentStep) {
       case 1:
-        return <ProjectType />;
+        return <ProjectInformation />;
       case 2:
         return <ProjectUserInfoOne />;
       case 3:
@@ -143,7 +144,7 @@ const Application = () => {
       case 7:
         return <ProjectUserInfoCTwo />;
       case 8:
-        return <ProjectRevisionsOne />;
+        return <ProjectRoadmap />;
       case 9:
         return <ProjectRevisionsTwo />;
       case 10:
@@ -188,25 +189,30 @@ const Application = () => {
       <StacksLogo className={styles.stacksSVG} />
     </div>
   );
+};
 
 export default Application;
 
 export async function getServerSideProps(context) {
-	const session = await unstable_getServerSession(context.req, context.res, authOptions);
+  const session = await unstable_getServerSession(
+    context.req,
+    context.res,
+    authOptions
+  );
 
-	if (!session) {
-		return {
-			redirect: {
-				destination: '/',
-				permanent: false
-			}
-		};
-	}
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
-	session.user.email = '';
-	return {
-		props: {
-			session
-		}
-	};
+  session.user.email = "";
+  return {
+    props: {
+      session,
+    },
+  };
 }
