@@ -65,6 +65,7 @@ const StacksConverter = () => {
     getStxPrice().catch(console.error);
   }, [getStxPrice]);
 
+<<<<<<< HEAD
   return (
     <div>
       <Link href="/">
@@ -171,6 +172,110 @@ const StacksConverter = () => {
           </div>
         </div>
       </div>
+=======
+	return (
+		<div>
+			<Link href="/">
+				<a>
+					<div className={styles.close}>
+						<p>
+							<CloseIcon />
+							Close
+						</p>
+						<span></span>
+					</div>
+				</a>
+			</Link>
+			<div className={styles.stxPaymentWrapper}>
+				<h1>STX Payment Converter</h1>
+				<p className={styles.descriptor}>
+					A simple widget for verifying the amount of STX you receive for payments. All conversions
+					are based on a 7-day trailing average.
+				</p>
+				<div className={styles.paymentCalculatorWrapper}>
+					<div className={styles.dropdownWrapper}>
+						<label htmlFor="selectCurrency">A. Select Currency (STX or USD)</label>
+						<select name="selectCurrency" onChange={(e) => setCurrencyDropdown(e.target.value)}>
+							<option value="" disabled selected>
+								Drop down...
+							</option>
+							<option value="stx">STX</option>
+							<option value="usd">USD</option>
+						</select>
+					</div>
+					<div className={styles.dropdownWrapper}>
+						<label htmlFor="amountReceived">C. Input Amount Received</label>
+						<input
+							name="amountReceived"
+							type="number"
+							placeholder="Type here..."
+							onWheel={(e) => e.target.blur()}
+							onChange={(e) => setInputAmount(e.target.value)}
+						/>
+					</div>
+					<div className={styles.calendarDropdownWrapper}>
+						<label htmlFor="selectDate">B. Select Date Payment Issued</label>
+						<CalendarDropdown onChange={onChange} value={value} />
+					</div>
+					<div className={styles.buttonWrappers}>
+						<button
+							onClick={() => getStxPrice(inputAmount, unixDateSelected, unixDateSevenDaysAgo)}
+							className={styles.converterButton}
+						>
+							Click to Convert
+						</button>
+						<button className={styles.clipboardButton} onClick={copyAmount}>
+							{copyToClipboard ? 'Copied' : 'Copy to Clipboard'}
+						</button>
+					</div>
+					<div className={styles.dropdownWrapper}>
+						<div>
+							<p>Date Range</p>
+							<p className={styles.dates}>
+								{pastSevenDays
+									.toLocaleString('default', {
+										month: 'long',
+										day: '2-digit',
+										year: '2-digit'
+									})
+									.replace(' ', '-')
+									.replace(',', '-')
+									.replace(' ', '')}
+								{` to `}
+								{value
+									.toLocaleString('default', {
+										month: 'long',
+										day: '2-digit',
+										year: '2-digit'
+									})
+									.replace(' ', '-')
+									.replace(',', '-')
+									.replace(' ', '')}
+							</p>
+							<p>in 7-day trailing average</p>
+						</div>
+					</div>
+					<div className={styles.dropdownWrapper}>
+						<div className={styles.stxAmount}>
+							<p>{currencyDropdown === 'stx' ? 'USD' : 'STX'}</p>
+							<p id="stxNumber" className={styles.amountConverted}>
+								{currencyDropdown === 'stx'
+									? convertedStxAmount.toFixed(2)
+									: convertedUsdAmount.toFixed(2)}
+							</p>
+							<p>
+								1 {currencyDropdown === 'stx' ? 'STX' : 'USD'} ={' '}
+								{currencyDropdown === 'stx'
+									? weekAverageStxPrice.toFixed(3).toLocaleString()
+									: (1 / weekAverageStxPrice).toFixed(3).toLocaleString()}{' '}
+								{currencyDropdown === 'stx' ? 'USD' : 'STX'}
+							</p>
+							<p>Data provided by CoinGecko</p>
+						</div>
+					</div>
+				</div>
+			</div>
+>>>>>>> 447ab8b381cda9465cb313f189d09df1e80f86c1
 
       <StacksLogo className={styles.stacksSVG} />
     </div>
