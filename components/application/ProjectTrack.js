@@ -1,7 +1,13 @@
 import styles from "./ProjectTrack.module.css";
 import Form from "../Form";
+import { useEffect } from "react";
+import { getSelectedValue } from "../Form";
 
 const ProjectTrack = () => {
+  useEffect(() => {
+    getSelectedValue("projectTrack");
+  });
+
   const Fields = () => {
     const style = { display: "flex", gap: "100px" };
     return (

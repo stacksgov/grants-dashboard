@@ -5,7 +5,7 @@ import StacksLogo from "../public/images/stacks-logo.svg";
 import Checkmark from "../public/images/checkmark.svg";
 import ProjectImpact from "../components/application/ProjectImpact";
 import ProjectLinks from "../components/application/ProjectLinks";
-import ProjectType from "../components/application/ProjectType";
+import ApplicationType from "../components/application/ApplicationType";
 import { useEffect, useState } from "react";
 import {
   isValidURL,
@@ -27,6 +27,8 @@ import ProjectUserInfoCTwo from "../components/application/ProjectUserInfoCTwo";
 import ProjectRevisionsOne from "../components/application/ProjectRevisionsOne";
 import ProjectRevisionsTwo from "../components/application/ProjectRevisionsTwo";
 import { useSession } from "next-auth/react";
+import { generateTemplate } from "../components/application/layout/markdownTemplates/FlowAandB";
+import { Octokit } from "@octokit/rest";
 
 const Application = () => {
   const { data: session } = useSession();
@@ -39,6 +41,29 @@ const Application = () => {
     formData.githubUsername = session.user.name;
     localStorage.setItem("formData", JSON.stringify(formData));
   }, []);
+
+  async function submitApplication() {
+    let formData = JSON.parse(localStorage.getItem("formData"));
+
+    let markdown = generateTemplate("A", formData);
+
+    const github = new Octokit({
+      auth: session.accessToken,
+    });
+
+    let req = await github.rest.issues.create({
+      owner: "vidiabtc",
+      repo: "sveltekit-cf-prisma-planetscale",
+      title: formData.projectTitle,
+      body: markdown,
+      assignees: ["vidiabtc"],
+      labels: ["new"],
+    });
+
+    let res = req.data;
+
+    // send request, then if status 201 then clear localstorage
+  }
 
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -93,7 +118,6 @@ const Application = () => {
         }
         break;
       case "radio":
-        console.log("checking radio field");
         if (!optionGroupsChecked.includes(field.name)) {
           optionGroupsChecked.push(field.name);
         }
@@ -109,7 +133,7 @@ const Application = () => {
     console.log("valid fields", optionGroupsValid);
   }
 
-  function handleSubmit() {
+  function handleSubmit(nextStepNumber) {
     let fields = Array.from(document.querySelectorAll("input, textarea"));
 
     fields.map((field) => {
@@ -132,7 +156,7 @@ const Application = () => {
           }
           checkField(field);
           break;
-        case "projectType":
+        case "applicationType":
           if (field.checked) {
             switch (field.id) {
               case "directApplication":
@@ -159,7 +183,7 @@ const Application = () => {
           }
           checkField(field);
           break;
-        case "previousGrantGithub":
+        case "previousGrant":
           let previouslyCompletedGrant = document.getElementById(
             "completedPreviousGrant"
           ).checked;
@@ -189,7 +213,7 @@ const Application = () => {
     let formData = JSON.parse(localStorage.getItem("formData"));
 
     if (invalidFields.length == 0) {
-      setCurrentStep(currentStep + 1);
+      setCurrentStep(nextStepNumber);
       fields.map((field) => {
         let { name, value, type } = field;
 
@@ -213,7 +237,7 @@ const Application = () => {
   const FlowDefault = () => {
     switch (currentStep) {
       case 1:
-        return <ProjectType />;
+        return <ApplicationType />;
     }
   };
 
@@ -234,13 +258,13 @@ const Application = () => {
   const FlowA = () => {
     switch (currentStep) {
       case 1:
-        return <ProjectType />;
+        return <ApplicationType />;
       case 2:
         return <ProjectUserInfoOne />;
       case 3:
         return <ProjectUserInfoTwo />;
       case 4:
-        return <ProjectType />;
+        return <ProjectFundingStream />;
       case 5:
         return <ProjectTrack />;
       case 6:
@@ -274,11 +298,11 @@ const Application = () => {
   const FlowB = () => {
     switch (currentStep) {
       case 1:
-        return <ProjectType />;
+        return <ApplicationType />;
       case 2:
         return <ProjectUserInfoOne />;
       case 3:
-        return <ProjectType />;
+        return <ProjectFundingStream />;
       case 4:
         return <ProjectTrack />;
       case 5:
@@ -307,7 +331,7 @@ const Application = () => {
   const FlowC = () => {
     switch (currentStep) {
       case 1:
-        return <ProjectType />;
+        return <ApplicationType />;
       case 2:
         return <ProjectUserInfoOne />;
       case 3:
@@ -351,17 +375,26 @@ const Application = () => {
       <div className={styles.mainComponents}>
         <div id="step" className={styles.middleComponent}>
           <Steps
-            setCurrentStep={setCurrentStep}
             step={currentStep}
             steps={navSteps()}
+            setCurrentStep={setCurrentStep}
           />
         </div>
         <div>{CurrentStep()}</div>
         <div className={styles.button}>
-          <button onClick={handleSubmit} name="okButton">
-            <Checkmark />
-            <p>Ok</p>
-          </button>
+          {currentStep > 1 && currentStep == navSteps().length ? (
+            <button onClick={submitApplication} name="okButton">
+              <p>Submit Application</p>
+            </button>
+          ) : (
+            <button
+              onClick={() => handleSubmit(currentStep + 1)}
+              name="okButton"
+            >
+              <Checkmark />
+              <p>Ok</p>
+            </button>
+          )}
         </div>
       </div>
 
