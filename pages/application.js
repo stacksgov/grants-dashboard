@@ -38,7 +38,11 @@ const Application = () => {
   useEffect(() => {
     let formData = JSON.parse(localStorage.getItem("formData"));
 
-    if (!formData) localStorage.setItem("formData", JSON.stringify({}));
+    if (!formData) {
+      localStorage.setItem("formData", JSON.stringify({}));
+    }
+    formData = JSON.parse(localStorage.getItem("formData"));
+
     formData.githubUsername = session.user.name;
     localStorage.setItem("formData", JSON.stringify(formData));
   }, []);
