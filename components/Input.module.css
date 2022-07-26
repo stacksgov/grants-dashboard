@@ -4,6 +4,10 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.fieldWrapper {
+  position: relative;
+}
+
 .input {
   border-bottom: 1px solid rgba(255, 255, 255, 0.92);
   background-color: rgba(0, 0, 0, 0.48);
@@ -60,7 +64,7 @@
 .progressBar {
   position: relative;
   width: 280px;
-  height: 8px;
+  height: 10px;
   border: 1px solid #333;
 }
 
