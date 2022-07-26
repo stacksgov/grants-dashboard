@@ -28,7 +28,7 @@ import ProjectUserInfoCTwo from "../components/application/ProjectUserInfoCTwo";
 import ProjectRevisionsOne from "../components/application/ProjectRevisionsOne";
 import ProjectRevisionsTwo from "../components/application/ProjectRevisionsTwo";
 import { useSession } from "next-auth/react";
-import { generateTemplate } from "../components/application/layout/markdownTemplates/FlowAandB";
+import { generateTemplate } from "../components/application/layout/markdownTemplates/IssueTemplate";
 import { Octokit } from "@octokit/rest";
 
 const Application = () => {
@@ -46,7 +46,7 @@ const Application = () => {
   async function submitApplication() {
     let formData = JSON.parse(localStorage.getItem("formData"));
 
-    let markdown = generateTemplate("A", formData);
+    let markdown = generateTemplate(flow, formData);
 
     const github = new Octokit({
       auth: session.accessToken,

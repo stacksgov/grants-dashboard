@@ -1,130 +1,261 @@
-const IssueTemplate = (issue) => {
-  // let selectedValues = issue.filter((val) => console.log('VALL', val));
-
-  let selectedValues = Object.keys(issue).map((key) => {
-    console.log("CHOICE:", issue[key]);
-    return issue[key]?.choice;
-  });
-
-  selectedValues = selectedValues.filter((e) => e);
-
-  // let template = `# PROJECT BASICS
-  // **Project Name:** ${issue.name}
-  // **Project Budget:** ${issue.budget}
-  // **Project Duration:** ${issue.duration}
-  // **Funding Stream:** ${selectedValues[0]}
-  // **Project Type:** ${selectedValues[1]}
-  // **Project Track:** ${selectedValues[2]}
-  // **Project Goal:** ${selectedValues[3]}
-  // **Project Audience:** ${selectedValues[4]}
-  // **Project Openness:** ${selectedValues[5]}
-  // **Project Team Members:** ${issue.team}
-
-  // # PROJECT ROADMAP & DELIVERABLES
-  // **Final Deliverable:** ${issue.final}
-  // **Milestone Deliverable 1:** ${issue.milestoneOne}
-
-  // # PROJECT MISSION & LINKS
-
-  // **[${issue.firstLink}](url):** ${issue.firstLinkDescription}
-  // **[${issue.secondLink}](url):** ${issue.secondLinkDescription}
-  // **Project Mission:** ${issue.mission}
-  // `;
-
-  let template = `
+export const generateTemplate = (flow, formData) => {
+  let template;
+  if (flow == "C") {
+    template = `
   
-# PROJECT BASICS
+  # PROJECT BASICS
+  
+  **Wishlist Submission:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp; [Link to Issue](${
+    formData.wishlistGithub || ""
+  })
+  
+  
+  **Applicant Credentials:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
+    formData.wishlistTeamFit || ""
+  }
+  
+  
+  # PROJECT MISSION, IMPACT, RISKS & REFERENCE
 
-**Project Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIThirty Character Long Project Name
+  ${
+    typeof formData.budgetRevision !== "undefined"
+      ? `
+  **Budget:**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+    formData.budgetRevision || ""
+  }
+  `
+      : ""
+  }
+  
+  ${
+    typeof formData.durationRevision !== "undefined"
+      ? `
+  **Duration:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.durationRevision || ""}
+  `
+      : ""
+  }
+  
+  ${
+    typeof formData.projectRevisions !== "undefined"
+      ? `
+  **Other:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+    formData.projectRevisions || ""
+  }
+  `
+      : ""
+  }
+  `;
+  } else {
+    let fundingStream;
+    switch (formData.projectType) {
+      case "Open Source Starter Grant":
+      case "Open Source Builder Grant":
+        fundingStream = "Developer Grants";
+        break;
+      case "Stacks Community Builder Grant":
+      case "Stacks Education Grant":
+      case "Stacks Event Grant":
+      case "Stacks Chapter Grant (by Region)":
+        fundingStream = "Community Grants";
+        break;
+      case "ALEX (DeFi) Grant":
+        fundingStream = "Ecosystem Partner Grant";
+        break;
+      case "Stacks Foundation Resident Program":
+      case "Stacks Foundation Direct Investment":
+        fundingStream = "Advanced Support";
+        break;
+      case "Stacks Web3 Startup Lab":
+      case "Stacks Accelerator":
+        fundingStream = "Affiliated Organization";
+        break;
+    }
 
-**Project Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIIINumber of $USD
+    template = `
+  # PROJECT BASICS
+  
+  **Project Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+    formData.projectTitle || ""
+  }
+  
+  **Project Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectBudget || ""
+  }
+  
+  **Project Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectDuration || ""
+  }
+  
+  **Funding Stream:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&thinsp;${fundingStream}
+  
+  **Project Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectType || ""
+  }
+  
+  **Project Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectTrack || ""
+  }
+  
+  **Project Goal:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;${
+    formData.projectGoal || ""
+  }
+  
+  **Project Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectAudience || ""
+  }
+  
+  **Specific Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+    formData.specificAudience || ""
+  }
+  
+  **Project Openness:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectOpenness || ""
+  }
+  
+  **Project Team Members:**&#8202;&#8202;&#8202;&thinsp;${
+    formData.projectTeam || ""
+  }
+  
+    ${
+      typeof formData.previousGrant !== "undefined"
+        ? `
+**Previous Grants:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;${formData.previousGrant}
 
-**Project Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIIINumber of Hours
+**Ecosystem Programs:** &nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${formData.otherEcosystemPrograms}
+    `
+        : ""
+    }
+  
+  
+  # PROJECT MISSION, IMPACT, RISKS & REFERENCE
+  
+  **Project Mission:** &nbsp;&nbsp;&nbsp;&thinsp;${
+    formData.projectMission || ""
+  }
+  
+  **Project Impact:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.projectImpact || ""}
+  
+  **Project Risks:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+    formData.projectRisks || ""
+  }
+  
+  **[Project Link:](${
+    formData.referenceLink || ""
+  })** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+      formData.referenceLinkDescription || ""
+    }
+  
+  # PROJECT ROADMAP & DELIVERABLES
+  
+  
+  ${
+    typeof formData.milestone1Deliverable !== "undefined"
+      ? `
+**MILESTONE 1:**
 
-**Funding Stream:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&thinsp;IIIIIDeveloper Grant
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone1Deliverable}
 
-**Project Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIOpen Source Starter Grant
+**Acceptance Criteria:** &thinsp;${formData.milestone1AC}
+  `
+      : ""
+  }
+  
+  ${
+    typeof formData.milestone2Deliverable !== "undefined"
+      ? `
+**MILESTONE 2:**
 
-**Project Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIStacks Protocol
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone2Deliverable}
 
-**Project Goal:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;IIIIIImprove Existing Technology
+**Acceptance Criteria:** &thinsp;${formData.milestone2AC}
+    `
+      : ""
+  }
+  
+    ${
+      typeof formData.milestone3Deliverable !== "undefined"
+        ? `
+**MILESTONE 3:**
 
-**Project Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIDevelopers
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone3Deliverable}
 
-**Specific Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIVdkfhvdjkfvnl;dfnvldnvofd
+**Acceptance Criteria:** &thinsp;${formData.milestone3AC}
+    `
+        : ""
+    }
+  
+    
+    ${
+      typeof formData.milestone4Deliverable !== "undefined"
+        ? `
+**MILESTONE 4:**
 
-**Project Openness:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIFully Open Source
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone4Deliverable}
 
-**Project Team Members:**&#8202;&#8202;&#8202;&thinsp;IIIII??????
+**Acceptance Criteria:** &thinsp;${formData.milestone4AC}
+    `
+        : ""
+    }
+  
+  
+    ${
+      typeof formData.milestone5Deliverable !== "undefined"
+        ? `
+**MILESTONE 5:**
 
-**Previous Grants:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;IIIIILink to Issue
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone5Deliverable}
 
-**Ecosystem Programs:** &nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIII80 Character Description - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula.
+**Acceptance Criteria:** &thinsp;${formData.milestone5AC}
+    `
+        : ""
+    }
+  
+    
+    ${
+      typeof formData.milestone6Deliverable !== "undefined"
+        ? `
+**MILESTONE 6:**
 
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone6Deliverable}
 
-# PROJECT MISSION, IMPACT, RISKS & REFERENCE
+**Acceptance Criteria:** &thinsp;${formData.milestone6AC}
+    `
+        : ""
+    }
+  
+    
+    ${
+      typeof formData.milestone7Deliverable !== "undefined"
+        ? `
+**MILESTONE 7:**
 
-**Project Mission:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone7Deliverable}
 
-Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+**Acceptance Criteria:** &thinsp;${formData.milestone7AC}
+    `
+        : ""
+    }
+  
+    
+    ${
+      typeof formData.milestone8Deliverable !== "undefined"
+        ? `
+**MILESTONE 8:**
 
-Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone8Deliverable}
 
-Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis m
-
-**Project Impact:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-
-Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-
-**Project Risks:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-
-Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-
-**[Project Link:](link)** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-
-Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-
-# PROJECT ROADMAP & DELIVERABLES
-**MILESTONE {number}:**
-
-**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-
-**Acceptance Criteria:** &thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-
+**Acceptance Criteria:** &thinsp;${formData.milestone8AC}
+    `
+        : ""
+    }
+  
 **FINAL DELIVERABLE**
 
-**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.finalDeliverable || ""}
 
-**Acceptance Criteria:** &thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+**Acceptance Criteria:** &thinsp;${formData.finalDeliverableAC || ""}
+    `;
+  }
 
-
-**
-  `;
-
-  let csv = {};
-  const regex = /(?<=&thinsp;)([\s\S]*?)(?=\*\*)/g;
-  const lines = template
-    .match(regex)
-    .map((line) => line.replace("\n", "").replace("\n", "").trim());
-
-  // when parsing values we need to add a double ** to the end of the template so we can parse final value. Can remove this after
-  csv.projectName = lines[0];
-  csv.projectBudget = lines[1];
-  csv.projectDuration = lines[2];
-  csv.fundingStream = lines[3];
-  csv.projectType = lines[4];
-  csv.projectTrack = lines[5];
-  csv.projectGoal = lines[6];
-  csv.projectAudience = lines[7];
-  csv.specificAudience = lines[8];
-  csv.projectOpenness = lines[9];
-  csv.projectTeamMembers = lines[10];
-  csv.previousGrants = lines[11];
-  csv.ecosystemPrograms = lines[12];
-  csv.projectMission = lines[13];
-
-  console.log(csv);
   return template;
 };
-
-export default IssueTemplate;

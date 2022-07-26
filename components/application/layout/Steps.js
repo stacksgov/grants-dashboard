@@ -56,7 +56,7 @@ const Steps = (props) => {
       <ul>
         {props.steps.map((item, index) => {
           let currentIndex = index + 1;
-          return <Step stepNumber={currentIndex} title={item} />;
+          return <Step key={item} stepNumber={currentIndex} title={item} />;
         })}
       </ul>
     </div>

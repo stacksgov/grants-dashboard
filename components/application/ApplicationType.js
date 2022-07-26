@@ -40,7 +40,7 @@ const ApplicationType = () => {
               />
               <label>
                 This is an application for a project I want to add to the
-                Wishlist and hope soneone else applied to complete it.
+                Wishlist and hope someone else applies to complete it.
               </label>
             </div>
           </div>
