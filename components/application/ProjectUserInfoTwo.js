@@ -45,7 +45,7 @@ const ProjectUserInfoTwo = () => {
             </label>
           </div>
           <Input
-            name="previousGrantGithub"
+            name="previousGrant"
             label="GitHub Issue"
             labelSize="12px"
             labelColor="rgba(255, 255, 255, 0.24)"

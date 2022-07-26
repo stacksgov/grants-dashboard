@@ -1,9 +1,15 @@
-import styles from "./ProjectType.module.css";
+import styles from "./ApplicationType.module.css";
 import Form from "../Form";
 import Input from "../Input";
 import GithubIcon from "../../public/images/github.svg";
+import { useEffect } from "react";
+import { getSelectedValue } from "../Form";
 
-const ProjectType = () => {
+const ApplicationType = () => {
+  useEffect(() => {
+    getSelectedValue("applicationType");
+  });
+
   const Fields = () => {
     return (
       <div>
@@ -14,7 +20,7 @@ const ProjectType = () => {
               <input
                 id="directApplication"
                 type="radio"
-                name="projectType"
+                name="applicationType"
                 value="This is a direct application, I intend to perform the work myself or as part of a team."
               />
               <label>
@@ -31,7 +37,7 @@ const ProjectType = () => {
               <input
                 id="wishlistRelated"
                 type="radio"
-                name="projectType"
+                name="applicationType"
                 value="This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it."
               />
               <label>
@@ -45,7 +51,7 @@ const ProjectType = () => {
               <input
                 id="existingWishlist"
                 type="radio"
-                name="projectType"
+                name="applicationType"
                 value="This is an application I found on the Wishlist that I wish to complete. (paste issue url below)"
               />
               <label>
@@ -74,4 +80,4 @@ const ProjectType = () => {
   );
 };
 
-export default ProjectType;
+export default ApplicationType;

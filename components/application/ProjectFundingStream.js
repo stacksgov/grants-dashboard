@@ -4,10 +4,16 @@ import TagIcon from "../../public/images/payTag.svg";
 import DropIcon from "../../public/images/waterDrop.svg";
 import ArrowIcon from "../../public/images/arrow.svg";
 import { projectTypes } from "../../content";
+import { getSelectedValue } from "../Form";
 
 import Form from "../Form";
+import { useEffect } from "react";
 
 const ProjectFundingStream = () => {
+  useEffect(() => {
+    getSelectedValue("projectType");
+  });
+
   const Fields = () => {
     return (
       <div className={styles.fundingStreamWrapper}>

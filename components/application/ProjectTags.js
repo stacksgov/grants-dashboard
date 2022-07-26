@@ -1,8 +1,16 @@
 import styles from "./ProjectTags.module.css";
 import Form from "../Form";
 import Input from "../Input";
+import { getSelectedValue } from "../Form";
+import { useEffect } from "react";
 
 const ProjectTags = () => {
+  useEffect(() => {
+    getSelectedValue("projectGoal");
+    getSelectedValue("projectAudience");
+    getSelectedValue("projectOpenness");
+  });
+
   const Fields = () => {
     return (
       <div>
@@ -59,7 +67,6 @@ const ProjectTags = () => {
                 value="End Users (Consumer)"
               />
               <label>End Users (Consumer)</label>
-
             </div>
           </div>
           <div className={styles.list}>
