@@ -41,6 +41,9 @@ const Application = () => {
     if (!formData) {
       localStorage.setItem("formData", JSON.stringify({}));
     }
+    formData = JSON.parse(localStorage.getItem("formData"));
+    formData.githubUsername = session.user.name;
+    localStorage.setItem("formData", JSON.stringify(formData));
   }, []);
 
   async function submitApplication() {
