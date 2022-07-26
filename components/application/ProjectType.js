@@ -12,6 +12,7 @@ const ProjectType = () => {
           <div>
             <div className={styles.radio}>
               <input
+                id="directApplication"
                 type="radio"
                 name="projectType"
                 value="This is a direct application, I intend to perform the work myself or as part of a team."
@@ -28,9 +29,10 @@ const ProjectType = () => {
           <div>
             <div className={styles.radio}>
               <input
+                id="wishlistRelated"
                 type="radio"
                 name="projectType"
-                value="This is an application for a project I want to add to the Wishlist and hope soneone else applied to complete it."
+                value="This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it."
               />
               <label>
                 This is an application for a project I want to add to the

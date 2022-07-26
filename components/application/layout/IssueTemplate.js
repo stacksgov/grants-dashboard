@@ -1,45 +1,37 @@
 const IssueTemplate = (issue) => {
-	console.log('ISSUE', issue);
-	console.log('selected values ', selectedValues);
+  // let selectedValues = issue.filter((val) => console.log('VALL', val));
 
-	// let selectedValues = issue.filter((val) => console.log('VALL', val));
+  let selectedValues = Object.keys(issue).map((key) => {
+    console.log("CHOICE:", issue[key]);
+    return issue[key]?.choice;
+  });
 
-	let selectedValues = Object.keys(issue).map((key) => {
-		console.log('CHOICE:', issue[key]);
-		return issue[key]?.choice;
-	});
+  selectedValues = selectedValues.filter((e) => e);
 
-	console.log('selected values before: ', selectedValues);
+  // let template = `# PROJECT BASICS
+  // **Project Name:** ${issue.name}
+  // **Project Budget:** ${issue.budget}
+  // **Project Duration:** ${issue.duration}
+  // **Funding Stream:** ${selectedValues[0]}
+  // **Project Type:** ${selectedValues[1]}
+  // **Project Track:** ${selectedValues[2]}
+  // **Project Goal:** ${selectedValues[3]}
+  // **Project Audience:** ${selectedValues[4]}
+  // **Project Openness:** ${selectedValues[5]}
+  // **Project Team Members:** ${issue.team}
 
-	selectedValues = selectedValues.filter((e) => e);
+  // # PROJECT ROADMAP & DELIVERABLES
+  // **Final Deliverable:** ${issue.final}
+  // **Milestone Deliverable 1:** ${issue.milestoneOne}
 
-	console.log('selected values after: ', selectedValues);
-	console.log('ISSSUEEEEEE ', issue);
+  // # PROJECT MISSION & LINKS
 
-	// let template = `# PROJECT BASICS
-	// **Project Name:** ${issue.name}
-	// **Project Budget:** ${issue.budget}
-	// **Project Duration:** ${issue.duration}
-	// **Funding Stream:** ${selectedValues[0]}
-	// **Project Type:** ${selectedValues[1]}
-	// **Project Track:** ${selectedValues[2]}
-	// **Project Goal:** ${selectedValues[3]}
-	// **Project Audience:** ${selectedValues[4]}
-	// **Project Openness:** ${selectedValues[5]}
-	// **Project Team Members:** ${issue.team}
+  // **[${issue.firstLink}](url):** ${issue.firstLinkDescription}
+  // **[${issue.secondLink}](url):** ${issue.secondLinkDescription}
+  // **Project Mission:** ${issue.mission}
+  // `;
 
-	// # PROJECT ROADMAP & DELIVERABLES
-	// **Final Deliverable:** ${issue.final}
-	// **Milestone Deliverable 1:** ${issue.milestoneOne}
-
-	// # PROJECT MISSION & LINKS
-
-	// **[${issue.firstLink}](url):** ${issue.firstLinkDescription}
-	// **[${issue.secondLink}](url):** ${issue.secondLinkDescription}
-	// **Project Mission:** ${issue.mission}
-	// `;
-
-	let template = `
+  let template = `
   # PROJECT BASICS
   
   **Project Name:**  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIThirty Character Long Project Name
@@ -78,29 +70,29 @@ const IssueTemplate = (issue) => {
   **
   `;
 
-	let csv = {};
-	const regex = /(?<=&thinsp;)([\s\S]*?)(?=\*\*)/g;
-	const lines = template
-		.match(regex)
-		.map((line) => line.replace('\n', '').replace('\n', '').trim());
+  let csv = {};
+  const regex = /(?<=&thinsp;)([\s\S]*?)(?=\*\*)/g;
+  const lines = template
+    .match(regex)
+    .map((line) => line.replace("\n", "").replace("\n", "").trim());
 
-	csv.projectName = lines[0];
-	csv.projectBudget = lines[1];
-	csv.projectDuration = lines[2];
-	csv.fundingStream = lines[3];
-	csv.projectType = lines[4];
-	csv.projectTrack = lines[5];
-	csv.projectGoal = lines[6];
-	csv.projectAudience = lines[7];
-	csv.specificAudience = lines[8];
-	csv.projectOpenness = lines[9];
-	csv.projectTeamMembers = lines[10];
-	csv.previousGrants = lines[11];
-	csv.ecosystemPrograms = lines[12];
-	csv.projectMission = lines[13];
+  csv.projectName = lines[0];
+  csv.projectBudget = lines[1];
+  csv.projectDuration = lines[2];
+  csv.fundingStream = lines[3];
+  csv.projectType = lines[4];
+  csv.projectTrack = lines[5];
+  csv.projectGoal = lines[6];
+  csv.projectAudience = lines[7];
+  csv.specificAudience = lines[8];
+  csv.projectOpenness = lines[9];
+  csv.projectTeamMembers = lines[10];
+  csv.previousGrants = lines[11];
+  csv.ecosystemPrograms = lines[12];
+  csv.projectMission = lines[13];
 
-	console.log(csv);
-	return template;
+  console.log(csv);
+  return template;
 };
 
 export default IssueTemplate;

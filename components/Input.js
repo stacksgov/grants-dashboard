@@ -37,8 +37,6 @@ const Input = (props) => {
     readOnly = false,
   } = props;
 
-  console.log("height", height);
-
   const [value, setValue] = useState("");
 
   function setColor(field, color) {
@@ -49,9 +47,6 @@ const Input = (props) => {
   function handleChange(event) {
     let field = event.target;
     const { name, value } = field;
-
-    console.log("name", name);
-    console.log("value", value);
 
     let formData = JSON.parse(localStorage.getItem("formData"));
     formData[name] = value;
