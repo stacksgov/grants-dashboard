@@ -28,7 +28,7 @@ const ProjectUserInfoTwo = () => {
 							style={{ color: 'rgba(255, 255, 255, 0.24)', top: '80px' }}
 							className={styles.checkboxWrapper}
 						>
-							<input type="checkbox"></input>
+							<input id="stxMemoRequired" type="checkbox"></input>
 							<label>I confirm no memo is required for the wallet address provided</label>
 						</div>
 					</div>
