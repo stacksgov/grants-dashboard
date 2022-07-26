@@ -6,7 +6,6 @@ const Steps = (props) => {
   let currentStep = props.step;
   let setCurrentStep = props.setCurrentStep;
 
-  console.log("step number", props.stepNumber);
   const Step = (props) => {
     if (parseInt(props.stepNumber) === currentStep) {
       return (
@@ -32,6 +31,12 @@ const Steps = (props) => {
             <CheckmarkGreen />
             {props.title}
           </li>
+        </span>
+      );
+    } else if (parseInt(props.stepNumber) > currentStep) {
+      return (
+        <span>
+          <li className={styles.currentStepComplete}>{props.title}</li>
         </span>
       );
     } else {

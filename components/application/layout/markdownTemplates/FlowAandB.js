@@ -206,8 +206,6 @@ ${
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.finalDeliverable || ""}
 
 **Acceptance Criteria:** &thinsp;${formData.finalDeliverableAC || ""}
-
-**
   `;
 
   console.log("template", template);
