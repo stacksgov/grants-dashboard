@@ -53,7 +53,7 @@ const Application = () => {
 
 		let req = await github.rest.issues.create({
 			owner: 'diopitis',
-			repo: 'grants-dashboard',
+			repo: 'sveltekit-cf-prisma-planetscale',
 			title: formData.projectTitle,
 			body: markdown,
 			assignees: ['vidiabtc'],
