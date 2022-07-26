@@ -5,12 +5,7 @@ const ProjectMission = () => {
 	const Fields = () => {
 		return (
 			<div>
-				<Input
-					name="projectMission"
-					maxChar={1500}
-					description="Name your Project so that it clearly communicates your objectives to others, during review and in the future."
-					height="750px"
-				/>
+				<Input name="projectMission" maxChar={1500} height="500px" />
 			</div>
 		);
 	};
