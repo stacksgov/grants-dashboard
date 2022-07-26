@@ -3,9 +3,12 @@ import DiscordIcon from "../../public/images/discord.svg";
 import TwitterIcon from "../../public/images/twitter.svg";
 import Input from "../Input";
 import Form from "../Form";
+import { useSession } from "next-auth/react";
 
 const ProjectUserInfoOne = () => {
   let style = { display: "flex", gap: "20px" };
+  const { data: session } = useSession();
+
   const Fields = () => {
     return (
       <div>
@@ -32,7 +35,7 @@ const ProjectUserInfoOne = () => {
             pageWidth="half"
             labelSize="12px"
             image={<GithubIcon />}
-            value="test"
+            value={session.user.name}
             readOnly={true}
           />
           <Input
