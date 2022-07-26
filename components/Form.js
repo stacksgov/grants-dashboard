@@ -10,9 +10,12 @@ export function getSelectedValue(fieldName) {
   let options = Array.from(document.getElementsByName(fieldName));
 
   let formData = JSON.parse(localStorage.getItem("formData"));
+  let selectedValue = null;
 
-  let selectedValue =
-    typeof formData[fieldName] != "undefined" ? formData[fieldName] : null;
+  if (formData) {
+    selectedValue =
+      typeof formData[fieldName] != "undefined" ? formData[fieldName] : null;
+  }
 
   options.map((option) => {
     if (option.value == selectedValue) {
