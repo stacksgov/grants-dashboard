@@ -43,12 +43,12 @@ const Home = () => {
 						)}
 						{session && (
 							<>
-								<Link href="/application">
+								<a href="/application">
 									<button>
 										<a>Submit Your Application</a>
 										<Rocket />
 									</button>
-								</Link>
+								</a>
 							</>
 						)}
 					</div>
