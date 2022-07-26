@@ -30,6 +30,7 @@ import { useSession } from "next-auth/react";
 
 const Application = () => {
   const { data: session } = useSession();
+  const [flow, setFlow] = useState();
 
   useEffect(() => {
     let formData = JSON.parse(localStorage.getItem("formData"));
@@ -56,8 +57,6 @@ const Application = () => {
     switch (field.type) {
       case "text":
       case "textarea":
-        console.log(`field value for ${field.name}: `, field.value);
-
         if (field.value == undefined || field.value == "") {
           field.style.outlineColor = "red";
           field.style.borderColor = "red";
@@ -89,31 +88,31 @@ const Application = () => {
 
             default:
               validateField(field);
-
               break;
           }
         }
         break;
       case "radio":
+        console.log("checking radio field");
         if (!optionGroupsChecked.includes(field.name)) {
           optionGroupsChecked.push(field.name);
         }
         if (!optionGroupsValid.includes(field.name)) {
           if (field.checked) {
             optionGroupsValid.push(field.name);
+            validateField(field);
           }
         }
         break;
     }
+    console.log("invalid fields", invalidFields);
+    console.log("valid fields", optionGroupsValid);
   }
 
   function handleSubmit() {
     let fields = Array.from(document.querySelectorAll("input, textarea"));
-    console.log(fields);
 
     fields.map((field) => {
-      console.log("FIELD TYPE", field);
-
       switch (field.name) {
         case "discordUsername":
         case "twitterUsername":
@@ -133,6 +132,24 @@ const Application = () => {
           }
           checkField(field);
           break;
+        case "projectType":
+          if (field.checked) {
+            switch (field.id) {
+              case "directApplication":
+                setFlow("A");
+                break;
+              case "wishlistRelated":
+                setFlow("B");
+                break;
+              case "existingWishlist":
+                setFlow("C");
+                break;
+            }
+          }
+          checkField(field);
+          console.log("USER FLOW: ", flow);
+          break;
+
         case "stxMemo":
           let stxMemoNotRequired =
             document.getElementById("stxMemoRequired").checked;
@@ -169,7 +186,6 @@ const Application = () => {
     let optionsValid = optionGroupsChecked.length == optionGroupsValid.length;
     optionsValid ? null : invalidFields.push(optionGroupsChecked[0]);
 
-    console.log("invalid fields", invalidFields);
     let formData = JSON.parse(localStorage.getItem("formData"));
 
     if (invalidFields.length == 0) {
@@ -192,36 +208,140 @@ const Application = () => {
     }
   }
 
-  const CurrentStep = () => {
+  const flowDefaultSteps = ["Application Type"];
+
+  const FlowDefault = () => {
     switch (currentStep) {
       case 1:
-        return <ProjectFundingStream />;
+        return <ProjectType />;
+    }
+  };
+
+  const flowASteps = [
+    "Application Type",
+    "User Information (1 of 2)",
+    "User Information (2 of 2)",
+    "Project Type",
+    "Project Track",
+    "Project Tags",
+    "Project Information",
+    "Project Roadmap",
+    "Project Mission Statement",
+    "Project Impact & Risks",
+    "Project Links",
+  ];
+
+  const FlowA = () => {
+    switch (currentStep) {
+      case 1:
+        return <ProjectType />;
       case 2:
-        return <ProjectImpact />;
+        return <ProjectUserInfoOne />;
       case 3:
-        return <ProjectInformation />;
+        return <ProjectUserInfoTwo />;
       case 4:
-        return <ProjectLinks />;
+        return <ProjectType />;
       case 5:
-        return <ProjectMission />;
+        return <ProjectTrack />;
       case 6:
-        return <ProjectRevisionsOne />;
+        return <ProjectTags />;
       case 7:
-        return <ProjectRevisionsTwo />;
+        return <ProjectInformation />;
       case 8:
         return <ProjectRoadmap />;
       case 9:
-        return <ProjectTags />;
+        return <ProjectMission />;
       case 10:
-        return <ProjectTrack />;
+        return <ProjectImpact />;
       case 11:
+        return <ProjectLinks />;
+    }
+  };
+
+  const flowBSteps = [
+    "Application Type",
+    "User Information",
+    "Project Type",
+    "Project Track",
+    "Project Tags",
+    "Project Information",
+    "Project Roadmap",
+    "Project Mission Statement",
+    "Project Impact & Risks",
+    "Project Links",
+  ];
+
+  const FlowB = () => {
+    switch (currentStep) {
+      case 1:
         return <ProjectType />;
-      case 12:
+      case 2:
         return <ProjectUserInfoOne />;
-      case 13:
-        return <ProjectUserInfoTwo />;
-      case 14:
+      case 3:
+        return <ProjectType />;
+      case 4:
+        return <ProjectTrack />;
+      case 5:
+        return <ProjectTags />;
+      case 6:
+        return <ProjectInformation />;
+      case 7:
+        return <ProjectRoadmap />;
+      case 8:
+        return <ProjectMission />;
+      case 9:
+        return <ProjectImpact />;
+      case 10:
+        return <ProjectLinks />;
+    }
+  };
+
+  const flowCSteps = [
+    "Application Type",
+    "User Information (1 of 2)",
+    "User Information (2 of 2)",
+    "Project Revisions (1 of 2)",
+    "Project Revisions (1 of 2)",
+  ];
+
+  const FlowC = () => {
+    switch (currentStep) {
+      case 1:
+        return <ProjectType />;
+      case 2:
+        return <ProjectUserInfoOne />;
+      case 3:
         return <ProjectUserInfoCTwo />;
+      case 4:
+        return <ProjectRevisionsOne />;
+      case 5:
+        return <ProjectRevisionsTwo />;
+    }
+  };
+
+  const navSteps = () => {
+    switch (flow) {
+      case "A":
+        return flowASteps;
+      case "B":
+        return flowBSteps;
+      case "C":
+        return flowCSteps;
+      default:
+        return flowDefaultSteps;
+    }
+  };
+
+  const CurrentStep = () => {
+    switch (flow) {
+      case "A":
+        return <FlowA />;
+      case "B":
+        return <FlowB />;
+      case "C":
+        return <FlowC />;
+      default:
+        return <FlowDefault />;
     }
   };
 
@@ -233,22 +353,7 @@ const Application = () => {
           <Steps
             setCurrentStep={setCurrentStep}
             step={currentStep}
-            steps={[
-              "Funding Stream",
-              "Impact",
-              "Project Information",
-              "Links",
-              "Mission",
-              "Revisions 1",
-              "Revisions 2",
-              "Roadmap",
-              "Tags",
-              "Track",
-              "Type",
-              "User Info 1",
-              "User Info 2",
-              "User Info C 2",
-            ]}
+            steps={navSteps()}
           />
         </div>
         <div>{CurrentStep()}</div>

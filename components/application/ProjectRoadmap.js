@@ -15,8 +15,6 @@ function validateMilestone(number) {
     document.getElementsByName(`milestone${number}AC`)
   )[0];
 
-  console.log("delievrable", deliverable);
-  console.log("acceptance criteria", acceptanceCriteria);
   let isDeliverableValid = isFieldValid(deliverable);
   let isAcceptanceCriteriaValid = isFieldValid(acceptanceCriteria);
 
@@ -46,7 +44,6 @@ const ProjectRoadmap = () => {
   useEffect(() => {
     let { projectBudget } = getFormData();
     setNumOfMilestones(getNumberOfMilestones(projectBudget));
-    console.log("number of mielstones", numOfMilestones);
   });
 
   const Milestones = () => {
@@ -116,7 +113,6 @@ const ProjectRoadmap = () => {
     for (let i = 1; i <= numOfMilestones; i++) {
       milestones.push(Milestone(i));
     }
-    console.log("milestones", milestones);
     return milestones;
   };
 
