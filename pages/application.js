@@ -87,15 +87,20 @@ const Application = () => {
           field.style.outlineColor = "red";
           field.style.borderColor = "red";
           invalidFields.push(field.name);
+          console.log("invalid so pushing");
         } else {
           switch (field.name) {
             case "wishlistGithub":
             case "referenceLink":
+              console.log("CHECKING");
               if (!isValidURL(field.value)) {
+                console.log("is valid url");
                 field.style.outlineColor = "red";
                 field.style.borderColor = "red";
                 invalidFields.push(field.name);
               } else {
+                console.log("is invalid url");
+
                 validateField(field);
               }
               break;
@@ -158,28 +163,13 @@ const Application = () => {
         case "wishlistGithub":
           let existingWishlist =
             document.getElementById("existingWishlist").checked;
-          if (!existingWishlist) {
-            validateField(field);
+          console.log("EXISTING WISHLIST? ", existingWishlist);
+          if (existingWishlist) {
+            checkField(field);
             break;
+          } else {
+            validateField(field);
           }
-          checkField(field);
-          break;
-        case "applicationType":
-          if (field.checked) {
-            switch (field.id) {
-              case "directApplication":
-                setFlow("A");
-                break;
-              case "wishlistRelated":
-                setFlow("B");
-                break;
-              case "existingWishlist":
-                setFlow("C");
-                break;
-            }
-          }
-          checkField(field);
-          console.log("USER FLOW: ", flow);
           break;
 
         case "stxMemo":
@@ -220,7 +210,11 @@ const Application = () => {
 
     let formData = JSON.parse(localStorage.getItem("formData"));
 
+    console.log("invalid fields", invalidFields);
+
     if (invalidFields.length == 0) {
+      console.log("invalid fields length 0", invalidFields);
+
       setCurrentStep(nextStepNumber);
       fields.map((field) => {
         let { name, value, type } = field;
@@ -237,6 +231,18 @@ const Application = () => {
         }
         localStorage.setItem("formData", JSON.stringify(formData));
       });
+
+      switch (formData.applicationType) {
+        case "This is a direct application, I intend to perform the work myself or as part of a team.":
+          setFlow("A");
+          break;
+        case "This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.":
+          setFlow("B");
+          break;
+        case "This is an application I found on the Wishlist that I wish to complete. (paste issue url below)":
+          setFlow("C");
+          break;
+      }
     }
   }
 
