@@ -64,6 +64,7 @@ const Input = (props) => {
     switch (name) {
       case "discordUsername":
       case "twitterUsername":
+      case "projectTeam":
         break;
       case "stxMemo":
         let stxMemoRequired =

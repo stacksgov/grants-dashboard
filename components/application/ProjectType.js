@@ -41,6 +41,7 @@ const ProjectType = () => {
           <div>
             <div className={styles.radio}>
               <input
+                id="existingWishlist"
                 type="radio"
                 name="projectType"
                 value="This is an application I found on the Wishlist that I wish to complete. (paste issue url below)"
