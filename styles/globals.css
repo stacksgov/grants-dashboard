@@ -34,11 +34,24 @@ html,
 body {
   height: 100%;
   color: rgba(255, 255, 255, 0.92);
-  background: -webkit-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
+  background: -webkit-linear-gradient(
+    bottom,
+    rgb(16, 11, 31) 0%,
+    rgb(0, 0, 0) 100%
+  );
   background: -o-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
-  background: -ms-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
-  background: -moz-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
+  background: -ms-linear-gradient(
+    bottom,
+    rgb(16, 11, 31) 0%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -moz-linear-gradient(
+    bottom,
+    rgb(16, 11, 31) 0%,
+    rgb(0, 0, 0) 100%
+  );
   background: linear-gradient(to top, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
+  overflow-y: hidden;
 }
 /*
   Typographic tweaks!
@@ -90,7 +103,6 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
-
 }
 
 a {
@@ -105,7 +117,7 @@ input[type="checkbox"] {
   appearance: none;
   background-color: black;
   margin: 0;
-cursor: pointer;
+  cursor: pointer;
   height: 15px;
   display: grid;
   place-content: center;
@@ -122,7 +134,7 @@ input[type="checkbox"]::before {
 }
 
 input[type="checkbox"]:checked::before {
-  transform: scale(.8);
+  transform: scale(0.8);
 }
 input[type="radio"] {
   appearance: none;

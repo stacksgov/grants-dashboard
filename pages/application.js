@@ -6,6 +6,7 @@ import Checkmark from "../public/images/checkmark.svg";
 import ProjectImpact from "../components/application/ProjectImpact";
 import ProjectLinks from "../components/application/ProjectLinks";
 import ApplicationType from "../components/application/ApplicationType";
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
   isValidURL,
@@ -388,7 +389,11 @@ const Application = () => {
             setCurrentStep={setCurrentStep}
           />
         </div>
-        <div className={styles.middleComponent}>{CurrentStep()}</div>
+        <div className={styles.middleComponent}>
+          <AnimatePresence exitBeforeEnter initial={false}>
+            {CurrentStep()}
+          </AnimatePresence>
+        </div>
         <div className={styles.button}>
           {currentStep > 1 && currentStep == navSteps().length ? (
             <button onClick={submitApplication} name="okButton">

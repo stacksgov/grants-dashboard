@@ -35,3 +35,20 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+.button button:hover {
+  background: #2c7a7b;
+  transition: 0.2s;
+}
+
+.button button:active {
+  transition: 0.1s;
+  transform: translateY(4px);
+}
+
+.button button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}

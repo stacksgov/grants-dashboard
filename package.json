@@ -12,6 +12,7 @@
     "@octokit/rest": "^19.0.3",
     "@stacks/transactions": "^4.3.3",
     "@svgr/webpack": "^6.2.1",
+    "framer-motion": "^6.5.1",
     "next": "12.1.6",
     "next-auth": "^4.5.0",
     "octokit": "^1.8.1",

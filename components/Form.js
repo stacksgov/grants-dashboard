@@ -1,4 +1,5 @@
 import styles from "./Form.module.css";
+import { motion } from "framer-motion";
 
 export function getFormData() {
   let formData = localStorage.getItem("formData");
@@ -24,16 +25,24 @@ const Form = (props) => {
   const { title, description, fields } = props;
 
   return (
-    <div className={styles.formWrapper}>
-      <div className={styles.titleWrapper}>
-        <div>
-          <p className={styles.title}>{title}</p>
-          <p className={styles.description}>{description}</p>
+    <motion.div
+      key="form"
+      initial={{ y: 1000 }}
+      animate={{ y: 0 }}
+      exit={{ y: -1000 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className={styles.formWrapper}>
+        <div className={styles.titleWrapper}>
+          <div>
+            <p className={styles.title}>{title}</p>
+            <p className={styles.description}>{description}</p>
+          </div>
         </div>
-      </div>
 
-      {fields()}
-    </div>
+        {fields()}
+      </div>
+    </motion.div>
   );
 };
 
