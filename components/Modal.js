@@ -1,6 +1,7 @@
 import styles from './Modal.module.css';
 import StacksLogoSuccess from '../public/images/stacksModalLogoSuccess.svg';
 import StacksLogoError from '../public/images/stacksModalLogoError.svg';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const Modal = (props) => {
@@ -24,13 +25,18 @@ const Modal = (props) => {
 					<p>Click below to view on Github</p>
 				</a>
 			)}
-			<button
-				onClick={() => {
-					setHide(false);
-				}}
-			>
-				Confirm
-			</button>
+			<Link href="/">
+				<a>
+					{' '}
+					<button
+						onClick={() => {
+							setHide(false);
+						}}
+					>
+						Confirm
+					</button>
+				</a>
+			</Link>
 		</div>
 	);
 };

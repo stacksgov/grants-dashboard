@@ -1,6 +1,13 @@
 .applicationWrapper {
   margin: 0 15px;
   padding-bottom: 50px;
+
+}
+
+.applicationWrapperBlur {
+  margin: 0 15px;
+  padding-bottom: 50px;
+  filter: blur(5px);
 }
 
 .mainComponents {
