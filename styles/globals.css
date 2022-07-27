@@ -180,7 +180,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .react-calendar {
   width: 425px;
   max-width: 100%;
-  background: white;
+  background: black;
   border: 1px solid #a0a096;
   border-radius: 10px;
   font-family: Arial, Helvetica, sans-serif;
@@ -236,8 +236,9 @@ input[type="number"]::-webkit-outer-spin-button {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.75em;
-  color: black;
+  color: white;
 }
+
 .react-calendar__month-view__weekdays__weekday {
   padding: 0.5em;
 }
