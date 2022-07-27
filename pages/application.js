@@ -61,7 +61,6 @@ const Application = () => {
         repo: "sveltekit-cf-prisma-planetscale",
         title: formData.projectTitle,
         body: markdown,
-        assignees: ["vidiabtc"],
         labels: ["new"],
       });
 
@@ -399,6 +398,7 @@ const Application = () => {
 
   return (
     <div className={styles.applicationWrapper}>
+      <h1>{session.accessToken}</h1>
       <Nav name={"Application"} step={currentStep} />
       <div className={styles.mainComponents}>
         <div id="step">

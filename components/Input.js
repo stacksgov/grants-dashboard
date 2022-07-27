@@ -34,6 +34,7 @@ const Input = (props) => {
     image,
     paddingBottom,
     readOnly = false,
+    isNumber = false,
   } = props;
 
   const [value, setValue] = useState("");
@@ -169,6 +170,10 @@ const Input = (props) => {
             className={styles.input}
             placeholder={placeholder ? placeholder : "Type here..."}
             value={displayValue}
+            type={isNumber ? "number" : "text"}
+            onWheel={(e) => {
+              if (isNumber) e.target.blur();
+            }}
           />
           <div className={styles.inputImage}>{image ?? <image />}</div>
         </div>

@@ -79,11 +79,13 @@ export const generateTemplate = (flow, formData) => {
   }
   
   **Project Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
-    formData.projectBudget || ""
+    formData.projectBudget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ||
+    ""
   }
   
   **Project Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
-    formData.projectDuration || ""
+    formData.projectDuration.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ||
+    ""
   }
   
   **Funding Stream:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&thinsp;${fundingStream}
