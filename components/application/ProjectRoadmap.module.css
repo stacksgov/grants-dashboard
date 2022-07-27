@@ -5,7 +5,6 @@
 }
 
 .input {
-  padding-left: 15px;
   padding-top: 25px;
 }
 
@@ -18,40 +17,34 @@
   margin-bottom: 25px;
 }
 
-.input button {
-  z-index: 1;
-  position: absolute;
-  width: 120px;
-  height: 50px;
-  background: #171923;
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 750px;
+  margin-top: -15px;
+}
+
+.arrows button {
+  width: 140px;
+  height: 35px;
+  padding: 10px 12px;
+  background: #2d3748;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
   border-radius: 4px;
-  gap: 10px;
   font-size: 14px;
   cursor: pointer;
-  right: 10px;
-  top: 38px;
   border: none;
 }
 
-.arrows {
+.nav ul {
   display: flex;
-  position: absolute;
-  gap: 15px;
-  right: 0px;
 }
 
-.arrows button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 35px;
-  background: #6b46c1;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
+.nav li {
+  list-style-type: none;
+  padding: 15px;
 }

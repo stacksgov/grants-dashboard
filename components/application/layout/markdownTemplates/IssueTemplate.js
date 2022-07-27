@@ -154,8 +154,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 1:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone1Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone1AC}
   `
       : ""
   }
@@ -166,8 +164,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 2:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone2Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone2AC}
     `
       : ""
   }
@@ -178,8 +174,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 3:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone3Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone3AC}
     `
         : ""
     }
@@ -191,8 +185,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 4:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone4Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone4AC}
     `
         : ""
     }
@@ -204,8 +196,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 5:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone5Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone5AC}
     `
         : ""
     }
@@ -217,8 +207,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 6:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone6Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone6AC}
     `
         : ""
     }
@@ -230,8 +218,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 7:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone7Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone7AC}
     `
         : ""
     }
@@ -243,8 +229,6 @@ export const generateTemplate = (flow, formData) => {
 **MILESTONE 8:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.milestone8Deliverable}
-
-**Acceptance Criteria:** &thinsp;${formData.milestone8AC}
     `
         : ""
     }
@@ -252,8 +236,6 @@ export const generateTemplate = (flow, formData) => {
 **FINAL DELIVERABLE**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.finalDeliverable || ""}
-
-**Acceptance Criteria:** &thinsp;${formData.finalDeliverableAC || ""}
     `;
   }
 
