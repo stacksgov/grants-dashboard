@@ -1,5 +1,4 @@
 import styles from "./ProjectRoadmap.module.css";
-import Checkmark from "../../public/images/checkmark.svg";
 import ArrowLeft from "../../public/images/arrowLeft.svg";
 import ArrowRight from "../../public/images/arrowRight.svg";
 
@@ -11,14 +10,10 @@ function validateMilestone(number) {
   let deliverable = Array.from(
     document.getElementsByName(`milestone${number}Deliverable`)
   )[0];
-  let acceptanceCriteria = Array.from(
-    document.getElementsByName(`milestone${number}AC`)
-  )[0];
 
   let isDeliverableValid = isFieldValid(deliverable);
-  let isAcceptanceCriteriaValid = isFieldValid(acceptanceCriteria);
 
-  if (isDeliverableValid && isAcceptanceCriteriaValid) {
+  if (isDeliverableValid) {
     return true;
   } else {
     return false;
@@ -44,34 +39,18 @@ const ProjectRoadmap = () => {
   useEffect(() => {
     let { projectBudget } = getFormData();
     setNumOfMilestones(getNumberOfMilestones(projectBudget));
-  });
+  }, []);
 
   const Milestones = () => {
     let milestones = [];
+    let nav = [];
+
+    for (let i = 1; i <= numOfMilestones; i++) {
+      nav.push(i);
+    }
     const Milestone = (number) => {
       return (
         <div key={`milestone${number}`} className={styles.section}>
-          <div className={styles.arrows}>
-            <button
-              onClick={() => {
-                if (currentMilestone > 1)
-                  setCurrentMilestone(currentMilestone - 1);
-              }}
-            >
-              <ArrowLeft />
-            </button>
-            <button
-              onClick={() => {
-                if (
-                  currentMilestone < numOfMilestones &&
-                  validateMilestone(number)
-                )
-                  setCurrentMilestone(currentMilestone + 1);
-              }}
-            >
-              <ArrowRight />
-            </button>
-          </div>
           <div>
             <p>Milestone Deliverables</p>
             <div className={styles.input}>
@@ -83,27 +62,55 @@ const ProjectRoadmap = () => {
                     labelSize="12px"
                     labelColor="rgba(255, 255, 255, 0.48)"
                     maxChar={80}
-                    inputWidth="625px"
                   />
-                  <button>
-                    <Checkmark />
-                    <p>Ok</p>
-                  </button>
+                  <div className={styles.arrows}>
+                    <button
+                      onClick={() => {
+                        if (currentMilestone > 1)
+                          setCurrentMilestone(currentMilestone - 1);
+                      }}
+                    >
+                      <ArrowLeft />
+                    </button>
+                    <div className={styles.nav}>
+                      <ul>
+                        {nav.map((i) => {
+                          let style = {};
+
+                          if (i == currentMilestone) {
+                            style = { color: "#9F7AEA" };
+                          }
+                          if (i > currentMilestone) {
+                            style = {
+                              color: "rgba(255, 255, 255, 0.24)",
+                            };
+                          }
+
+                          return (
+                            <li
+                              style={style}
+                              onClick={() => setCurrentMilestone(i)}
+                              key={i}
+                            >
+                              {i}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (
+                          currentMilestone < numOfMilestones &&
+                          validateMilestone(number)
+                        )
+                          setCurrentMilestone(currentMilestone + 1);
+                      }}
+                    >
+                      <ArrowRight />
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <Input
-                  name={`milestone${number}AC`}
-                  label={`Acceptance Criteria (Milestone ${currentMilestone} of ${numOfMilestones})`}
-                  labelSize="12px"
-                  labelColor="rgba(255, 255, 255, 0.48)"
-                  maxChar={80}
-                  inputWidth="625px"
-                />
-                <button>
-                  <Checkmark />
-                  <p>Ok</p>
-                </button>
               </div>
             </div>
           </div>
@@ -147,27 +154,7 @@ const ProjectRoadmap = () => {
                 labelSize="12px"
                 labelColor="rgba(255, 255, 255, 0.48)"
                 maxChar={80}
-                inputWidth="625px"
               />
-              <button>
-                <Checkmark />
-                <p>Ok</p>
-              </button>
-            </div>
-
-            <div>
-              <Input
-                name="finalDeliverableAC"
-                label="Acceptance Criteria"
-                labelSize="12px"
-                labelColor="rgba(255, 255, 255, 0.48)"
-                maxChar={80}
-                inputWidth="625px"
-              />
-              <button>
-                <Checkmark />
-                <p>Ok</p>
-              </button>
             </div>
           </div>
         </div>
@@ -178,7 +165,7 @@ const ProjectRoadmap = () => {
   return (
     <Form
       title="Project Roadmap"
-      description="Provide clear, concise, easy to review deliverables and acceptance criteria for progress payments."
+      description="Provide clear, concise, easy to review deliverables for progress payments."
       fields={Fields}
     />
   );

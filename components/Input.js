@@ -33,7 +33,6 @@ const Input = (props) => {
     height,
     image,
     paddingBottom,
-    inputWidth,
     readOnly = false,
   } = props;
 
@@ -165,7 +164,7 @@ const Input = (props) => {
             autoComplete="false"
             readOnly={readOnly}
             name={name}
-            style={{ width: inputWidth ? inputWidth : width, height }}
+            style={{ width, height }}
             onChange={(event) => handleChange(event)}
             className={styles.input}
             placeholder={placeholder ? placeholder : "Type here..."}
