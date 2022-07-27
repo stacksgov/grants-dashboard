@@ -1,3 +1,5 @@
+
+
 .fundingStreamWrapper h1 {
   font-size: 20px;
   padding-bottom: 12px;
@@ -11,7 +13,9 @@
 
 .fundingStreamWrapper table {
   width: 50vw;
-  background-color: #000000;
+  background-color: rgba(0,0,0,.3);
+  max-width: 800px;
+  min-width: 750px;
 }
 
 .fundingStreamWrapper table thead {
@@ -28,7 +32,7 @@
   gap: 10px;
   font-size: 12px;
   color: #ffffff;
-  padding-bottom: 12px;
+  padding: 12px 0px;
 }
 
 .fundingStreamWrapper table thead tr th:nth-child(2) {

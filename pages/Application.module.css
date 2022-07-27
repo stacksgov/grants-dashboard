@@ -44,7 +44,8 @@
 }
 
 .button button:hover {
-  background: #2c7a7b;
+  background: linear-gradient(45deg, #3182ce, #97266d);
+  opacity: 60%;
   transition: 0.2s;
 }
 

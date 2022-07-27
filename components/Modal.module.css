@@ -65,8 +65,9 @@ display: none;
 .modalWrapper button {
   background: none;
   border: none;
-  cursor: pointer;
   color: #718096;
   font-weight: 500;
   margin-top: 64px;
+  margin-right: auto;
+  margin-left: auto;
 }
