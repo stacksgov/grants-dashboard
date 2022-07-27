@@ -14,6 +14,7 @@ const StacksConverter = () => {
 	const [convertedUsdAmount, setConvertedUsdAmount] = useState(0);
 	const [copyToClipboard, setCopyToClipboard] = useState(false);
 	const [currencyDropdown, setCurrencyDropdown] = useState();
+	const [show, setShow] = useState(true);
 
 	let pastSevenDays = new Date(value.getTime() - 7 * 24 * 60 * 60 * 1000);
 	let unixDateSevenDaysAgo = Math.floor(pastSevenDays.getTime() / 1000);
@@ -66,7 +67,11 @@ const StacksConverter = () => {
 	}, [getStxPrice]);
 
 	return (
-		<div>
+		<div
+			onClick={() => {
+				if (!show) setShow(true);
+			}}
+		>
 			<Link href="/">
 				<a>
 					<div className={styles.close}>
@@ -107,7 +112,7 @@ const StacksConverter = () => {
 					</div>
 					<div className={styles.calendarDropdownWrapper}>
 						<label htmlFor="selectDate">B. Select Date Payment Issued</label>
-						<CalendarDropdown onChange={onChange} value={value} />
+						<CalendarDropdown show={show} setShow={setShow} onChange={onChange} value={value} />
 					</div>
 					<div className={styles.buttonWrappers}>
 						<button

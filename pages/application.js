@@ -33,6 +33,7 @@ const Application = () => {
 	const [flow, setFlow] = useState();
 	const [showModal, setShowModal] = useState(false);
 	const [error, setError] = useState(null);
+	const [currentStep, setCurrentStep] = useState(1);
 
 	useEffect(() => {
 		let formData = JSON.parse(localStorage.getItem('formData'));
@@ -41,7 +42,6 @@ const Application = () => {
 			localStorage.setItem('formData', JSON.stringify({}));
 		}
 		formData = JSON.parse(localStorage.getItem('formData'));
-		formData.githubUsername = session.user.name;
 		localStorage.setItem('formData', JSON.stringify(formData));
 	}, []);
 
@@ -81,8 +81,6 @@ const Application = () => {
 		// send request, then if status 201 then clear localstorage
 	}
 
-	const [currentStep, setCurrentStep] = useState(1);
-
 	let invalidFields = [];
 
 	let optionGroupsChecked = [];
@@ -98,6 +96,7 @@ const Application = () => {
 		switch (field.type) {
 			case 'text':
 			case 'textarea':
+			case 'number':
 				if (field.value == undefined || field.value == '') {
 					field.style.outlineColor = 'red';
 					field.style.borderColor = 'red';
@@ -232,6 +231,7 @@ const Application = () => {
 				switch (type) {
 					case 'text':
 					case 'textarea':
+					case 'number':
 						formData[name] = value;
 						break;
 					case 'radio':
@@ -242,16 +242,18 @@ const Application = () => {
 				localStorage.setItem('formData', JSON.stringify(formData));
 			});
 
-			switch (formData.applicationType) {
-				case 'This is a direct application, I intend to perform the work myself or as part of a team.':
-					setFlow('A');
-					break;
-				case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
-					setFlow('B');
-					break;
-				case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
-					setFlow('C');
-					break;
+			if (currentStep == 1) {
+				switch (formData.applicationType) {
+					case 'This is a direct application, I intend to perform the work myself or as part of a team.':
+						setFlow('A');
+						break;
+					case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
+						setFlow('B');
+						break;
+					case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
+						setFlow('C');
+						break;
+				}
 			}
 		}
 	}
@@ -349,7 +351,7 @@ const Application = () => {
 		'User Information (1 of 2)',
 		'User Information (2 of 2)',
 		'Project Revisions (1 of 2)',
-		'Project Revisions (1 of 2)'
+		'Project Revisions (2 of 2)'
 	];
 
 	const FlowC = () => {
@@ -396,7 +398,7 @@ const Application = () => {
 	return (
 		<div>
 			<div className={!showModal ? styles.applicationWrapper : styles.applicationWrapperBlur}>
-				<Nav name={'Application'} step={currentStep} />
+				<Nav name={'progress'} step={currentStep} totalSteps={navSteps().length} />
 				<div className={styles.mainComponents}>
 					<div id="step">
 						<Steps
