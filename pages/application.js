@@ -45,8 +45,56 @@ const Application = () => {
 		localStorage.setItem('formData', JSON.stringify(formData));
 	}, []);
 
+	function getLabels(formData) {
+		let { applicationType, projectType, projectTrack } = formData;
+
+		let projectStatus = 'Initial Review in Progress';
+		let projectPhase = 'Application Phase';
+
+		switch (applicationType) {
+			case 'This is a direct application, I intend to perform the work myself or as part of a team.':
+				applicationType = 'Direct Application';
+				break;
+			case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
+				applicationType = 'Wishlist Submission';
+				break;
+			case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
+				applicationType = 'Wishlist Request';
+				break;
+		}
+		switch (projectType) {
+			case 'Open Source Starter Grant':
+				projectType = 'Open Source Starter';
+				break;
+			case 'Open Source Builder Grant':
+				projectType = 'Open Source Builder';
+				break;
+			case 'Stacks Community Builder Grant':
+				projectType = 'Community Builder';
+				break;
+			case 'Stacks Education Grant':
+				projectType = 'Education';
+				break;
+			case 'Stacks Event Grant':
+				projectType = 'Events';
+				break;
+			case 'Stacks Chapter Grant (by Region)':
+				projectType = 'Chapter (by Region)';
+				break;
+			case 'ALEX (DeFi) Grant':
+				projectType = 'ALEX (DeFi)';
+				break;
+			case 'Stacks Foundation Resident Program':
+				projectType = 'Resident Program';
+				break;
+		}
+
+		return [applicationType, projectType, projectTrack, projectStatus, projectPhase];
+	}
+
 	async function submitApplication() {
 		let formData = JSON.parse(localStorage.getItem('formData'));
+		const labels = getLabels(formData);
 
 		let markdown = generateTemplate(flow, formData);
 
@@ -54,13 +102,15 @@ const Application = () => {
 			auth: session.accessToken
 		});
 
+		console.log('labels', labels);
+
 		try {
 			let req = await github.rest.issues.create({
-				owner: 'diopitis',
-				repo: 'sveltekit-cf-prisma-planetscale',
+				owner: 'stacksgov',
+				repo: 'grants-dashboard',
 				title: formData.projectTitle,
 				body: markdown,
-				labels: ['new']
+				labels: labels
 			});
 
 			let res = await req;
