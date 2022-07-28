@@ -24,6 +24,7 @@ export const authOptions = {
 
 			user = await res.json();
 
+			console.log('user', user.login);
 			session.user.name = user.login ? user.login : '';
 			session.accessToken = token.accessToken;
 			return session;

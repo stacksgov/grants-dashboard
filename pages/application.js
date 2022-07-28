@@ -42,54 +42,79 @@ const Application = () => {
 			localStorage.setItem('formData', JSON.stringify({}));
 		}
 		formData = JSON.parse(localStorage.getItem('formData'));
+		formData.githubUsername = session.user.name;
 		localStorage.setItem('formData', JSON.stringify(formData));
 	}, []);
 
 	function getLabels(formData) {
-		let { applicationType, projectType, projectTrack } = formData;
+		let labels;
 
-		let projectStatus = 'Initial Review in Progress';
-		let projectPhase = 'Application Phase';
+		switch (flow) {
+			case 'A':
+			case 'B':
+				let { applicationType, projectType, projectTrack } = formData;
 
-		switch (applicationType) {
-			case 'This is a direct application, I intend to perform the work myself or as part of a team.':
-				applicationType = 'Direct Application';
+				let projectStatus = 'Initial Review in Progress';
+				let projectPhase = 'Application Phase';
+
+				switch (applicationType) {
+					case 'This is a direct application, I intend to perform the work myself or as part of a team.':
+						applicationType = 'Direct Application';
+						break;
+					case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
+						applicationType = 'Wishlist Submission';
+						break;
+					case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
+						applicationType = 'Wishlist Request';
+						break;
+				}
+				switch (projectType) {
+					case 'Open Source Starter Grant':
+						projectType = 'Open Source Starter';
+						break;
+					case 'Open Source Builder Grant':
+						projectType = 'Open Source Builder';
+						break;
+					case 'Stacks Community Builder Grant':
+						projectType = 'Community Builder';
+						break;
+					case 'Stacks Education Grant':
+						projectType = 'Education';
+						break;
+					case 'Stacks Event Grant':
+						projectType = 'Events';
+						break;
+					case 'Stacks Chapter Grant (by Region)':
+						projectType = 'Chapter (by Region)';
+						break;
+					case 'ALEX (DeFi) Grant':
+						projectType = 'ALEX (DeFi)';
+						break;
+					case 'Stacks Foundation Resident Program':
+						projectType = 'Resident Program';
+						break;
+				}
+
+				labels = [applicationType, projectType, projectTrack, projectStatus, projectPhase];
 				break;
-			case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
-				applicationType = 'Wishlist Submission';
-				break;
-			case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
-				applicationType = 'Wishlist Request';
+			case 'C':
+				let type = formData.applicationType;
+				let status = 'Initial Review in Progress';
+
+				switch (type) {
+					case 'This is a direct application, I intend to perform the work myself or as part of a team.':
+						type = 'Direct Application';
+						break;
+					case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
+						type = 'Wishlist Submission';
+						break;
+					case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
+						type = 'Wishlist Request';
+						break;
+				}
+				labels = [type, status];
 				break;
 		}
-		switch (projectType) {
-			case 'Open Source Starter Grant':
-				projectType = 'Open Source Starter';
-				break;
-			case 'Open Source Builder Grant':
-				projectType = 'Open Source Builder';
-				break;
-			case 'Stacks Community Builder Grant':
-				projectType = 'Community Builder';
-				break;
-			case 'Stacks Education Grant':
-				projectType = 'Education';
-				break;
-			case 'Stacks Event Grant':
-				projectType = 'Events';
-				break;
-			case 'Stacks Chapter Grant (by Region)':
-				projectType = 'Chapter (by Region)';
-				break;
-			case 'ALEX (DeFi) Grant':
-				projectType = 'ALEX (DeFi)';
-				break;
-			case 'Stacks Foundation Resident Program':
-				projectType = 'Resident Program';
-				break;
-		}
-
-		return [applicationType, projectType, projectTrack, projectStatus, projectPhase];
 	}
 
 	async function submitApplication() {
@@ -118,7 +143,7 @@ const Application = () => {
 
 			if (res.status == 201) {
 				setError(null);
-				// success modal + clear localstorage
+				localStorage.setItem('formData', JSON.stringify({}));
 			} else {
 				setError('some error');
 			}
@@ -127,8 +152,6 @@ const Application = () => {
 		}
 
 		setShowModal(true);
-
-		// send request, then if status 201 then clear localstorage
 	}
 
 	let invalidFields = [];

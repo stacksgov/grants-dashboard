@@ -35,7 +35,6 @@ const ProjectUserInfoOne = () => {
 						pageWidth="half"
 						labelSize="12px"
 						image={<GithubIcon />}
-						value={session.user.name}
 						readOnly={true}
 					/>
 					<Input
