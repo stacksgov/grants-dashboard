@@ -115,6 +115,8 @@ const Application = () => {
 				labels = [type, status];
 				break;
 		}
+
+		return labels;
 	}
 
 	async function submitApplication() {
