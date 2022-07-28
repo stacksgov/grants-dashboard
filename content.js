@@ -59,6 +59,13 @@ export const projectTypes = [
 		icon: <Ellipsis />
 	},
 	{
+		name: 'Stacks Foundation Direct Investment',
+		funding: 'Varies',
+		stream: 'Advanced Support',
+		color: '#48bb78',
+		icon: <Ellipsis />
+	},
+	{
 		name: 'Stacks Web3 Startup Lab',
 		funding: 'Varies',
 		stream: 'Affiliated Organization',

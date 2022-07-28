@@ -27,6 +27,7 @@ import { useSession } from 'next-auth/react';
 import { generateTemplate } from '../components/application/layout/markdownTemplates/IssueTemplate';
 import Modal from '../components/Modal';
 import { Octokit } from '@octokit/rest';
+import { responseErrorCV } from '@stacks/transactions';
 
 const Application = () => {
 	const { data: session } = useSession();
@@ -34,6 +35,7 @@ const Application = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [error, setError] = useState(null);
 	const [currentStep, setCurrentStep] = useState(1);
+	const [issueURL, setIssueURL] = useState('');
 
 	useEffect(() => {
 		let formData = JSON.parse(localStorage.getItem('formData'));
@@ -93,6 +95,9 @@ const Application = () => {
 					case 'Stacks Foundation Resident Program':
 						projectType = 'Resident Program';
 						break;
+					case 'Stacks Foundation Direct Investment':
+						projectType = 'Direct Investment';
+						break;
 				}
 
 				labels = [applicationType, projectType, projectTrack, projectStatus, projectPhase];
@@ -133,8 +138,8 @@ const Application = () => {
 
 		try {
 			let req = await github.rest.issues.create({
-				owner: 'stacksgov',
-				repo: 'grants-dashboard',
+				owner: process.env.NEXT_PUBLIC_REPO_OWNER,
+				repo: process.env.NEXT_PUBLIC_REPO,
 				title: formData.projectTitle,
 				body: markdown,
 				labels: labels
@@ -142,7 +147,7 @@ const Application = () => {
 
 			let res = await req;
 			console.log('response ', res);
-
+			setIssueURL(res.data.html_url);
 			if (res.status == 201) {
 				setError(null);
 				localStorage.setItem('formData', JSON.stringify({}));
@@ -510,7 +515,7 @@ const Application = () => {
 						title="Success"
 						subParagraphOne="Your application has been submitted.  "
 						subParagraphTwo="You can expect a decision on your application in the next 2 to 4 weeks."
-						link="https://github.com"
+						link={issueURL}
 					/>
 				) : (
 					<Modal

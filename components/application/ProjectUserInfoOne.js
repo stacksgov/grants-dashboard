@@ -14,22 +14,6 @@ const ProjectUserInfoOne = () => {
 			<div>
 				<div style={style}>
 					<Input
-						name="firstName"
-						label="First Name *"
-						pageWidth="half"
-						labelSize="12px"
-						paddingBottom="50px"
-					/>
-					<Input
-						name="lastName"
-						label="Last Name *"
-						pageWidth="half"
-						labelSize="12px"
-						paddingBottom="50px"
-					/>
-				</div>
-				<div style={style}>
-					<Input
 						name="githubUsername"
 						label="GitHub User Name"
 						pageWidth="half"
