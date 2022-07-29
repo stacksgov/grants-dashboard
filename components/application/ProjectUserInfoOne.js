@@ -16,6 +16,7 @@ const ProjectUserInfoOne = () => {
 					<Input
 						name="githubUsername"
 						label="GitHub User Name"
+						labelSpan="(login username user)"
 						pageWidth="half"
 						labelSize="12px"
 						image={<GithubIcon />}
@@ -24,6 +25,7 @@ const ProjectUserInfoOne = () => {
 					<Input
 						name="email"
 						label="Email *"
+						labelSpan="(required, will be displayed on Github)"
 						pageWidth="half"
 						labelSize="12px"
 						paddingBottom="50px"
@@ -33,6 +35,7 @@ const ProjectUserInfoOne = () => {
 					<Input
 						name="discordUsername"
 						label="Discord User Name"
+						labelSpan="(optional)"
 						pageWidth="half"
 						labelSize="12px"
 						image={<DiscordIcon />}
@@ -40,6 +43,7 @@ const ProjectUserInfoOne = () => {
 					<Input
 						name="twitterUsername"
 						label="Twitter User Name"
+						labelSpan="(optional)"
 						pageWidth="half"
 						labelSize="12px"
 						image={<TwitterIcon />}

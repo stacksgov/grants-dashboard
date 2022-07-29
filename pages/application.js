@@ -27,7 +27,6 @@ import { useSession } from 'next-auth/react';
 import { generateTemplate } from '../components/application/layout/markdownTemplates/IssueTemplate';
 import Modal from '../components/Modal';
 import { Octokit } from '@octokit/rest';
-import { responseErrorCV } from '@stacks/transactions';
 
 const Application = () => {
 	const { data: session } = useSession();
@@ -493,16 +492,29 @@ const Application = () => {
 							{CurrentStep()}
 						</AnimatePresence>
 					</div>
-					<div className={styles.button}>
-						{currentStep > 1 && currentStep == navSteps().length ? (
-							<button onClick={submitApplication} name="okButton">
-								<p>Submit Application</p>
-							</button>
+					<div className={styles.navButtonWrapper}>
+						<div className={styles.button}>
+							{currentStep > 1 && currentStep == navSteps().length ? (
+								<button onClick={submitApplication} name="okButton">
+									<p>Submit Application</p>
+								</button>
+							) : (
+								<button onClick={() => handleSubmit(currentStep + 1)} name="okButton">
+									<Checkmark />
+									<p>Ok</p>
+								</button>
+							)}
+						</div>
+						{flow === 'A' && currentStep === 4 ? (
+							<div className={styles.infoBox}>
+								<p>Please note:</p>
+								<ol>
+									<li>For applications under 25k, please allow 3-5 weeks for a determination</li>
+									<li>For applications over 25k please allow 6-8 weeks for a determination.</li>
+								</ol>
+							</div>
 						) : (
-							<button onClick={() => handleSubmit(currentStep + 1)} name="okButton">
-								<Checkmark />
-								<p>Ok</p>
-							</button>
+							<></>
 						)}
 					</div>
 				</div>
