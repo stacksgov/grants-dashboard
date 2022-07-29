@@ -60,3 +60,27 @@
   opacity: 1;
   transition: 0s;
 }
+
+
+/* .navButtonWrapper {
+
+} */
+
+.infoBox {
+font-size: 14px;
+  width: 200px;
+  padding-top: 48px;
+  color: rgba(255, 255, 255, 0.24);
+}
+
+.infoBox p {
+
+}
+
+.infoBox ol {
+  list-style-type: disc;
+}
+
+.infoBox li {
+  padding-top: 20px;
+}

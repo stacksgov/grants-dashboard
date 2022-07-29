@@ -93,11 +93,8 @@ const StacksConverter = () => {
 					<div className={styles.dropdownWrapper}>
 						<label htmlFor="selectCurrency">A. Select Currency (STX or USD)</label>
 						<select name="selectCurrency" onChange={(e) => setCurrencyDropdown(e.target.value)}>
-							<option value="" disabled selected>
-								Drop down...
-							</option>
-							<option value="stx">STX</option>
 							<option value="usd">USD</option>
+							<option value="stx">STX</option>
 						</select>
 					</div>
 					<div className={styles.dropdownWrapper}>

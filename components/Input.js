@@ -24,6 +24,7 @@ const Input = (props) => {
 	const {
 		name,
 		label,
+		labelSpan,
 		labelSize,
 		labelColor,
 		description,
@@ -59,6 +60,7 @@ const Input = (props) => {
 
 		switch (name) {
 			case 'discordUsername':
+
 			case 'twitterUsername':
 			case 'projectTeam':
 				break;
@@ -134,7 +136,23 @@ const Input = (props) => {
 	return (
 		<div style={{ maxWidth: inputWidth ? inputWidth : width }} className={styles.fieldWrapper}>
 			<div className={styles.title}>
-				<label style={{ color: labelColor, fontSize: labelSize }}>{label}</label>
+				<label
+					style={
+						label === 'GitHub User Name' ||
+						label == 'Email *' ||
+						label === 'Discord User Name' ||
+						label === 'Twitter User Name'
+							? {
+									color: labelColor,
+									fontSize: labelSize,
+									marginTop: '48px'
+							  }
+							: { color: labelColor, fontSize: labelSize }
+					}
+				>
+					{label}{' '}
+					{labelSpan && <span style={{ color: 'rgba(255, 255, 255, 0.24)' }}>{labelSpan}</span>}
+				</label>
 				{height == undefined && maxChar ? (
 					<div className={styles.progressWrapper}>
 						<p>{displayValue ? maxChar - displayValue.length : maxChar} characters</p>
@@ -151,7 +169,6 @@ const Input = (props) => {
 					<></>
 				)}
 			</div>
-
 			{height == undefined ? (
 				<div style={{ position: 'relative', paddingBottom }}>
 					<div>

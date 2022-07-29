@@ -1,8 +1,13 @@
+.fundingStreamWrapper {
+  display: flex;
+  padding-right: 20px;
+}
 
 
 .fundingStreamWrapper h1 {
   font-size: 20px;
   padding-bottom: 12px;
+ 
 }
 
 .subtitle {
