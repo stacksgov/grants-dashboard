@@ -16,7 +16,7 @@ const ProjectUserInfoOne = () => {
 					<Input
 						name="githubUsername"
 						label="GitHub User Name"
-						labelSpan="(login username user)"
+						labelSpan="(login username used)"
 						pageWidth="half"
 						labelSize="12px"
 						image={<GithubIcon />}
