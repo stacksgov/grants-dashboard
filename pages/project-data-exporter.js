@@ -75,6 +75,22 @@ const ProjectDataExporter = () => {
 
 	const predictedImpactScoreArr = ['6', '5', '4', '3', '2', '1'];
 
+	// async function getProject() {
+	// 	const github = new Octokit({
+	// 		auth: session.accessToken
+	// 	});
+
+	// 	let req = await github.rest.projects.get({
+	// 		owner: 'stacksgov',
+	// 		repo: 'Stacks-Project-Launchpad',
+	// 		project_id: 2
+	// 	});
+
+	// 	let res = req.data;
+
+	// 	console.log('project', res);
+	// }
+
 	async function getIssues() {
 		setCSVData([['projectName', 'projectBudget', 'projectDuration']]);
 		issues = [];
@@ -194,6 +210,8 @@ const ProjectDataExporter = () => {
 		);
 		setProjectsFound(relevantIssues.length);
 	}
+
+	// getProject();
 
 	return (
 		<div>

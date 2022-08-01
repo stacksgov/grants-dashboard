@@ -1,9 +1,10 @@
 import Calendar from 'react-calendar';
 import styles from './CalendarDropDown.module.css';
 import DropdownIcon from '../public/images/dropdown.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 const CalendarDropdown = (props) => {
 	const [show, setShow] = useState(true);
+	const ref = useRef(false);
 	useEffect(() => {
 		setShow(true);
 	}, [props.value]);
@@ -14,9 +15,22 @@ const CalendarDropdown = (props) => {
 				className={styles.calendarDropdownButton}
 				onClick={() => {
 					setShow(!show);
+					ref.current = true;
 				}}
 			>
-				<p>Drop down...</p>
+				<p>
+					{ref.current === true
+						? props.value
+								.toLocaleString('default', {
+									month: 'long',
+									day: '2-digit',
+									year: '2-digit'
+								})
+								.replace(' ', '-')
+								.replace(',', '-')
+								.replace(' ', '')
+						: 'Drop down...'}
+				</p>
 				<DropdownIcon />
 			</button>
 			<div>
