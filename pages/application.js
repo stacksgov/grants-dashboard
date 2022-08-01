@@ -47,85 +47,24 @@ const Application = () => {
 		localStorage.setItem('formData', JSON.stringify(formData));
 	}, []);
 
-	function getLabels(formData) {
-		let labels;
-
-		switch (flow) {
-			case 'A':
-			case 'B':
-				let { applicationType, projectType, projectTrack } = formData;
-
-				let projectStatus = 'Initial Review in Progress';
-				let projectPhase = 'Application Phase';
-
-				switch (applicationType) {
-					case 'This is a direct application, I intend to perform the work myself or as part of a team.':
-						applicationType = 'Direct Application';
-						break;
-					case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
-						applicationType = 'Wishlist Submission';
-						break;
-					case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
-						applicationType = 'Wishlist Request';
-						break;
-				}
-				switch (projectType) {
-					case 'Open Source Starter Grant':
-						projectType = 'Open Source Starter';
-						break;
-					case 'Open Source Builder Grant':
-						projectType = 'Open Source Builder';
-						break;
-					case 'Stacks Community Builder Grant':
-						projectType = 'Community Builder';
-						break;
-					case 'Stacks Education Grant':
-						projectType = 'Education';
-						break;
-					case 'Stacks Event Grant':
-						projectType = 'Events';
-						break;
-					case 'Stacks Chapter Grant (by Region)':
-						projectType = 'Chapter (by Region)';
-						break;
-					case 'ALEX (DeFi) Grant':
-						projectType = 'ALEX (DeFi)';
-						break;
-					case 'Stacks Foundation Resident Program':
-						projectType = 'Resident Program';
-						break;
-					case 'Stacks Foundation Direct Investment':
-						projectType = 'Direct Investment';
-						break;
-				}
-
-				labels = [applicationType, projectType, projectTrack, projectStatus, projectPhase];
+	function getApplicationType(applicationType) {
+		switch (applicationType) {
+			case 'This is a direct application, I intend to perform the work myself or as part of a team.':
+				applicationType = 'Direct Application';
 				break;
-			case 'C':
-				let type = formData.applicationType;
-				let status = 'Initial Review in Progress';
-
-				switch (type) {
-					case 'This is a direct application, I intend to perform the work myself or as part of a team.':
-						type = 'Direct Application';
-						break;
-					case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
-						type = 'Wishlist Submission';
-						break;
-					case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
-						type = 'Wishlist Request';
-						break;
-				}
-				labels = [type, status];
+			case 'This is an application for a project I want to add to the Wishlist and hope someone else applied to complete it.':
+				applicationType = 'Wishlist Submission';
+				break;
+			case 'This is an application I found on the Wishlist that I wish to complete. (paste issue url below)':
+				applicationType = 'Wishlist Request';
 				break;
 		}
-
-		return labels;
+		return applicationType;
 	}
 
 	async function submitApplication() {
 		let formData = JSON.parse(localStorage.getItem('formData'));
-		const labels = getLabels(formData);
+		formData.applicationType = getApplicationType(formData.applicationType);
 
 		let markdown = generateTemplate(flow, formData);
 
@@ -133,15 +72,12 @@ const Application = () => {
 			auth: session.accessToken
 		});
 
-		console.log('labels', labels);
-
 		try {
 			let req = await github.rest.issues.create({
 				owner: process.env.NEXT_PUBLIC_REPO_OWNER,
 				repo: process.env.NEXT_PUBLIC_REPO,
 				title: formData.projectTitle,
-				body: markdown,
-				labels: labels
+				body: markdown
 			});
 
 			let res = await req;
