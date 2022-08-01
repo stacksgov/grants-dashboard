@@ -7,12 +7,6 @@ jobs:
   label:
     runs-on: ubuntu-latest
     steps:
-      - name: "add project status and phase tags"
-        uses: andymckay/labeler@master
-        if: "${{ github.event.project_card.column_id == '19053080' }}"
-        with:
-          add-labels: 'Application Phase, Initial Review in Progress'
-          repo-token: "${{ secrets.GH_TOKEN }}"
       - name: "Onboarding Phase"
         uses: andymckay/labeler@master
         if: "${{ github.event.project_card.column_id == '19053081' }}"
