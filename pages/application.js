@@ -441,14 +441,11 @@ const Application = () => {
 								</button>
 							)}
 						</div>
-						{flow === 'A' && currentStep === 4 ? (
-							<div className={styles.infoBox}>
-								<p>Please note:</p>
-								<ol>
-									<li>For applications under 25k, please allow 3-5 weeks for a determination</li>
-									<li>For applications over 25k please allow 6-8 weeks for a determination.</li>
-								</ol>
-							</div>
+						{flow === 'A' && currentStep === 2 ? (
+							<Modal
+								title="Important"
+								subParagraphTwo="It's not required to complete all fields on this page, but doing so will significantly increase your odds of having your application approved."
+							/>
 						) : (
 							<></>
 						)}
