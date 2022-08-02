@@ -3,11 +3,25 @@ import styles from './CalendarDropDown.module.css';
 import DropdownIcon from '../public/images/dropdown.svg';
 import { useState, useEffect, useRef } from 'react';
 const CalendarDropdown = (props) => {
-	const [show, setShow] = useState(true);
-	const ref = useRef(false);
+	const [show, setShow] = useState(false);
+	const ref = useRef();
+	const reference = useRef(false);
 	useEffect(() => {
-		setShow(true);
+		setShow(false);
 	}, [props.value]);
+
+	useEffect(() => {
+		const checkIfClickedOutside = (e) => {
+			if (show && ref.current && !ref.current.contains(e.target)) {
+				setShow(false);
+			}
+		};
+
+		document.addEventListener('mousedown', checkIfClickedOutside);
+		return () => {
+			document.removeEventListener('mousedown', checkIfClickedOutside);
+		};
+	});
 
 	return (
 		<div>
@@ -15,11 +29,11 @@ const CalendarDropdown = (props) => {
 				className={styles.calendarDropdownButton}
 				onClick={() => {
 					setShow(!show);
-					ref.current = true;
+					reference.current = true;
 				}}
 			>
 				<p>
-					{ref.current === true
+					{reference.current === true
 						? props.value
 								.toLocaleString('default', {
 									month: 'long',
@@ -33,9 +47,9 @@ const CalendarDropdown = (props) => {
 				</p>
 				<DropdownIcon />
 			</button>
-			<div>
+			<div ref={ref}>
 				<Calendar
-					className={show ? styles.hide : styles.show}
+					className={show ? styles.show : styles.hide}
 					onChange={props.onChange}
 					value={props.value}
 				/>

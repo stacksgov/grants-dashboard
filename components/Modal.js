@@ -9,13 +9,18 @@ const Modal = (props) => {
 	const [hide, setHide] = useState(true);
 	return (
 		<div className={hide ? styles.modalWrapper : styles.modalWrapperHide}>
-			{title.toLowerCase() === 'success' ? (
+			{title.toLowerCase() === 'success' || title.toLowerCase() === 'important' ? (
 				<StacksLogoSuccess className={styles.stacksLogo} />
 			) : (
 				<StacksLogoError className={styles.stacksLogo} />
 			)}
-
-			<p className={title.toLowerCase() === 'success' ? styles.titleSuccess : styles.titleError}>
+			<p
+				className={
+					title.toLowerCase() === 'success' || title.toLowerCase() === 'important'
+						? styles.titleSuccess
+						: styles.titleError
+				}
+			>
 				{title}
 			</p>
 			<p>{subParagraphOne}</p>
@@ -24,19 +29,29 @@ const Modal = (props) => {
 				<a href={link}>
 					<p>Click below to view on Github</p>
 				</a>
+			)}{' '}
+			{title.toLowerCase() != 'important' ? (
+				<Link href="/">
+					<a>
+						{' '}
+						<button
+							onClick={() => {
+								setHide(false);
+							}}
+						>
+							{title === 'Important' ? 'Dismiss' : 'Confirm'}
+						</button>
+					</a>
+				</Link>
+			) : (
+				<button
+					onClick={() => {
+						setHide(false);
+					}}
+				>
+					{title === 'Important' ? 'Dismiss' : 'Confirm'}
+				</button>
 			)}
-			<Link href="/">
-				<a>
-					{' '}
-					<button
-						onClick={() => {
-							setHide(false);
-						}}
-					>
-						Confirm
-					</button>
-				</a>
-			</Link>
 		</div>
 	);
 };
