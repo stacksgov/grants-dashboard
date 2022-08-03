@@ -59,6 +59,8 @@ const Input = (props) => {
           </div>
         )}
         <input
+          readOnly={readonly}
+          style={{ color: readOnly ? "rgba(255, 255, 255, 0.48)" : "white" }}
           type={isNumber ? "number" : "text"}
           placeholder="Type here..."
           name={name}
