@@ -1,11 +1,6 @@
 import styles from "./Form.module.css";
 import { motion } from "framer-motion";
 
-export function getFormData() {
-  let formData = localStorage.getItem("formData");
-  return JSON.parse(formData);
-}
-
 export function getSelectedValue(fieldName) {
   let options = Array.from(document.getElementsByName(fieldName));
 

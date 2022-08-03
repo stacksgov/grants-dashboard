@@ -8,7 +8,6 @@ const ProjectTags = () => {
   useEffect(() => {
     getSelectedValue("projectGoal");
     getSelectedValue("projectAudience");
-    getSelectedValue("projectOpenness");
   });
 
   const Fields = () => {
@@ -94,41 +93,6 @@ const ProjectTags = () => {
           maxChar={80}
           description="Please tell us who your target audience is for this project."
         />
-        <div style={{ paddingBottom: "40px" }}>
-          <p className={styles.title}>Project Openness</p>
-          <div className={styles.list}>
-            <div
-              style={{ minWidth: "0px", marginRight: "50px" }}
-              className={styles.radio}
-            >
-              <input
-                type="radio"
-                name="projectOpenness"
-                value="Fully Open Source"
-              />
-              <label>Fully Open Source</label>
-            </div>
-            <div
-              style={{ minWidth: "0px", marginRight: "50px" }}
-              className={styles.radio}
-            >
-              <input
-                type="radio"
-                name="projectOpenness"
-                value="Partially Open Source"
-              />
-              <label>Partially Open Source</label>
-            </div>
-            <div style={{ minWidth: "0px" }} className={styles.radio}>
-              <input
-                type="radio"
-                name="projectOpenness"
-                value="Not Open Source"
-              />
-              <label>Not Open Source</label>
-            </div>
-          </div>
-        </div>
       </div>
     );
   };

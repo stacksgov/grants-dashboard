@@ -1,0 +1,29 @@
+.memo {
+  position: relative;
+}
+
+.list {
+  position: relative;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.list label {
+  padding-left: 25px;
+}
+
+.checkboxWrapper {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  font-size: 10px;
+  top: -25px;
+}
+
+.checkboxWrapper input {
+  position: absolute;
+  top: 2px;
+}

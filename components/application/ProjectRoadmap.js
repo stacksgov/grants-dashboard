@@ -37,9 +37,15 @@ const ProjectRoadmap = () => {
   const [currentMilestone, setCurrentMilestone] = useState(1);
 
   useEffect(() => {
-    let { projectBudget } = getFormData();
-    setNumOfMilestones(getNumberOfMilestones(projectBudget));
-  }, []);
+    let formData = JSON.parse(localStorage.getItem("formData"));
+    let { projectBudget } = formData;
+
+    let numMilestones = getNumberOfMilestones(projectBudget);
+    formData.currentMilestone = currentMilestone;
+    localStorage.setItem("formData", JSON.stringify(formData));
+
+    setNumOfMilestones(numMilestones);
+  }, [currentMilestone]);
 
   const Milestones = () => {
     let milestones = [];
@@ -89,7 +95,7 @@ const ProjectRoadmap = () => {
                           return (
                             <li
                               style={style}
-                              onClick={() => setCurrentMilestone(i)}
+                              // onClick={() => setCurrentMilestone(i)}
                               key={i}
                             >
                               {i}
