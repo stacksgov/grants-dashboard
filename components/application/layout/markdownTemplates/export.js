@@ -2,7 +2,6 @@ const IssueTemplate = (issue) => {
   // let selectedValues = issue.filter((val) => console.log('VALL', val));
 
   let selectedValues = Object.keys(issue).map((key) => {
-    console.log("CHOICE:", issue[key]);
     return issue[key]?.choice;
   });
 
@@ -119,7 +118,6 @@ Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, v
   csv.ecosystemPrograms = lines[12];
   csv.projectMission = lines[13];
 
-  console.log(csv);
   return template;
 };
 

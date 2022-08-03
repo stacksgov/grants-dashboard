@@ -91,7 +91,6 @@ const Application = () => {
       });
 
       let res = await req;
-      console.log("response ", res);
       setIssueURL(res.data.html_url);
       if (res.status == 201) {
         setError(null);
@@ -126,20 +125,15 @@ const Application = () => {
           field.style.outlineColor = "red";
           field.style.borderColor = "red";
           invalidFields.push(field.name);
-          console.log("invalid so pushing");
         } else {
           switch (field.name) {
             case "wishlistGithub":
             case "referenceLink":
-              console.log("CHECKING");
               if (!isValidURL(field.value)) {
-                console.log("is valid url");
                 field.style.outlineColor = "red";
                 field.style.borderColor = "red";
                 invalidFields.push(field.name);
               } else {
-                console.log("is invalid url");
-
                 validateField(field);
               }
               break;
@@ -180,8 +174,6 @@ const Application = () => {
         }
         break;
     }
-    console.log("invalid fields", invalidFields);
-    console.log("valid fields", optionGroupsValid);
   }
 
   function handleSubmit(nextStepNumber) {
@@ -204,7 +196,6 @@ const Application = () => {
         case "wishlistGithub":
           let existingWishlist =
             document.getElementById("existingWishlist").checked;
-          console.log("EXISTING WISHLIST? ", existingWishlist);
           if (existingWishlist) {
             checkField(field);
             break;
@@ -271,14 +262,11 @@ const Application = () => {
 
     let formData = JSON.parse(localStorage.getItem("formData"));
 
-    console.log("invalid fields", invalidFields);
-
     let isValid = false;
 
     function nextPage() {
       if (invalidFields.length == 0) {
         isValid = true;
-        console.log("invalid fields length 0", invalidFields);
 
         if (currentStep > 1 && currentStep == navSteps().length) {
         } else {
@@ -344,9 +332,7 @@ const Application = () => {
           return 8;
         }
       }
-      console.log("CHECKING MILESTONES");
-      console.log("current: ", formData.currentMilestone);
-      console.log("total:", getNumberOfMilestones(formData.projectBudget));
+
       if (
         formData.currentMilestone ==
         getNumberOfMilestones(formData.projectBudget)
