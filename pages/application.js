@@ -275,6 +275,9 @@ const Application = () => {
         fields.map((field) => {
           let { name, value, type } = field;
 
+          console.log("field name", name);
+          console.log("field value", value);
+
           switch (type) {
             case "text":
             case "textarea":

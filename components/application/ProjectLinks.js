@@ -13,7 +13,7 @@ const ProjectLinks = () => {
             name="referenceLinkDescription"
             label="Reference Link Description"
             height="100px"
-            maxChar={300}
+            maxchar={300}
           />
         </div>
       </div>

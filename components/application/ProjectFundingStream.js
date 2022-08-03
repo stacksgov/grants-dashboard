@@ -3,10 +3,11 @@ import PersonIcon from "../../public/images/person.svg";
 import TagIcon from "../../public/images/payTag.svg";
 import DropIcon from "../../public/images/waterDrop.svg";
 import ArrowIcon from "../../public/images/arrow.svg";
+import Form from "../Form";
+import Radio from "../Radio";
 import { projectTypes } from "../../content";
 import { getSelectedValue } from "../Form";
 
-import Form from "../Form";
 import { useEffect } from "react";
 
 const ProjectFundingStream = () => {
@@ -14,8 +15,11 @@ const ProjectFundingStream = () => {
     getSelectedValue("projectType");
   });
 
-  const Fields = () => {
-    return (
+  return (
+    <Form
+      title="Project Type"
+      description="Select the Project Type below. If you have questions about Project Types."
+    >
       <div className={styles.fundingStreamWrapper}>
         <table>
           <thead>
@@ -80,15 +84,7 @@ const ProjectFundingStream = () => {
           </tbody>
         </table>
       </div>
-    );
-  };
-
-  return (
-    <Form
-      title="Project Type"
-      description="Select the Project Type below. If you have questions about Project Types."
-      fields={Fields}
-    />
+    </Form>
   );
 };
 

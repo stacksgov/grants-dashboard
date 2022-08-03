@@ -1,0 +1,7 @@
+.containerWrapper {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  min-width: 300px;
+  max-width: 650px;
+}

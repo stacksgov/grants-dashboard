@@ -67,7 +67,7 @@ const ProjectRoadmap = () => {
                     label={`Deliverable (Milestone ${currentMilestone} of ${numOfMilestones})`}
                     labelSize="12px"
                     labelColor="rgba(255, 255, 255, 0.48)"
-                    maxChar={80}
+                    maxchar={80}
                   />
                   <div className={styles.arrows}>
                     <button
@@ -159,7 +159,7 @@ const ProjectRoadmap = () => {
                 label="Final Deliverable"
                 labelSize="12px"
                 labelColor="rgba(255, 255, 255, 0.48)"
-                maxChar={80}
+                maxchar={80}
               />
             </div>
           </div>

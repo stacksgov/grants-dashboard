@@ -5,14 +5,14 @@ const ProjectImpact = () => {
   const ImpactField = () => {
     return (
       <div>
-        <Input name="projectImpact" maxChar={300} height="100px" />
+        <Input name="projectImpact" maxchar={300} height="100px" />
       </div>
     );
   };
   const RisksField = () => {
     return (
       <div>
-        <Input name="projectRisks" maxChar={300} height="100px" />
+        <Input name="projectRisks" maxchar={300} height="100px" />
       </div>
     );
   };

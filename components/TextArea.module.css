@@ -1,4 +1,4 @@
-.inputWrapper {
+.textareaWrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -9,16 +9,17 @@
   display: flex;
   font-size: 12px;
   gap: 5px;
+  color: rgba(255, 255, 255, 0.24);
 }
 
 .label p {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.24);
 }
 
-.input {
+.textarea {
   position: relative;
 }
-.input input {
+.textarea textarea {
   width: 100%;
   height: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.92);
@@ -26,7 +27,7 @@
   border-right: none;
   border-left: none;
   border-top: none;
-  padding: 10px 0px;
+  padding: 10px 20px;
   color: white;
   border-radius: 10px;
   border-bottom-left-radius: 0;
@@ -34,18 +35,16 @@
   transition: 0.2s;
 }
 
-.input input:hover {
+.textarea textarea:hover {
   outline: 1px solid grey;
   border: none;
   border-radius: 10px;
-  padding: 10px 20px;
 }
 
-.input input:focus {
+.textarea textarea:focus {
   outline: 1px solid #3182ce;
   border: none;
   border-radius: 10px;
-  padding: 10px 20px;
 }
 
 .image {
@@ -58,7 +57,7 @@
 .progressWrapper {
   position: absolute;
   right: 0;
-  bottom: 55px;
+  bottom: 110;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -78,9 +77,4 @@
   height: 100%;
   border-radius: inherit;
   transition: width 0.2s ease-in;
-}
-
-.description {
-  color: rgba(255, 255, 255, 0.64);
-  font-size: 12px;
 }

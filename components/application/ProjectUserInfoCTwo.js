@@ -10,7 +10,7 @@ const ProjectUserInfoCTwo = () => {
           label="Explain what makes you and your project team (if you plan to work with one) uniquely qualified to execute this Wishlist project."
           labelSize="12px"
           labelColor="rgba(255, 255, 255, 0.24)"
-          maxChar={400}
+          maxchar={400}
           height="100px"
         />
       </div>
