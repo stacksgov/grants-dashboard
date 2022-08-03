@@ -2,11 +2,12 @@ import styles from './ProjectData.module.css';
 import Link from 'next/link';
 import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CalendarDropdown from '../components/calendarDropdown';
 import { CSVLink, CSVDownload } from 'react-csv';
 import { Octokit } from '@octokit/rest';
 import { useSession } from 'next-auth/react';
+import LoadingSpinner from '../public/images/loading-spinner.svg';
 
 const ProjectDataExporter = () => {
 	const [CSVData, setCSVData] = useState([['projectName', 'projectBudget', 'projectDuration']]);
@@ -22,6 +23,13 @@ const ProjectDataExporter = () => {
 	const [startDate, setStartDate] = useState(pastSevenDays);
 	const [projectTracks, setProjectTracks] = useState('');
 	const [projectsFound, setProjectsFound] = useState(0);
+	const [loadingSpinner, setLoadingSpinner] = useState(false);
+	const [exportButton, setExportButton] = useState(false);
+
+	useEffect(() => {
+		setExportButton(false);
+		setProjectsFound(0);
+	}, [endDate, projectType, projectPhase, startDate, projectTracks, startDate, projectTracks]);
 
 	let issues = [];
 	const applicationTypeArr = ['Direct Application', 'Wishlist Submission', 'Wishlist Request'];
@@ -81,6 +89,7 @@ const ProjectDataExporter = () => {
 		const github = new Octokit({
 			auth: session.accessToken
 		});
+		setLoadingSpinner(true);
 
 		let req = await github.rest.issues.listForRepo({
 			owner: 'stacksgov',
@@ -91,8 +100,6 @@ const ProjectDataExporter = () => {
 		});
 
 		let res = req.data;
-
-		// console.log('issues', res);
 
 		res.map((issue) => {
 			let teamMembers = issue.assignees.map((assignee) => assignee.login);
@@ -192,7 +199,17 @@ const ProjectDataExporter = () => {
 				issue.reactionUsername = res.map((reactor) => reactor.user.login);
 			})
 		);
-		setProjectsFound(relevantIssues.length);
+
+		if (relevantIssues.length === 0) {
+			setProjectsFound('Nothing Matched this Criteria');
+		} else {
+			setProjectsFound(relevantIssues.length);
+		}
+
+		if (res) {
+			setLoadingSpinner(false);
+			setExportButton(true);
+		}
 	}
 
 	// getProject();
@@ -280,12 +297,15 @@ const ProjectDataExporter = () => {
 						</select>
 					</div>
 					<div className={styles.buttonWrappers}>
-						<button className={styles.converterButton} onClick={getIssues}>
-							Click to Export
-						</button>
-						{/* <CSVLink data={CSVData}>
-							<button>test</button>
-						</CSVLink> */}
+						{!exportButton ? (
+							<button className={styles.converterButton} onClick={getIssues}>
+								{!loadingSpinner ? 'Click to Export' : <LoadingSpinner />}
+							</button>
+						) : (
+							<CSVLink data={CSVData} filename={'projects-dashboard-export.csv'}>
+								<button className={styles.converterButton}>Download CSV</button>
+							</CSVLink>
+						)}
 					</div>
 					<div className={styles.dropdownWrapper}>
 						<div>
