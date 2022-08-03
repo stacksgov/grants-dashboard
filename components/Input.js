@@ -60,7 +60,7 @@ const Input = (props) => {
         )}
         <input
           readOnly={readonly}
-          style={{ color: readOnly ? "rgba(255, 255, 255, 0.48)" : "white" }}
+          style={{ color: readonly ? "rgba(255, 255, 255, 0.48)" : "white" }}
           type={isNumber ? "number" : "text"}
           placeholder="Type here..."
           name={name}
