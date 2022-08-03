@@ -31,6 +31,19 @@ const Home = () => {
 				</div>
 			</div>
 			<div className={styles.rightWrapper}>
+				<div className={styles.secondSection}>
+					<p>Before you apply:</p>
+
+					<a
+						href="https://github.com/stacksgov/Stacks-Project-Launchpad"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<button>
+							VISIT GITHUB REPO <ExternalLinkIcon className={styles.externalLinkIcon} />
+						</button>
+					</a>
+				</div>
 				<div className={styles.firstSection}>
 					<div>
 						<p>Funding Available from:</p>
@@ -52,16 +65,6 @@ const Home = () => {
 							</>
 						)}
 					</div>
-				</div>
-				<div className={styles.secondSection}>
-					<p>Before you apply:</p>
-					<Link href="https://github.com/stacksgov/grants-dashboard/issues">
-						<a target="_blank" rel="noopener noreferrer">
-							<button>
-								VISIT GITHUB REPO <ExternalLinkIcon className={styles.externalLinkIcon} />
-							</button>
-						</a>
-					</Link>
 				</div>
 			</div>
 
