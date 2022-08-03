@@ -34,12 +34,37 @@ html,
 body {
   height: 100%;
   color: rgba(255, 255, 255, 0.92);
-  background: -webkit-linear-gradient(bottom, rgb(35, 24, 70) 0%, rgb(9, 8, 18) 74%, rgb(0, 0, 0) 100%);
-background: -o-linear-gradient(bottom, rgb(35, 24, 70) 0%, rgb(9, 8, 18) 74%, rgb(0, 0, 0) 100%);
-background: -ms-linear-gradient(bottom, rgb(35, 24, 70) 0%, rgb(9, 8, 18) 74%, rgb(0, 0, 0) 100%);
-background: -moz-linear-gradient(bottom, rgb(35, 24, 70) 0%, rgb(9, 8, 18) 74%, rgb(0, 0, 0) 100%);
-background: linear-gradient(to top, rgb(35, 24, 70) 0%, rgb(9, 8, 18) 74%, rgb(0, 0, 0) 100%);
-
+  background: -webkit-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -o-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -ms-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -moz-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: linear-gradient(
+    to top,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  overflow-y: hidden;
 }
 /*
   Typographic tweaks!
