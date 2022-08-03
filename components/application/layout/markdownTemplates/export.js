@@ -2,7 +2,6 @@ const IssueTemplate = (issue) => {
   // let selectedValues = issue.filter((val) => console.log('VALL', val));
 
   let selectedValues = Object.keys(issue).map((key) => {
-    console.log("CHOICE:", issue[key]);
     return issue[key]?.choice;
   });
 
@@ -17,7 +16,6 @@ const IssueTemplate = (issue) => {
   // **Project Track:** ${selectedValues[2]}
   // **Project Goal:** ${selectedValues[3]}
   // **Project Audience:** ${selectedValues[4]}
-  // **Project Openness:** ${selectedValues[5]}
   // **Project Team Members:** ${issue.team}
 
   // # PROJECT ROADMAP & DELIVERABLES
@@ -52,8 +50,6 @@ const IssueTemplate = (issue) => {
 **Project Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIDevelopers
 
 **Specific Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIVdkfhvdjkfvnl;dfnvldnvofd
-
-**Project Openness:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIFully Open Source
 
 **Project Team Members:**&#8202;&#8202;&#8202;&thinsp;IIIII??????
 
@@ -117,13 +113,11 @@ Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, v
   csv.projectGoal = lines[6];
   csv.projectAudience = lines[7];
   csv.specificAudience = lines[8];
-  csv.projectOpenness = lines[9];
   csv.projectTeamMembers = lines[10];
   csv.previousGrants = lines[11];
   csv.ecosystemPrograms = lines[12];
   csv.projectMission = lines[13];
 
-  console.log(csv);
   return template;
 };
 

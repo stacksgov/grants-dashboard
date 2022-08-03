@@ -5,7 +5,7 @@ const ProjectRevisionsTwo = () => {
   const Fields = () => {
     return (
       <div>
-        <Input name="projectRevisions" maxChar={1500} height="500px" />
+        <Input name="projectRevisions" maxchar={1500} height="500px" />
       </div>
     );
   };
