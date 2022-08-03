@@ -3,7 +3,7 @@ import CloseIcon from "../public/images/close.svg";
 import StacksLogo from "../public/images/stacks-logo.svg";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
-import CalendarDropdown from "../components/calendarDropdown";
+import CalendarDropdown from "../components/CalendarDropdown";
 
 const StacksConverter = () => {
   const [value, onChange] = useState(new Date());

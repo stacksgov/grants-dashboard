@@ -3,7 +3,7 @@ import Link from 'next/link';
 import CloseIcon from '../public/images/close.svg';
 import StacksLogo from '../public/images/stacks-logo.svg';
 import { useState, useEffect } from 'react';
-import CalendarDropdown from '../components/calendarDropdown';
+import CalendarDropdown from '../components/CalendarDropdown';
 import { CSVLink, CSVDownload } from 'react-csv';
 import { Octokit } from '@octokit/rest';
 import { useSession } from 'next-auth/react';
