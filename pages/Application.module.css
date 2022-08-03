@@ -1,7 +1,6 @@
 .applicationWrapper {
   margin: 0 15px;
   padding-bottom: 50px;
-
 }
 
 .applicationWrapperBlur {
@@ -17,8 +16,11 @@
 }
 
 .middleComponent {
+  width: 100%;
   padding: 0 10px;
-  max-width: 800px;
+
+  /* min-width: 40%; */
+  max-width: 750px;
 }
 
 .stacksSVG {
@@ -60,7 +62,6 @@
   opacity: 1;
   transition: 0s;
 }
-
 
 /* .navButtonWrapper {
 

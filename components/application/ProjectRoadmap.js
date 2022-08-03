@@ -3,7 +3,7 @@ import ArrowLeft from "../../public/images/arrowLeft.svg";
 import ArrowRight from "../../public/images/arrowRight.svg";
 
 import Input from "../Input";
-import Form, { getFormData } from "../Form";
+import Form from "../Form";
 import { useState, useEffect } from "react";
 
 function validateMilestone(number) {
@@ -58,66 +58,60 @@ const ProjectRoadmap = () => {
       return (
         <div key={`milestone${number}`} className={styles.section}>
           <div>
-            <p>Milestone Deliverables</p>
-            <div className={styles.input}>
-              <div>
-                <div>
-                  <Input
-                    name={`milestone${number}Deliverable`}
-                    label={`Deliverable (Milestone ${currentMilestone} of ${numOfMilestones})`}
-                    labelSize="12px"
-                    labelColor="rgba(255, 255, 255, 0.48)"
-                    maxchar={80}
-                  />
-                  <div className={styles.arrows}>
-                    <button
-                      onClick={() => {
-                        if (currentMilestone > 1)
-                          setCurrentMilestone(currentMilestone - 1);
-                      }}
-                    >
-                      <ArrowLeft />
-                    </button>
-                    <div className={styles.nav}>
-                      <ul>
-                        {nav.map((i) => {
-                          let style = {};
+            <p className={styles.deliverables}>Milestone Deliverables</p>
 
-                          if (i == currentMilestone) {
-                            style = { color: "#9F7AEA" };
-                          }
-                          if (i > currentMilestone) {
-                            style = {
-                              color: "rgba(255, 255, 255, 0.24)",
-                            };
-                          }
+            <Input
+              name={`milestone${number}Deliverable`}
+              label={`Deliverable (Milestone ${currentMilestone} of ${numOfMilestones})`}
+              labelSize="12px"
+              maxchar={80}
+            />
+            <div className={styles.arrows}>
+              <button
+                onClick={() => {
+                  if (currentMilestone > 1)
+                    setCurrentMilestone(currentMilestone - 1);
+                }}
+              >
+                <ArrowLeft />
+              </button>
+              <div className={styles.nav}>
+                <ul>
+                  {nav.map((i) => {
+                    let style = {};
 
-                          return (
-                            <li
-                              style={style}
-                              // onClick={() => setCurrentMilestone(i)}
-                              key={i}
-                            >
-                              {i}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                    <button
-                      onClick={() => {
-                        if (
-                          currentMilestone < numOfMilestones &&
-                          validateMilestone(number)
-                        )
-                          setCurrentMilestone(currentMilestone + 1);
-                      }}
-                    >
-                      <ArrowRight />
-                    </button>
-                  </div>
-                </div>
+                    if (i == currentMilestone) {
+                      style = { color: "#9F7AEA" };
+                    }
+                    if (i > currentMilestone) {
+                      style = {
+                        color: "rgba(255, 255, 255, 0.24)",
+                      };
+                    }
+
+                    return (
+                      <li
+                        style={style}
+                        // onClick={() => setCurrentMilestone(i)}
+                        key={i}
+                      >
+                        {i}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
+              <button
+                onClick={() => {
+                  if (
+                    currentMilestone < numOfMilestones &&
+                    validateMilestone(number)
+                  )
+                    setCurrentMilestone(currentMilestone + 1);
+                }}
+              >
+                <ArrowRight />
+              </button>
             </div>
           </div>
         </div>
@@ -147,33 +141,22 @@ const ProjectRoadmap = () => {
     }
   }
 
-  const Fields = () => {
-    return (
-      <div>
-        <div className={styles.section}>
-          <p>Final Deliverable</p>
-          <div className={styles.input}>
-            <div>
-              <Input
-                name="finalDeliverable"
-                label="Final Deliverable"
-                labelSize="12px"
-                labelColor="rgba(255, 255, 255, 0.48)"
-                maxchar={80}
-              />
-            </div>
-          </div>
-        </div>
-        {Milestones()[currentMilestone - 1]}
-      </div>
-    );
-  };
   return (
     <Form
       title="Project Roadmap"
       description="Provide clear, concise, easy to review deliverables for progress payments."
-      fields={Fields}
-    />
+    >
+      <div className={styles.final}>
+        <Input
+          name="finalDeliverable"
+          label="Final Deliverable"
+          labelFontSize="18px"
+          maxchar={80}
+        />
+      </div>
+
+      {Milestones()[currentMilestone - 1]}
+    </Form>
   );
 };
 

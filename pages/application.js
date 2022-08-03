@@ -17,14 +17,11 @@ import {
 import { authOptions } from "./api/auth/[...nextauth]";
 import { unstable_getServerSession } from "next-auth/next";
 import ProjectInformation from "../components/application/ProjectInformation";
-import ProjectUserInfoOne from "../components/application/ProjectUserInfoOne";
-import ProjectUserInfoTwo from "../components/application/ProjectUserInfoTwo";
 import ProjectFundingStream from "../components/application/ProjectFundingStream";
 import ProjectTrack from "../components/application/ProjectTrack";
 import ProjectTags from "../components/application/ProjectTags";
 import ProjectRoadmap from "../components/application/ProjectRoadmap";
 import ProjectMission from "../components/application/ProjectMission";
-import ProjectUserInfoCTwo from "../components/application/ProjectUserInfoCTwo";
 import ProjectRevisionsOne from "../components/application/ProjectRevisionsOne";
 import ProjectRevisionsTwo from "../components/application/ProjectRevisionsTwo";
 import ApplicantInformation from "../components/application/ApplicantInformation";

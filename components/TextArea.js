@@ -25,6 +25,9 @@ const TextArea = (props) => {
   useEffect(() => {
     let formData = JSON.parse(localStorage.getItem("formData"));
     if (formData) setValue(formData[name]);
+    if (maxchar - value.length <= 0) {
+      maxchar = value.length + 1;
+    }
   }, []);
 
   return (
