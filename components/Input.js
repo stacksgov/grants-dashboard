@@ -17,6 +17,11 @@ const Input = (props) => {
 
   const [value, setValue] = useState("");
 
+  function setColor(input, color) {
+    input.style.outlineColor = color;
+    input.style.borderColor = color;
+  }
+
   function handleChange(e) {
     let input = e.target;
     const { name, value } = input;
@@ -30,6 +35,61 @@ const Input = (props) => {
       if (maxchar - value.length <= 0) {
         maxchar = value.length + 1;
       }
+    }
+
+    switch (name) {
+      case "discordUsername":
+
+      case "twitterUsername":
+      case "projectTeam":
+        break;
+      case "stxMemo":
+        let stxMemoRequired =
+          document.getElementById("stxMemoRequired").checked;
+        if (!stxMemoRequired) {
+          if (value.length == undefined || value.length == "") {
+            setColor(input, "red");
+          } else {
+            setColor(input, "#3182ce");
+          }
+        } else {
+          setColor(input, "#3182ce");
+        }
+
+        break;
+      default:
+        if (value.length == undefined || value.length == "") {
+          setColor(input, "red");
+        } else {
+          switch (name) {
+            case "wishlistGithub":
+            case "referenceLink":
+              if (isValidURL(value)) {
+                setColor(input, "#3182ce");
+              } else {
+                setColor(input, "red");
+              }
+              break;
+            case "email":
+              if (isValidEmail(value)) {
+                setColor(input, "#3182ce");
+              } else {
+                setColor(input, "red");
+              }
+              break;
+            case "stxAddress":
+              if (isValidStxAddress(value)) {
+                setColor(input, "#3182ce");
+              } else {
+                setColor(input, "red");
+              }
+              break;
+            default:
+              setColor(input, "#3182ce");
+              break;
+          }
+        }
+        break;
     }
   }
 

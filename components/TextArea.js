@@ -6,6 +6,11 @@ const TextArea = (props) => {
 
   const [value, setValue] = useState("");
 
+  function setColor(textarea, color) {
+    textarea.style.outlineColor = color;
+    textarea.style.borderColor = color;
+  }
+
   function handleChange(e) {
     let input = e.target;
     const { name, value } = input;
@@ -19,6 +24,39 @@ const TextArea = (props) => {
       if (maxchar - value.length <= 0) {
         maxchar = value.length + 1;
       }
+    }
+
+    switch (name) {
+      case "discordUsername":
+
+      case "twitterUsername":
+      case "projectTeam":
+        break;
+      case "stxMemo":
+        let stxMemoRequired =
+          document.getElementById("stxMemoRequired").checked;
+        if (!stxMemoRequired) {
+          if (value.length == undefined || value.length == "") {
+            setColor(textarea, "red");
+          } else {
+            setColor(textarea, "#3182ce");
+          }
+        } else {
+          setColor(textarea, "#3182ce");
+        }
+
+        break;
+      default:
+        if (value.length == undefined || value.length == "") {
+          setColor(textarea, "red");
+        } else {
+          switch (name) {
+            default:
+              setColor(textarea, "#3182ce");
+              break;
+          }
+        }
+        break;
     }
   }
 

@@ -155,6 +155,7 @@ const Application = () => {
 
             default:
               validateField(field);
+              return true;
               break;
           }
         }
@@ -171,6 +172,7 @@ const Application = () => {
         }
         break;
     }
+    return false;
   }
 
   function handleSubmit(nextStepNumber) {
@@ -272,9 +274,6 @@ const Application = () => {
         fields.map((field) => {
           let { name, value, type } = field;
 
-          console.log("field name", name);
-          console.log("field value", value);
-
           switch (type) {
             case "text":
             case "textarea":
@@ -304,40 +303,47 @@ const Application = () => {
         }
       }
     }
+
+    function getNumberOfMilestones(budget) {
+      if (budget < 10e3) {
+        return 0;
+      } else if (budget < 25e3) {
+        return 1;
+      } else if (budget < 60e3) {
+        return 2;
+      } else if (budget < 100e3) {
+        return 3;
+      } else if (budget < 150e3) {
+        return 4;
+      } else if (budget < 250e3) {
+        return 6;
+      } else {
+        return 8;
+      }
+    }
+
+    let currentMilestone = formData.currentMilestone;
+
     if (flow == "A" && currentStep == "4") {
-      let formData = JSON.parse(localStorage.getItem("formData"));
       formData.agreedToChecklist = allChecked;
       localStorage.setItem("formData", JSON.stringify(formData));
       if (allChecked) {
         setCurrentStep(nextStepNumber);
         isValid = true;
       }
-    } else if (flow == "A" && currentStep == "9") {
-      let formData = JSON.parse(localStorage.getItem("formData"));
+    } else if (
+      flow == "A" &&
+      currentStep == "9" &&
+      getNumberOfMilestones(formData.projectBudget) > 0
+    ) {
+      if (currentMilestone == getNumberOfMilestones(formData.projectBudget)) {
+        let milestoneDeliverable = Array.from(
+          document.getElementsByName(
+            "milestone" + currentMilestone.toString() + "Deliverable"
+          )
+        )[0];
 
-      function getNumberOfMilestones(budget) {
-        if (budget < 10e3) {
-          return 0;
-        } else if (budget < 25e3) {
-          return 1;
-        } else if (budget < 60e3) {
-          return 2;
-        } else if (budget < 100e3) {
-          return 3;
-        } else if (budget < 150e3) {
-          return 4;
-        } else if (budget < 250e3) {
-          return 6;
-        } else {
-          return 8;
-        }
-      }
-
-      if (
-        formData.currentMilestone ==
-        getNumberOfMilestones(formData.projectBudget)
-      ) {
-        setCurrentStep(nextStepNumber);
+        if (checkField(milestoneDeliverable)) nextPage();
         isValid = true;
       }
     } else {
