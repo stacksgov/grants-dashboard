@@ -1,5 +1,6 @@
 import styles from "./ProjectTrack.module.css";
 import Form from "../Form";
+import Container from "../Container";
 import { useEffect } from "react";
 import { getSelectedValue } from "../Form";
 
@@ -8,9 +9,12 @@ const ProjectTrack = () => {
     getSelectedValue("projectTrack");
   });
 
-  const Fields = () => {
-    const style = { display: "flex", gap: "100px" };
-    return (
+  const style = { display: "flex", gap: "100px" };
+  return (
+    <Form
+      title="Project Track"
+      description="Select the Project Track that best aligns with your project from the list below."
+    >
       <div style={style}>
         <div>
           <div className={styles.track}>
@@ -143,14 +147,7 @@ const ProjectTrack = () => {
           </div>
         </div>
       </div>
-    );
-  };
-  return (
-    <Form
-      title="Project Track"
-      description="Select the Project Track that best aligns with your project from the list below."
-      fields={Fields}
-    />
+    </Form>
   );
 };
 

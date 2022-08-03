@@ -5,7 +5,7 @@ const WishlistIdea = () => {
   const Fields = () => {
     return (
       <div>
-        <Input name="wishlistIdea" maxChar={1500} height="500px" />
+        <Input name="wishlistIdea" maxchar={1500} height="500px" />
       </div>
     );
   };
