@@ -12,8 +12,8 @@ const TextArea = (props) => {
   }
 
   function handleChange(e) {
-    let input = e.target;
-    const { name, value } = input;
+    let textarea = e.target;
+    const { name, value } = textarea;
 
     let formData = JSON.parse(localStorage.getItem("formData"));
     formData[name] = value;
