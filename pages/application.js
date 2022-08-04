@@ -52,6 +52,17 @@ const Application = () => {
     if (typeof formData.agreedToChecklist == undefined)
       formData.agreedToChecklist = false;
     localStorage.setItem("formData", JSON.stringify(formData));
+
+    async function refresh() {
+      if (session) {
+        const github = new Octokit({
+          auth: session.accessToken,
+        });
+        await github.request("GET /user");
+      }
+    }
+
+    refresh();
   }, []);
 
   function getApplicationType(applicationType) {
@@ -91,7 +102,7 @@ const Application = () => {
       setIssueURL(res.data.html_url);
       if (res.status == 201) {
         setError(null);
-        // localStorage.setItem("formData", JSON.stringify({}));
+        localStorage.setItem("formData", JSON.stringify({}));
       } else {
         setError("some error");
       }
