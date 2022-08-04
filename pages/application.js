@@ -533,7 +533,6 @@ const Application = () => {
 
 	return (
 		<div>
-			<h1>{JSON.stringify(session.accessToken)}</h1>
 			<div className={!showModal ? styles.applicationWrapper : styles.applicationWrapperBlur}>
 				<Nav name={'progress'} step={currentStep} totalSteps={navSteps().length} />
 				<div className={styles.mainComponents}>
