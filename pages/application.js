@@ -126,7 +126,7 @@ const Application = () => {
 		if (flow == 'B') {
 			// create GH discussion
 			const query = `mutation {
-        createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkyOTIwMDk4MzE=", categoryId: "DIC_kwDOEWe3Z84CQnyr", body: "${markdown}", title: "Wishlist Idea"}) {
+        createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkyOTIwMDk4MzE=", categoryId: "MDE4OkRpc2N1c3Npb25DYXRlZ29yeTI1NzYzMDg1", body: "${markdown}", title: "Wishlist Idea"}) {
           discussion {
             id
             url
