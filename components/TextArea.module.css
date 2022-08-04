@@ -78,3 +78,29 @@
   border-radius: inherit;
   transition: width 0.2s ease-in;
 }
+
+/* width */
+.textareaWrapper textarea::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+.textareaWrapper textarea::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 3px;
+
+}
+
+/* Handle */
+.textareaWrapper textarea::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 30px;
+
+}
+
+/* Handle on hover */
+.textareaWrapper textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);;
+
+}
+
