@@ -12,8 +12,8 @@ const ProjectTrack = () => {
   const style = { display: "flex", gap: "100px" };
   return (
     <Form
-      title="Project Track"
-      description="Select the Project Track that best aligns with your project from the list below."
+      title="Grant Track"
+      description="Select the Grant Track that best aligns with your grant from the list below."
     >
       <div style={style}>
         <div>

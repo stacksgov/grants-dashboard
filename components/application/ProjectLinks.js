@@ -5,10 +5,10 @@ import Form from "../Form";
 const ProjectLinks = () => {
   return (
     <Form
-      title="Project Links (optional)"
+      title="Support Links (optional)"
       description="Do you have any reference materials to provide?
 
-      Pitch decks and/or code repositories are encouraged. It’s helpful to include testimonials (tweets, etc) from the community indicating that your project will fill a need in the community. Short videos and/or voice memos of you pitching your project are also encouraged.  Links must be accessible to all."
+      Pitch decks and/or code repositories are encouraged. It’s helpful to include testimonials (tweets, etc) from the community indicating that your grant will fill a need in the community. Short videos and/or voice memos of you pitching your grant are also encouraged.  Links must be accessible to all."
     >
       <Input name="referenceLink" label="Reference Link URL" />
       <TextArea

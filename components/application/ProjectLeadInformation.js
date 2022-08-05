@@ -8,7 +8,7 @@ import TextArea from "../TextArea";
 const ProjectLeadInformation = () => {
   return (
     <Form
-      title="Project Lead Information"
+      title="Grant Lead Information"
       description="Tell us the account funds should be made payable to if your application is approved. Note, this information will be visible on Github and cannot be changed after submitting."
     >
       <Container>
@@ -37,7 +37,7 @@ const ProjectLeadInformation = () => {
       />
       <TextArea
         name="otherEcosystemPrograms"
-        label="Explain below which program and tell us about your project."
+        label="Explain below which program and tell us about your grant."
         maxchar={300}
         height="100px"
       />

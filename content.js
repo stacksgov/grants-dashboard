@@ -3,14 +3,14 @@ import Ellipsis from "./public/images/ellipsis.svg";
 
 export const projectTypes = [
   {
-    name: "Open Source Starter Grant",
+    name: "Open Source Dev (1st time Grantees)",
     funding: "$0-$25k",
     stream: "Developer Grants",
     color: "#9f7aea",
     icon: <Ellipsis />,
   },
   {
-    name: "Open Source Builder Grant",
+    name: "Open Source Dev (Repeat Grantees)",
     funding: "$25k-$250k",
     stream: "Developer Grants",
     color: "#9f7aea",

@@ -33,7 +33,7 @@ const ApplicationChecklist = () => {
       <Checkbox
         name="guidelines"
         id="guideline3"
-        value="I understand that if I have any questions regarding the application and/or project they should be asked either as a comment to my project application Github issue or in the Projects Github disucussion board."
+        value="I understand that if I have any questions regarding the application and/or grant they should be asked either as a comment to my grant application Github issue or in the Grants Github disucussion board."
       />
       <Checkbox
         name="guidelines"
@@ -48,7 +48,7 @@ const ApplicationChecklist = () => {
       <Checkbox
         name="guidelines"
         id="guideline6"
-        value="I understand that in order for a deliverable to be reviewed I must add a comment to my project application Github issue and provide a link to the deliverable requiring review."
+        value="I understand that in order for a deliverable to be reviewed I must add a comment to my grant application Github issue and provide a link to the deliverable requiring review."
       />
     </Form>
   );

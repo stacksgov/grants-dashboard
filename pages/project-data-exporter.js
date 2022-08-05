@@ -50,8 +50,8 @@ const ProjectDataExporter = () => {
     "Wishlist Request",
   ];
   const projectTypeArr = [
-    "Open Source Starter",
-    "Open Source Builder",
+    "Open Source Dev (1st time Grantees)",
+    "Open Source Dev (Repeat Grantees)",
     "Community Builder",
     "Education",
     "Events",
@@ -77,9 +77,9 @@ const ProjectDataExporter = () => {
     "Onboarding in Progress",
     "Milestone in Progress",
     "Final Deliverable in Progress",
-    "Project Complete",
-    "Project Now Stale",
-    "Project Closed",
+    "Grant Complete",
+    "Grant Now Stale",
+    "Grant Closed",
   ];
   const projectPhaseArr = [
     "Application Phase",
@@ -248,13 +248,13 @@ const ProjectDataExporter = () => {
         </a>
       </Link>
       <div className={styles.projectDataWrapper}>
-        <h1>Project Data Exporter</h1>
+        <h1>Grant Data Exporter</h1>
         <p className={styles.descriptor}>
-          A simple widget for exporting project data from Github as a .CSV file.
+          A simple widget for exporting grant data from Github as a .CSV file.
         </p>
         <div className={styles.projectExportWrapper}>
           <div className={styles.dropdownWrapper}>
-            <label htmlFor="selectProjectType">A. Select Project Type(s)</label>
+            <label htmlFor="selectProjectType">A. Select Grant Type(s)</label>
             <select
               name="selectProjectType"
               onChange={(e) => setProjectType(e.target.value)}
@@ -262,8 +262,12 @@ const ProjectDataExporter = () => {
               <option value="" disabled selected>
                 Drop down...
               </option>
-              <option value="Open Source Starter">Open Source Starter</option>
-              <option value="Open Source Builder">Open Source Builder</option>
+              <option value="Open Source Dev (1st time Grantees)">
+                Open Source Dev (1st time Grantees)
+              </option>
+              <option value="Open Source Dev (Repeat Grantees)">
+                Open Source Dev (Repeat Grantees)
+              </option>
               <option value="Community Builder">Community Builder</option>
               <option value="Education">Education</option>
               <option value="Events">Events</option>
@@ -279,9 +283,7 @@ const ProjectDataExporter = () => {
           </div>
 
           <div className={styles.dropdownWrapper}>
-            <label htmlFor="selectProjectTrack">
-              B. Select Project Track(s)
-            </label>
+            <label htmlFor="selectProjectTrack">B. Select Grant Track(s)</label>
             <select
               name="selectProjectTrack"
               onChange={(e) => setProjectTracks(e.target.value)}
@@ -316,7 +318,7 @@ const ProjectDataExporter = () => {
             <CalendarDropdown onChange={setEndDate} value={endDate} />
           </div>
           <div className={styles.dropdownWrapper}>
-            <label htmlFor="selectProjectPhase">C. Select Project Phase</label>
+            <label htmlFor="selectProjectPhase">C. Select Grant Phase</label>
             <select
               name="selectProjectPhase"
               onChange={(e) => setProjectPhase(e.target.value)}
@@ -345,10 +347,7 @@ const ProjectDataExporter = () => {
                 {!loadingSpinner ? "Click to Export" : <LoadingSpinner />}
               </button>
             ) : (
-              <CSVLink
-                data={CSVData}
-                filename={"projects-dashboard-export.csv"}
-              >
+              <CSVLink data={CSVData} filename={"grants-dashboard-export.csv"}>
                 <button className={styles.converterButton}>Download CSV</button>
               </CSVLink>
             )}
@@ -381,7 +380,7 @@ const ProjectDataExporter = () => {
           </div>
           <div className={styles.dropdownWrapper}>
             <div className={styles.projectsFound}>
-              <p>Projects Found</p>
+              <p>Grants Found</p>
               <p>{projectsFound}</p>
             </div>
           </div>
