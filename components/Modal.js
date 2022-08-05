@@ -27,8 +27,8 @@ const Modal = (props) => {
 				{title}
 			</p>
 			<p>{subParagraphOne}</p>
-			{subParagraphTwo && <p>{subParagraphTwo}</p>}
-			{link && <p>Click below to view on Github</p>}
+			{subParagraphTwo && <p className={styles.subParagraphTwo}>{subParagraphTwo}</p>}
+			{link && <p className={styles.linkToIssue}>Click below to view on Github</p>}
 			{title.toLowerCase() != 'important' ? (
 				<a href={link} target="_blank" rel="external noopener noreferrer">
 					{' '}

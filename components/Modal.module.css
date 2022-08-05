@@ -48,9 +48,9 @@ display: none;
   padding-bottom: 12px;
 }
 
-.modalWrapper p:nth-of-type(3) {
+.subParagraphTwo {
   font-size: 14px;
-  padding-bottom: 12px; 
+  padding-bottom: 80px; 
   padding-right: 43px;
   padding-left: 43px;
 
@@ -62,12 +62,20 @@ display: none;
 
 }
 
+.linkToIssue {
+  padding-top: 80px;
+  padding-bottom: 20px;
+  font-size: 14px;
+  padding-right: 43px;
+  padding-left: 43px;
+}
+
 .modalWrapper button {
   background: none;
   border: none;
   color: #718096;
   font-weight: 500;
-  margin-top: 64px;
+  /* margin-top: 64px; */
   margin-right: auto;
   margin-left: auto;
   cursor: pointer;
