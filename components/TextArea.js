@@ -88,7 +88,7 @@ const TextArea = (props) => {
               ? 0
               : value
               ? maxchar - value.length
-              : maxchar}
+              : maxchar}{" "}
             characters
           </p>
           <div className={styles.progressBar}>
