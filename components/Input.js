@@ -32,9 +32,6 @@ const Input = (props) => {
 
     if (!(value.length > maxchar)) {
       setValue(value.substring(0, maxchar));
-      if (maxchar - value.length <= 0) {
-        maxchar = value.length + 1;
-      }
     }
 
     switch (name) {
@@ -107,11 +104,22 @@ const Input = (props) => {
       <div className={styles.input}>
         {maxchar && (
           <div className={styles.progressWrapper}>
-            <p>{value ? maxchar - value.length : maxchar} characters</p>
+            <p>
+              {(value ? maxchar - value.length : maxchar) < 0
+                ? 0
+                : value
+                ? maxchar - value.length
+                : maxchar}
+              characters
+            </p>
             <div className={styles.progressBar}>
               <div
                 style={{
-                  width: `${(value ? value.length / maxchar : 0) * 100}%`,
+                  width: `${
+                    (value ? value.length / maxchar : 0) * 100 > 100
+                      ? 100
+                      : (value ? value.length / maxchar : 0) * 100
+                  }%`,
                 }}
                 className={styles.filler}
               />

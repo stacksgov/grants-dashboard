@@ -153,6 +153,7 @@ const Application = () => {
         if (req.status == 200) {
           let res = await req.json();
           setURL(res.data.createDiscussion.discussion.url);
+          localStorage.setItem("formData", JSON.stringify({}));
           setError(null);
         }
       } catch (err) {
