@@ -31,7 +31,7 @@ const ProjectInformation = () => {
       <Input
         name="projectTeam"
         label="Grant Team Members"
-        description="Provide the GitHub usernames of any Grant Team Members. Separate all names."
+        description="Provide the GitHub usernames of any Grant Team Members. Separate all names by comma."
       />
     </Form>
   );
