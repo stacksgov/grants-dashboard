@@ -1,12 +1,15 @@
 import styles from './Modal.module.css';
 import StacksLogoSuccess from '../public/images/stacksModalLogoSuccess.svg';
 import StacksLogoError from '../public/images/stacksModalLogoError.svg';
-import Link from 'next/link';
+
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Modal = (props) => {
 	const { title, subParagraphOne, subParagraphTwo, link } = props;
 	const [hide, setHide] = useState(true);
+	const router = useRouter();
+
 	return (
 		<div className={hide ? styles.modalWrapper : styles.modalWrapperHide}>
 			{title.toLowerCase() === 'success' || title.toLowerCase() === 'important' ? (
@@ -32,6 +35,7 @@ const Modal = (props) => {
 					<button
 						onClick={() => {
 							setHide(false);
+							router.push('/');
 						}}
 					>
 						{title === 'Important' ? 'Dismiss' : 'Confirm'}
