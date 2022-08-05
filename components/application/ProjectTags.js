@@ -12,11 +12,11 @@ const ProjectTags = () => {
 
   return (
     <Form
-      title="Project Tags"
-      description="Select the Project Tags that best align with your project."
+      title="Grant Tags"
+      description="Select the Grant Tags that best align with your grant."
     >
       <div style={{ paddingBottom: "40px" }}>
-        <p className={styles.title}>Project Goals</p>
+        <p className={styles.title}>Grant Goals</p>
         <div className={styles.list}>
           <div className={styles.radio}>
             <input
@@ -55,7 +55,7 @@ const ProjectTags = () => {
         </div>
       </div>
       <div style={{ paddingBottom: "40px" }}>
-        <p className={styles.title}>Project Audience</p>
+        <p className={styles.title}>Grant Audience</p>
         <div className={styles.list}>
           <div className={styles.radio}>
             <input type="radio" name="projectAudience" value="Developers" />
@@ -94,7 +94,7 @@ const ProjectTags = () => {
         label="Specific Audience"
         labelFontSize="18px"
         maxchar={80}
-        description="Please tell us who your target audience is for this project."
+        description="Please tell us who your target audience is for this grant."
       />
     </Form>
   );

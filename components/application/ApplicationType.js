@@ -17,7 +17,7 @@ const ApplicationType = () => {
     >
       <Radio
         name="applicationType"
-        value="This is an application for a project that I intend to complete myself or as part of a team."
+        value="This is an application for a grant that I intend to complete myself or as part of a team."
       />
       <Radio
         name="applicationType"

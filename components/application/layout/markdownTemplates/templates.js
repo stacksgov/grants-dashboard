@@ -2,8 +2,8 @@ export const templateA = (formData) => {
   let fundingStream;
 
   switch (formData.projectType) {
-    case "Open Source Starter Grant":
-    case "Open Source Builder Grant":
+    case "Open Source Dev (1st time Grantees)":
+    case "Open Source Dev (Repeat Grantees)":
       fundingStream = "Developer Grants";
       break;
     case "Stacks Community Builder Grant":
@@ -95,35 +95,35 @@ ${
 # PROJECT BASICS
 
 
-**Project Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+**Grant Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
     formData.projectTitle || ""
   }
 
-**Project Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
+**Grant Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
     formData.projectBudget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ||
     ""
   }
 
-**Project Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
+**Grant Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;${
     formData.projectDuration.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ||
     ""
   }
 
 **Funding Stream:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&thinsp;${fundingStream}
 
-**Project Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+**Grant Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
     formData.projectType || ""
   }
 
-**Project Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+**Grant Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
     formData.projectTrack || ""
   }
 
-**Project Goal:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;${
+**Grant Goal:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;${
     formData.projectGoal || ""
   }
 
-**Project Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
+**Grant Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;${
     formData.projectAudience || ""
   }
 
@@ -134,7 +134,7 @@ ${
 ${
   typeof formData.projectTeam !== "undefined"
     ? `
-**Project Team Members:**&#8202;&#8202;&#8202;&thinsp;${
+**Grant Team Members:**&#8202;&#8202;&#8202;&thinsp;${
         formData.projectTeam || ""
       }
 `
@@ -161,18 +161,18 @@ ${
 
 # PROJECT MISSION, IMPACT, RISKS & REFERENCE
 
-**Project Mission:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.projectMission || ""}
+**Grant Mission:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.projectMission || ""}
 
-**Project Impact:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.projectImpact || ""}
+**Grant Impact:** &nbsp;&nbsp;&nbsp;&thinsp;${formData.projectImpact || ""}
 
-**Project Risks:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
+**Grant Risks:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
     formData.projectRisks || ""
   }
 
 ${
   typeof formData.referenceLink !== "undefined"
     ? `
-**[Project Link:](${
+**[Support Link:](${
         formData.referenceLink || ""
       })** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;${
         formData.referenceLinkDescription || ""

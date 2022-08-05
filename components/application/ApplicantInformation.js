@@ -41,7 +41,7 @@ const ApplicantInformation = () => {
       </Container>
       <TextArea
         name="whyTeamIsQualified"
-        label="Explain what makes you and your project team (if you plan to work with one) uniquely qualified to execute this project."
+        label="Explain what makes you and your grant team (if you plan to work with one) uniquely qualified to execute this grant."
         maxchar={300}
         height="100px"
       />

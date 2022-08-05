@@ -4,8 +4,8 @@ import TextArea from "../TextArea";
 const ProjectMission = () => {
   return (
     <Form
-      title="Project Mission Statement"
-      description="Emphasize what is new & novel to Stacks and how the Stacks community will benefit from the project."
+      title="Grant Mission Statement"
+      description="Emphasize what is new & novel to Stacks and how the Stacks community will benefit from the grant."
     >
       <TextArea name="projectMission" maxchar={1500} height="500px" />
     </Form>

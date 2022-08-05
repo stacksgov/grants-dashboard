@@ -8,15 +8,15 @@ const IssueTemplate = (issue) => {
   selectedValues = selectedValues.filter((e) => e);
 
   // let template = `# PROJECT BASICS
-  // **Project Name:** ${issue.name}
-  // **Project Budget:** ${issue.budget}
-  // **Project Duration:** ${issue.duration}
+  // **Grant Name:** ${issue.name}
+  // **Grant Budget:** ${issue.budget}
+  // **Grant Duration:** ${issue.duration}
   // **Funding Stream:** ${selectedValues[0]}
-  // **Project Type:** ${selectedValues[1]}
-  // **Project Track:** ${selectedValues[2]}
-  // **Project Goal:** ${selectedValues[3]}
-  // **Project Audience:** ${selectedValues[4]}
-  // **Project Team Members:** ${issue.team}
+  // **Grant Type:** ${selectedValues[1]}
+  // **Grant Track:** ${selectedValues[2]}
+  // **Grant Goal:** ${selectedValues[3]}
+  // **Grant Audience:** ${selectedValues[4]}
+  // **Grant Team Members:** ${issue.team}
 
   // # PROJECT ROADMAP & DELIVERABLES
   // **Final Deliverable:** ${issue.final}
@@ -26,32 +26,32 @@ const IssueTemplate = (issue) => {
 
   // **[${issue.firstLink}](url):** ${issue.firstLinkDescription}
   // **[${issue.secondLink}](url):** ${issue.secondLinkDescription}
-  // **Project Mission:** ${issue.mission}
+  // **Grant Mission:** ${issue.mission}
   // `;
 
   let template = `
   
 # PROJECT BASICS
 
-**Project Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIThirty Character Long Project Name
+**Grant Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIThirty Character Long Grant Name
 
-**Project Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIIINumber of $USD
+**Grant Budget:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIIINumber of $USD
 
-**Project Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIIINumber of Hours
+**Grant Duration:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIIINumber of Hours
 
 **Funding Stream:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&thinsp;IIIIIDeveloper Grant
 
-**Project Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIOpen Source Starter Grant
+**Grant Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIOpen Source Starter Grant
 
-**Project Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIStacks Protocol
+**Grant Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIStacks Protocol
 
-**Project Goal:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;IIIIIImprove Existing Technology
+**Grant Goal:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;IIIIIImprove Existing Technology
 
-**Project Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIDevelopers
+**Grant Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIDevelopers
 
 **Specific Audience:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIVdkfhvdjkfvnl;dfnvldnvofd
 
-**Project Team Members:**&#8202;&#8202;&#8202;&thinsp;IIIII??????
+**Grant Team Members:**&#8202;&#8202;&#8202;&thinsp;IIIII??????
 
 **Previous Grants:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&thinsp;IIIIILink to Issue
 
@@ -60,7 +60,7 @@ const IssueTemplate = (issue) => {
 
 # PROJECT MISSION, IMPACT, RISKS & REFERENCE
 
-**Project Mission:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+**Grant Mission:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
 
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
 
@@ -68,30 +68,30 @@ Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vit
 
 Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis m
 
-**Project Impact:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+**Grant Impact:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
 
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
 
-**Project Risks:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+**Grant Risks:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
 
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
 
-**[Project Link:](link)** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+**[Grant Link:](link)** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
 
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
 
 # PROJECT ROADMAP & DELIVERABLES
 **MILESTONE {number}:**
 
-**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
 
-**Acceptance Criteria:** &thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+**Acceptance Criteria:** &thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
 
 **FINAL DELIVERABLE**
 
-**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+**Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
 
-**Acceptance Criteria:** &thinsp;IIIII1,296 Project Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+**Acceptance Criteria:** &thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
 
 
 **

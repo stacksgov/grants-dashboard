@@ -67,7 +67,7 @@ const Application = () => {
 
   function getApplicationType(applicationType) {
     switch (applicationType) {
-      case "This is an application for a project that I intend to complete myself or as part of a team.":
+      case "This is an application for a grant that I intend to complete myself or as part of a team.":
         applicationType = "Direct Application";
         break;
       case "This is just an idea I want to add to the Wishlist.":
@@ -301,7 +301,7 @@ const Application = () => {
 
         if (currentStep == 1) {
           switch (formData.applicationType) {
-            case "This is an application for a project that I intend to complete myself or as part of a team.":
+            case "This is an application for a grant that I intend to complete myself or as part of a team.":
               setFlow("A");
               break;
             case "This is just an idea I want to add to the Wishlist.":
@@ -376,16 +376,16 @@ const Application = () => {
   const flowASteps = [
     "Application Type",
     "Applicant Information",
-    "Project Lead Information",
+    "Grant Lead Information",
     "Application Checklist",
-    "Project Type",
-    "Project Track",
-    "Project Tags",
-    "Project Information",
-    "Project Roadmap",
-    "Project Mission Statement",
-    "Project Impact & Risks",
-    "Project Links",
+    "Grant Type",
+    "Grant Track",
+    "Grant Tags",
+    "Grant Information",
+    "Grant Roadmap",
+    "Grant Mission Statement",
+    "Grant Impact & Risks",
+    "Support Links",
   ];
 
   const FlowA = () => {
@@ -437,9 +437,9 @@ const Application = () => {
   const flowCSteps = [
     "Application Type",
     "Applicant Information",
-    "Project Lead Information",
-    "Project Revisions (1 of 2)",
-    "Project Revisions (2 of 2)",
+    "Grant Lead Information",
+    "Grant Revisions (1 of 2)",
+    "Grant Revisions (2 of 2)",
   ];
 
   const FlowC = () => {

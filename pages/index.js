@@ -34,7 +34,7 @@ const Home = () => {
 
       <div className={styles.leftWrapper}>
         <p className={styles.foundation}>Stacks Foundation</p>
-        <h1>Project Launchpad</h1>
+        <h1>Grant Launchpad</h1>
         <p>
           Committed to helping developers, designers, community leaders,
           artists, entrepreneurs, and more build a more...
@@ -52,7 +52,7 @@ const Home = () => {
           <p>Before you apply:</p>
 
           <a
-            href="https://github.com/stacksgov/Stacks-Project-Launchpad"
+            href="https://github.com/stacksgov/Stacks-Grant-Launchpad"
             target="_blank"
             rel="noopener noreferrer"
           >
