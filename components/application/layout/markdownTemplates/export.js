@@ -7,7 +7,7 @@ const IssueTemplate = (issue) => {
 
   selectedValues = selectedValues.filter((e) => e);
 
-  // let template = `# PROJECT BASICS
+  // let template = `# GRANT BASICS
   // **Grant Name:** ${issue.name}
   // **Grant Budget:** ${issue.budget}
   // **Grant Duration:** ${issue.duration}
@@ -18,11 +18,11 @@ const IssueTemplate = (issue) => {
   // **Grant Audience:** ${selectedValues[4]}
   // **Grant Team Members:** ${issue.team}
 
-  // # PROJECT ROADMAP & DELIVERABLES
+  // # GRANT ROADMAP & DELIVERABLES
   // **Final Deliverable:** ${issue.final}
   // **Milestone Deliverable 1:** ${issue.milestoneOne}
 
-  // # PROJECT MISSION & LINKS
+  // # GRANT MISSION & LINKS
 
   // **[${issue.firstLink}](url):** ${issue.firstLinkDescription}
   // **[${issue.secondLink}](url):** ${issue.secondLinkDescription}
@@ -31,7 +31,7 @@ const IssueTemplate = (issue) => {
 
   let template = `
   
-# PROJECT BASICS
+# GRANT BASICS
 
 **Grant Name:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;IIIIIThirty Character Long Grant Name
 
@@ -41,7 +41,7 @@ const IssueTemplate = (issue) => {
 
 **Funding Stream:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&thinsp;IIIIIDeveloper Grant
 
-**Grant Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIOpen Source Starter Grant
+**Grant Type:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIOpen Source Dev (1st time Grantees)
 
 **Grant Track:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&#8202;&thinsp;IIIIIStacks Protocol
 
@@ -58,7 +58,7 @@ const IssueTemplate = (issue) => {
 **Ecosystem Programs:** &nbsp;&nbsp;&nbsp;&#8202;&#8202;&#8202;&thinsp;IIIII80 Character Description - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula.
 
 
-# PROJECT MISSION, IMPACT, RISKS & REFERENCE
+# GRANT MISSION, IMPACT, RISKS & REFERENCE
 
 **Grant Mission:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
 
@@ -80,7 +80,7 @@ Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, v
 
 Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
 
-# PROJECT ROADMAP & DELIVERABLES
+# GRANT ROADMAP & DELIVERABLES
 **MILESTONE {number}:**
 
 **Deliverable:** &nbsp;&nbsp;&nbsp;&thinsp;IIIII1,296 Grant Mission Statement -- Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.

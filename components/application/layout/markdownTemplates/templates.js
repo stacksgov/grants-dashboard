@@ -94,7 +94,7 @@ ${
 }
 
 
-# PROJECT BASICS
+# GRANT BASICS
 
 
 **Grant Name:**&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
@@ -159,7 +159,7 @@ ${
     : ""
 }
 
-# PROJECT MISSION, IMPACT, RISKS & REFERENCE
+# GRANT MISSION, IMPACT, RISKS & REFERENCE
 
 **Grant Mission:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
     formData.projectMission || ""
@@ -185,7 +185,7 @@ ${
     : ""
 }
 
-# PROJECT ROADMAP & DELIVERABLES
+# GRANT ROADMAP & DELIVERABLES
 
 
 ${
@@ -424,7 +424,7 @@ ${
     : ""
 }
 
-# PROJECT BASICS
+# GRANT BASICS
 
 ${
   typeof formData.wishlistGithub !== "undefined"
