@@ -84,7 +84,6 @@ const Application = () => {
 				<Modal
 					title="Success"
 					subParagraphOne="Your application has been submitted.  "
-					subParagraphTwo="You can expect a decision on your application in the next 2 to 4 weeks."
 					link={URL}
 				/>
 			) : (
