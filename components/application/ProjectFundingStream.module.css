@@ -21,6 +21,7 @@
   background-color: rgba(0,0,0,.3);
   max-width: 800px;
   min-width: 750px;
+  padding-left: 10px;
 }
 
 .fundingStreamWrapper table thead {
@@ -85,16 +86,19 @@
   height: 0.65em;
   border-radius: 50%;
   transform: scale(0);
+
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em rgba(74, 85, 104, 0.8);
 }
 
 .fundingStreamWrapper table tbody td input[type="radio"]:checked::before {
   transform: scale(1);
+  
 }
 
 .fundingStreamWrapper table tbody tr td:nth-child(2) {
   width: 302px;
+  
 }
 
 .fundingStreamWrapper table tbody tr td:nth-child(3) {

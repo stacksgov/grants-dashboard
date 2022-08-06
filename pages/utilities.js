@@ -64,14 +64,6 @@ const Utilities = () => {
 						)}
 					</div>
 				</div>
-				<div className={styles.buttonWrapperOldGrants}>
-					<div className={styles.oldRepo}>
-						<p>C. April 2022 to July 2022 Dashboard</p>
-						<a href="https://grants.stacks.org/" target="_blank" rel="noopener noreferrer">
-							<button>Old Grants Dashboard</button>
-						</a>
-					</div>
-				</div>
 			</div>
 		</div>
 	);
