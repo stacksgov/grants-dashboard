@@ -93,6 +93,12 @@ const Application = () => {
 		return modal;
 	}
 
+	const signOutTimeout = () => {
+		setTimeout(() => {
+			signOut();
+		}, 10000);
+	};
+
 	function getApplicationType(applicationType) {
 		switch (applicationType) {
 			case 'This is an application for a grant that I intend to complete myself or as part of a team.':
@@ -140,32 +146,24 @@ const Application = () => {
 					}
 				});
 
-				console.log('dicussion response', req);
-
 				if (req.status == 200) {
 					let res = await req.json();
-					console.log(res);
+
 					setURL(res.data.createDiscussion.discussion.url);
 					localStorage.setItem('formData', JSON.stringify({}));
 					setError(null);
-					setTimeout(() => {
-						signOut();
-					}, 5000);
+					signOutTimeout();
 				} else {
 					setError(
 						"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
 					);
-					setTimeout(() => {
-						signOut();
-					}, 5000);
+					signOutTimeout();
 				}
 			} catch (err) {
 				setError(
 					"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
 				);
-				setTimeout(() => {
-					signOut();
-				}, 5000);
+				signOutTimeout();
 			}
 		} else {
 			try {
@@ -182,24 +180,18 @@ const Application = () => {
 				if (res.status == 201) {
 					setError(null);
 					localStorage.setItem('formData', JSON.stringify({}));
-					setTimeout(() => {
-						signOut();
-					}, 5000);
+					signOutTimeout();
 				} else {
 					setError(
 						"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
 					);
-					setTimeout(() => {
-						signOut();
-					}, 5000);
+					signOutTimeout();
 				}
 			} catch (err) {
 				setError(
 					"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
 				);
-				setTimeout(() => {
-					signOut();
-				}, 5000);
+				signOutTimeout();
 			}
 		}
 

@@ -209,7 +209,7 @@ const GrantDataExporter = () => {
 			})
 		);
 
-		console.log('relevant issues', relevantIssues);
+		// console.log('relevant issues', relevantIssues);
 
 		await Promise.all(
 			relevantIssues.map(async (issue) => {
@@ -226,16 +226,12 @@ const GrantDataExporter = () => {
 
 		relevantIssues.map((issue) => {
 			if (issue.body) {
-				console.log('issue', issue);
 				const regex = /(?<=&thinsp;)([\s\S]*?)(?=\*\*)/g;
 
 				issue.body += '**';
-				console.log('issue.body', issue.body);
 				const lines = issue.body
 					.match(regex)
 					.map((line) => line.replace('\n', '').replace('\n', '').trim());
-
-				console.log('lines', lines);
 
 				issue.grantName = lines[5];
 				issue.grantBudget = lines[6];
