@@ -88,11 +88,7 @@ const Home = () => {
 				<div className={styles.thirdSection}>
 					<p>Already have an active grant?</p>
 
-					<a
-						href="https://github.com/stacksgov/Stacks-Grant-Launchpad"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+					<a href="https://grantsdashboard.stacks.org" target="_blank" rel="noopener noreferrer">
 						<button>
 							OLD DASHBOARD <ExternalLinkIcon className={styles.externalLinkIcon} />
 						</button>
