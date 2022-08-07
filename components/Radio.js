@@ -1,10 +1,19 @@
 import styles from "./Radio.module.css";
 
 const Radio = (props) => {
-  const { name, value, id = name } = props;
+  const { name, value, id = name, disabled = false } = props;
   return (
-    <div className={styles.radioWrapper}>
-      <input id={id} type="radio" name={name} value={value} />
+    <div
+      style={disabled ? { opacity: "0.5" } : {}}
+      className={styles.radioWrapper}
+    >
+      <input
+        disabled={disabled}
+        id={id}
+        type="radio"
+        name={name}
+        value={value}
+      />
       <label>{value}</label>
     </div>
   );

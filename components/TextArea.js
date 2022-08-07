@@ -32,20 +32,6 @@ const TextArea = (props) => {
       case "twitterUsername":
       case "projectTeam":
         break;
-      case "stxMemo":
-        let stxMemoRequired =
-          document.getElementById("stxMemoRequired").checked;
-        if (!stxMemoRequired) {
-          if (value.length == undefined || value.length == "") {
-            setColor(textarea, "red");
-          } else {
-            setColor(textarea, "#3182ce");
-          }
-        } else {
-          setColor(textarea, "#3182ce");
-        }
-
-        break;
       default:
         if (value.length == undefined || value.length == "") {
           setColor(textarea, "red");
