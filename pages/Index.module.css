@@ -249,6 +249,11 @@
   left: 0;
 }
 
+.rocketShip {
+  padding-top: 20px;
+    height: 150px;
+}
+
 @media (max-width: 800px) {
   .indexWrapper {
     flex-direction: column;
