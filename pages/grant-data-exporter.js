@@ -50,12 +50,12 @@ const GrantDataExporter = () => {
     "Wishlist Request",
   ];
   const projectTypeArr = [
-    "Open Source Dev (1st time Grantees)",
-    "Open Source Dev (Repeat Grantees)",
+    "Open Source Dev 1st time Grantees",
+    "Open Source Dev Repeat Grantees",
     "Community Builder",
     "Education",
     "Events",
-    "Chapter (by Region)",
+    "Chapter",
     "ALEX Lab Foundation Grant",
     "Resident Program",
     "Direct Investment",
@@ -262,16 +262,16 @@ const GrantDataExporter = () => {
               <option value="" disabled selected>
                 Drop down...
               </option>
-              <option value="Open Source Dev (1st time Grantees)">
-                Open Source Dev (1st time Grantees)
+              <option value="Open Source Dev 1st time Grantees">
+                Open Source Dev 1st time Grantees
               </option>
-              <option value="Open Source Dev (Repeat Grantees)">
-                Open Source Dev (Repeat Grantees)
+              <option value="Open Source Dev Repeat Grantees">
+                Open Source Dev Repeat Grantees
               </option>
               <option value="Community Builder">Community Builder</option>
               <option value="Education">Education</option>
               <option value="Events">Events</option>
-              <option value="Chapter (by Region)">Chapter (by Region)</option>
+              <option value="Chapter">Chapter</option>
               <option value="ALEX Lab Foundation Grant">
                 ALEX Lab Foundation Grant
               </option>
