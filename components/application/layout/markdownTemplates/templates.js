@@ -2,14 +2,14 @@ export const templateA = (formData) => {
   let fundingStream;
 
   switch (formData.projectType) {
-    case "Open Source Dev (1st time Grantees)":
-    case "Open Source Dev (Repeat Grantees)":
+    case "Open Source Dev 1st time Grantees":
+    case "Open Source Dev Repeat Grantees":
       fundingStream = "Developer Grants";
       break;
     case "Stacks Community Builder Grant":
     case "Stacks Education Grant":
     case "Stacks Event Grant":
-    case "Stacks Chapter Grant (by Region)":
+    case "Stacks Chapter Grant":
       fundingStream = "Community Grants";
       break;
     case "ALEX Lab Foundation Grant":
