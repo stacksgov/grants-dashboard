@@ -21,7 +21,7 @@ import ProjectMission from '../components/application/ProjectMission';
 import ProjectRevisionsOne from '../components/application/ProjectRevisionsOne';
 import ProjectRevisionsTwo from '../components/application/ProjectRevisionsTwo';
 import ApplicantInformation from '../components/application/ApplicantInformation';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import { generateTemplate } from '../components/application/layout/markdownTemplates/IssueTemplate';
 import Modal from '../components/Modal';
 import { Octokit } from '@octokit/rest';
@@ -34,7 +34,7 @@ const Application = () => {
 	const { data: session } = useSession();
 	const [flow, setFlow] = useState();
 	const [showModal, setShowModal] = useState(false);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState('');
 	const [currentStep, setCurrentStep] = useState(1);
 	const [URL, setURL] = useState('');
 
@@ -140,15 +140,32 @@ const Application = () => {
 					}
 				});
 
+				console.log('dicussion response', req);
+
 				if (req.status == 200) {
 					let res = await req.json();
-					console.log(res.data.createDiscussion.discussion.url);
+					console.log(res);
 					setURL(res.data.createDiscussion.discussion.url);
 					localStorage.setItem('formData', JSON.stringify({}));
 					setError(null);
+					setTimeout(() => {
+						signOut();
+					}, 5000);
+				} else {
+					setError(
+						"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+					);
+					setTimeout(() => {
+						signOut();
+					}, 5000);
 				}
 			} catch (err) {
-				setError('Please reach out to us at grants@stacks.org');
+				setError(
+					"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+				);
+				setTimeout(() => {
+					signOut();
+				}, 5000);
 			}
 		} else {
 			try {
@@ -165,11 +182,24 @@ const Application = () => {
 				if (res.status == 201) {
 					setError(null);
 					localStorage.setItem('formData', JSON.stringify({}));
+					setTimeout(() => {
+						signOut();
+					}, 5000);
 				} else {
-					setError('some error');
+					setError(
+						"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+					);
+					setTimeout(() => {
+						signOut();
+					}, 5000);
 				}
 			} catch (err) {
-				setError('Please reach out to us at grants@stacks.org');
+				setError(
+					"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+				);
+				setTimeout(() => {
+					signOut();
+				}, 5000);
 			}
 		}
 

@@ -1,6 +1,7 @@
 import styles from './Modal.module.css';
 import StacksLogoSuccess from '../public/images/stacksModalLogoSuccess.svg';
 import StacksLogoError from '../public/images/stacksModalLogoError.svg';
+import { signOut } from 'next-auth/react';
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -36,6 +37,7 @@ const Modal = (props) => {
 						onClick={() => {
 							setHide(false);
 							router.push('/');
+							signOut();
 						}}
 					>
 						{title === 'Important' ? 'Dismiss' : 'Confirm'}
