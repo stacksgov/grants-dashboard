@@ -9,19 +9,8 @@ const ProjectLeadInformation = () => {
   return (
     <Form
       title="Grant Lead Information"
-      description="Tell us the account funds should be made payable to if your application is approved. Note, this information will be visible on Github and cannot be changed after submitting."
+      description="Tell us a bit about any other support you’ve received within the Stacks ecosystem."
     >
-      <Container>
-        <Input name="stxAddress" label="STX Wallet Address *" />
-
-        <div>
-          <Input name="stxMemo" label="STX Wallet Memo *" />
-          <Checkbox
-            id="stxMemoRequired"
-            value="I confirm no memo is required for the wallet address provided.*"
-          />
-        </div>
-      </Container>
       <Checkbox
         id="completedPreviousGrant"
         value="I have previously completed - or - I am currently working on another

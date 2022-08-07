@@ -1,5 +1,4 @@
 import styles from "./Input.module.css";
-import { validateStacksAddress } from "@stacks/transactions";
 import { useEffect, useState } from "react";
 
 const Input = (props) => {
@@ -40,20 +39,6 @@ const Input = (props) => {
       case "twitterUsername":
       case "projectTeam":
         break;
-      case "stxMemo":
-        let stxMemoRequired =
-          document.getElementById("stxMemoRequired").checked;
-        if (!stxMemoRequired) {
-          if (value.length == undefined || value.length == "") {
-            setColor(input, "red");
-          } else {
-            setColor(input, "#3182ce");
-          }
-        } else {
-          setColor(input, "#3182ce");
-        }
-
-        break;
       default:
         if (value.length == undefined || value.length == "") {
           setColor(input, "red");
@@ -69,13 +54,6 @@ const Input = (props) => {
               break;
             case "email":
               if (isValidEmail(value)) {
-                setColor(input, "#3182ce");
-              } else {
-                setColor(input, "red");
-              }
-              break;
-            case "stxAddress":
-              if (isValidStxAddress(value)) {
                 setColor(input, "#3182ce");
               } else {
                 setColor(input, "red");
@@ -156,10 +134,6 @@ export function isValidEmail(string) {
     return true;
   }
   return false;
-}
-
-export function isValidStxAddress(string) {
-  return validateStacksAddress(string);
 }
 
 export default Input;

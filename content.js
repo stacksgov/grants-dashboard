@@ -18,21 +18,21 @@ export const projectTypes = [
   },
   {
     name: "Stacks Community Builder Grant",
-    funding: "Varies",
+    funding: "$0-$10k",
     stream: "Community Grants",
     color: "#ed8936",
     icon: <Ellipsis />,
   },
   {
     name: "Stacks Education Grant",
-    funding: "Varies",
+    funding: "$0-$10k",
     stream: "Community Grants",
     color: "#ed8936",
     icon: <Ellipsis />,
   },
   {
     name: "Stacks Event Grant",
-    funding: "Varies",
+    funding: "$0-$10k",
     stream: "Community Grants",
     color: "#ed8936",
     icon: <Ellipsis />,
@@ -59,25 +59,11 @@ export const projectTypes = [
     icon: <Ellipsis />,
   },
   {
-    name: "ALEX (DeFi) Grant",
+    name: "ALEX Lab Foundation Grant",
     funding: "Varies",
     stream: "Ecosystem Partner Grant",
     color: "#0bc5ea",
     icon: <Ellipsis />,
-  },
-  {
-    name: "Stacks Web3 Startup Lab",
-    funding: "Varies",
-    stream: "Affiliated Organization",
-    color: "#ed64a6",
-    icon: <ExternalLinkIcon />,
-  },
-  {
-    name: "Stacks Accelerator",
-    funding: "Varies",
-    stream: "Affiliated Organization",
-    color: "#ed64a6",
-    icon: <ExternalLinkIcon />,
   },
 ];
 

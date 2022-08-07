@@ -12,16 +12,12 @@ export const templateA = (formData) => {
     case "Stacks Chapter Grant (by Region)":
       fundingStream = "Community Grants";
       break;
-    case "ALEX (DeFi) Grant":
+    case "ALEX Lab Foundation Grant":
       fundingStream = "Ecosystem Partner Grant";
       break;
     case "Stacks Foundation Resident Program":
     case "Stacks Foundation Direct Investment":
       fundingStream = "Advanced Support";
-      break;
-    case "Stacks Web3 Startup Lab":
-    case "Stacks Accelerator":
-      fundingStream = "Affiliated Organization";
       break;
   }
 
@@ -73,27 +69,6 @@ ${
     : ""
 }
 
-${
-  typeof formData.stxAddress !== "undefined"
-    ? `
-**STX Address:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
-        formData.stxAddress || ""
-      }
-`
-    : ""
-}
-
-${
-  typeof formData.stxMemo !== "undefined"
-    ? `
-**STX Memo:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
-        formData.stxMemo || ""
-      }
-`
-    : ""
-}
-
-
 # GRANT BASICS
 
 
@@ -101,12 +76,12 @@ ${
     formData.projectTitle || ""
   }
 
-**Grant Budget:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
+**Total Budget:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
     formData.projectBudget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ||
     ""
   }
 
-**Grant Duration:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
+**Total Duration:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
     formData.projectDuration.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") ||
     ""
   }
@@ -329,26 +304,6 @@ ${
     : ""
 }
 
-${
-  typeof formData.stxAddress !== "undefined"
-    ? `
-**STX Address:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
-        formData.stxAddress || ""
-      }
-`
-    : ""
-}
-
-${
-  typeof formData.stxMemo !== "undefined"
-    ? `
-**STX Memo:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
-        formData.stxMemo || ""
-      }
-`
-    : ""
-}
-
 # WISHLIST IDEA
 
 **Idea:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
@@ -399,26 +354,6 @@ ${
     ? `
 **Stacks Forum:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
         formData.forumUsername || ""
-      }
-`
-    : ""
-}
-
-${
-  typeof formData.stxAddress !== "undefined"
-    ? `
-**STX Address:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
-        formData.stxAddress || ""
-      }
-`
-    : ""
-}
-
-${
-  typeof formData.stxMemo !== "undefined"
-    ? `
-**STX Memo:**&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&hairsp;&thinsp;${
-        formData.stxMemo || ""
       }
 `
     : ""
