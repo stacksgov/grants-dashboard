@@ -21,19 +21,34 @@ const ApplicationChecklist = () => {
       <Checkbox
         name="guidelines"
         id="guideline1"
-        value="I have read and understood the application guidelines and the terms
-        and conditions."
+        value={
+          <p>
+            I have read and understood the <a href="">application guidelines</a>{" "}
+            and the <a href="">terms and conditions</a>.
+          </p>
+        }
       />
       <Checkbox
         name="guidelines"
         id="guideline2"
-        value="I have read the application review schedule and understand when to
-        expect feedback on my application."
+        value={
+          <p>
+            I have read the <a href="">application review schedule</a> and
+            understand when to expect feedback on my application.
+          </p>
+        }
       />
       <Checkbox
         name="guidelines"
         id="guideline3"
-        value="I understand that if I have any questions regarding the application and/or grant they should be asked either as a comment to my grant application Github issue or in the Grants Github disucussion board."
+        value={
+          <p>
+            I understand that if I have any questions regarding the application
+            and/or grant they should be asked either as a comment to my grant
+            application Github issue or in the Grants Github{" "}
+            <a href="">discussion board.</a>
+          </p>
+        }
       />
       <Checkbox
         name="guidelines"

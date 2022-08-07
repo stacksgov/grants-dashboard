@@ -15,14 +15,21 @@ const ProjectLeadInformation = () => {
         id="completedPreviousGrant"
         value="I have previously completed - or - I am currently working on another
         Stacks Foundation funded grant, residency, etc."
+        labelColor="rgba(255, 255, 255, 0.8)"
       />
 
-      <Input name="previousGrant" label="GitHub Issue" image={<GithubIcon />} />
+      <Input
+        name="previousGrant"
+        label="GitHub Issue"
+        labelColor="rgba(255, 255, 255, 0.24)"
+        image={<GithubIcon />}
+      />
       <Checkbox
         id="otherEcosystem"
         value="I have previously completed - or - I am currently enrolled in - or -
           I am accepted into: Stacks Web3 Startup Lab and/or Stacks
           Accelerator."
+        labelColor="rgba(255, 255, 255, 0.8)"
       />
       <TextArea
         name="otherEcosystemPrograms"

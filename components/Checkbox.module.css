@@ -9,3 +9,7 @@
   align-items: center;
   color: rgba(255, 255, 255, 0.36);
 }
+
+.checkboxWrapper a {
+  color: #00b5d8;
+}

@@ -2,7 +2,17 @@ import styles from "./TextArea.module.css";
 import { useEffect, useState } from "react";
 
 const TextArea = (props) => {
-  const { name, label, hint, image, readonly, maxchar, height } = props;
+  const {
+    name,
+    label,
+    hint,
+    image,
+    readonly,
+    maxchar,
+    height,
+    labelColor,
+    labelFontSize,
+  } = props;
 
   const [value, setValue] = useState("");
 
@@ -21,9 +31,6 @@ const TextArea = (props) => {
 
     if (!(value.length > maxchar)) {
       setValue(value.substring(0, maxchar));
-      if (maxchar - value.length <= 0) {
-        maxchar = value.length + 1;
-      }
     }
 
     switch (name) {
@@ -49,15 +56,15 @@ const TextArea = (props) => {
   useEffect(() => {
     let formData = JSON.parse(localStorage.getItem("formData"));
     if (formData) setValue(formData[name]);
-    if (maxchar - value.length <= 0) {
-      maxchar = value.length + 1;
-    }
   }, []);
 
   return (
     <div className={styles.textareaWrapper}>
-      <div className={styles.label}>
-        <label>{label}</label>
+      <div
+        style={labelFontSize ? { fontSize: labelFontSize } : {}}
+        className={styles.label}
+      >
+        <label style={labelColor ? { color: labelColor } : {}}>{label}</label>
         <p>{hint}</p>
       </div>
       <div className={styles.textarea}>
