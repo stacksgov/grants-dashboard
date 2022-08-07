@@ -20,7 +20,7 @@ export function getSelectedValue(fieldName) {
 }
 
 const Form = (props) => {
-  const { title, description, children } = props;
+  const { title, description, children, hint } = props;
 
   return (
     <motion.div
@@ -33,7 +33,10 @@ const Form = (props) => {
       <div className={styles.formWrapper}>
         <div className={styles.titleWrapper}>
           <div>
-            <p className={styles.title}>{title}</p>
+            <p className={styles.title}>
+              {title}
+              <p className={styles.hint}>{hint}</p>
+            </p>
             <p className={styles.description}>{description}</p>
           </div>
         </div>

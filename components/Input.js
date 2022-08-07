@@ -5,6 +5,7 @@ const Input = (props) => {
   const {
     name,
     label,
+    labelColor,
     labelFontSize,
     hint,
     image,
@@ -75,8 +76,13 @@ const Input = (props) => {
 
   return (
     <div className={styles.inputWrapper}>
-      <div className={styles.label}>
-        <label style={{ fontSize: labelFontSize }}>{label}</label>
+      <div
+        style={labelColor ? { color: labelColor } : {}}
+        className={styles.label}
+      >
+        <label style={labelFontSize ? { fontSize: labelFontSize } : {}}>
+          {label}
+        </label>
         <p>{hint}</p>
       </div>
       <div className={styles.input}>

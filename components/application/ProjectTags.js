@@ -15,7 +15,7 @@ const ProjectTags = () => {
       title="Grant Tags"
       description="Select the Grant Tags that best align with your grant."
     >
-      <div style={{ paddingBottom: "40px" }}>
+      <div>
         <p className={styles.title}>Grant Goals</p>
         <div className={styles.list}>
           <div className={styles.radio}>
@@ -54,7 +54,7 @@ const ProjectTags = () => {
           </div>
         </div>
       </div>
-      <div style={{ paddingBottom: "40px" }}>
+      <div>
         <p className={styles.title}>Grant Audience</p>
         <div className={styles.list}>
           <div className={styles.radio}>
