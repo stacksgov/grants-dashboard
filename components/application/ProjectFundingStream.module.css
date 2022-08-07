@@ -1,0 +1,175 @@
+.fundingStreamWrapper {
+  display: flex;
+  padding-right: 20px;
+}
+
+
+.fundingStreamWrapper h1 {
+  font-size: 20px;
+  padding-bottom: 12px;
+ 
+}
+
+.subtitle {
+  padding-bottom: 49px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.fundingStreamWrapper table {
+  width: 50vw;
+  background-color: rgba(0,0,0,.3);
+  max-width: 800px;
+  min-width: 750px;
+  padding-left: 10px;
+}
+
+.fundingStreamWrapper table thead {
+  box-shadow: 0 1px #1a202c;
+}
+
+.fundingStreamWrapper table thead tr th:first-child {
+  width: 48px;
+}
+
+.fundingStreamWrapper table thead tr th p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #ffffff;
+  padding: 12px 0px;
+}
+
+.fundingStreamWrapper table thead tr th:nth-child(2) {
+  width: 302px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.fundingStreamWrapper table thead tr th:nth-child(3) {
+  width: 130px;
+}
+
+.fundingStreamWrapper table thead tr th:nth-child(4) {
+  width: 200px;
+}
+
+.fundingStreamWrapper table thead tr th:nth-child(5) {
+  width: 56px;
+}
+
+.fundingStreamWrapper table tbody tr td:first-child {
+  width: 48px;
+}
+
+.fundingStreamWrapper table tbody td input[type="radio"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #4a5568;
+  background-color: black;
+  border-radius: 50%;
+  transform: translateY(0px);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.fundingStreamWrapper table tbody td input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgba(74, 85, 104, 0.8);
+}
+
+.fundingStreamWrapper table tbody td input[type="radio"]:checked::before {
+  transform: scale(1);
+  
+}
+
+.fundingStreamWrapper table tbody tr td:nth-child(2) {
+  width: 302px;
+  
+}
+
+.fundingStreamWrapper table tbody tr td:nth-child(3) {
+  width: 130px;
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+}
+
+.fundingStreamWrapper table tbody tr td:nth-child(3) span {
+  background: gray;
+  padding: 0px 6px;
+  border-radius: 2px;
+}
+
+.fundingStreamWrapper table tbody tr td:nth-child(4) {
+  width: 200px;
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+}
+
+.stream {
+  background-color: #9f7aea;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.communityGrant {
+  background-color: #ed8936;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.ecosystemPartnerGrant {
+  background-color: #0bc5ea;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.advancedSupport {
+  background-color: #48bb78;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.affiliatedOrganization {
+  background-color: #ed64a6;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.fundingStreamWrapper table tbody tr td:nth-child(5) {
+  width: 56px;
+}
+
+.fundingStreamWrapper table tbody tr td {
+  padding: 10px 0;
+}
+
+.fundingStreamWrapper table tbody tr {
+  box-shadow: 0 1px #1a202c;
+}
+
+.moneyAmount {
+  background-color: gray;
+  width: 23px;
+  height: 16px;
+}
+
+.icon {
+  position: absolute;
+  top: 15px;
+}

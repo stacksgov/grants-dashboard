@@ -1,53 +1,17 @@
-.projectTrackWrapper h1{
-  font-size: 20px;
-  padding-bottom: 12px;
-  }
-  
-.subtitle {
-    padding-bottom: 49px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.48);
-  }
-
-  .subtitle a {
-  text-decoration: underline;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.48);
-  }
-
-
-  .subtitle a:hover {
-  color: white;
-  }
-
-
-.section {
-  padding-bottom: 48px;
+.radio {
+  min-width: 330px;
+  display: flex;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  align-items: center;
+  padding-bottom: 10px;
 }
 
-.section h2 {
-    padding-bottom: 16px;
-    font-size: 18px;
-    font-weight: 400;
+.list {
+  display: flex;
 }
 
-  .selectionChoices {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    font-size: 16px;
-  }
-
-  .selectionChoices div label {
-    padding-left: 12px;
-  }
-
-  .selectionChoicesLast {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .selectionChoicesLast div label {
-    padding-left: 12px;
-  }
+.title {
+  padding-bottom: 15px;
+}

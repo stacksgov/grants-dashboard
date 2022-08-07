@@ -33,8 +33,38 @@
 html,
 body {
   height: 100%;
-  background: #000000;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.92);
+  background: -webkit-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -o-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -ms-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: -moz-linear-gradient(
+    bottom,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  background: linear-gradient(
+    to top,
+    rgb(35, 24, 70) 0%,
+    rgb(9, 8, 18) 74%,
+    rgb(0, 0, 0) 100%
+  );
+  overflow-y: hidden;
 }
 /*
   Typographic tweaks!
@@ -57,6 +87,7 @@ svg {
   display: block;
   max-width: 100%;
 }
+
 /*
   7. Remove built-in form typography styles
 */
@@ -85,4 +116,209 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: black;
+  margin: 0;
+  cursor: pointer;
+  height: 15px;
+  display: grid;
+  place-content: center;
+  border: 1px solid white;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 12px;
+  height: 13px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 16px 16px #9f7aea;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(0.8);
+}
+input[type="radio"] {
+  appearance: none;
+  background-color: red;
+  margin: 0;
+  font: inherit;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.64);
+  border-radius: 50%;
+  transform: translateY(0px);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked {
+  border: none;
+}
+
+input[type="radio"]::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 300ms transform ease-in-out;
+  box-shadow: inset 1em 1em black;
+  border: 6px solid #9f7aea;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.react-calendar {
+  width: 425px;
+  max-width: 100%;
+  background: black;
+  border: 1px solid #a0a096;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+  padding-bottom: 10px;
+}
+.react-calendar--doubleView {
+  width: 700px;
+}
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+.react-calendar__navigation {
+  height: 44px;
+  font-size: 20px;
+  padding-top: 10px;
+  margin: auto;
+  text-align: center;
+}
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  color: #ffffff;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: rgba(255, 255, 255, 0.36);
+}
+.react-calendar__navigation button[disabled] {
+  background-color: #f0f0f0;
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+
+.react-calendar__month-view__days__day {
+  color: #ffffff;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+.react-calendar__month-view__weekNumbers {
+  font-weight: bold;
+}
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
+}
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+  color: #ffffff;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  text-align: center;
+  padding: 0.75em 0.5em;
+  background: none;
+}
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: rgba(255, 255, 255, 0.36);
+}
+.react-calendar__tile--now {
+  background: rgba(159, 122, 234, 0.7);
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: rgba(159, 122, 234, 1);
+}
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+.react-calendar__tile--active {
+  background: rgba(159, 122, 234, 0.7);
+  color: white;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: rgba(159, 122, 234, 1);
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
 }

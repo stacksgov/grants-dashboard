@@ -1,198 +1,163 @@
-import styles from './ProjectRoadmap.module.css';
-import Link from 'next/link';
-import { useState } from 'react';
+import styles from "./ProjectRoadmap.module.css";
+import ArrowLeft from "../../public/images/arrowLeft.svg";
+import ArrowRight from "../../public/images/arrowRight.svg";
 
-const ProjectRoadmap = ({ updateIssue }) => {
-	const [milestone, setMilestone] = useState(1);
-	const [inputText, setInputText] = useState('');
+import Input from "../Input";
+import Form from "../Form";
+import { useState, useEffect } from "react";
 
-	const characterCount = inputText.length;
-	const handleChange = (event) => {
-		setInputText(event.target.value);
-	};
-	const MilestoneComponent = (props) => {
-		return (
-			<>
-				<div className={styles.firstSection}>
-					<label for="milestone{props.id}">Milestone {props.number}</label>
+function validateMilestone(number) {
+  let deliverable = Array.from(
+    document.getElementsByName(`milestone${number}Deliverable`)
+  )[0];
 
-					<div className={styles.inputWrapper}>
-						<input id="milestone{props.id}" placeholder="Type here..." />
-						<button>
-							<svg
-								width="11"
-								height="10"
-								viewBox="0 0 11 10"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M9.875 1.49959L3.75 8.49959L1.125 5.87459"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
-							Ok
-						</button>
-					</div>
-					<div className={styles.progressBarWrapper}>
-						<p>80 Characters</p>
-						<div className={styles.progressBar}>
-							<span
-								style={{
-									background: '#718096',
-									width: '30%',
-									height: '100%',
-									display: 'block'
-								}}
-							></span>
-						</div>
-					</div>
-				</div>
-				<div className={styles.milestoneStepsWrapper}>
-					<div className={styles.milestoneSteps}>
-						<button onClick={() => setMilestone(milestone - 1)}>
-							<svg
-								width="11"
-								height="10"
-								viewBox="0 0 11 10"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M5.172 8.9376L1.2345 5.0001L5.172 1.0626"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<path
-									d="M1.78137 5.00011H9.76574"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
-							Back
-						</button>
-						<div>
-							<p>1</p>
-							<p>2</p>
-							<p>3</p>
-							<p>4</p>
-							<p>5</p>
-							<p>6</p>
-							<p>7</p>
-							<p>8</p>
-							<p>9</p>
-							<p>10</p>
-							<p>11</p>
-							<p>12</p>
-						</div>
-					</div>
-					<div>
-						<button onClick={() => setMilestone(milestone + 1)}>
-							Next{' '}
-							<svg
-								width="12"
-								height="10"
-								viewBox="0 0 12 10"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M6.32812 1.0625L10.2656 5L6.32812 8.9375"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<path
-									d="M9.71887 5.00029H1.7345"
-									stroke="white"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
-						</button>
-					</div>
-				</div>
-			</>
-		);
-	};
+  let isDeliverableValid = isFieldValid(deliverable);
 
-	const CurrentMilestone = () => {
-		switch (milestone) {
-			case 1:
-				return <MilestoneComponent number={1} id={'One'} />;
-			case 2:
-				return <MilestoneComponent number={2} id={'Two'} />;
-			case 3:
-				return <MilestoneComponent number={3} id={'Three'} />;
-			case 4:
-				return <MilestoneComponent number={4} id={'Four'} />;
-			case 5:
-				return <MilestoneComponent number={5} id={'Five'} />;
+  if (isDeliverableValid) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-			case 6:
-				return <MilestoneComponent number={6} id={'Six'} />;
+function isFieldValid(field) {
+  if (field.value == undefined || field.value == "") {
+    field.style.outlineColor = "red";
+    field.style.borderColor = "red";
+    return false;
+  } else {
+    field.style.outlineColor = "#3182ce";
+    field.style.borderColor = "#3182ce";
+    return true;
+  }
+}
 
-			case 7:
-				return <MilestoneComponent number={7} id={'Seven'} />;
+const ProjectRoadmap = () => {
+  const [numOfMilestones, setNumOfMilestones] = useState();
+  const [currentMilestone, setCurrentMilestone] = useState(1);
 
-			case 8:
-				return <MilestoneComponent number={8} id={'Eight'} />;
+  useEffect(() => {
+    let formData = JSON.parse(localStorage.getItem("formData"));
+    let { projectBudget } = formData;
 
-			case 9:
-				return <MilestoneComponent number={9} id={'Nine'} />;
+    let numMilestones = getNumberOfMilestones(projectBudget);
+    formData.currentMilestone = currentMilestone;
+    localStorage.setItem("formData", JSON.stringify(formData));
 
-			case 10:
-				return <MilestoneComponent number={10} id={'Ten'} />;
-			case 11:
-				return <MilestoneComponent number={11} id={'Eleven'} />;
-			case 12:
-				return <MilestoneComponent number={12} id={'Twelve'} />;
-		}
-	};
+    setNumOfMilestones(numMilestones);
+  }, [currentMilestone]);
 
-	return (
-		<div className={styles.projectRoadmapWrapper}>
-			<h1>Project Roadmap</h1>
-			<p className={styles.subtitle}>
-				Select the Project Type below. If you have questions about Project Types, click{' '}
-				<Link href="/">
-					<a>here</a>
-				</Link>
-				.
-			</p>
-			<h2>Milestone Deliverable</h2>
-			<CurrentMilestone />
-			{/* <MilestoneComponent number={8} id={'eight'} /> */}
-			<div className={styles.secondSection}>
-				<div>
-					<label>Final Deliverable</label>
-					<div className={styles.progressBarWrapper}>
-						<p>{characterCount} Characters</p>
-						<div className={styles.progressBar}>
-							<span
-								style={{
-									background: '#718096',
-									width: '30%',
-									height: '100%',
-									display: 'block'
-								}}
-							></span>
-						</div>
-					</div>
-				</div>
-				<input id="final" placeholder="Type here..." onChange={handleChange} maxLength={30} />
-			</div>
-		</div>
-	);
+  const Milestones = () => {
+    let milestones = [];
+    let nav = [];
+
+    for (let i = 1; i <= numOfMilestones; i++) {
+      nav.push(i);
+    }
+    const Milestone = (number) => {
+      return (
+        <div key={`milestone${number}`} className={styles.section}>
+          <div>
+            <p className={styles.deliverables}>Milestone Deliverables</p>
+
+            <Input
+              name={`milestone${number}Deliverable`}
+              label={`Deliverable (Milestone ${currentMilestone} of ${numOfMilestones})`}
+              labelSize="12px"
+              maxchar={80}
+            />
+            <div className={styles.arrows}>
+              <button
+                onClick={() => {
+                  if (currentMilestone > 1)
+                    setCurrentMilestone(currentMilestone - 1);
+                }}
+              >
+                <ArrowLeft />
+              </button>
+              <div className={styles.nav}>
+                <ul>
+                  {nav.map((i) => {
+                    let style = {};
+
+                    if (i == currentMilestone) {
+                      style = { color: "#9F7AEA" };
+                    }
+                    if (i > currentMilestone) {
+                      style = {
+                        color: "rgba(255, 255, 255, 0.24)",
+                      };
+                    }
+
+                    return (
+                      <li
+                        style={style}
+                        // onClick={() => setCurrentMilestone(i)}
+                        key={i}
+                      >
+                        {i}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <button
+                onClick={() => {
+                  if (
+                    currentMilestone < numOfMilestones &&
+                    validateMilestone(number)
+                  )
+                    setCurrentMilestone(currentMilestone + 1);
+                }}
+              >
+                <ArrowRight />
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    };
+    for (let i = 1; i <= numOfMilestones; i++) {
+      milestones.push(Milestone(i));
+    }
+    return milestones;
+  };
+
+  function getNumberOfMilestones(budget) {
+    if (budget < 10e3) {
+      return 0;
+    } else if (budget < 25e3) {
+      return 1;
+    } else if (budget < 60e3) {
+      return 2;
+    } else if (budget < 100e3) {
+      return 3;
+    } else if (budget < 150e3) {
+      return 4;
+    } else if (budget < 250e3) {
+      return 6;
+    } else {
+      return 8;
+    }
+  }
+
+  return (
+    <Form
+      title="Grant Roadmap"
+      description="Provide clear, concise, easy to review deliverables for progress payments."
+    >
+      <div className={styles.final}>
+        <Input
+          name="finalDeliverable"
+          label="Final Deliverable"
+          labelFontSize="18px"
+          maxchar={80}
+        />
+      </div>
+
+      {Milestones()[currentMilestone - 1]}
+    </Form>
+  );
 };
 
 export default ProjectRoadmap;

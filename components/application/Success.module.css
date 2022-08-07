@@ -1,14 +1,15 @@
 .indexWrapper {
   display: flex;
-  padding-top: 150px;
-  padding-right: 162px;
+  padding-top: 100px;
+  padding-right: 0px;
 }
-
 
 .rightWrapper {
   background-color: rgba(50, 38, 89, .2);
   border-radius: 30px;
   margin-left: auto;
+  position: absolute;
+  right: 250px;
   width: 386px;
   height: 575px;
 }
@@ -86,7 +87,11 @@ padding-bottom: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   width: 302px;
   height: 52px;
 }
 
+.svg {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg) brightness(105%) contrast(101%);
+}

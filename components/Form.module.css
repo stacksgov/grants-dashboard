@@ -1,0 +1,29 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-bottom: 85px;
+  width: 100%;
+}
+
+.titleWrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  gap: 7px;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 14px;
+}

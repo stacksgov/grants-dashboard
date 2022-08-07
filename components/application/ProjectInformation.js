@@ -1,77 +1,44 @@
-import styles from './ProjectInformation.module.css';
-import { useState } from 'react';
-const ProjectInformation = ({ updateIssue }) => {
-	const [inputText, setInputText] = useState('');
-	const characterCount = inputText.length;
-	const handleChange = (event) => {
-		setInputText(event.target.value);
-	};
+import Input from "../Input";
+import Form from "../Form";
+import Container from "../Container";
 
-	return (
-		<div className={styles.projectInformationWrapper}>
-			<h1>Project Information</h1>
-			<div>
-				<div className={styles.firstTitle}>
-					<label for="name">Title Your Project</label>
-					<div className={styles.progressBarWrapper}>
-						<p> {characterCount} Characters</p>
-						<div className={styles.progressBar}>
-							<span
-								style={{
-									background: '#718096',
-									width: `${characterCount * 1}%`,
-									height: '100%',
-									display: 'block'
-								}}
-							></span>
-						</div>
-					</div>
-				</div>
-				<input
-					id="name"
-					type="text"
-					placeholder="Type Here..."
-					maxLength={30}
-					onChange={handleChange}
-				/>
-				<p className={styles.inputDescription}>
-					Name your Project so that it clearly communicates your objectives to others, during review
-					and in the future.
-				</p>
-			</div>
-
-			<div className={styles.secondSection}>
-				<div>
-					<label for="budget">Total Project Budget</label>
-					<input
-						id="budget"
-						type="number"
-						placeholder="Type Here..."
-						onWheel={(e) => e.target.blur()}
-					/>
-					<p>Provide the total budget in $USD to complete your Project.</p>
-				</div>
-				<div>
-					<label for="duration">Total Project Duration</label>
-					<input
-						id="duration"
-						type="number"
-						placeholder="Type Here..."
-						onWheel={(e) => e.target.blur()}
-					/>
-					<p>
-						Provide the total amount of hours required to complete your Project. Include all members
-						if this is a team project.
-					</p>
-				</div>
-			</div>
-			<div className={styles.lastSection}>
-				<label for="teamMembers">Project Team Members</label>
-				<input id="team" type="text" placeholder="Type Here..." />
-				<p>Provide the GitHub usernames of any Project Team Members. Comma separate all names.</p>
-			</div>
-		</div>
-	);
+const ProjectInformation = () => {
+  return (
+    <Form
+      title="Grant Information"
+      description="Tell us some basics about your grant."
+    >
+      <Input
+        name="projectTitle"
+        label="Title Your Grant"
+        maxchar={30}
+        description="Name your Grant so that it clearly communicates your objectives to others, during review and in the future."
+        labelFontSize="18px"
+      />
+      <Container>
+        <Input
+          name="projectBudget"
+          label="Total Budget"
+          description="Provide the total budget in $USD to complete your Grant."
+          isNumber={true}
+          labelFontSize="18px"
+        />
+        <Input
+          name="projectDuration"
+          label="Total Duration"
+          description="Provide the total amount of hours required to complete your Grant. Include all members if this is a team grant."
+          isNumber={true}
+          labelFontSize="18px"
+        />
+      </Container>
+      <Input
+        name="projectTeam"
+        label="Grant Team Members"
+        description="Provide the GitHub usernames of any Grant Team Members. Comma separate all names."
+        labelFontSize="18px"
+      />
+    </Form>
+  );
 };
 
 export default ProjectInformation;

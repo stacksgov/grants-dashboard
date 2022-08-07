@@ -1,12 +1,21 @@
 .layoutWrapper {
-display: flex;
-justify-content: space-between;
-padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-left: 20px;
 }
 
-.layoutWrapper div:first-of-type(div){
+.layoutWrapper div:first-of-type(div) {
   display: flex;
   flex-direction: column;
+}
+
+.layoutWrapper div:first-of-type p:first-of-type {
+  text-transform: uppercase;
+  padding-top: 5px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .layoutWrapper div:nth-of-type(2) {
@@ -15,22 +24,25 @@ padding: 30px 0;
   gap: 20px;
 }
 
-.layoutWrapper div:nth-of-type(2) p:first-of-type{
+.layoutWrapper div:nth-of-type(2) p:first-of-type {
   display: flex;
   align-items: center;
-
+  gap: 5px;
 }
 
 .layoutWrapper div:nth-of-type(2) span {
-display: block;
-border: 1px solid white;
-width: 25px;
-align-self: flex-end;
+  display: block;
+  border: 1px solid white;
+  width: 25px;
+  align-self: flex-end;
 }
 
 .progressBar {
-width: 275px;
-height: 5px;
-background-color: rgba(255, 255, 255, 0.06)
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.06);
+
 }
 
+.close {
+  cursor: pointer;
+}

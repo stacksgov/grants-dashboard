@@ -1,0 +1,68 @@
+.applicationWrapper {
+  margin: 0 15px;
+  padding-bottom: 50px;
+}
+
+.applicationWrapperBlur {
+  margin: 0 15px;
+  padding-bottom: 50px;
+  filter: blur(5px);
+}
+
+.mainComponents {
+  display: flex;
+  transition: 1000ms;
+  justify-content: space-between;
+}
+
+.middleComponent {
+  width: 100%;
+  padding: 0 10px;
+
+  /* min-width: 40%; */
+  max-width: 750px;
+}
+
+.stacksSVG {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.button button {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(45deg, #3182ce, #97266d);
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 4px;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button button:hover {
+  background: linear-gradient(45deg, #3182ce, #97266d);
+  opacity: 60%;
+  transition: 0.2s;
+}
+
+.button button:active {
+  transition: 0.1s;
+  transform: translateY(4px);
+}
+
+.button button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* .navButtonWrapper {
+
+} */

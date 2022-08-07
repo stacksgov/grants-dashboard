@@ -1,0 +1,208 @@
+.close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 26px;
+  padding-top: 38px;
+  gap: 20px;
+}
+
+.close p{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.close span {
+display: block;
+border: 1px solid white;
+width: 25px;
+}
+
+.stxPaymentWrapper {
+  max-width: 950px;
+  margin: auto;
+}
+
+.stxPaymentWrapper h2 {
+  font-size: 16px;
+  color: #ffffff;
+  padding-bottom: 10px;
+}
+
+.stxPaymentWrapper h1{
+  font-size: 32px;
+  font-weight: 300;
+  padding-bottom: 20px;
+}
+
+.descriptor {
+  color: #4A5568;
+  font-size: 14px;
+  padding-bottom: 48px;
+}
+
+.paymentCalculatorWrapper {
+padding: 42px;
+width: 100%;
+height: 100%;
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.92);
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+}
+
+.dropdownWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownWrapper label {
+  font-size: 16px;
+  color: #ffffff;
+  padding-bottom: 10px;
+
+}
+
+.dropdownWrapper select {
+  min-width: 300px;
+  height: 50px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 0 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("/images/dropdown.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+
+
+.dropdownWrapper input {
+  min-width: 300px;
+  height: 50px;
+  color: rgba(255, 255, 255, 0.48);
+  background-color: transparent;
+  font-size: 14px;
+  border-radius: 5px;
+  padding-left: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+
+.dropdownWrapper input[type='number']::-webkit-inner-spin-button,
+.dropdownWrapper input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.converterButton {
+  background: #1A365D;
+  border: 1px solid #ffffff;
+  color: white;
+  height: 50px;
+  width: 206px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdownWrapper div {
+  width: 100%;
+  height: 100%;
+  border:  1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 24px;
+}
+
+.dropdownWrapper div p:first-of-type, .dropdownWrapper div p:nth-of-type(3) {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dropdownWrapper div p:nth-of-type(4) {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 10px;
+  padding-top: 5px;
+  font-weight: 500;
+}
+
+.dates {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.amountConverted {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.clipboardButton {
+  height: 50px;
+  width: 206px;
+  background-color: transparent;
+  border:  1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonWrappers {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+
+.stxAmount {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+.stacksSVG {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.calendarDropdownButton {
+  width: 100%;
+  height: 50px;
+  border:  1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 5px;
+  display: flex;
+align-items: center;
+justify-content: space-between;
+  padding: 8px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.36);
+  cursor: pointer;
+}
+
+
+
+.show {
+  position: absolute;
+}
+
+.hide {
+  display: none;
+}
+
