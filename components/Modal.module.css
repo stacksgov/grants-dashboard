@@ -29,7 +29,8 @@ display: none;
   background-image: linear-gradient(90deg, #007CF4, #EF00A5);
   background-size: 100%;
   background-repeat: repeat;
-  padding: 28px 0;
+  padding-top: 28px;
+  padding-bottom: 12px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-background-clip: text;
@@ -42,17 +43,19 @@ display: none;
   padding: 28px 0;
 }
 
-.modalWrapper p:nth-of-type(2)  {
+.subParagraphOne  {
   font-size: 18px;
   font-weight: 500;
-  padding-bottom: 12px;
+  padding-bottom: 50px;
 }
+
 
 .subParagraphTwo {
   font-size: 14px;
-  padding-bottom: 80px; 
+  padding-bottom: 50px; 
   padding-right: 43px;
   padding-left: 43px;
+  color: #FFFFFF5C;
 
 }
 
@@ -68,6 +71,8 @@ display: none;
   font-size: 14px;
   padding-right: 43px;
   padding-left: 43px;
+  color: rgba(255, 255, 255, 0.36)
+  ;
 }
 
 .modalWrapper button {
@@ -79,4 +84,8 @@ display: none;
   margin-right: auto;
   margin-left: auto;
   cursor: pointer;
+}
+
+.modalWrapper button:hover {
+  color: white;
 }
