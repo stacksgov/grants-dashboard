@@ -34,7 +34,7 @@ const Application = () => {
 	const { data: session } = useSession();
 	const [flow, setFlow] = useState();
 	const [showModal, setShowModal] = useState(false);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState('');
 	const [currentStep, setCurrentStep] = useState(1);
 	const [URL, setURL] = useState('');
 
@@ -152,13 +152,17 @@ const Application = () => {
 						signOut();
 					}, 5000);
 				} else {
-					setError('Please reach out to us at grants@stacks.org');
+					setError(
+						"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+					);
 					setTimeout(() => {
 						signOut();
 					}, 5000);
 				}
 			} catch (err) {
-				setError('Please reach out to us at grants@stacks.org');
+				setError(
+					"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+				);
 				setTimeout(() => {
 					signOut();
 				}, 5000);
@@ -182,13 +186,17 @@ const Application = () => {
 						signOut();
 					}, 5000);
 				} else {
-					setError('Please reach out to us at grants@stacks.org');
+					setError(
+						"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+					);
 					setTimeout(() => {
 						signOut();
 					}, 5000);
 				}
 			} catch (err) {
-				setError('Please reach out to us at grants@stacks.org');
+				setError(
+					"Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
+				);
 				setTimeout(() => {
 					signOut();
 				}, 5000);
