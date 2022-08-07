@@ -26,7 +26,7 @@ const Modal = (props) => {
 			>
 				{title}
 			</p>
-			<p>{subParagraphOne}</p>
+			<p className={styles.subParagraphOne}>{subParagraphOne}</p>
 			{subParagraphTwo && <p className={styles.subParagraphTwo}>{subParagraphTwo}</p>}
 			{link && <p className={styles.linkToIssue}>Click below to view on Github</p>}
 			{title.toLowerCase() != 'important' ? (
