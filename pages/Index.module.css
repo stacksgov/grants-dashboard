@@ -1,23 +1,6 @@
-.gradientBackground {
-  background: -webkit-linear-gradient(
-    bottom,
-    rgb(16, 11, 31) 0%,
-    rgb(0, 0, 0) 100%
-  );
-  background: -o-linear-gradient(bottom, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
-  background: -ms-linear-gradient(
-    bottom,
-    rgb(16, 11, 31) 0%,
-    rgb(0, 0, 0) 100%
-  );
-  background: -moz-linear-gradient(
-    bottom,
-    rgb(16, 11, 31) 0%,
-    rgb(0, 0, 0) 100%
-  );
-  background: linear-gradient(to top, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
+.indexParent {
+  overflow-x: hidden;
 }
-
 
 
 .indexWrapper {
@@ -229,7 +212,7 @@
 }
 
 .utilities {
-  position: fixed;
+  position: absolute;
   bottom: 10px;
   left: 16px;
   height: 36px;
@@ -262,6 +245,10 @@
 }
 
 @media (max-width: 800px) {
+
+  .rocketShip {
+display: none;
+  }
   .indexWrapper {
     flex-direction: column;
     padding-top: 0;
@@ -316,8 +303,8 @@
 
   .firstSection {
     height: 250px;
-    width: 80%;
-    padding: 0;
+    width: 330px;
+    padding: 10px;
   }
 
   .firstSection div:first-of-type {
@@ -327,6 +314,15 @@
   .firstSection div:first-of-type button:first-of-type {
     max-width: 100%;
   }
+
+  .thirdSection {
+    margin-left: auto;
+    padding-top: 8px;
+    width: 150px;
+  }
+
+
+  
 }
 
 /* @media(min-width: 1200px) {

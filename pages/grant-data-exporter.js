@@ -10,6 +10,7 @@ import { useSession, signIn } from 'next-auth/react';
 import LoadingSpinner from '../public/images/loading-spinner.svg';
 import { authOptions } from './api/auth/[...nextauth]';
 import { unstable_getServerSession } from 'next-auth/next';
+import Head from 'next/head';
 
 const GrantDataExporter = () => {
 	const [CSVData, setCSVData] = useState([
@@ -297,6 +298,9 @@ const GrantDataExporter = () => {
 
 	return (
 		<div>
+			<Head>
+				<title>Grant Data Exporter</title>
+			</Head>
 			<Link href="/">
 				<a>
 					<div className={styles.close}>
