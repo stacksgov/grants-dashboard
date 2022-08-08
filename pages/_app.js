@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta property="og:title" content="Stacks Foundation Grant Launchpad" key="title" />
+				<meta name="theme-color" content="#05030A"></meta>
 				<meta
 					property="og:description"
 					content="Funding for open-source development on Stacks."

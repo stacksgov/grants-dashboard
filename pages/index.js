@@ -6,13 +6,15 @@ import Link from 'next/link';
 import IndexGithub from '../public/images/indexGithub.svg';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import ExternalLinkIcon from '../public/images/externalLink.svg';
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Octokit } from '@octokit/rest';
 import StacksLogo from '../public/images/indexStxLogo.svg';
+import StacksLogoSuccess from '../public/images/stacksModalLogoSuccess.svg';
 
 const Home = () => {
 	const { data: session } = useSession();
+	const [show, setShow] = useState(false);
+	const [mobile, setMobile] = useState();
 
 	useEffect(() => {
 		async function refresh() {
@@ -26,7 +28,38 @@ const Home = () => {
 		if (session) {
 			refresh();
 		}
+
+		window.innerWidth >= 800 ? setMobile(false) : setMobile(true);
 	});
+
+	const Button = () => {
+		if (mobile === true) {
+			return (
+				<button onClick={() => setShow(true)}>
+					Submit Your Application
+					<Rocket />
+				</button>
+			);
+		} else if (!session) {
+			return (
+				<button backgroundColor="grey" onClick={() => signIn('github')}>
+					<a>Connect Github</a>
+					<IndexGithub />
+				</button>
+			);
+		} else if (session) {
+			return (
+				<Link href="/application">
+					<button>
+						<a>Submit Your Application</a>
+						<Rocket />
+					</button>
+				</Link>
+			);
+		} else {
+			return null;
+		}
+	};
 
 	return (
 		<div className={styles.indexParent}>
@@ -46,6 +79,7 @@ const Home = () => {
 						<p className={styles.foundation}>Stacks Foundation</p>
 
 						<h1>Grants Launchpad</h1>
+
 						<p>
 							Committed to helping developers, designers, community leaders, artists, entrepreneurs,
 							and more build a more...
@@ -75,22 +109,7 @@ const Home = () => {
 							<div>
 								<p>Funding Available from:</p>
 								<p>One-thousand to two-hundred and fifty thousand dollars.</p>
-								{!session && (
-									<button backgroundColor="grey" onClick={() => signIn('github')}>
-										<a>Connect Github</a>
-										<IndexGithub />
-									</button>
-								)}
-								{session && (
-									<>
-										<Link href="/application">
-											<button>
-												<a>Submit Your Application</a>
-												<Rocket />
-											</button>
-										</Link>
-									</>
-								)}
+								<Button />
 							</div>
 						</div>
 						<div className={styles.thirdSection}>
@@ -118,6 +137,19 @@ const Home = () => {
 				</Link>
 				<StacksLogo className={styles.stxLogo} />
 			</div>
+			{show === true ? (
+				<div className={styles.mobileModal}>
+					<StacksLogoSuccess className={styles.stxLogoModal} />
+
+					<p>
+						Looks like you are on a mobile device. For the best experience and to submit a grant
+						please use a computer.
+					</p>
+					<p onClick={() => setShow(false)}>Dismiss</p>
+				</div>
+			) : (
+				<></>
+			)}
 		</div>
 	);
 };
