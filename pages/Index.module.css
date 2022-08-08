@@ -21,6 +21,7 @@
 
 
 .indexWrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding-top: 230px;
@@ -219,9 +220,9 @@
 
 
 .blobSVG {
-  width: 100%;
+  width: 680px;
   position: absolute;
-  top: 5%;
+  top: 7%;
   left: 50%;
   z-index: -1;
 
@@ -338,13 +339,4 @@
   }
 } */
 
-@media(min-width: 2400px) {
-  .blobSVG {
-    width: 100%;
-    position: absolute;
-    top: 3%;
-    left: 50%;
-    z-index: -1;
-  
-  }
-}
+
