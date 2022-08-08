@@ -13,5 +13,15 @@ module.exports = {
 		});
 
 		return config;
+	},
+
+	async redirects() {
+		return [
+			{
+				source: '/grants',
+				destination: '/',
+				permanent: true
+			}
+		];
 	}
 };

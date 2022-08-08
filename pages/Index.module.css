@@ -2,6 +2,39 @@
   overflow-x: hidden;
 }
 
+.mobileModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 350px;
+display: flex;
+flex-direction: column;
+align-items: center;
+  width: 90%;
+  background-color: #000000;
+  height: 440px;
+  
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.stxLogoModal {
+  margin-top: 20px;
+
+}
+
+.mobileModal p:first-of-type {
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 30px;
+}
+
+.mobileModal p:last-of-type {
+padding-top: 40px;
+color: #CBD5E0;
+cursor: pointer;
+}
 
 .indexWrapper {
   position: relative;
@@ -20,7 +53,7 @@
 }
 
 .indexWrapper h1 {
-  color: rgba(255, 255, 255, 0.92);
+  color: #FFFFFF;
   font-size: 84px;
   font-weight: 800;
   max-width: 753px;
@@ -35,7 +68,7 @@
   font-weight: 300;
   line-height: 18px;
   max-width: 443px;
-  color: #718096;
+  color: #CBD5E0;
   padding-bottom: 16px;
 }
 
@@ -44,7 +77,8 @@
   font-weight: 500;
   line-height: 40px;
   max-width: 443px;
-  color: #a0aec0;
+  color: #E2E8F0
+  ;
 }
 
 .mainBodyText p:first-of-type {
@@ -71,14 +105,13 @@
 }
 
 .foundation {
-  color: #a0aec0;
+  color: #EDF2F7;
   font-size: 32px;
 }
 
 
-
 .firstSection {
-  background-color: rgba(0, 0, 0, 0.64);
+  background-color: rgba(0, 0, 0, 0.92);
   width: 100%;
   padding-right: 42px;
   padding-left: 42px;
@@ -99,11 +132,12 @@
 }
 
 .firstSection div p:nth-of-type(2) {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 300;
-  padding-top: 6px;
+  padding-top: 5px;
   padding-bottom: 5px;
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.64);
+  letter-spacing: -1px;
 }
 
 .firstSection div:first-of-type button:first-of-type {
@@ -137,12 +171,12 @@
 .secondSection {
   margin-right: auto;
   padding-bottom: 8px;
-  width: 150px;
+  width: 170px;
 }
 
 .secondSection p {
   color: #000000;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: -0.75px;
   padding-bottom: 2px;
 }
@@ -150,10 +184,10 @@
 .secondSection button {
   width: 100%;
   height: 32px;
-  background-color: rgba(0, 0, 0, 0.64);
+  background-color: rgba(0, 0, 0, 0.92);
   font-weight: 400;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.48);
   border: none;
   border-radius: 5px;
   display: flex;
@@ -167,23 +201,22 @@
 .thirdSection {
   margin-right: auto;
   padding-top: 8px;
-  width: 150px;
+  width: 170px;
 }
 
 .thirdSection p {
   color: #000000;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: -0.75px;
-  padding-bottom: 2px;
 }
 
 .thirdSection button {
   width: 100%;
   height: 32px;
-  background-color: rgba(0, 0, 0, 0.64);
+  background-color: rgba(0, 0, 0, 0.92);
   font-weight: 400;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.48);
   border: none;
   border-radius: 5px;
   display: flex;
@@ -218,7 +251,7 @@
   height: 36px;
   width: 90px;
   border: none;
-  background: rgba(0, 0, 0, 0.36);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   font-size: 10px;
   line-height: 15px;
@@ -226,6 +259,10 @@
   color: rgba(255, 255, 255, 0.24);
   text-align: center;
   padding: 6px;
+}
+
+.utilities:hover {
+  cursor: pointer;
 }
 
 .githubLogo {
@@ -251,19 +288,20 @@ display: none;
   }
   .indexWrapper {
     flex-direction: column;
-    padding-top: 0;
+    padding-top: 100px;
+    padding-left: 30px;
+
   }
 
   .rightWrapper {
     padding-top: 50px;
+    
   }
 
   .firstSection {
-    background-color: rgba(0, 0, 0, 0.64);
-    width: 75%;
-    margin: auto;
-    padding-right: 42px;
-    padding-left: 42px;
+  
+    max-width: 425px;
+    width: 85%;
     height: 210px;
     padding-top: 40px;
     padding-bottom: 42px;
@@ -277,10 +315,9 @@ display: none;
   .firstSection div:first-of-type button:first-of-type {
     width: 225px;
     height: 50px;
-    background: linear-gradient(45deg, #3182ce, #97266d);
+
     font-size: 14px;
-    color: white;
-    border: 1px solid white;
+
     border-radius: 10px;
     display: flex;
     margin: auto;
@@ -288,51 +325,131 @@ display: none;
     gap: 10px;
     justify-content: center;
   }
-}
 
-@media (max-width: 489px) {
-  .indexWrapper h1 {
-    font-size: 50px;
-    line-height: 70px;
-    padding-bottom: 10px;
+
+  .utilities {
+    position: absolute;
+    bottom: 10px;
+   left: auto;
+    right: 30px;
+    height: 36px;
+    width: 90px;
+    border: none;
+    background: rgba(0, 0, 0, 0.36);
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.24);
+    text-align: center;
+    padding: 6px;
+ 
   }
 
-  .mainBodyText {
-    font-size: 25px;
+  .secondSection {
+    width: 175px;
   }
 
-  .firstSection {
-    height: 250px;
-    width: 330px;
-    padding: 10px;
-  }
-
-  .firstSection div:first-of-type {
-    padding-top: 40px;
-  }
-
-  .firstSection div:first-of-type button:first-of-type {
-    max-width: 100%;
+  .secondSection p:first-of-type {
+    color: rgba(255, 255, 255, 0.48);
+    padding-bottom: 2px;
   }
 
   .thirdSection {
-    margin-left: auto;
+    width: 175px;
+    padding-bottom: 20px;
+  }
+  .thirdSection p:first-of-type {
     padding-top: 8px;
-    width: 150px;
+
+      color: rgba(255, 255, 255, 0.48);
+      padding-bottom: 2px;
+
   }
 
 
-  
+
 }
 
-/* @media(min-width: 1200px) {
-  .blobSVG {
-  width: 100%;
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  z-index: -1;
+@media(max-width: 476px) {
+
+  .firstSection {
+   
+    max-width: 425px;
+    width: 85%;
+
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 42px;
+    text-align: center;
   }
-} */
+
+  .firstSection div:first-of-type p:nth-of-type(2) {
+    padding-bottom: 10px;
+  }
+
+  .firstSection div:first-of-type button:first-of-type {
+    width: 225px;
+    height: 50px;
+
+    font-size: 14px;
+
+    border-radius: 10px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+
+}
+
+@media(max-width: 499px) {
+
+  .indexWrapper {
+    padding-left: 15px;
+  }
+
+  .indexWrapper h1 {
+    font-size: 60px;
+  }
+
+  .mainBodyText {
+    font-size: 24px;
+  }
+
+  .rightWrapper {
+    padding-top: 20px;
+  }
+
+
+
+  .firstSection {
+
+    max-width: 425px;
+    width: 95%;
+    height: 210px;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 42px;
+    text-align: center;
+  }
+}
+
+@media(max-width: 580px) {
+  .utilities {
+    display: none;
+  }
+
+  .firstSection div:first-of-type p:nth-of-type(1) {
+    padding-bottom: 10px;
+    font-size: 20px;
+  }
+
+}
+
+
 
 
