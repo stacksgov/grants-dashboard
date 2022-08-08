@@ -18,6 +18,8 @@
   background: linear-gradient(to top, rgb(16, 11, 31) 0%, rgb(0, 0, 0) 100%);
 }
 
+
+
 .indexWrapper {
   display: flex;
   justify-content: space-between;
@@ -214,11 +216,15 @@
   opacity: 24%;
 }
 
-.blob {
+
+
+.blobSVG {
+  width: 100%;
   position: absolute;
   top: 5%;
   left: 50%;
   z-index: -1;
+
 }
 
 .utilities {
@@ -319,5 +325,26 @@
 
   .firstSection div:first-of-type button:first-of-type {
     max-width: 100%;
+  }
+}
+
+/* @media(min-width: 1200px) {
+  .blobSVG {
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  z-index: -1;
+  }
+} */
+
+@media(min-width: 2400px) {
+  .blobSVG {
+    width: 100%;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    z-index: -1;
+  
   }
 }

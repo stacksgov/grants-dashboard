@@ -50,6 +50,7 @@ const Home = () => {
 				</div>
 			</div>
 			<div className={styles.rightWrapper}>
+				<Blob className={styles.blobSVG}> </Blob>
 				<div className={styles.secondSection}>
 					<p>Before you apply:</p>
 
@@ -97,9 +98,6 @@ const Home = () => {
 				<RocketShip className={styles.rocketShip} />
 			</div>
 
-			<div className={styles.blob}>
-				<Blob />
-			</div>
 			<Link href="/utilities">
 				<a>
 					<button className={styles.utilities}>Utilities</button>
