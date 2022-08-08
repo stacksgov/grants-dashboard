@@ -29,81 +29,82 @@ const Home = () => {
 	});
 
 	return (
-		<div className={styles.indexWrapper}>
-			<Head>
-				<title>Stacks Grant Dashboard</title>
-			</Head>
+		<div>
+			<div className={styles.indexWrapper}>
+				<Head>
+					<title>Stacks Grant Dashboard</title>
+				</Head>
 
-			<div className={styles.leftWrapper}>
-				<p className={styles.foundation}>Stacks Foundation</p>
+				<div className={styles.leftWrapper}>
+					<p className={styles.foundation}>Stacks Foundation</p>
 
-				<h1>Grants Launchpad</h1>
-				<p>
-					Committed to helping developers, designers, community leaders, artists, entrepreneurs, and
-					more build a more...
-				</p>
-				<div className={styles.mainBodyText}>
-					<p>User-owned & open-source internet powered by the </p>
-					<div className={styles.highlightedWords}>Stacks</div> blockchain,{' '}
-					<div className={styles.highlightedWords}>Clarity</div> smart contracts, and secured by{' '}
-					<div className={styles.highlightedWords}>Bitcoin.</div>
-				</div>
-			</div>
-			<div className={styles.rightWrapper}>
-				<Blob className={styles.blobSVG}> </Blob>
-				<div className={styles.secondSection}>
-					<p>Before you apply:</p>
-
-					<a
-						href="https://github.com/stacksgov/Stacks-Grant-Launchpad"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<button>
-							VISIT GITHUB REPO <ExternalLinkIcon className={styles.externalLinkIcon} />
-						</button>
-					</a>
-				</div>
-				<div className={styles.firstSection}>
-					<div>
-						<p>Funding Available from:</p>
-						<p>One-thousand to two-hundred and fifty thousand dollars.</p>
-						{!session && (
-							<button backgroundColor="grey" onClick={() => signIn('github')}>
-								<a>Connect Github</a>
-								<IndexGithub />
-							</button>
-						)}
-						{session && (
-							<>
-								<Link href="/application">
-									<button>
-										<a>Submit Your Application</a>
-										<Rocket />
-									</button>
-								</Link>
-							</>
-						)}
+					<h1>Grants Launchpad</h1>
+					<p>
+						Committed to helping developers, designers, community leaders, artists, entrepreneurs,
+						and more build a more...
+					</p>
+					<div className={styles.mainBodyText}>
+						<p>User-owned & open-source internet powered by the </p>
+						<div className={styles.highlightedWords}>Stacks</div> blockchain,{' '}
+						<div className={styles.highlightedWords}>Clarity</div> smart contracts, and secured by{' '}
+						<div className={styles.highlightedWords}>Bitcoin.</div>
 					</div>
 				</div>
-				<div className={styles.thirdSection}>
-					<p>Already have an active grant?</p>
+				<div className={styles.rightWrapper}>
+					<div className={styles.secondSection}>
+						<p>Before you apply:</p>
 
-					<a href="https://grantsdashboard.stacks.org" target="_blank" rel="noopener noreferrer">
-						<button>
-							OLD DASHBOARD <ExternalLinkIcon className={styles.externalLinkIcon} />
-						</button>
-					</a>
+						<a
+							href="https://github.com/stacksgov/Stacks-Grant-Launchpad"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<button>
+								VISIT GITHUB REPO <ExternalLinkIcon className={styles.externalLinkIcon} />
+							</button>
+						</a>
+					</div>
+					<div className={styles.firstSection}>
+						<div>
+							<p>Funding Available from:</p>
+							<p>One-thousand to two-hundred and fifty thousand dollars.</p>
+							{!session && (
+								<button backgroundColor="grey" onClick={() => signIn('github')}>
+									<a>Connect Github</a>
+									<IndexGithub />
+								</button>
+							)}
+							{session && (
+								<>
+									<Link href="/application">
+										<button>
+											<a>Submit Your Application</a>
+											<Rocket />
+										</button>
+									</Link>
+								</>
+							)}
+						</div>
+					</div>
+					<div className={styles.thirdSection}>
+						<p>Already have an active grant?</p>
+
+						<a href="https://grantsdashboard.stacks.org" target="_blank" rel="noopener noreferrer">
+							<button>
+								OLD DASHBOARD <ExternalLinkIcon className={styles.externalLinkIcon} />
+							</button>
+						</a>
+					</div>
+					<RocketShip className={styles.rocketShip} />
 				</div>
-				<RocketShip className={styles.rocketShip} />
+
+				<Link href="/utilities">
+					<a>
+						<button className={styles.utilities}>Utilities</button>
+					</a>
+				</Link>
+				<Blob className={styles.blobSVG} />
 			</div>
-
-			<Link href="/utilities">
-				<a>
-					<button className={styles.utilities}>Utilities</button>
-				</a>
-			</Link>
-
 			<StacksLogo className={styles.stxLogo} />
 		</div>
 	);
