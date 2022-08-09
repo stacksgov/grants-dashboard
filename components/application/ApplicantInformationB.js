@@ -19,11 +19,7 @@ const ApplicantInformationB = () => {
           image={<GithubIcon />}
           readonly={true}
         />
-        <Input
-          name="email"
-          label="Email"
-          hint="(required, will be displayed on Github)"
-        />
+        <Input name="email" label="Email" />
       </Container>
       <Container>
         <Input
