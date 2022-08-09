@@ -35,7 +35,7 @@ const TextArea = (props) => {
 
     switch (name) {
       case "discordUsername":
-
+      case "email":
       case "twitterUsername":
       case "projectTeam":
         break;

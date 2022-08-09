@@ -36,7 +36,6 @@ const Input = (props) => {
 
     switch (name) {
       case "discordUsername":
-
       case "twitterUsername":
       case "projectTeam":
       case "email":
