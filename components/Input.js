@@ -36,9 +36,9 @@ const Input = (props) => {
 
     switch (name) {
       case "discordUsername":
-
       case "twitterUsername":
       case "projectTeam":
+      case "email":
         break;
       default:
         if (value.length == undefined || value.length == "") {
@@ -48,13 +48,6 @@ const Input = (props) => {
             case "wishlistGithub":
             case "referenceLink":
               if (isValidURL(value)) {
-                setColor(input, "#3182ce");
-              } else {
-                setColor(input, "red");
-              }
-              break;
-            case "email":
-              if (isValidEmail(value)) {
                 setColor(input, "#3182ce");
               } else {
                 setColor(input, "red");
