@@ -35,10 +35,7 @@ const Home = () => {
 	const Button = () => {
 		if (mobile === true) {
 			return (
-				<button onClick={() => setShow(true)}>
-					Submit Your Application
-					<Rocket />
-				</button>
+				<button onClick={() => setShow(true)}>Submit your Application or Wishlist Idea!</button>
 			);
 		} else if (!session) {
 			return (
@@ -51,8 +48,7 @@ const Home = () => {
 			return (
 				<Link href="/application">
 					<button>
-						<a>Submit Your Application</a>
-						<Rocket />
+						<a>Submit your Application or Wishlist Idea!</a>
 					</button>
 				</Link>
 			);

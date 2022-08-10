@@ -128,6 +128,7 @@ cursor: pointer;
 .firstSection div p:first-of-type {
   font-size: 24px;
   font-weight: 300;
+  letter-spacing: -1.25px;
   color: rgba(255, 255, 255, 0.92);
 }
 
@@ -143,11 +144,12 @@ cursor: pointer;
 .firstSection div:first-of-type button:first-of-type {
   width: 302px;
   height: 50px;
+  font-weight: 600;
   background: linear-gradient(45deg, #3182ce, #97266d);
-  font-size: 14px;
+  font-size: 12px;
   color: white;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -377,12 +379,15 @@ display: none;
    
     max-width: 425px;
     width: 85%;
-
     padding-top: 40px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 42px;
     text-align: center;
+  }
+
+  .firstSection div:first-of-type p:first-of-type {
+    letter-spacing: 0px;
   }
 
   .firstSection div:first-of-type p:nth-of-type(2) {
