@@ -229,7 +229,23 @@ const GrantDataExporter = () => {
 			if (issue.body) {
 				const regex = /(?<=&thinsp;)([\s\S]*?)(?=\*\*)/g;
 
+				const regexReplaceSpacing =
+					/(?<=\*\*Grant Name:\*\*&hairsp;&hairsp;&hairsp;&hairsp;).*?(?=&hairsp;)/g;
+
 				issue.body += '**';
+				issue.body = issue.body.replace('# GRANT BASICS', '** # GRANT BASICS');
+				issue.body = issue.body.replace(
+					'# GRANT MISSION, IMPACT, RISKS & REFERENCE',
+					'** # GRANT MISSION, IMPACT, RISKS & REFERENCE'
+				);
+				issue.body = issue.body.replace(
+					'# GRANT ROADMAP & DELIVERABLES',
+					'** # GRANT ROADMAP & DELIVERABLES'
+				);
+				issue.body = issue.body.replace('# WISHLIST IDEA', '** # WISHLIST IDEA');
+
+				issue.body = issue.body.replace(regexReplaceSpacing, '&hairsp;&hairsp;');
+
 				const lines = issue.body
 					.match(regex)
 					.map((line) => line.replace('\n', '').replace('\n', '').trim());
