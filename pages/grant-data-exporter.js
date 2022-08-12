@@ -206,11 +206,11 @@ const GrantDataExporter = () => {
 					issue_number: `${issue.number}`
 				});
 				let res = req.data;
-				issue.commentName = res.map((commenter) => commenter.user.login);
+				const commentSet = new Set();
+				res.map((commenter) => commentSet.add(commenter.user.login));
+				issue.commentName = Array.from(commentSet).join(', ');
 			})
 		);
-
-		// console.log('relevant issues', relevantIssues);
 
 		await Promise.all(
 			relevantIssues.map(async (issue) => {
@@ -221,7 +221,9 @@ const GrantDataExporter = () => {
 				});
 
 				let res = req.data;
-				issue.reactionUsername = res.map((reactor) => reactor.user.login);
+				const reactionSet = new Set();
+				res.map((reactor) => reactionSet.add(reactor.user.login));
+				issue.reactionUsername = Array.from(reactionSet).join(', ');
 			})
 		);
 
@@ -260,8 +262,8 @@ const GrantDataExporter = () => {
 				issue.grantAudience = lines[12];
 				issue.specificAudience = lines[13];
 				issue.grantTeamMembers = lines[14];
-				issue.previousGrants = lines[15];
-				issue.ecosystemPrograms = lines[16];
+				issue.previousGrants = lines[15] == '' ? 'No' : 'Yes';
+				issue.ecosystemPrograms = lines[16] == '' ? 'No' : 'Yes';
 				issue.grantMission = lines[17];
 				issue.finalDeliverable = lines[21];
 
