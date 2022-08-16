@@ -3,19 +3,20 @@ import styles from './Index.module.css';
 import Rocket from '../public/images/rocket.svg';
 import RocketShip from '../public/images/rocketship.svg';
 import Link from 'next/link';
-import IndexGithub from '../public/images/indexGithub.svg';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import ExternalLinkIcon from '../public/images/externalLink.svg';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Octokit } from '@octokit/rest';
 import StacksLogo from '../public/images/indexStxLogo.svg';
 import StacksLogoSuccess from '../public/images/stacksModalLogoSuccess.svg';
+import ConnectGithubSVG from '../public/images/indexGithubConnect.svg';
 
 const Home = () => {
 	const { data: session } = useSession();
 	const [show, setShow] = useState(false);
 	const [mobile, setMobile] = useState();
-
+	const [highlightButton, setHighlightButton] = useState(false);
+	const connectButton = useRef(null);
 	useEffect(() => {
 		async function refresh() {
 			if (session) {
@@ -32,6 +33,14 @@ const Home = () => {
 		window.innerWidth >= 800 ? setMobile(false) : setMobile(true);
 	});
 
+	const truncateUsername = (ghUsername) => {
+		if (ghUsername.length < 10) {
+			return ghUsername;
+		} else {
+			return ghUsername.slice(0, 8) + '...';
+		}
+	};
+
 	const Button = () => {
 		if (mobile === true) {
 			return (
@@ -39,9 +48,8 @@ const Home = () => {
 			);
 		} else if (!session) {
 			return (
-				<button backgroundColor="grey" onClick={() => signIn('github')}>
-					<a>Connect Github</a>
-					<IndexGithub />
+				<button backgroundColor="grey" onClick={() => setHighlightButton(true)}>
+					<a>Submit your Application or Wishlist Idea!</a>
 				</button>
 			);
 		} else if (session) {
@@ -89,6 +97,15 @@ const Home = () => {
 					</div>
 					<div className={styles.rightWrapper}>
 						<div className={styles.secondSection}>
+							<button
+								ref={connectButton}
+								className={!highlightButton ? styles.connectGithub : styles.connectGithubFocus}
+								style={session ? { fontSize: '14px' } : {}}
+								onClick={() => (!session ? signIn('github') : signOut())}
+							>
+								{!session ? 'Connect Github' : `${truncateUsername(session.user.name)} (log out)`}{' '}
+								<ConnectGithubSVG />
+							</button>
 							<p>Before you apply:</p>
 
 							<a
@@ -96,7 +113,7 @@ const Home = () => {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<button>
+								<button className={styles.secondSectionButton}>
 									VISIT GITHUB REPO <ExternalLinkIcon className={styles.externalLinkIcon} />
 								</button>
 							</a>
