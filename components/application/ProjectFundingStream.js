@@ -66,8 +66,9 @@ const ProjectFundingStream = () => {
 											{type.stream}
 										</span>
 									</td>
+									<a href="https://github.com/stacksgov/Stacks-Grant-Launchpad/wiki/Funding-Stream-Details#funding-stream-details" target="_blank" rel="noreferrer">
 									<div className={styles.icon}>{type.icon}</div>
-									<a href="https://github.com/stacksgov/Stacks-Grant-Launchpad/wiki/Funding-Stream-Details#funding-stream-details" target="_blank" rel="noreferrer">details</a>
+									</a>
 								</tr>
 							);
 						})}
