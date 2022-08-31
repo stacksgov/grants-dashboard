@@ -7,7 +7,6 @@ import Form from '../Form';
 import Radio from '../Radio';
 import { projectTypes } from '../../content';
 import { getSelectedValue } from '../Form';
-
 import { useEffect } from 'react';
 
 const ProjectFundingStream = () => {
@@ -67,7 +66,9 @@ const ProjectFundingStream = () => {
 											{type.stream}
 										</span>
 									</td>
+									<a href="https://github.com/stacksgov/Stacks-Grant-Launchpad/wiki/Funding-Stream-Details#funding-stream-details" target="_blank" rel="noreferrer">
 									<div className={styles.icon}>{type.icon}</div>
+									</a>
 								</tr>
 							);
 						})}
