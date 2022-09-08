@@ -13,6 +13,7 @@ const Input = (props) => {
     maxchar,
     description,
     isNumber,
+    isDate
   } = props;
 
   const [value, setValue] = useState("");
@@ -27,6 +28,9 @@ const Input = (props) => {
     const { name, value } = input;
 
     let formData = JSON.parse(localStorage.getItem("formData"));
+    if(!formData) {
+      localStorage.setItem("formData", JSON.stringify({}));
+    }
     formData[name] = value;
     localStorage.setItem("formData", JSON.stringify(formData));
 
@@ -106,7 +110,9 @@ const Input = (props) => {
         <input
           readOnly={readonly}
           style={{ color: readonly ? "rgba(255, 255, 255, 0.48)" : "white" }}
-          type={isNumber ? "number" : "text"}
+          //type={isNumber ? "number" : "text"}
+          
+          type={isNumber ? "number" : isDate ? "date" : "text"}
           placeholder="Type here..."
           name={name}
           value={value}

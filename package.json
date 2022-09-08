@@ -11,7 +11,9 @@
   "dependencies": {
     "@octokit/rest": "^19.0.3",
     "@svgr/webpack": "^6.2.1",
+    "axios": "^0.27.2",
     "framer-motion": "^6.5.1",
+    "mongodb": "^4.9.1",
     "next": "12.1.6",
     "next-auth": "^4.10.3",
     "octokit": "^1.8.1",
