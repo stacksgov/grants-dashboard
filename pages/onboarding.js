@@ -15,6 +15,7 @@ import Container from "../components/Container";
 import TextArea from "../components/TextArea";
 import Checkbox from "../components/Checkbox";
 
+const MONGODB_API_KEY = process.env.MONGODB_API_KEY;
 
 const Onboarding = () => {
 	const { data: session } = useSession();
@@ -45,7 +46,7 @@ let sendOnboardingForm = async() => {
     headers:{
       Accept:"application/json",
       "Content-Type":"application/json",
-      "api-key":process.env.MONGODB_API_KEY, //API KEY STORED IN GITHUB SECRETS
+      "api-key": MONGODB_API_KEY, //API KEY STORED IN VERCEL
       'Access-Control-Allow-Origin': '*'
     }
   })
