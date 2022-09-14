@@ -14,8 +14,8 @@ import Form from "../components/Form";
 import Container from "../components/Container";
 import TextArea from "../components/TextArea";
 import Checkbox from "../components/Checkbox";
-import clientPromise from "../lib/mongo";
-
+// import clientPromise from "../lib/mongo";
+const {mongoose} = require("../lib/mongohelper");
 const MONGODB_API_KEY = process.env.MONGODB_API_KEY;
 
 const Onboarding = () => {
