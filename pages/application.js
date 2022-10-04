@@ -122,9 +122,33 @@ const Application = () => {
   async function submitApplication() {
     let formData = JSON.parse(localStorage.getItem("formData"));
     formData.applicationType = getApplicationType(formData.applicationType);
+    console.log(formData, 'formData')
+    const payload = {
+      "_id": 123,
+      "stxAddress": "",
+      "stxMemo": "",
+      "firstName": formData.firstName,
+      "lastName": formData.lastName,
+      "email": formData.email,
+      "country": "",
+      "socialProof": {
+          "github": formData.githubUsername,
+          "discord": formData.discordUsername,
+          "twitter": formData.twitterUsername,
+      },
+      "passbaseUrl": "",
+      "docusignUrl": "",
+      "payments": {
+          "totalPayments": 1234, // used to determine how many payments to make 
+          "paymentsMade": []
+      },
+      "reviews": []
+    };
+    await createGrant(payload);
 
     let markdown = generateTemplate(flow, formData);
 
+    /* REMOVE TEMPORAL GITHUB ISSUE
     const github = new Octokit({
       auth: session.accessToken,
     });
@@ -201,7 +225,24 @@ const Application = () => {
     }
 
     setShowModal(true);
+    */
   }
+
+  const createGrant = async (formData) => {
+		try {
+      console.log(formData, 'createGrant -> formData')
+			return await fetch('/api/auth/grant', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			})
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
   let invalidFields = [];
 
