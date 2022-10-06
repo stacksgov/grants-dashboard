@@ -122,37 +122,32 @@ const Application = () => {
   async function submitApplication() {
     let formData = JSON.parse(localStorage.getItem("formData"));
     formData.applicationType = getApplicationType(formData.applicationType);
-    console.log(formData, 'formData')
     const payload = {
-      "_id": 123,
+      "_id": 710,
       "stxAddress": "",
       "stxMemo": "",
-      "firstName": formData.firstName,
-      "lastName": formData.lastName,
-      "email": formData.email,
+      "firstName": formData.firstName || "",
+      "lastName": formData.lastName || "",
+      "email": formData.email || "",
       "country": "",
       "socialProof": {
-          "github": formData.githubUsername,
-          "discord": formData.discordUsername,
-          "twitter": formData.twitterUsername,
+          "github": formData.githubUsername || "",
+          "discord": formData.discordUsername || "",
+          "twitter": formData.twitterUsername || "",
       },
       "passbaseUrl": "",
       "docusignUrl": "",
       "payments": {
           "totalPayments": 1234, // used to determine how many payments to make 
-          "paymentsMade": []
+          "paymentsMade": null
       },
       "reviews": []
     };
-    await createGrant(payload);
-
     let markdown = generateTemplate(flow, formData);
-
-    /* REMOVE TEMPORAL GITHUB ISSUE
+    
     const github = new Octokit({
       auth: session.accessToken,
     });
-
     if (flow == "B") {
       // create GH discussion
       const query = `mutation {
@@ -163,6 +158,7 @@ const Application = () => {
           }
         }
       }`;
+
       try {
         let req = await fetch("https://api.github.com/graphql", {
           method: "POST",
@@ -174,10 +170,8 @@ const Application = () => {
             "GraphQL-Features": "discussion_api",
           },
         });
-
         if (req.status == 200) {
           let res = await req.json();
-
           setURL(res.data.createDiscussion.discussion.url);
           localStorage.setItem("formData", JSON.stringify({}));
           setError(null);
@@ -202,11 +196,13 @@ const Application = () => {
           title: formData.projectTitle,
           body: markdown,
         });
-
         let res = await req;
         setURL(res.data.html_url);
 
         if (res.status == 201) {
+          payload._id = res.data.number;
+          await createGrant(payload);
+
           setError(null);
           localStorage.setItem("formData", JSON.stringify({}));
           signOutTimeout();
@@ -217,6 +213,7 @@ const Application = () => {
           signOutTimeout();
         }
       } catch (err) {
+        console.log(err, 'err')
         setError(
           "Please try resubmitting. If you're still having issues then please reach out to us at grants@stacks.org"
         );
@@ -224,8 +221,7 @@ const Application = () => {
       }
     }
 
-    setShowModal(true);
-    */
+    setShowModal(true);    
   }
 
   const createGrant = async (formData) => {

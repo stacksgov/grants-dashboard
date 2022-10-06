@@ -16,7 +16,7 @@ export default async (req, res) => {
     case 'POST':
       try {
         console.log(req.body, "req.body");
-        await db.collection("test").insertOne(req.body).then((grant)=>{
+        await db.collection("grants").insertOne(req.body).then((grant)=>{
           res.status(201).json({ success: true, data: grant })
         }).catch((error) => {
           console.log(error, 'error')
