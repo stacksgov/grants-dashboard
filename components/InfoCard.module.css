@@ -1,0 +1,66 @@
+.cardContainer{
+    background: rgba(0,0,0,0.7);
+    border-radius: 28px;
+    padding: 30px;
+    max-width: 460px;
+    margin-bottom: 30px;
+}
+
+.cardHeading{
+    font-family: "OpenSauceOne-Bold";
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.headingSecondary{
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.64);
+
+}
+
+.cardText{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.64);
+    margin: 15px 0;
+    font-size: 12px;
+
+}
+.secondcardText{
+    color: rgba(255, 255, 255, 0.70);
+    font-weight: bold;
+}
+
+.cardTextLarge{
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.64);
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.cardTextItalic{
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.64);
+    margin: 15px 0;
+    font-size: 14px;
+    margin-bottom: 60px;
+}
+
+.learnButton{
+    font-family: "OpenSauceOne-Bold";
+    background: #718096;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    padding: 10px 12px;
+    
+}
+
+.learnText{
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0 4px;
+    font-size: 14px;
+}
