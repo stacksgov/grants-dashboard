@@ -1,4 +1,4 @@
-import styles from './index.module.css';
+import styles from './Index.module.css';
 import Rocket from '../public/images/rocket.svg';
 import RocketShip from '../public/images/rocketship.svg';
 import Link from 'next/link';
