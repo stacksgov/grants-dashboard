@@ -1,54 +1,50 @@
-.navWrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 36px 0;
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 0;
 }
 
-.navList{
-    font-family: "OpenSauceOne-Bold";
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    color: rgba(255, 255, 255, 0.36);
-    z-index: 111;
+.navList {
+  font-family: "OpenSauceOne-Bold";
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: rgba(255, 255, 255, 0.36);
+  z-index: 111;
 }
 
-.navListItem{
-    cursor: pointer;
-    transition: all .3s;
+.navListItem {
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.navListItem:hover{
-    color: #fff;
-    opacity: .8;
+.navListItem:hover {
+  color: #fff;
+  opacity: 0.8;
 }
 
-
-.mobNav{
-    /* background: #fff; */
-    height: 40px;
-    width: 40px;
-    padding: 5px;
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    z-index: 111;
-   cursor: pointer;
-
-}
-.mobNav span{
-        background: #fff;
-        height: 4px;
-        width: 100%;
-        border-radius: 5px;
-        
+.mobNav {
+  /* background: #fff; */
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  z-index: 111;
+  cursor: pointer;
 }
 
-
+.mobNav span {
+  background: #fff;
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+}
 
 /* @media screen and (max-width: 979px){
     .navList{
@@ -82,4 +78,3 @@
     
     }
 } */
-

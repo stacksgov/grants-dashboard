@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;100;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;100;700&display=swap");
 
 @font-face {
   font-family: "Open Sauce One";
@@ -6,7 +6,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 
 @font-face {
   font-family: "OpenSauceOne-Light";
@@ -341,7 +340,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
-
 
 ::-webkit-scrollbar {
   width: 5px;
