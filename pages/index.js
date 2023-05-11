@@ -1,104 +1,12 @@
 import styles from './Index.module.css';
-import Rocket from '../public/images/rocket.svg';
-import RocketShip from '../public/images/rocketship.svg';
-import Link from 'next/link';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import ExternalLinkIcon from '../public/images/externalLink.svg';
-import { useEffect, useState, useRef } from 'react';
-import { Octokit } from '@octokit/rest';
-import { useRouter } from 'next/router'
-import StacksLogo from '../public/images/indexStxLogo.svg';
-import StacksLogoSuccess from '../public/images/stacksModalLogoSuccess.svg';
 import NavHeader from '../components/NavHeader';
 import InfoCard from '../components/InfoCard';
+import styles from './Index.module.css';
 import Abstracto_005 from '../public/images/Abstracto_005.svg';
 import Abstracto_007 from '../public/images/Abstracto_007.svg';
 import Abstracto_008 from '../public/images/Abstracto_008.svg';
 
 const Home = () => {
-	const { data: session } = useSession();
-	const router = useRouter()
-	const [show, setShow] = useState(false);
-	const [mobile, setMobile] = useState();
-	const [highlightButton, setHighlightButton] = useState(false);
-	const connectButton = useRef(null);
-
-	useEffect(() => {
-		console.log('ENV IS : - ', process.env.GITHUB_CLIENT_ID)
-		async function refresh() {
-			if (session) {
-				const github = new Octokit({
-					auth: session.accessToken
-				});
-				let user = await github.request('GET /user');
-				console.log('Github resposne is :  - ', user);
-				let filteredData = {
-					id: user?.data?.id,
-					name: user?.data?.name,
-					login: user?.data?.login,
-					type: user?.data?.type
-				}
-				const res = await Login(filteredData);
-				console.log('Login resposne is : - ', res);
-				if (res) {
-					let formData = JSON.parse(localStorage.getItem("formData"));
-					if (!formData) {
-						localStorage.setItem("formData", JSON.stringify({}));
-					}
-					formData = JSON.parse(localStorage.getItem("formData"));
-					formData.githubUsername = session.user.name;
-					formData.email = user?.data?.email
-					localStorage.setItem("formData", JSON.stringify(formData));
-					saveToken(res.user.token);
-					session.user.type = res.user.type
-				}
-			}
-		}
-		if (session) {
-			refresh();
-		}
-
-		window.innerWidth >= 800 ? setMobile(false) : setMobile(true);
-	});
-
-	const signOutUser = () => {
-		localStorage.setItem('formData', JSON.stringify({}));
-		signOut();
-	}
-
-	const truncateUsername = (ghUsername) => {
-		if (ghUsername.length < 10) {
-			return ghUsername;
-		} else {
-			return ghUsername.slice(0, 8) + '...';
-		}
-	};
-
-	const Button = () => {
-		if (mobile === true) {
-			return (
-				<button onClick={() => setShow(true)}>Submit your Grant Application here!</button>
-			);
-		} else if (!session) {
-			return (
-				<button onClick={() => (!session ? signIn('github') : signOut())}
-				>
-					<a>Submit your Grant Application here!</a>
-				</button>
-			);
-		} else if (session) {
-			return (
-				<Link href="/quiz">
-					<button>
-						<a>Submit your Grant Application here!</a>
-					</button>
-				</Link>
-			);
-		} else {
-			return null;
-		}
-	};
-
 	const data = [
 		{
 			title: 'sBTC Protocol',
@@ -160,11 +68,7 @@ const Home = () => {
 				<div style={{ position: 'absolute', top: 0, left: 0 }}>
 					<Abstracto_007 />
 				</div>
-
-
-
 				<div className={styles.container}>
-
 					<NavHeader />
 					<div className={styles.banner}>
 						<div className={styles.bannerLeft}>
@@ -185,35 +89,11 @@ const Home = () => {
 								<InfoCard key={index} title={item.title} headingSecondary={item.headingSecondary} awardedIn={item.awardedIn} fee={item.fee} deadline={item.deadline} description={item.description} text={item.text} link={item.link} />
 							))
 						}
-
 					</div>
-
 				</div>
 			</div>
-			{show === true ? (
-				<div className={styles.mobileModal}>
-					<StacksLogoSuccess className={styles.stxLogoModal} />
-
-					<p>
-						Looks like you are on a mobile device. For the best experience and to submit a grant
-						please use a computer.
-					</p>
-					<p onClick={() => setShow(false)}>Dismiss</p>
-				</div>
-			) : (
-				<></>
-			)}
 		</div>
 	);
 };
 
 export default Home;
-
-const utilBtn = {
-	background: 'rgba(0, 0, 0, 0.8)',
-	color: '#fff',
-	padding: '10px 20px',
-	border: 'none',
-	borderRadius: 5,
-	fontSize: 10
-}

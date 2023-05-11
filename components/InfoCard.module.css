@@ -4,6 +4,7 @@
   padding: 30px;
   max-width: 460px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .cardHeading {
@@ -44,7 +45,12 @@
   color: rgba(255, 255, 255, 0.64);
   margin: 15px 0;
   font-size: 14px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+}
+
+.learnButtonWrapper {
+  position: absolute;
+  bottom: 40px;
 }
 
 .learnButton {
@@ -54,7 +60,6 @@
   outline: none;
   border-radius: 100px;
   padding: 10px 12px;
-  margin-bottom: 30px;
 }
 
 .learnText {

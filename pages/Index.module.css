@@ -1,29 +1,26 @@
-.bountiesBody{
+.bountiesBody {
   background: linear-gradient(to bottom right, #3a0f06, #050622);
   background-repeat: no-repeat;
   z-index: 1;
   position: relative;
   overflow: hidden;
 }
-.container{
+
+.container {
   max-width: 1060px;
   margin: 0 auto;
   position: relative;
   z-index: 1 !important;
   padding: 0 30px;
-  
 }
 
-@media screen and (max-width: 375px){
-  .container{
-      
-      padding: 0 15px;
-      
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 0 15px;
   }
 }
 
-
-.banner{
+.banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,13 +28,11 @@
   position: relative;
 }
 
-
-.bannerLeft{
+.bannerLeft {
   z-index: 111;
-
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +40,7 @@
   margin-top: 89px;
 }
 
-.buttons button{
+.buttons button {
   background: #000;
   border-radius: 10px;
   color: rgba(255, 255, 255, 0.36);
@@ -56,27 +51,23 @@
   cursor: pointer;
 }
 
-.active{
+.active {
   color: rgba(255, 255, 255, 0.92) !important;
-  
 }
 
-.textTop{
+.textTop {
   font-size: 29px;
   margin: 0;
-  font-family: 'Open Sauce One';
+  font-family: "Open Sauce One";
   font-style: normal;
   font-weight: 300;
   letter-spacing: -1.5px;
-  color: #FFFFFF;
-
-  
+  color: #ffffff;
 }
 
-
-.textBottom{
+.textBottom {
   max-width: 570px;
-  font-family: 'Open Sauce One';
+  font-family: "Open Sauce One";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -84,32 +75,29 @@
   letter-spacing: -1px;
 }
 
-
-
-.bannerLeft h1{
+.bannerLeft h1 {
   font-family: "OpenSauceOne-Bold";
   font-size: 84px;
   font-weight: 700;
   letter-spacing: -1.5px;
 }
 
-@media screen and (max-width: 979px){
-  .bannerLeft h1{
-      font-family: "OpenSauceOne-Bold";
-      font-size: 60px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
+@media screen and (max-width: 979px) {
+  .bannerLeft h1 {
+    font-family: "OpenSauceOne-Bold";
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
   }
-  .textTop{
-      font-size: 24px;
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      font-weight: 100;
-      
+  .textTop {
+    font-size: 24px;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
   }
 }
 
-.cardsWrapper{
+.cardsWrapper {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -117,8 +105,8 @@
   padding-bottom: 30px;
 }
 
-@media screen and (max-width: 980px){
-  .cardsWrapper{
-      justify-content: center;
+@media screen and (max-width: 980px) {
+  .cardsWrapper {
+    justify-content: center;
   }
 }
