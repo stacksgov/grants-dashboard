@@ -1,520 +1,112 @@
-.indexParent {
-  overflow-x: hidden;
-}
-
-.mobileModal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 350px;
-display: flex;
-flex-direction: column;
-align-items: center;
-  width: 90%;
-  background-color: #000000;
-  height: 440px;
-  
-  z-index: 2;
-  border-radius: 10px;
-}
-
-.stxLogoModal {
-  margin-top: 20px;
-
-}
-
-.mobileModal p:first-of-type {
-  padding-right: 40px;
-  padding-left: 40px;
-  padding-top: 30px;
-}
-
-.mobileModal p:last-of-type {
-padding-top: 40px;
-color: #CBD5E0;
-cursor: pointer;
-}
-
-.indexWrapper {
+.bountiesBody {
+  background: linear-gradient(to bottom right, #3a0f06, #050622);
+  background-repeat: no-repeat;
+  z-index: 1;
   position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1060px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1 !important;
+  padding: 0 30px;
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+.banner {
   display: flex;
   justify-content: space-between;
-  padding-top: 230px;
-  max-width: 1000px;
-  margin: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 100%;
+  align-items: center;
+  margin-top: 90px;
+  position: relative;
 }
 
-.indexWrapper button {
+.bannerLeft {
+  z-index: 111;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 89px;
+}
+
+.buttons button {
+  background: #000;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.36);
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 80px;
   cursor: pointer;
 }
 
-.indexWrapper h1 {
-  color: #FFFFFF;
-  font-size: 84px;
-  font-weight: 800;
-  max-width: 753px;
-  line-height: 90px;
-  padding-bottom: 16px;
+.active {
+  color: rgba(255, 255, 255, 0.92) !important;
 }
 
-
-
-.leftWrapper p:nth-of-type(2) {
-  font-size: 14px;
+.textTop {
+  font-size: 29px;
+  margin: 0;
+  font-family: "Open Sauce One";
+  font-style: normal;
   font-weight: 300;
-  line-height: 18px;
-  max-width: 443px;
-  color: #CBD5E0;
-  padding-bottom: 16px;
+  letter-spacing: -1.5px;
+  color: #ffffff;
 }
 
-.mainBodyText {
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 40px;
-  max-width: 443px;
-  color: #E2E8F0
-  ;
-}
-
-.mainBodyText p:first-of-type {
-  display: inline;
-}
-
-.highlightedWords {
-  width: fit-content;
-  display: inline-block;
-  position: relative;
-  padding: 0px 10px;
-}
-
-.highlightedWords::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  padding: 2px;
-  background: linear-gradient(45deg, #3381cc, #96286f) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-.foundation {
-  color: #EDF2F7;
-  font-size: 32px;
-}
-
-
-.firstSection {
-  background-color: rgba(0, 0, 0, 0.92);
-  width: 100%;
-  padding-right: 42px;
-  padding-left: 42px;
-  height: 185px;
-  border-radius: 6px;
-  padding-top: 28px;
-  padding-bottom: 42px;
-}
-
-.firstSection div:first-of-type {
-  padding-bottom: 28px;
-}
-
-.firstSection div p:first-of-type {
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: -1.25px;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.firstSection div p:nth-of-type(2) {
-  font-size: 13px;
-  font-weight: 300;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  color: rgba(255, 255, 255, 0.64);
+.textBottom {
+  max-width: 570px;
+  font-family: "Open Sauce One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
   letter-spacing: -1px;
 }
 
-.firstSection div:first-of-type button:first-of-type {
-  width: 302px;
-  height: 50px;
-  font-weight: 600;
-  background: linear-gradient(45deg, #3182ce, #97266d);
-  font-size: 12px;
-  color: white;
-  border: 1px solid white;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
+.bannerLeft h1 {
+  font-family: "OpenSauceOne-Bold";
+  font-size: 84px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
 }
 
-.firstSection div:nth-of-type(2) button:first-of-type {
-  width: 302px;
-  height: 50px;
-  background: #000000;
-  font-size: 14px;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.36);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-}
-
-.secondSection {
-  margin-right: auto;
-  padding-bottom: 8px;
-  width: 170px;
-}
-
-.connectGithub {
-position: absolute;
-right: -10%;
-top: 11%;
-width: 184px;
-height: 40px;
-color: rgba(255, 255, 255, 0.48);
-background-color: #000000;
-border: 1px solid #171923;
-border-radius: 100px;
-display: flex;
-justify-content: right;
-padding-right: 4px;
-align-items: center;
-gap: 8px;
-}
-
-.connectGithubFocus {
-  position: absolute;
-  right: -10%;
-  top: 11%;
-  width: 184px;
-  height: 40px;
-  color: rgba(255, 255, 255, 0.48);
-  background-color: #000000;
-  border: 1px solid #ffffff;  
-  border-radius: 100px;
-  display: flex;
-  justify-content: right;
-  padding-right: 4px;
-  align-items: center;
-  gap: 8px;
-}
-
-.secondSection p {
-  color: #000000;
-  font-size: 13px;
-  letter-spacing: -0.75px;
-  padding-bottom: 2px;
-}
-
-.secondSectionButton {
-  width: 100%;
-  height: 32px;
-  background-color: rgba(0, 0, 0, 0.92);
-  font-weight: 400;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.48);
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  letter-spacing: 0.75px;
-}
-
-
-.thirdSection {
-  margin-right: auto;
-  padding-top: 8px;
-  width: 170px;
-}
-
-.thirdSection p {
-  color: #000000;
-  font-size: 13px;
-  letter-spacing: -0.75px;
-}
-
-.thirdSection button {
-  width: 100%;
-  height: 32px;
-  background-color: rgba(0, 0, 0, 0.92);
-  font-weight: 400;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.48);
-  border: none;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  letter-spacing: 0.75px;
-}
-
-.externalLinkIcon {
-  width: 10px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(360deg)
-    brightness(101%) contrast(103%);
-  opacity: 24%;
-}
-
-
-
-.blobSVG {
-  width: 680px;
-  position: absolute;
-  top: 7%;
-  left: 50%;
-  z-index: -1;
-
-}
-
-.utilities {
-  position: absolute;
-  bottom: 10px;
-  left: 16px;
-  height: 36px;
-  width: 90px;
-  border: none;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-  font-size: 10px;
-  line-height: 15px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.24);
-  text-align: center;
-  padding: 6px;
-}
-
-.utilities:hover {
-  cursor: pointer;
-}
-
-.githubLogo {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg)
-    brightness(105%) contrast(101%);
-}
-
-.stxLogo {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.rocketShip {
-  padding-top: 5px;
-    height: 150px;
-}
-
-@media(max-width: 1210px) {
-  .connectGithub {
-    right: 1%;
-  }
-
-  .connectGithubFocus {
-    right: 1%;
-  }
-}
-
-@media (max-width: 800px) {
-
-  .connectGithub {
-    position: relative;
-    margin-bottom: 10px;
-
-  }
-
-  .connectGithubFocus {
-    position: relative;
-    margin-bottom: 10px;
-  }
-
-
-  .rocketShip {
-display: none;
-  }
-  .indexWrapper {
-    flex-direction: column;
-    padding-top: 100px;
-    padding-left: 30px;
-
-  }
-
-  .rightWrapper {
-    padding-top: 50px;
-    
-  }
-
-  .firstSection {
-  
-    max-width: 425px;
-    width: 85%;
-    height: 210px;
-    padding-top: 40px;
-    padding-bottom: 42px;
-    text-align: center;
-  }
-
-  .firstSection div:first-of-type p:nth-of-type(2) {
-    padding-bottom: 10px;
-  }
-
-  .firstSection div:first-of-type button:first-of-type {
-    width: 225px;
-    height: 50px;
-
-    font-size: 14px;
-
-    border-radius: 10px;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-  }
-
-
-  .utilities {
-    position: absolute;
-    bottom: 10px;
-   left: auto;
-    right: 30px;
-    height: 36px;
-    width: 90px;
-    border: none;
-    background: rgba(0, 0, 0, 0.36);
-    border-radius: 5px;
-    font-size: 10px;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.24);
-    text-align: center;
-    padding: 6px;
- 
-  }
-
-  .secondSection {
-    width: 175px;
-  }
-
-  .secondSection p:first-of-type {
-    color: rgba(255, 255, 255, 0.48);
-    padding-bottom: 2px;
-  }
-
-  .thirdSection {
-    width: 175px;
-    padding-bottom: 20px;
-  }
-  .thirdSection p:first-of-type {
-    padding-top: 8px;
-
-      color: rgba(255, 255, 255, 0.48);
-      padding-bottom: 2px;
-
-  }
-
-
-
-}
-
-@media(max-width: 476px) {
-
-  .connectGithub {
-    display: none;
-  }
-
-  .firstSection {
-   
-    max-width: 425px;
-    width: 85%;
-    padding-top: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 42px;
-    text-align: center;
-  }
-
-  .firstSection div:first-of-type p:first-of-type {
-    letter-spacing: 0px;
-  }
-
-  .firstSection div:first-of-type p:nth-of-type(2) {
-    padding-bottom: 10px;
-  }
-
-  .firstSection div:first-of-type button:first-of-type {
-    width: 225px;
-    height: 50px;
-
-    font-size: 14px;
-
-    border-radius: 10px;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-  }
-
-}
-
-@media(max-width: 499px) {
-
-  .indexWrapper {
-    padding-left: 15px;
-  }
-
-  .indexWrapper h1 {
+@media screen and (max-width: 979px) {
+  .bannerLeft h1 {
+    font-family: "OpenSauceOne-Bold";
     font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
   }
-
-  .mainBodyText {
+  .textTop {
     font-size: 24px;
-  }
-
-  .rightWrapper {
-    padding-top: 20px;
-  }
-
-
-
-  .firstSection {
-
-    max-width: 425px;
-    width: 95%;
-    height: 210px;
-    padding-top: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 42px;
-    text-align: center;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
   }
 }
 
-@media(max-width: 580px) {
-  .utilities {
-    display: none;
-  }
-
-  .firstSection div:first-of-type p:nth-of-type(1) {
-    padding-bottom: 10px;
-    font-size: 20px;
-  }
-
+.cardsWrapper {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 30px;
 }
 
-
-
-
+@media screen and (max-width: 980px) {
+  .cardsWrapper {
+    justify-content: center;
+  }
+}
