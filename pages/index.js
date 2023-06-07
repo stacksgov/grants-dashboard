@@ -1,6 +1,6 @@
+import styles from './Index.module.css';
 import NavHeader from '../components/NavHeader';
 import InfoCard from '../components/InfoCard';
-import styles from './Index.module.css';
 import Abstracto_005 from '../public/images/Abstracto_005.svg';
 import Abstracto_007 from '../public/images/Abstracto_007.svg';
 import Abstracto_008 from '../public/images/Abstracto_008.svg';
