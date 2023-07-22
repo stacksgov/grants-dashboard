@@ -1,55 +1,60 @@
+import { useCallback, useState } from 'react';
+
 import styles from './Index.module.css';
 import NavHeader from '../components/NavHeader';
 import InfoCard from '../components/InfoCard';
 import Abstracto_005 from '../public/images/Abstracto_005.svg';
 import Abstracto_007 from '../public/images/Abstracto_007.svg';
 import Abstracto_008 from '../public/images/Abstracto_008.svg';
+import bountiesJson from '../data/bounties.json';
 
-// const openBounties = [];
-const closedBounties = [
-	{
-		title: 'sBTC Protocol',
-		fee: '1.25 BTC per team member',
-		headingSecondary: 'Testing Team',
-		awardedIn: '$BTC',
-		deadline: 'June 20, 2023',
-		description: 'Seeking 3-6 experienced Software Engineers to design and build sBTC-related testing infrastructure and quality assurance systems. The members of this team will be expected to work 40 hrs/wk for 12 weeks on this effort.',
-		text: '',
-		link: 'https://github.com/stacksgov/Stacks-Grant-Launchpad/issues/914'
-	},
-	{
-		title: 'Stacks Protocol',
-		fee: 'Up to 100k STX',
-		headingSecondary: 'Liquid STX',
-		awardedIn: '$STX',
-		deadline: 'June 20, 2023',
-		description: 'Develop a comprehensive liquid stacking module for STX on Stacks. Provide a streamlined stacking process for users and increasing liquidity and participation in the network via automated reward conversion, stSTX token issuance, and other liquid stacking features.',
-		text: '',
-		link: 'https://github.com/stacksgov/Stacks-Grant-Launchpad/issues/915'
-	},
-	{
-		title: 'Bitcoin on Stacks',
-		fee: 'Undetermined',
-		headingSecondary: 'Improvements',
-		awardedIn: '$BTC',
-		deadline: 'June 20, 2023',
-		description: 'Soliciting ideas for open-source, high-impact contributions to advance the mission of activating all L1 Bitcoin-based assets on the L2 Stacks layer via the sBTC protocol.',
-		text: 'Open to proposals focused on extending sBTC at the infrastructural or application level and/or improving DevEx.',
-		link: 'https://github.com/stacksgov/Stacks-Grant-Launchpad/issues/916'
-	},
-	{
-		title: 'Stacks & Clarity',
-		fee: 'Undetermined',
-		headingSecondary: 'Improvements',
-		awardedIn: '$STX',
-		deadline: 'June 20, 2023',
-		description: 'Soliciting ideas for open-source, high-impact contributions to advance the mission of activating all L1 Bitcoin-based assets on the L2 Stacks layer via Clarity smart contracts.',
-		text: 'Open to proposals focused on improving Stacks at the infrastructural or application level and/or improving DevEx',
-		link: 'https://github.com/stacksgov/Stacks-Grant-Launchpad/issues/917'
+const { openBounties, closedBounties } = bountiesJson.reduce((acc, item) => {
+	if (item.isOpen) {
+		acc.openBounties.push(item);
+	} else {
+		acc.closedBounties.push(item);
 	}
-];
+	return acc;
+}, { openBounties: [], closedBounties: [] });
+
+const useHome = () => {
+	const [context, setContext] = useState(openBounties.length > 0 ? 'open' : 'closed');
+
+	const handleOpenClick = useCallback(() => {
+		setContext('open');
+	}, [])
+
+	const handleClosedClick = useCallback(() => {
+		setContext('closed');
+	}, [])
+
+	const bounties = context === 'open' ? openBounties : closedBounties;
+
+	const showNoOpenBountiesText = bounties.length === 0 && context === 'open';
+
+	return {
+		context,
+		handleOpenClick,
+		handleClosedClick,
+		bounties,
+		showNoOpenBountiesText
+	}
+}
+
+const NoOpenBounties = () => {
+	return <div className={styles.noOpenBountiesContainer}>
+		<p>No bounties are currently open. Check back soon for new bounties!</p>
+	</div>
+}
+
 
 const Home = () => {
+	const { context, handleOpenClick, handleClosedClick, bounties, showNoOpenBountiesText } = useHome();
+
+	const bountyCards = bounties?.map((bounty) => (
+		<InfoCard key={bounty.title} title={bounty.title} headingSecondary={bounty.headingSecondary} awardedIn={bounty.awardedIn} fee={bounty.fee} deadline={bounty.deadline} description={bounty.description} text={bounty.text} link={bounty.link} isOpen={bounty.isOpen}/>
+	)) ?? null;
+
 	return (
 		<div className={styles.bountiesBody}>
 			<div style={{ position: 'absolute', right: 0, bottom: 0, zIndex: 1 }}>
@@ -81,14 +86,12 @@ const Home = () => {
 						</div>
 					</div>
 					<div className={styles.buttons}>
-						<button className={styles.active}>Closed</button>
+						<button onClick={handleOpenClick} className={context === 'open' ? styles.active : ''}>Open</button>
+						<button onClick={handleClosedClick} className={context === 'closed' ? styles.active : ''}>Closed</button>
 					</div>
 					<div className={styles.cardsWrapper}>
-						{
-							closedBounties.map((item, index) => (
-								<InfoCard key={index} title={item.title} headingSecondary={item.headingSecondary} awardedIn={item.awardedIn} fee={item.fee} deadline={item.deadline} description={item.description} text={item.text} link={item.link} />
-							))
-						}
+						{showNoOpenBountiesText && <NoOpenBounties />}
+						{bountyCards}
 					</div>
 				</div>
 			</div>
