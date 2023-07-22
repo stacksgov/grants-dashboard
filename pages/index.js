@@ -43,7 +43,7 @@ const useHome = () => {
 
 const NoOpenBounties = () => {
 	return <div className={styles.noOpenBountiesContainer}>
-		<p>No bounties are currently open. Check back soon for new bounties!</p>
+		<p>New Critical Bounties will be available on August 25th, 2023. If you have questions in the meantime, please email <a href = "mailto: grants@stacks.org">grants@stacks.org</a>.</p>
 	</div>
 }
 
