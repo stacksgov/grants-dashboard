@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './InfoCard.module.css';
 
-export default function InfoCard({ title, fee, deadline, description, awardedIn, text, headingSecondary, link }) {
+export default function InfoCard({ title, fee, deadline, description, awardedIn, text, headingSecondary, link, isOpen }) {
   return (
     <div className={styles.cardContainer}>
       <h2 className={styles.cardHeading}>{title}  <span className={styles.headingSecondary}>| {headingSecondary}</span></h2>
+      {!isOpen && <p className={styles.cardText}> STATUS: <span className={styles.secondcardText}>CLOSED</span>   </p>}
       <p className={styles.cardText}> AWARDED IN:   <span className={styles.secondcardText}>{awardedIn}</span>   </p>
       <p className={styles.cardText}> APPLICATION DEADLINE: <span className={styles.secondcardText}>{deadline}</span>  </p>
       <p className={styles.cardText}> FEE:  <span className={styles.secondcardText}>{fee}</span>   </p>
